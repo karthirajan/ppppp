@@ -33,10 +33,10 @@ public class ColorSpecificationPageTK extends Commonactions {
     @FindBy(how = How.CSS,using = "span[data-csi-act='Save_Copy']")
     private WebElement Save_CopyBtn;
 
-    @FindBy(how = How.XPATH,using = "//span[@data-csi-automation='plugin-ApparelViews-ColorSpecifications-CustomViewActions']")
+    @FindBy(how = How.XPATH,using = "//span[@data-csi-automation='plugin-ApparelViews-ColorSpecifications-CustomViewActions']//span[text()='Views']")
     private WebElement CustomViewBtn;
 
-    @FindBy(how = How.XPATH,using = "//tr[@data-csi-automation='plugin-ApparelViews-ColorSpecifications-CustomViewManage']")
+    @FindBy(how = How.XPATH,using = "//tr[@data-csi-automation='plugin-ApparelViews-ColorSpecifications-CustomViewManage']//td[text()='Manage Views']")
     private WebElement ManageViews_CV;
 
     @FindBy(how = How.XPATH,using = "(//span[@widgetid='prefCopy']//span)[1]")

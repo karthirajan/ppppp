@@ -13,10 +13,10 @@ public class DocumentPage extends Commonactions {
 		PageFactory.initElements(Commonactions.driver, this);
 	}
 
-	@FindBy(xpath="//span[@data-csi-tab='Data-Documents' or text()='Documents']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Documents' or text()='Documents']")
 	private WebElement Document;
 	
-	@FindBy(xpath="//span[@data-csi-tab='DocumentContainer-Documents' and text()='Documents']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Documents' and text()='Documents']")
 	private WebElement UserDocuments;
 	
 	@FindBy(xpath="(//table[@data-csi-automation='plugin-DocumentContainer-Documents-ToolbarNewActions'])[1]//tbody/tr/td[2]")
@@ -70,7 +70,7 @@ public class DocumentPage extends Commonactions {
 	@FindBy(xpath="(//span[text()='Code']//parent::div/parent::div/parent::th//preceding-sibling::th)[1]//input")
 	private WebElement SD_Chkbx;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Data-Styles' or text()='Styles']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Styles' or text()='Styles']")
 	private WebElement styles;
 	
 	@FindBy(xpath="//span[@data-csi-automation='filter-ApparelViews-AllStyles-Node Name']")
@@ -82,8 +82,11 @@ public class DocumentPage extends Commonactions {
 	@FindBy(xpath="(//td[@data-csi-act='Node Name::0']/a)[1]")
 	private WebElement Style_Name;
 	
-	@FindBy(xpath="//span[@data-csi-tab='DocumentContainer-DocumentsAndComments' or text()='Docs & Comments']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Docs & Comments' or text()='Docs & Comments']")
 	private WebElement DocandComm;
+	
+	@FindBy(xpath="//span[@data-csi-tab-name='Documents' or text()='Docs & Comments']")
+	private WebElement DocandComments;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'ReferencedDocuments')]//div/div)[2]")
 	private WebElement selectdocbtn;
@@ -91,16 +94,16 @@ public class DocumentPage extends Commonactions {
 	@FindBy(xpath="(//td[@data-csi-heading='Node Name::0']/a)[1]")
 	private WebElement gettext2;
 	
-	@FindBy(xpath="(//span[text()='Material' or @data-csi-tab='ApparelViews-Materials'])[2]")
+	@FindBy(xpath="(//span[text()='Material' or @data-csi-tab-name='Material'])[2]")
 	private WebElement material;
 	
 	@FindBy(xpath="(//td[contains(@data-csi-heading,'Node Name')]/a[text()='Supplier'])[2]")
 	private WebElement Nameofcreateddoc1;
 	
-	@FindBy(xpath="(//span[text()='Material' or @data-csi-tab='Material-Base'])")
+	@FindBy(xpath="(//span[text()='Material' or @data-csi-tab-name='Material'])")
 	private WebElement material_base;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Data-AllDocuments' and text()='All Documents'] ")
+	@FindBy(xpath="//span[@data-csi-tab-name='All Documents' and text()='All Documents'] ")
 	private WebElement Documents;
 	
 	@FindBy(xpath="(//span[contains(@data-csi-automation,'filter-Data-AllDocuments-Node Name')])[1]")
@@ -109,7 +112,7 @@ public class DocumentPage extends Commonactions {
 	@FindBy(xpath="//div[contains(@class,'AllDocument')]//span[text()='+']/parent::div")
 	private WebElement AllDoc_Plus;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Data-AllContractualDocuments' and text()='Contractual Documents']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Contractual Documents' and text()='Contractual Documents']")
 	private WebElement contDoc;
 	
 	@FindBy(xpath="(//table[@data-csi-automation='plugin-Data-AllContractualDocuments-ToolbarNewActions']//div/div)[2]")
@@ -148,7 +151,7 @@ public class DocumentPage extends Commonactions {
 	@FindBy(xpath="//a[text()='CDOC-ALL']")
 	private WebElement createddocname;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Data-ContractualDocumentGroupsSwitchboard' and text()='Contractual Document Groups']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Contractual Document Groups']")
 	private WebElement ConDocGrp;
 	
 	@FindBy(xpath="(//div[contains(@class,'ContractualDocument')]//span[text()='+']/parent::div)[2]")
@@ -199,7 +202,7 @@ public class DocumentPage extends Commonactions {
 	@FindBy(xpath="(//span[text()='remove_circle_outline']/preceding-sibling::span/span/span/span[text()='more_horiz'])[2]")
 	private WebElement ApproveIcon2;
 
-	@FindBy(xpath="//span[@data-csi-tab='Data-SupplierContractualDocuments' or text()='Supplier Contractual Documents']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Supplier Contractual Documents' or text()='Supplier Contractual Documents']")
 	private WebElement supplierConDoc;
 
 	@FindBy(xpath="//div[contains(text(),'Displaying')]")
@@ -227,7 +230,7 @@ public class DocumentPage extends Commonactions {
 	@FindBy(xpath="(//a[text()='CDOC-ALL']/parent::div/parent::td//parent::tr//td[contains(@data-csi-heading,'SourceFile')])[2]")
 	private WebElement uploadedfilename;
 
-	@FindBy(xpath="//span[@data-csi-tab='Supplier-ContractualDocuments' or text()='Contractual Documents']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Contractual Documents' or text()='Contractual Documents']")
 	private WebElement conDocument;
 
 	@FindBy(xpath="(//table[@data-csi-automation='plugin-Supplier-SupplierContractualDocumentsHost-ToolbarNewActions'])[1]//tbody/tr/td")
@@ -599,6 +602,10 @@ public class DocumentPage extends Commonactions {
 
 	public WebElement getPushToSupp2() {
 		return pushToSupp2;
+	}
+
+	public WebElement getDocandComments() {
+		return DocandComments;
 	}
 	
 	

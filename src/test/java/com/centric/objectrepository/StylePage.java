@@ -12,34 +12,37 @@ public class StylePage extends Commonactions{
 		PageFactory.initElements(Commonactions.driver, this);
 	}
 	
-	@FindBy(xpath="//span[text()='Seasons' or @data-csi-tab='ApparelViews-Seasons']")
+	@FindBy(xpath="//span[text()='Seasons' or @data-csi-tab-name='Seasons']")
 	private WebElement season_Btn;
 	
-	@FindBy(xpath="//span[text()='Styles' or @data-csi-tab='ApparelViews-AllStyles']")
+	@FindBy(xpath="//span[text()='Styles' or @data-csi-tab-name='Styles']")
 	private WebElement styles_Btn;
 	
-	@FindBy(xpath="//span[text()='Style Gallery' or @data-csi-tab='ApparelViews-StyleCards']")
+	@FindBy(xpath="//span[text()='Hierarchy' or @data-csi-tab-name='Hierarchy']")
+	private WebElement hierarchy_btn;
+	
+	@FindBy(xpath="//span[text()='Style Gallery' or @data-csi-tab-name='Style Gallery']")
 	private WebElement style_Gallery_Btn;
 	
-	@FindBy(xpath="//span[text()='Colorways' or @data-csi-tab='ApparelViews-Colorways']")
+	@FindBy(xpath="//span[text()='Colorways' or @data-csi-tab-name='Colorways']")
 	private WebElement colorwaysBtn;
 	
-	@FindBy(xpath="//span[text()='Samples' or @data-csi-tab='ApparelViews-AllSamples']")
+	@FindBy(xpath="//span[text()='Samples' or @data-csi-tab-name='Samples']")
 	private WebElement samplesBtn;
 	
-	@FindBy(xpath="//span[text()='Sample Storage' or @data-csi-tab='ApparelViews-SampleStorages']")
+	@FindBy(xpath="//span[text()='Sample Storage' or @data-csi-tab-name='Sample Storage']")
 	private WebElement sampleStorageBtn;
 	
-	@FindBy(xpath="//span[text()='Style SKUs' or @data-csi-tab='ApparelViews-AllSKUs']")
+	@FindBy(xpath="//span[text()='Style SKUs' or @data-csi-tab-name='Style SKUs']")
 	private WebElement style_SKU_Btn;
 	
-	@FindBy(xpath="//span[text()='Competitive Styles' or @data-csi-tab='ApparelViews-CompetitiveStyles']")
+	@FindBy(xpath="//span[text()='Competitive Styles' or @data-csi-tab-name='Competitive Styles']")
 	private WebElement competitive_style_Btn;
 	
-	@FindBy(xpath="//span[text()='Inspiration' or @data-csi-tab='ApparelViews-InspirationStyles']")
+	@FindBy(xpath="//span[text()='Inspiration' or @data-csi-tab-name='Inspiration']")
 	private WebElement inspiration_Btn;
 	
-	@FindBy(xpath="//span[text()='Supplier Requests' or @data-csi-tab='ApparelViews-StyleSupplierRequests']")
+	@FindBy(xpath="//span[text()='Supplier Requests' or @data-csi-tab-name='Supplier Requests']")
 	private WebElement supplier_req_Btn;
 	
 	@FindBy(xpath="//table[@data-csi-url='centric:']")
@@ -65,6 +68,10 @@ public class StylePage extends Commonactions{
 
 	@FindBy(css="[data-csi-automation='field-Collection-Form-LabelTemplate'] .dijitArrowButton")
 	private WebElement CollectionTempBtn;
+	
+	public WebElement getHierarchy_btn() {
+		return hierarchy_btn;
+	}
 
 	public WebElement getCollectionTempBtn() {
 		return CollectionTempBtn;

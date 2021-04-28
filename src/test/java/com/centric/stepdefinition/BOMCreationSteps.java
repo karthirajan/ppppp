@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 import com.centric.objectrepository.BOMCreationPage;
+import com.centric.objectrepository.BusinessPlanningPage;
 import com.centric.objectrepository.ConfigurationPage;
 import com.centric.objectrepository.DocumentPage;
 import com.centric.objectrepository.HomePage;
@@ -47,6 +48,8 @@ public class BOMCreationSteps extends Commonactions {
 	SetupPageTK su = new SetupPageTK();
 	ConfigurationPage co = new ConfigurationPage();
 	BOMCreationPage bc = new BOMCreationPage();
+	BusinessPlanningPage bp = new BusinessPlanningPage();
+	QualityPage qp = new  QualityPage();
 
 	String file, name, filter;
 
@@ -60,9 +63,20 @@ public class BOMCreationSteps extends Commonactions {
 		ca.click(hp.getDatasetup());
 		Commonactions.isElementPresent(bc.getProdSpecSetup());
 		ca.click(bc.getProdSpecSetup());
-		Commonactions.isElementPresent(bc.getBOMSection());
-		Commonactions.mouseOver(bc.getBOMSection());
-		ca.click(bc.getBOMSection());
+
+		/*
+		 * Commonactions.isElementPresent(bc.getBOMSection());
+		 * Commonactions.mouseOver(bc.getBOMSection()); ca.click(bc.getBOMSection());
+		 */
+
+		Commonactions.isElementPresent(hp.getSetupSearch());
+		ca.insertText(hp.getSetupSearch(), "BOM Section" +Keys.ENTER);
+		ca.eleToBeClickable();
+		/*
+		 * Commonactions.isElementPresent(bc.getBOMSection());
+		 * ca.click(bc.getBOMSection()); ca.eleToBeClickable();
+		 */
+
 		Commonactions.isElementPresent(bc.getNewBomSecBtn());
 		ca.click(bc.getNewBomSecBtn());
 		Commonactions.isElementPresent(bc.getBOMSecVaue());
@@ -229,6 +243,9 @@ public class BOMCreationSteps extends Commonactions {
 		ca.click(bc.getAppMaterialType());
 		Commonactions.isElementPresent(bc.getFabricstandalone());
 		ca.click(bc.getFabricstandalone());
+		for (int i = 0; i < 10; i++) {
+			ca.click(bc.getSlider2());
+		}
 		Commonactions.isElementPresent(bc.getPlacementProductTypes());
 		ca.click(bc.getPlacementProductTypes());
 		Commonactions.isElementPresent(bc.getFabricstandalone());
@@ -307,12 +324,15 @@ public class BOMCreationSteps extends Commonactions {
 		ca.click(hp.getDatasetup());
 		Commonactions.isElementPresent(bc.getProdSpecSetup());
 		ca.click(bc.getProdSpecSetup());
-		Commonactions.isElementPresent(bc.getBOMSection());
-		Commonactions.mouseOver(bc.getBOMSection());
-		ca.click(bc.getBOMSection());
 
-		Commonactions.isElementPresent(bc.getBomTemplate());
-		ca.click(bc.getBomTemplate());
+		/*
+		 * Commonactions.isElementPresent(hp.getSetupSearch());
+		 * ca.insertText(hp.getSetupSearch(), "BOM Section" +Keys.ENTER);
+		 * ca.eleToBeClickable();
+		 */
+
+		Commonactions.isElementPresent(hp.getSetupSearch());
+		ca.insertText(hp.getSetupSearch(), "BOM Template" +Keys.ENTER);
 		ca.eleToBeClickable();
 		ca.eleToBeClickable();
 		Commonactions.isElementPresent(bc.getNewStyleBOMTemplate());
@@ -336,15 +356,20 @@ public class BOMCreationSteps extends Commonactions {
 		ca.click(bc.getTDS());
 		Commonactions.isElementPresent(bc.getCanvas());
 		ca.click(bc.getCanvas());
+		//ca.eleToBeClickable();
 		Commonactions.isElementPresent(bc.getComposition());
 		ca.click(bc.getComposition());
+		//ca.eleToBeClickable();
 		Commonactions.isElementPresent(bc.getPlacement());
 		ca.click(bc.getPlacement());
+		ca.eleToBeClickable();
 		Commonactions.isElementPresent(bc.getMulti_level_Placement());
 		ca.click(bc.getMulti_level_Placement());
-
+        ca.eleToBeClickable();
+		
 		Commonactions.isElementPresent(bc.getCanvas());
 		ca.click(bc.getCanvas());
+		ca.jsScrollPageDown(bc.getNewCanvasbtn());
 		Commonactions.isElementPresent(bc.getNewCanvasbtn());
 		ca.click(bc.getNewCanvasbtn());
 		Commonactions.isElementPresent(bc.getLine());
@@ -575,6 +600,1099 @@ public class BOMCreationSteps extends Commonactions {
 		}
 	}
 
+
+	@When("user creates NeStyleBOM  under Apparelcolorandsize {string}")
+	public void user_creates_NeStyleBOM_under_Apparelcolorandsize(String string) throws Throwable {
+
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(hp.getStyleBtn());
+		hp.getStyleBtn().click();
+		Commonactions.isElementPresent(st.getStyles_Btn());
+		st.getStyles_Btn().click();
+		Commonactions.isElementPresent(si.getColorandSize());
+		si.getColorandSize().click();
+		Commonactions.isElementPresent(si.getSpecification());
+		si.getSpecification().click();
+		Commonactions.isElementPresent(si.getStyleBOM());
+		si.getStyleBOM().click();
+
+		System.out.println("BOM Tab is available under specification");
+
+		Commonactions.isElementPresent(si.getNewstyleBOMbtn());
+		si.getNewstyleBOMbtn().click();
+		Commonactions.isElementPresent(si.getStyleBOMSubType());
+		si.getStyleBOMSubType().sendKeys("Apparel");
+		ca.jsMouseOver();
+		Commonactions.isElementPresent(si.getStyleBOMValue());
+		si.getStyleBOMValue().sendKeys(string);
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		Commonactions.isElementPresent(mp.getSaveAndNew_btn());
+		Commonactions.isElementPresent(sp.getSaveandgo());
+		ca.click(sp.getSaveandgo());
+		ca.eleToBeClickable();
+
+		System.out.println("Apparel BOM validation  created successfully");
+
+		System.out.println("save / saveandnew / saveandgo button available and it is validated");
+
+	}
+
+	@When("user creates BOM validation in manage-views")
+	public void user_creates_BOM_validation_in_manage_views() throws Throwable {
+
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(si.getStyleBOMPlacement());
+		si.getStyleBOMPlacement().click();
+
+		ca.eleToBeClickable();
+		Thread.sleep(3000);
+		boolean view=si.getBomViews2().isDisplayed();
+		if(view==true){
+			ca.click(si.getBomViews2());
+		}
+		else{
+			ca.click(si.getBomViews1());
+		}
+
+		boolean manageview = si.getBommanageviews2().isDisplayed();
+		if(manageview==true){
+			ca.click(si.getBommanageviews2());
+		}
+		else{
+			ca.click(si.getBommanageviews1());
+		}
+		Commonactions.isElementPresent(up.getUsrMgmt_Copy());
+		ca.click(up.getUsrMgmt_Copy());
+		Commonactions.isElementPresent(up.getUsrMgmt_Copy_Value());
+		ca.insertText(up.getUsrMgmt_Copy_Value(), "BOM validation");
+		ca.eleToBeClickable();
+		/*Commonactions.isElementPresent(bc.getColor());
+	ca.click(bc.getColor());*/
+		Commonactions.isElementPresent(bc.getColor());
+		ca.click(bc.getColor());
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(bc.getRemove());
+		ca.click(bc.getRemove());
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		try{
+			ca.eleToBeClickable();
+			//	ca.click(bc.getColorField());
+		}catch (Exception e) {
+
+			System.out.println("After applying filter color tab removed successfully");
+		}
+
+
+
+	}
+
+	@When("user validates Color under NewStyleBOM-placements")
+	public void user_validates_Color_under_NewStyleBOM_placements() throws Throwable {
+
+
+		Commonactions.isElementPresent(si.getStyleBOMPlacement());
+		si.getStyleBOMPlacement().click();
+
+
+		ca.eleToBeClickable();
+		boolean view1=si.getBomViews2().isDisplayed();
+		if(view1==true){
+			ca.click(si.getBomViews2());
+		}
+		else{
+			ca.click(si.getBomViews1());
+		}
+
+		ca.eleToBeClickable();
+		boolean manageview1= si.getBommanageviews2().isDisplayed();
+		if(manageview1==true){
+			ca.click(si.getBommanageviews2());
+		}
+		else{
+			ca.click(si.getBommanageviews1());
+		}
+
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(bc.getColorsection());
+		ca.click(bc.getColorsection());
+		Commonactions.isElementPresent(bc.getColor());
+		ca.click(bc.getColor());
+		Commonactions.isElementPresent(mp.getAdd());
+		ca.click(mp.getAdd());
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		Commonactions.isElementPresent(bc.getColorField());
+		ca.click(bc.getColorField());
+		ca.eleToBeClickable();
+		System.out.println("Color tab validated successfully");
+
+	}
+
+	@When("user creates NewOfMaterial")
+	public void user_creates_NewOfMaterial() throws Throwable {
+
+		try{
+			ca.eleToBeClickable();
+			ca.click(si.getNewfrommaterialExpand2());
+		}
+		catch(Exception e) {
+			ca.click(si.getNewfrommaterialExpand1());
+		}
+
+		Commonactions.isElementPresent(bc.getNewofmaterial());
+		ca.click(bc.getNewofmaterial());
+		ca.eleToBeClickable();
+		WebElement b4 = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(b4, "shoulder");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+
+		Commonactions.isElementPresent(bc.getProduct());
+		ca.click(bc.getProduct());
+		ca.eleToBeClickable();
+		WebElement b5 = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(b5, "Cotton/Rayon");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+		System.out.println("New of material created successfully");
+
+	}
+
+	@When("user select season availability for cotton jersey-copy")
+	public void user_select_season_availability_for_cotton_jersey_copy() throws Throwable {
+
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("//td[contains(@data-csi-act,'Actual')]/a")));
+		ca.eleToBeClickable();
+
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(bp.getFinditem());
+		ca.click(bp.getFinditem());
+		ca.eleToBeClickable();
+		WebElement a6 = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(a6, "100% Cotton Jersey - Copy");
+		ca.eleToBeClickable();
+		a6.sendKeys(Keys.ENTER);
+		ca.eleToBeClickable();
+
+		Commonactions.isElementPresent(bc.getMaterialspec());
+		ca.click(bc.getMaterialspec());
+		Commonactions.isElementPresent(bc.getSeasonavailability());
+		ca.click(bc.getSeasonavailability());
+		Commonactions.isElementPresent(bc.getSelectseason());
+		ca.click(bc.getSelectseason());
+		Commonactions.isElementPresent(bc.getWinterradiobox());
+		ca.click(bc.getWinterradiobox());
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		System.out.println("Season availablity created successfully");
+
+	}
+
+	@When("user creates NewFromMaterial {string}")
+	public void user_creates_NewFromMaterial(String string) throws Throwable {
+
+		Commonactions.isElementPresent(hp.getStyleBtn());
+		hp.getStyleBtn().click();
+		Commonactions.isElementPresent(st.getStyles_Btn());
+		st.getStyles_Btn().click();
+		Commonactions.isElementPresent(si.getColorandSize());
+		si.getColorandSize().click();
+		Commonactions.isElementPresent(si.getSpecification());
+		si.getSpecification().click();
+		Commonactions.isElementPresent(si.getStyleBOM());
+		si.getStyleBOM().click();
+
+		Commonactions.isElementPresent(bc.getBOMvalidationname());
+		ca.click(bc.getBOMvalidationname());
+		Commonactions.isElementPresent(si.getNewfrommaterialExpand1());
+		ca.click(si.getNewfrommaterialExpand1());
+
+		Commonactions.isElementPresent(si.getNewFromMaterial());
+		ca.click(si.getNewFromMaterial());
+		Commonactions.isElementPresent(si.getCottonchkbox());
+		ca.click(si.getCottonchkbox());
+
+
+		Commonactions.isElementPresent(qp.getFinish());
+		ca.click(qp.getFinish());
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(bc.getPlacementname());
+		ca.click(bc.getPlacementname());
+		ca.eleToBeClickable();
+		WebElement b5 = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(b5, "Shoulder");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+		System.out.println("New from material created successfully");
+
+		Commonactions.isElementPresent(bc.getAction1());
+		ca.click(bc.getAction1());
+		Commonactions.isElementPresent(bc.getSections1());
+		ca.click(bc.getSections1());
+		Commonactions.isElementPresent(bc.getCreateSec());
+		ca.click(bc.getCreateSec());
+		Commonactions.isElementPresent(bc.getCreateBOMValue());
+		ca.insertText(bc.getCreateBOMValue(), string);
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		System.out.println("Material Section created successfully");
+
+	}
+
+	@When("user select Materialsection also draganddrop the created material")
+	public void user_select_Materialsection_also_draganddrop_the_created_material() throws Throwable {
+
+		Commonactions.draganddrop(bc.getSource(), bc.getTarget());
+		ca.eleToBeClickable();
+		Commonactions.draganddrop(bc.getSource1(), bc.getTarget());
+		ca.eleToBeClickable();
+
+		System.out.println("drag action completed successfully");
+	}
+
+	@When("user select Apparel and fabric section")
+	public void user_select_Apparel_and_fabric_section() throws Throwable {
+
+		Commonactions.isElementPresent(bc.getAction1());
+		ca.click(bc.getAction1());
+		Commonactions.isElementPresent(bc.getSections1());
+		ca.click(bc.getSections1());
+		Commonactions.isElementPresent(bc.getSelectSection());
+		ca.click(bc.getSelectSection());
+		Commonactions.isElementPresent(bc.getApparelSecCBX());
+		ca.click(bc.getApparelSecCBX());
+		Commonactions.isElementPresent(bc.getFabricSecCBX());
+		ca.click(bc.getFabricSecCBX());
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		System.out.println("Apparel and Fabric section added successfully");
+
+	}
+
+	@When("user creates Newofstyle and newfromstyle apparel section {string},{string}")
+	public void user_creates_Newofstyle_and_newfromstyle_apparel_section(String string, String string2) throws Throwable {
+
+		ca.jsScrollPageDown(bc.getApparelAdd());
+		Commonactions.isElementPresent(bc.getApparelAdd());
+		ca.click(bc.getApparelAdd());
+		ca.eleToBeClickable();
+		WebElement a6 = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(a6, "Neck");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+		//	WebElement ID = driver.findElement(By.xpath("//span[contains(text(),'Neck')]//following::td[@data-csi-act='ID::0']"));
+		//	Commonactions.isElementPresent(ID);
+		//	ca.click(ID);
+		ca.eleToBeClickable();
+		WebElement a7 = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(a7, string);
+		ca.eleToBeClickable();
+		a7.sendKeys(Keys.TAB);
+		ca.eleToBeClickable();
+
+		WebElement a8 = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(a8, string2);
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+		System.out.println("New of style created successfully");
+
+		//Commonactions.isElementPresent(bc.getApparelSecEXP());
+		//ca.click(bc.getApparelSecEXP());
+		List<WebElement> num = driver.findElements(By.xpath("//span[contains(text(),'Apparel section')]//following::td[@role='button']"));
+		int i = num.size();
+		System.out.println(i);
+		int j = i-2;
+		ca.eleToBeClickable();
+		try{
+			ca.click(driver.findElement(By.xpath("//span[contains(text(),'Apparel section')]//following::td[@role='button']"))); 
+		}catch(Exception e){
+			ca.click(driver.findElement(By.xpath("//span[contains(text(),'Apparel section')]//following::td[@role='button']["+j+"]")));
+		}
+		Commonactions.isElementPresent(bc.getNewFromStyle());
+		ca.click(bc.getNewFromStyle());
+		Commonactions.isElementPresent(bc.getBOchkBX());
+		ca.click(bc.getBOchkBX());
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		System.out.println("New from style created successfully");
+
+	}
+
+	@Then("user creates NewSpecial in fabric section {string}")
+	public void user_creates_NewSpecial_in_fabric_section(String string) throws Throwable {
+
+		//Commonactions.isElementPresent(bc.getFabricSecEXP());
+		//ca.click(bc.getFabricSecEXP());
+		List<WebElement> num = driver.findElements(By.xpath("(//span[contains(text(),'fabric section')]//following::td[@role='button'])"));
+		int i = num.size();
+		System.out.println(i);
+		int j = i-2;
+		ca.eleToBeClickable();
+		try{
+			ca.click(driver.findElement(By.xpath("(//span[contains(text(),'fabric section')]//following::td[@role='button'])"))); 
+		}catch(Exception e){
+			ca.click(driver.findElement(By.xpath("(//span[contains(text(),'fabric section')]//following::td[@role='button'])["+j+"]")));
+		}
+		Commonactions.isElementPresent(bc.getNewSpecial());
+		ca.click(bc.getNewSpecial());
+		Commonactions.isElementPresent(bc.getSpecilaVal());
+		ca.insertText(bc.getSpecilaVal(), string);
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		System.out.println("New special created successfully");
+
+	}
+
+	@Then("user creates and verify the common color in material section {string}")
+	public void user_creates_and_verify_the_common_color_in_material_section(String string) throws Throwable {
+
+		//ca.jsScrollPageDown(bc.getCommColor2());
+
+		//----------------------temp---------------------------\\
+		/*Commonactions.isElementPresent(hp.getStyleBtn());
+	hp.getStyleBtn().click();
+	Commonactions.isElementPresent(st.getStyles_Btn());
+	st.getStyles_Btn().click();
+	Commonactions.isElementPresent(si.getColorandSize());
+	si.getColorandSize().click();
+	Commonactions.isElementPresent(si.getSpecification());
+	si.getSpecification().click();
+	Commonactions.isElementPresent(si.getStyleBOM());
+	si.getStyleBOM().click();
+	ca.eleToBeClickable();
+	//Commonactions.isElementPresent(bc.getBOMvalidationname());
+	ca.click(driver.findElement(By.xpath("(//a[text()='Apparel BOM Validation'])[2]")));
+	ca.eleToBeClickable();
+	Commonactions.isElementPresent(si.getStyleBOMPlacement());
+	si.getStyleBOMPlacement().click();
+
+	ca.eleToBeClickable();
+	Thread.sleep(3000);*/
+
+		//----------------------------------------------
+
+		for (int i = 0; i <= 100; i++) {
+			//ca.jsScrollPageDown(bc.getCommColor2());
+			ca.click(bc.getSlider1());
+			WebElement view = driver.findElement(By.xpath("(//td[contains(@data-csi-heading,'PMSSize:Child:PartMaterialSizes')])[1]"));
+
+			if (view.isDisplayed()) {
+				ca.click(bc.getSlider1());
+				ca.click(bc.getSlider1());
+				break;
+
+			}
+
+		}
+
+		String[] s = string.split(",");
+
+		Commonactions.isElementPresent(bc.getCommColor1());
+		ca.click(bc.getCommColor1());
+		Commonactions.isElementPresent(bc.getNewColoredMat());
+		ca.click(bc.getNewColoredMat());
+		Commonactions.isElementPresent(bc.getCommColorVal());
+		ca.insertText(bc.getCommColorVal(), s[0]);
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		System.out.println("common color value added successfully");
+
+		Commonactions.isElementPresent(bc.getCommColor2());
+		ca.click(bc.getCommColor2());
+		ca.eleToBeClickable();
+		WebElement a = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(a, s[1]);
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+		for (int i = 0; i <= 100; i++) {
+
+			ca.click(bc.getSlider1());
+			if (bc.getPartMaterialColors().isDisplayed()) {
+				ca.click(bc.getSlider1());
+				ca.click(bc.getSlider1());
+				break;
+
+			}
+
+		}
+
+		Commonactions.isElementPresent(bc.getPartMaterialColors());
+		ca.click(driver.findElement(By.xpath("((//a[contains(text(),'Cotton/Rayon')]/parent::td)//following-sibling::td[contains(@data-csi-heading,'CommonSizeSpec')])")));
+		ca.eleToBeClickable();
+		WebElement b1 = ca.activeElement();
+		ca.eleToBeClickable();
+		b1.sendKeys(Keys.TAB);
+		ca.eleToBeClickable();
+		WebElement b2 = ca.activeElement();
+		ca.eleToBeClickable();
+		b2.sendKeys(Keys.TAB);
+		ca.eleToBeClickable();
+		WebElement a1 = ca.activeElement();
+		ca.eleToBeClickable();
+		a1.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		ca.insertText(a1, "VANILLA");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+		for (int i = 0; i <= 30; i++) {
+
+			ca.click(bc.getSlider3());
+
+
+		}
+
+		ca.click(driver.findElement(By.xpath("(//a[contains(text(),'EGRET')]/parent::span/parent::div/parent::td[contains(@data-csi-act,'CommonColor')])/preceding-sibling::td[contains(@data-csi-act,'BOMLineSizeMap')]")));
+		ca.eleToBeClickable();
+		WebElement b3 = ca.activeElement();
+		ca.eleToBeClickable();
+		b3.sendKeys(Keys.TAB);
+		ca.eleToBeClickable();
+		WebElement a2 = ca.activeElement();
+		ca.eleToBeClickable();
+		a2.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		ca.insertText(a2, "Green");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+		for (int i = 0; i <= 100; i++) {
+
+			ca.click(bc.getSlider1());
+			if (bc.getPartMaterialColors().isDisplayed()) {
+				ca.click(bc.getSlider1());
+				ca.click(bc.getSlider1());
+				break;
+
+			}
+
+		}
+
+		String name = Commonactions.getText(driver.findElement(By.xpath("(//a[contains(text(),'Green')]/parent::span/parent::div/parent::td[contains(@data-csi-act,'PMCColor:Child:PartMaterialColors:0{PartMaterialColors}')])[1]//a")));
+		System.out.println("value1 :"+name);
+		if(name.equals("Green CM - 01")){
+			System.out.println("Condition met");
+		}else{
+			System.out.println("Condition failed");
+		}
+
+		System.out.println("Common color verified successfully");
+	}
+
+	@Then("user verfies copy color for Material section")
+	public void user_verfies_copy_color_for_Material_section() throws Throwable {
+
+		Commonactions.isElementPresent(bc.getAction1());
+		ca.click(bc.getAction1());
+		Commonactions.isElementPresent(bc.getCopyColor());
+		ca.click(bc.getCopyColor());
+		Commonactions.isElementPresent(bc.getToColor());
+		ca.click(bc.getToColor());
+		ca.eleToBeClickable();
+		WebElement a = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(a, "VANILLA");
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']")));
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("//th[text()='From Color']")));
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		for (int i = 0; i <= 100; i++) {
+
+			ca.click(bc.getSlider1());
+			if (bc.getPartMaterialColors().isDisplayed()) {
+				ca.click(bc.getSlider1());
+				ca.click(bc.getSlider1());
+				break;
+
+			}
+
+		}
+
+		String name = Commonactions.getText(driver.findElement(By.xpath("(//a[contains(text(),'Green')]/parent::span/parent::div/parent::td[contains(@data-csi-act,'PMCColor:Child:PartMaterialColors:0{PartMaterialColors}')])[1]//a")));
+		System.out.println("value2 :"+name);
+		if(name.equals("Green CM - 01")){
+			System.out.println("Condition met");
+		}else{
+			System.out.println("Condition failed");
+		}
+
+		System.out.println("Copy color verified successfully");
+
+	}
+
+	@Then("user update unit cost {string}")
+	public void user_update_unit_cost(String string) throws Throwable {
+
+		for (int i = 0; i <= 60; i++) {
+
+			ca.click(bc.getSlider3());
+
+
+		}
+
+		Commonactions.isElementPresent(bc.getBOMquote());
+		ca.click(bc.getBOMquote());
+		ca.eleToBeClickable();
+		WebElement a2 = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(a2, "template");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+		Commonactions.isElementPresent(bc.getMoreAction());
+		ca.click(bc.getMoreAction());	 
+		Commonactions.isElementPresent(bc.getUpdateUOM());
+		ca.click(bc.getUpdateUOM());
+
+
+
+		Commonactions.isElementPresent(bc.getUnitCost());
+		ca.click(bc.getUnitCost());
+		ca.eleToBeClickable();
+		WebElement a3 = ca.activeElement();
+		ca.eleToBeClickable();
+		a3.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		ca.insertText(a3, string);
+		ca.eleToBeClickable();
+		a3.sendKeys(Keys.TAB);
+		ca.eleToBeClickable();
+
+		System.out.println("Unit cost updated succesfully");
+
+	}
+
+	@Then("update unitcost for all in apparel section")
+	public void update_unitcost_for_all_in_apparel_section() {
+
+
+		Commonactions.isElementPresent(bc.getAction1());
+		ca.click(bc.getAction1());
+		Commonactions.isElementPresent(bc.getUpdateUnitCost());
+		ca.click(bc.getUpdateUnitCost());
+
+
+
+
+
+		System.out.println("Unit cost for all updated succesfully");
+	}
+
+	@Then("user edit color by selecting placements and colorways")
+	public void user_edit_color_by_selecting_placements_and_colorways() throws Throwable {
+
+
+		//----------------------temp---------------------------\\
+		Commonactions.isElementPresent(hp.getStyleBtn());
+		hp.getStyleBtn().click();
+		Commonactions.isElementPresent(st.getStyles_Btn());
+		st.getStyles_Btn().click();
+		Commonactions.isElementPresent(si.getColorandSize());
+		si.getColorandSize().click();
+		Commonactions.isElementPresent(si.getSpecification());
+		si.getSpecification().click();
+		Commonactions.isElementPresent(si.getStyleBOM());
+		si.getStyleBOM().click();
+		ca.eleToBeClickable();
+		try{
+			ca.click(driver.findElement(By.xpath("(//a[text()='Apparel BOM Validation'])[1]")));
+		}catch (Exception e) {
+			ca.click(driver.findElement(By.xpath("(//a[text()='Apparel BOM Validation'])[2]")));
+		}
+
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(si.getStyleBOMPlacement());
+		si.getStyleBOMPlacement().click();
+
+		ca.eleToBeClickable();
+		Thread.sleep(3000);
+
+		//----------------------------------------------
+
+		Actionbutton();
+		boolean d = bc.getEditColor().isDisplayed();
+		if(d==true)
+		{	ca.click(bc.getEditColor());	}
+		else
+		{	ca.click(bc.getEditColor2());	}
+		ca.eleToBeClickable();
+		WebElement a = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(a, "Shoulder");
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']")));
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("//th[text()='Placements']")));
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(bc.getColorways());
+		ca.click(bc.getColorways());
+		ca.click(driver.findElement(By.xpath("(//div[@role='option' and @item='2'])[2]")));
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("//th[text()='Placements']")));
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(bc.getTo());
+		ca.click(bc.getTo());
+		ca.eleToBeClickable();
+		WebElement a2 = ca.activeElement();
+		ca.eleToBeClickable();
+		ca.insertText(a2, "antique");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+
+		System.out.println("Edit color verified successfully");
+
+	}
+
+	@Then("user edit variation by color in material section")
+	public void user_edit_variation_by_color_in_material_section() throws Throwable {
+
+		shouldmore();
+		Commonactions.isElementPresent(bc.getEVBColor());
+		ca.click(bc.getEVBColor());
+		Commonactions.isElementPresent(bc.getEVPMColor());
+		ca.click(bc.getEVPMColor());
+		ca.eleToBeClickable();
+		WebElement a3 = ca.activeElement();
+		ca.eleToBeClickable();
+		a3.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		ca.insertText(a3, "EGRET");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(sp.getClose());
+		ca.click(sp.getClose());
+		ca.eleToBeClickable();
+
+		System.out.println("edit variation by color validated successfully");
+
+	}
+
+	@Then("user match color in material section")
+	public void user_match_color_in_material_section() throws Throwable {
+		shouldmore();
+		Commonactions.isElementPresent(bc.getEVMatchColr());
+		ca.click(bc.getEVMatchColr());
+		Commonactions.isElementPresent(bc.getMatchColorBtn());
+		ca.click(bc.getMatchColorBtn());
+		ca.eleToBeClickable();
+
+		System.out.println("Match color verified successfully");
+
+	}
+
+
+	@Then("user edit Variation by size {string}")
+	public void user_edit_Variation_by_size(String string) throws Throwable {
+
+		shouldmore();
+		Commonactions.isElementPresent(bc.getEVBSize());
+		ca.click(bc.getEVBSize());
+		Commonactions.isElementPresent(bc.getEVPMSize());
+		ca.click(bc.getEVPMSize());
+		ca.eleToBeClickable();
+		WebElement a3 = ca.activeElement();
+		ca.eleToBeClickable();
+		a3.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		ca.insertText(a3, "large");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(sp.getClose());
+		ca.click(sp.getClose());
+		ca.eleToBeClickable();
+
+		System.out.println("edit variation by size validated successfully");
+
+
+	}
+
+	@Then("user edit Variation by quantity for small and medium {string}")
+	public void user_edit_Variation_by_quantity_for_small_and_medium(String string) throws Throwable {
+
+
+		for (int i = 0; i <= 50; i++)
+		{
+			slider();
+		}
+		commonosize();
+		ca.eleToBeClickable();
+		WebElement a3 = ca.activeElement();
+		ca.eleToBeClickable();
+		a3.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		ca.insertText(a3, "small");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		ca.eleToBeClickable();
+
+
+
+		System.out.println("Edit variation by quantity validated successfully");
+
+	}
+
+
+	@Then("user Reset variation by size")
+	public void user_Reset_variation_by_size() throws Throwable {
+
+		shouldmore();
+		Commonactions.isElementPresent(bc.getRVBSize());
+		ca.click(bc.getRVBSize());
+		Commonactions.isElementPresent(bc.getReset());
+		ca.click(bc.getReset());
+		ca.eleToBeClickable();
+		System.out.println("size variation reset successfully");
+
+	}
+
+	@Then("user validate BOM")
+	public void user_validate_BOM() throws Throwable {
+
+		Actionbutton();
+		boolean d = bc.getValidBOM().isDisplayed();
+		if(d==true)
+		{	ca.click(bc.getValidBOM());	}
+		else
+		{	ca.click(bc.getValidBOM2());	}
+		Commonactions.isElementPresent(bc.getApproveAction());
+		ca.click(bc.getApproveAction());
+		//Actionbutton();
+		ca.eleToBeClickable();
+		List<WebElement> num = driver.findElements(By.xpath("//td[text()='Approve']"));
+		int i = num.size();
+		System.out.println(i);
+		int j = i+1;
+		ca.eleToBeClickable();
+		try{
+			ca.click(driver.findElement(By.xpath("//td[text()='Approve'][1]"))); 
+		}catch(Exception e){
+			ca.click(driver.findElement(By.xpath("//td[text()='Approve']["+i+"]")));
+		}
+		Commonactions.isElementPresent(bc.getContinue());
+		ca.click(bc.getContinue());
+		ca.eleToBeClickable();
+
+		System.out.println("Bom vlidated successfully");
+
+	}
+
+	@Then("user Approves the ApparelBOMValidation and verify Action button is disabled")
+	public void user_Approves_the_ApparelBOMValidation_and_verify_Action_button_is_disabled() throws Throwable {
+
+		Commonactions.isElementPresent(bc.getApproveAction());
+		ca.click(bc.getApproveAction());
+		ca.eleToBeClickable();
+		List<WebElement> num = driver.findElements(By.xpath("//td[text()='Approve']"));
+		int i = num.size();
+		System.out.println(i);
+		int j = i+1;
+		ca.eleToBeClickable();
+		try{
+			ca.click(driver.findElement(By.xpath("//td[text()='Approve'][1]"))); 
+		}catch(Exception e){
+			ca.click(driver.findElement(By.xpath("//td[text()='Approve']["+i+"]")));
+		}
+		Commonactions.isElementPresent(bc.getContinue());
+		ca.click(bc.getContinue());
+		ca.eleToBeClickable();
+
+		try{
+			Actionbutton();
+		}catch (Exception e) {
+			System.out.println("after approved action button disabled successfully");
+
+		}
+
+	}
+
+	@Then("user copy ApparelBOMValidation	{string}")
+	public void user_copy_ApparelBOMValidation(String string) throws Throwable {
+
+		Commonactions.isElementPresent(bc.getClickApparel());
+		ca.click(bc.getClickApparel());
+		Commonactions.isElementPresent(bc.getBOM_copy());
+		ca.click(bc.getBOM_copy());
+		Commonactions.isElementPresent(si.getStyleBOMValue());
+		ca.insertText(si.getStyleBOMValue(),string);
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+	}
+
+	@Then("user Freezes the ApparelBOMValidation-Copy and verify Action button is disabled")
+	public void user_Freezes_the_ApparelBOMValidation_Copy_and_verify_Action_button_is_disabled() throws Throwable {
+
+		boolean copyvalue = bc.getClickCopy().isDisplayed();
+		if(copyvalue==true)
+		{ca.click(bc.getClickCopy());}
+		else
+		{	driver.findElement(By.xpath("(//a[text()='Apparel BOM Validation copy'])[2]")).click();	}
+		Commonactions.isElementPresent(bc.getApproveAction());
+		ca.click(bc.getApproveAction());
+		ca.eleToBeClickable();
+		List<WebElement> num = driver.findElements(By.xpath("//td[text()='Freeze']"));
+		int i = num.size();
+		System.out.println(i);
+		int j = i+1;
+		ca.eleToBeClickable();
+		try{
+			ca.click(driver.findElement(By.xpath("//td[text()='Freeze'][1]"))); 
+		}catch(Exception e){
+			ca.click(driver.findElement(By.xpath("//td[text()='Freeze']["+i+"]")));
+		}
+		Commonactions.isElementPresent(bc.getContinue());
+		ca.click(bc.getContinue());
+
+		try{
+			//Actionbutton();
+		}catch (Exception e) {
+			System.out.println("after freeze action button disabled successfully");
+
+		}
+
+	}
+
+	@Then("user Reopen the copied BOM")
+	public void user_Reopen_the_copied_BOM() throws Throwable {
+
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(bc.getApproveAction());
+		ca.click(bc.getApproveAction());
+		ca.eleToBeClickable();
+		List<WebElement> num = driver.findElements(By.xpath("//td[text()='Reopen']"));
+		int i = num.size();
+		System.out.println(i);
+		int j = i+1;
+		ca.eleToBeClickable();
+		try{
+			ca.click(driver.findElement(By.xpath("//td[text()='Reopen'][1]"))); 
+		}catch(Exception e){
+			ca.click(driver.findElement(By.xpath("//td[text()='Reopen']["+i+"]")));
+		}
+
+		System.out.println("reopened successfully");
+
+	}
+
+	@Then("user created NewFromStyle in Apparelsection")
+	public void user_created_NewFromStyle_in_Apparelsection() throws Throwable {
+
+
+		List<WebElement> ap = driver.findElements(By.xpath("(//span[contains(text(),'Apparel section')])"));
+		for(int i=1;i<=ap.size();i++)
+		{
+			WebElement appsec = driver.findElement(By.xpath("(//span[contains(text(),'Apparel section')])["+i+"]"));
+			boolean displayed = appsec.isDisplayed();
+			if(displayed==true)
+			{
+				driver.findElement(By.xpath("(//span[contains(text(),'Apparel section')])["+i+"]//following::td[@role='button'][1]")).click();						
+				break;
+			}}
+		Commonactions.isElementPresent(bc.getNewFromStyle());
+		ca.click(bc.getNewFromStyle());
+		ca.eleToBeClickable();
+		List<WebElement> ac = driver.findElements(By.xpath("//td[contains(text(),'Apparel - Color and Size')]//parent::tr//input"));
+		for(int i=1;i<=ac.size();i++)
+		{
+			WebElement appcbox = driver.findElement(By.xpath("(//td[contains(text(),'Apparel - Color and Size')]//parent::tr//input)["+i+"]"));
+			boolean displayed = appcbox.isDisplayed();
+			if(displayed==true)
+			{
+				ca.eleToBeClickable();
+				try{ca.click(appcbox);
+				break;}
+				catch(Exception e){}
+			}}
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+		System.out.println("Created NewFromStyle in Apparelsection successfully");
+
+	}
+
+	@Then("user verify the values refelected in multi level placements")
+	public void user_verify_the_values_refelected_in_multi_level_placements() {
+
+		Commonactions.isElementPresent(bc.getMultiLevelPlacements());
+		ca.click(bc.getMultiLevelPlacements());
+		try{Commonactions.isElementPresent(bc.getIcon2());
+		ca.click(bc.getIcon2());}
+		catch(Exception e){
+			try{ca.click(bc.getIcon());}
+			catch(Exception e1){}}
+		System.out.println("verified the values refelected in multi level placements");
+
+	}
+
+	@Then("user add tracking changea and comments in manageviews")
+	public void user_add_tracking_changea_and_comments_in_manageviews() throws Throwable {
+
+		Commonactions.isElementPresent(si.getStyleBOMPlacement());
+		si.getStyleBOMPlacement().click();
+
+
+		//boolean view=si.getBomViews2().isDisplayed();
+	//	if(view==true){
+		//	ca.click(si.getBomViews2());
+	//	}
+	//	else{
+		try{
+		ca.eleToBeClickable();
+			ca.click(si.getBomViews1());
+		}catch (Exception e) {
+			ca.click(si.getBomViews2());
+		}
+	//	}
+
+	//	boolean manageview = si.getBommanageviews2().isDisplayed();
+	//	if(manageview==true){
+	//		ca.click(si.getBommanageviews2());
+	//	}
+	//	else{
+		try{
+			ca.eleToBeClickable();
+			ca.click(si.getBommanageviews1());
+		}catch (Exception e) {
+			ca.click(si.getBommanageviews2());
+		}
+			
+	//	}
+
+		Commonactions.isElementPresent(bc.getTrackingChange());
+		ca.click(bc.getTrackingChange());
+		Commonactions.isElementPresent(mp.getAdd());
+		ca.click(mp.getAdd());
+		Commonactions.isElementPresent(bc.getTrackingComm());
+		ca.click(bc.getTrackingComm());
+		Commonactions.isElementPresent(mp.getAdd());
+		ca.click(mp.getAdd());
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+
+
+		for (int i = 0; i <= 100; i++) {
+
+			slider();
+			if (bc.getTrckView().isDisplayed()) {
+				slider();
+				slider();
+				break;
+
+			}
+
+		}
+
+		System.out.println("Track view added in manage view");
+	}
+
+	public void Actionbutton() throws Throwable
+	{
+		ca.eleToBeClickable();
+		boolean d = bc.getAction1().isDisplayed();
+		if(d==true)
+		{	ca.click(bc.getAction1());	}
+		else
+		{	ca.click(bc.getAction2());	}
+		ca.eleToBeClickable();
+	}
+	public void shouldmore() throws Throwable
+	{
+		List<WebElement> ss = driver.findElements(By.xpath("(//span[text()='Shoulder - placement']/parent::td//following-sibling::td//span[contains(text(),'more')])"));
+
+		for(int i=1;i<=ss.size();i++)
+		{
+			WebElement shdmore = driver.findElement(By.xpath("(//span[text()='Shoulder - placement']/parent::td//following-sibling::td//span[contains(text(),'more')])["+i+"]"));
+			boolean displayed = shdmore.isDisplayed();
+			if(displayed==true)
+			{
+				ca.click(shdmore);
+				ca.eleToBeClickable();
+				break;
+			}}
+	}
+	public void slider()
+	{
+		List<WebElement> sl = driver.findElements(By.xpath("(//span[text()='BOM Section']//following::div[contains(@class,'dijitSliderIncrementIconH')]//span[text()='+']/parent::div)"));
+
+		for(int i=1;i<=sl.size();i++)
+		{
+			WebElement sldr = driver.findElement(By.xpath("(//span[text()='BOM Section']//following::div[contains(@class,'dijitSliderIncrementIconH')]//span[text()='+']/parent::div)["+i+"]"));
+			boolean displayed = sldr.isDisplayed();
+			if(displayed==true)
+			{
+				ca.click(sldr);
+				break;
+			}}
+	}
+
+	public void commonosize()
+	{
+		List<WebElement> cs = driver.findElements(By.xpath("(//span[text()='Shoulder - placement']/parent::td//following-sibling::td[contains(@data-csi-act,'CommonSize')])"));
+		for(int i=1;i<=cs.size();i++)
+		{
+			WebElement csize = driver.findElement(By.xpath("(//span[text()='Shoulder - placement']/parent::td//following-sibling::td[contains(@data-csi-act,'CommonSize')])["+i+"]"));
+			boolean displayed = csize.isDisplayed();
+			if(displayed==true)
+			{
+				ca.click(csize);
+				break;
+			}}
+
+	}
 }
-
-

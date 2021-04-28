@@ -36,10 +36,10 @@ public class SIzeChartTK extends Commonactions {
     @FindBy(how = How.CSS,using = "//div[@class='dijitTooltipContainer']//span[@class='dijitPlaceHolder dijitInputField']")
     private WebElement SelectOrAddInputBox;
 
-    @FindBy(how = How.CSS,using = "[data-csi-tab='SizeChartAdmin-Dimensions']")
+    @FindBy(how = How.CSS,using = "[data-csi-tab-name='Dimensions']")
     private WebElement SizeChartDimensionTab;
 
-    @FindBy(how = How.CSS,using = "[data-csi-tab='SizeChartAdmin-ProductGroups']")
+    @FindBy(how = How.CSS,using = "[data-csi-tab-name='Product Groups']")
     private WebElement SizeChartPGTab;
 
     @FindBy(how = How.CSS,using = "[data-csi-automation='plugin-SizeChartAdmin-ProductGroups-ToolbarNewActions']")

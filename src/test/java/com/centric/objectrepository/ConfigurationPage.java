@@ -12,19 +12,19 @@ public class ConfigurationPage extends Commonactions{
 		PageFactory.initElements(Commonactions.driver, this);
 	} 
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-Configuration' or text()='Configuration']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Configuration' or text()='Configuration']")
 	private WebElement user_config;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-TypeConfiguration' or text()='Type Configuration']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Type Configuration']")
 	private WebElement user_TypeConfig;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-StyleTypes' or text()='Style Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Style Types']")
 	private WebElement style_Types;
 	
-	@FindBy(xpath="//span[@data-csi-tab='BusinessObject-StyleTypeAttributes' or text()='Style Type Attributes']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Style Type Attributes']")
 	private WebElement style_Type_Attribute;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-StyleTDS' or text()='Style Type Data Sheets']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Style Type Data Sheets']")
 	private WebElement style_Type_DataSheets;
 	
 	@FindBy(xpath="//span[@data-csi-automation='plugin-Site-StyleTDS-charts']//following-sibling::span[@data-csi-act='ViewRefresh']")
@@ -33,13 +33,13 @@ public class ConfigurationPage extends Commonactions{
 	@FindBy(xpath="//table[@data-csi-result-action='true']//div[@role='button']//div[@class='dijitReset dijitInline dijitButtonText']")
 	private WebElement new_styleType_Btn;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-MaterialTypes' or text()='Material Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Material Types']")
 	private WebElement material_Types;
 	
 	@FindBy(xpath="(//table[@data-csi-automation='plugin-Site-MaterialTypes-ToolbarNewActions']//div/div)[2]")
 	private WebElement new_material_TypeBtn;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-BOMTypes' or text()='BOM Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='BOM Types']")
 	private WebElement BOM_Types;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'ApparelBOMConfig')]//div[@role='button']//div[@class='dijitReset dijitInline dijitButtonText'])")
@@ -76,7 +76,7 @@ public class ConfigurationPage extends Commonactions{
 	@FindBy(xpath="(//div[@data-csi-act='ExposeBOMSupplierAttributes:Child:SetupSettings:0']/input[@tabindex='0'])[2]")
 	private WebElement materialBOM_expose;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-SizeChartSubtypes' or text()='Size Chart Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Size Chart Types']")
 	private WebElement sizeChart_Types;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'SizeChartConfig')]//div[@role='button']//div[@class='dijitReset dijitInline dijitButtonText'])")
@@ -103,7 +103,7 @@ public class ConfigurationPage extends Commonactions{
 	@FindBy(xpath="(//div[@data-csi-act='LockShapeTolerance:Child:SetupSettings:0']/input[@tabindex='0'])")
 	private WebElement sizeChart_Tolerance;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-SpecificationDataSheetSubtypes' or text()='Spec Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Spec Types']")
 	private WebElement spec_Types;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'SpecificationDataSheetConfig')]//div[@role='button']//div[@class='dijitReset dijitInline dijitButtonText'])")
@@ -118,7 +118,7 @@ public class ConfigurationPage extends Commonactions{
 	@FindBy(xpath="(//div[@data-csi-act='EnableValueAttributes:Child:SetupSettings:0']/input[@tabindex='0'])[2]")
 	private WebElement spec_EnableB;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-TestSpecSubtypes' or text()='Test Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Test Types']")
 	private WebElement test_Types;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'TestSpecConfig')]//div[@role='button']//div[@class='dijitReset dijitInline dijitButtonText'])")
@@ -202,13 +202,13 @@ public class ConfigurationPage extends Commonactions{
 	@FindBy(xpath="(((//div[contains(@class,'Material')])/div[@class='csiDialogScroll']//table)//div[@data-csi-act='TDSMap:Child:Config:0']/input[@tabindex='0'])[4]")
 	private WebElement material_TestRun;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Data-InspectionSectionSubtypes' or text()='Inspection Section Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Inspection Section Types']")
 	private WebElement insp_Types;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'FinalInspectionSectionConfig')]//div[@role='button']//div[@class='dijitReset dijitInline dijitButtonText'])")
 	private WebElement new_InspTypes_Btn;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-ContractualDocumentSubtypes' or text()='Contractual Document Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Contractual Document Types']")
 	private WebElement contract_Types;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'ContractualDocumentConfig')]//div[@role='button']//div[@class='dijitReset dijitInline dijitButtonText'])")
@@ -226,13 +226,13 @@ public class ConfigurationPage extends Commonactions{
 	@FindBy(xpath="(//div[@data-csi-act='RenewalPeriodBeginsOnReceipt:Child:SetupSettings:0']/input[@tabindex='0'])[2]")
 	private WebElement contrct_RPOR;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-ThemeMasterSubtypes' or text()='Theme Master Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Theme Master Types']")
 	private WebElement theme_Types;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'ThemeMasterConfig')]//div[@role='button']//div[@class='dijitReset dijitInline dijitButtonText'])")
 	private WebElement new_theme_Btn;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-LookupItemSubtypes' or text()='Lookup Item Types']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Lookup Item Types']")
 	private WebElement lookUp_Types;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-context-parent,'LookupItemConfig')]//div[@role='button']//div[@class='dijitReset dijitInline dijitButtonText'])")
@@ -532,8 +532,272 @@ public class ConfigurationPage extends Commonactions{
 		return material_TestRun;
 	}
 
+//*****************************************************************************************************
 	
+	@FindBy(xpath="//table[contains(@data-csi-automation,'CalendarDescriptor-ProtoCalendarsView')]//div[text()='New Template Calendar']")
+	private WebElement NewTemplatecalendarbtn;
 	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-ProtoCalendar-Form-Level')]//div[3]/input[1]")
+	private WebElement calendartype;
 	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-ProtoCalendar-Form-Node Name')]//div[2]/div/input")
+	private WebElement templatecalendar;
+	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-ProtoCalendar-Form-Description')]//div[2]/div/input")
+	private WebElement calendardescription;
+	
+	@FindBy(xpath="//table[contains(@data-csi-automation,'ProtoCalendar-ProtoActivityTable')]//div[text()='New Template Activity']")
+	private WebElement newtemplateactivitybtn;
+	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-ProtoActivity-Form-Node Name')]//div[2]/div/input")
+	private WebElement Templateactivity;
+	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-ProtoActivity-Form-ActivityType')]//div[3]/input[1]")
+	private WebElement ActivityType;
+	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-ProtoActivity-Form-ActivityLevel')]//div[3]/input[1]")
+	private WebElement ActivityLevel;
+	
+	@FindBy(xpath="(//td[text()='Milestone']//following::span[contains(text(),'edit')])[1]")
+	private WebElement milestonneEdit;
+	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-ProtoActivity-Form-TrackingType')]//div[3]/input[1]")
+	private WebElement TrackingType;
+	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-ProtoActivity-Form-TrackingPhase')]//div[3]/input[1]")
+	private WebElement TrackingPhase;
+	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-ProtoActivity-Form-TrackingState')]//div[3]/input[1]")
+	private WebElement Trackingstate;
+	
+	@FindBy(xpath="(//div[text()='New Template Activity']//following::div[contains(@class,'dijitSliderIncrementIconH')]//span[text()='+']/parent::div)[1]")
+	private WebElement calslider;
+	
+	@FindBy(xpath="(//td[text()='Artwork Track']//following::td[contains(@data-csi-heading,'Icon')])[1]")
+	private WebElement ArtworkIcon;
+	
+	@FindBy(xpath="(//th[text()='Must Match All of Specified Type']//following::input)[1]")
+	private WebElement MatchAll;
+	
+	@FindBy(xpath="(//td[text()='IDS Track']//following::td[contains(@data-csi-heading,'Icon')])[1]")
+	private WebElement IDSTrackIcon;
+	
+	@FindBy(xpath="(//span[text()='Calendar_MSG']//parent::div/*)[2]")
+	private WebElement ExpandIcon;
+	
+	@FindBy(xpath="(//div[@data-csi-automation='field-ProtoActivity-Form-Predecessors']//div[3]/input)[1]")
+	private WebElement predecessors;
+	
+	@FindBy(xpath="//label[text()='BOM Track']//parent::div/div/input")
+	private WebElement BOMTrackchecckbox;
+	
+	@FindBy(xpath="//label[text()='Manual']//parent::div/div/input")
+	private WebElement Manualcheckbox;
+
+	public WebElement getNewTemplatecalendarbtn() {
+		return NewTemplatecalendarbtn;
+	}
+
+	public WebElement getCalendartype() {
+		return calendartype;
+	}
+
+	public WebElement getTemplatecalendar() {
+		return templatecalendar;
+	}
+
+	public WebElement getCalendardescription() {
+		return calendardescription;
+	}
+
+	public WebElement getNewtemplateactivitybtn() {
+		return newtemplateactivitybtn;
+	}
+
+	public WebElement getTemplateactivity() {
+		return Templateactivity;
+	}
+
+	public WebElement getActivityType() {
+		return ActivityType;
+	}
+
+	public WebElement getActivityLevel() {
+		return ActivityLevel;
+	}
+
+	public WebElement getMilestonneEdit() {
+		return milestonneEdit;
+	}
+
+	public WebElement getTrackingType() {
+		return TrackingType;
+	}
+
+	public WebElement getTrackingPhase() {
+		return TrackingPhase;
+	}
+
+	public WebElement getTrackingstate() {
+		return Trackingstate;
+	}
+
+	public WebElement getCalslider() {
+		return calslider;
+	}
+
+	public WebElement getArtworkIcon() {
+		return ArtworkIcon;
+	}
+
+	public WebElement getMatchAll() {
+		return MatchAll;
+	}
+
+	public WebElement getIDSTrackIcon() {
+		return IDSTrackIcon;
+	}
+
+	public WebElement getExpandIcon() {
+		return ExpandIcon;
+	}
+
+	public WebElement getPredecessors() {
+		return predecessors;
+	}
+
+	public WebElement getBOMTrackchecckbox() {
+		return BOMTrackchecckbox;
+	}
+
+	public WebElement getManualcheckbox() {
+		return Manualcheckbox;
+	}
+	
+	@FindBy(xpath="(//div[@data-csi-act='AutoCreateSKU:Child:Config:0']/input[@tabindex='0'])[1]")
+	private WebElement auto_Create_SKU;
+
+	public WebElement getAuto_Create_SKU() {
+		return auto_Create_SKU;
+	}
+	
+	@FindBy(xpath="//span[@data-csi-tab-name='Food Types' or text()='Food Types']")
+	private WebElement Foodtypetab;
+	
+	@FindBy(xpath="//table[@data-csi-automation='plugin-Site-FoodSubtypes-ToolbarNewActions' or text()='New Food Type']")
+	private WebElement newfoodtypebtn;
+	
+	@FindBy(xpath="//div[@data-csi-automation='field-FoodSubtype-Form-Node Name']//div/div/input")
+	private WebElement foodtypename;
+	
+	@FindBy(xpath="//td[contains(@data-csi-heading,'Active:Child:SetupSetting')]/div/input")
+	private WebElement foodactivechkbox;
+	
+	@FindBy(xpath="//td[contains(@data-csi-heading,'TDSList:Child:SetupSetting')]")
+	private WebElement datasheet;
+	
+	@FindBy(xpath="//label[text()='Artwork']//parent::div/div/input")
+	private WebElement artworkchkbox;
+	
+	@FindBy(xpath="//label[text()='Food Label Data Sheet']//parent::div/div/input")
+	private WebElement foodlabelchkbox;
+	
+	@FindBy(xpath="//label[text()='Review']//parent::div/div/input")
+	private WebElement reviewchkbox;
+	
+	@FindBy(xpath="//label[text()='Specification']//parent::div/div/input")
+	private WebElement specificationchkbox;
+	
+	@FindBy(xpath="//label[text()='Test Run']//parent::div/div/input")
+	private WebElement testrunchkbox;
+	
+	@FindBy(xpath="//span[@data-csi-tab-name='Food Label Data Sheet Types' or text()='Food Label Data Sheet Types']")
+	private WebElement foodlabeldatasheettab;
+	
+	@FindBy(xpath="//table[@data-csi-automation='plugin-Site-FoodLabelDataSheetSubtypes-ToolbarNewActions' or text()='New Food Label Data Sheet Type']")
+	private WebElement foodlabelsatasheetbtn;
+	
+	@FindBy(xpath="//div[@data-csi-automation='field-FoodLabelDataSheetSubtype-Form-Node Name']//div/div/input")
+	private WebElement foodlabeltypename;
+	
+	@FindBy(xpath="//div[text()='New Food Label Data Sheet Type']//following::td[contains(@data-csi-heading,'Active:Child:SetupSetting')]/div/input")
+	private WebElement foodlabelactivechkbox;
+
+	@FindBy(xpath="//td[contains(@data-csi-heading,'DataSheetSections:Child:SetupSettings')]")
+	private WebElement foodlabeldatasheet;
+	
+	@FindBy(xpath="//label[text()='None']//parent::div/div/input")
+	private WebElement nonecheckbox;
+	
+	@FindBy(xpath="//label[text()='Food Ingredient']//parent::div/div/input")
+	private WebElement foodingredientchkbox;
+	
+	public WebElement getFoodtypetab() {
+		return Foodtypetab;
+	}
+
+	public WebElement getNewfoodtypebtn() {
+		return newfoodtypebtn;
+	}
+
+	public WebElement getFoodtypename() {
+		return foodtypename;
+	}
+
+	public WebElement getFoodactivechkbox() {
+		return foodactivechkbox;
+	}
+
+	public WebElement getDatasheet() {
+		return datasheet;
+	}
+
+	public WebElement getArtworkchkbox() {
+		return artworkchkbox;
+	}
+
+	public WebElement getFoodlabelchkbox() {
+		return foodlabelchkbox;
+	}
+
+	public WebElement getReviewchkbox() {
+		return reviewchkbox;
+	}
+
+	public WebElement getSpecificationchkbox() {
+		return specificationchkbox;
+	}
+
+	public WebElement getTestrunchkbox() {
+		return testrunchkbox;
+	}
+
+	public WebElement getFoodlabeldatasheettab() {
+		return foodlabeldatasheettab;
+	}
+
+	public WebElement getFoodlabelsatasheetbtn() {
+		return foodlabelsatasheetbtn;
+	}
+
+	public WebElement getFoodlabeltypename() {
+		return foodlabeltypename;
+	}
+
+	public WebElement getFoodlabelactivechkbox() {
+		return foodlabelactivechkbox;
+	}
+
+	public WebElement getFoodlabeldatasheet() {
+		return foodlabeldatasheet;
+	}
+
+	public WebElement getNonecheckbox() {
+		return nonecheckbox;
+	}
+
+	public WebElement getFoodingredientchkbox() {
+		return foodingredientchkbox;
+	}
 
 }

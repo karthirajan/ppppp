@@ -30,6 +30,7 @@ import com.centric.resources.Commonactions;
 import cucumber.api.Scenario;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import gherkin.lexer.Ca;
 
 
 public class StyleMaterialSamplePageSteps extends Commonactions{
@@ -48,8 +49,8 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     @When("User update property table with {string},{string},{string}")
     public void user_update_property_table_with(String string, String string2, String string3) throws Throwable {
         try{
-    	Commonactions.isElementPresent(sm.getLeftArrow());
-    	ca.click(sm.getLeftArrow());
+    	//Commonactions.isElementPresent(sm.getLeftArrow());
+    	//ca.click(sm.getLeftArrow());
         }catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -259,8 +260,11 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     	ca.click(hp.getUser_settingsBtn());
     	Commonactions.isElementPresent(hp.getSystem_config());
     	Commonactions.clickjs(hp.getSystem_config());
+    	ca.eleToBeClickable();
+    	ca.jsScrollPageUp(sh.getEnumeration());
 		Commonactions.isElementPresent(sh.getEnumeration());
 		ca.click(sh.getEnumeration());
+		Thread.sleep(2000);
 		ca.eleToBeClickable();
 		Commonactions.isElementPresent(sh.getEnumeration_Search());
 		ca.click(sh.getEnumeration_Search());
@@ -271,7 +275,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		ca.click(sh.getClick_Custom());
 		Thread.sleep(2000);
 		//driver.navigate().refresh();
-		Commonactions.jsWaitForPageLoad();
+		//Commonactions.jsWaitForPageLoad();
 		Commonactions.isElementPresent(sh.getPlus_Icon_2());
 		ca.click(sh.getPlus_Icon_2());
 		Commonactions.isElementPresent(sh.getEnum_Value());
@@ -459,7 +463,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     	ca.click(mp.getSave_btn1());
     	ca.eleToBeClickable();
     	
-    	try{
+    	
     	Commonactions.isElementPresent(sm.getEgretClrCopy());
     	Commonactions.clickjs(sm.getEgretClrCopy());
     	ca.eleToBeClickable();
@@ -468,9 +472,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     	ca.insertText(sm.getSampleValue(), text+" - Copy");
     	Commonactions.isElementPresent(mp.getSave_btn1());
     	ca.click(mp.getSave_btn1());
-    	}catch(Exception exp){
-    		
-    	}
+    	ca.eleToBeClickable();
     	System.out.println("Style Sample created successfully");
     	
     	
@@ -553,8 +555,8 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     @When("User creates Style quality {string},{string},{string},{string},{string},{string},{string},{string}")
     public void user_creates_Style_quality(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8) throws Throwable {
         
-    	Commonactions.isElementPresent(sm.getLeftArrow());
-    	ca.click(sm.getLeftArrow());
+    //	Commonactions.isElementPresent(sm.getLeftArrow());
+    //	ca.click(sm.getLeftArrow());
     	Commonactions.isElementPresent(hp.getStyleBtn());
     	ca.click(hp.getStyleBtn());
     	Commonactions.isElementPresent(sm.getWinterSeason());
@@ -606,11 +608,14 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     	ca.click(sm.getQuantityTestChkBx());
     	Commonactions.isElementPresent(sm.getTestVannilaChkBx());
     	ca.insertText(sm.getTestVannilaChkBx(),"1");
-    	Commonactions.isElementPresent(qp.getNext());
+    	/*Commonactions.isElementPresent(qp.getNext());
     	ca.click(qp.getNext());
     	ca.eleToBeClickable();
     	Commonactions.isElementPresent(qp.getFinish());
-    	ca.click(qp.getFinish());
+    	ca.click(qp.getFinish());*/
+    	
+    	Commonactions.isElementPresent(mp.getSave_btn1());
+    	ca.click(mp.getSave_btn1());
     	ca.eleToBeClickable();
     	Commonactions.isElementPresent(sm.getNewTestRunBtn());
     	
@@ -657,12 +662,15 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     	ca.click(sm.getEgretChkBx());
     	Commonactions.isElementPresent(sm.getEgretCpyChkBx());
     	ca.click(sm.getEgretCpyChkBx());
-    	Commonactions.isElementPresent(mp.getSave_btn1());
-    	ca.click(mp.getSave_btn1());
-    	Commonactions.isElementPresent(qp.getNext());
+    	Commonactions.isElementPresent(mp.getSave_btn2());
+    	ca.click(mp.getSave_btn2());
+    	/*Commonactions.isElementPresent(qp.getNext());
     	ca.click(qp.getNext());
     	Commonactions.isElementPresent(qp.getFinish());
-    	ca.click(qp.getFinish());
+    	ca.click(qp.getFinish());*/
+    	
+    	Commonactions.isElementPresent(mp.getSave_btn1());
+    	ca.click(mp.getSave_btn1());
     	ca.eleToBeClickable();
     	
     	System.out.println("Style quality created successfully");
@@ -671,6 +679,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     @When("User Creates test run templates")
     public void user_Creates_test_run_templates() throws Throwable {
         
+    	ca.eleToBeClickable();
     	Commonactions.isElementPresent(sm.getTestRunexpand());
     	ca.click(sm.getTestRunexpand());
     	Commonactions.isElementPresent(sm.getTestRunTemplate());
@@ -679,6 +688,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     	ca.click(sm.getIronTempChkBx());
     	Commonactions.isElementPresent(mp.getSave_btn1());
     	ca.click(mp.getSave_btn1());
+    	ca.eleToBeClickable();
     	Commonactions.isElementPresent(sm.getTestColorsSel());
     	ca.click(sm.getTestColorsSel());
     	Commonactions.isElementPresent(sm.getGoTodialog());
@@ -735,7 +745,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		ca.click(qp.getSaveAndFinish());
 		ca.eleToBeClickable();
                 
-		ca.click(dp.getDocandComm());
+		ca.click(dp.getDocandComments());
 		Commonactions.isElementPresent(sp.getApproveActions());
 		ca.click(sp.getApproveActions());
 		Commonactions.isElementPresent(sp.getApprove());
@@ -1018,13 +1028,17 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     	ca.click(sm.getQuantityTestChkBx());
     	Commonactions.isElementPresent(sm.getTestVannilaChkBx());
     	ca.insertText(sm.getTestVannilaChkBx(),"1");
-    	Commonactions.isElementPresent(qp.getNext());
-    	ca.eleToBeClickable();
+    	/*    	Commonactions.isElementPresent(qp.getNext());
     	ca.click(qp.getNext());
+    	ca.eleToBeClickable();
     	Commonactions.isElementPresent(qp.getFinish());
+    	ca.click(qp.getFinish());*/
+    	
     	ca.eleToBeClickable();
-    	ca.click(qp.getFinish());
+    	Commonactions.isElementPresent(mp.getSave_btn1());
+    	ca.click(mp.getSave_btn1());
     	ca.eleToBeClickable();
+    	
     	
     	ca.click(sm.getNewTestRunBtn());
     	Commonactions.isElementPresent(sm.getTestRunValue());
@@ -1069,13 +1083,16 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     	ca.click(sm.getEgretChkBx());
     	Commonactions.isElementPresent(sm.getVanillaChkbx());
     	ca.click(sm.getVanillaChkbx());
-    	Commonactions.isElementPresent(mp.getSave_btn1());
-    	ca.click(mp.getSave_btn1());
-    	Commonactions.isElementPresent(qp.getNext());
+    	Commonactions.isElementPresent(mp.getSave_btn2());
+    	ca.click(mp.getSave_btn2());
+/*    	Commonactions.isElementPresent(qp.getNext());
     	ca.click(qp.getNext());
     	ca.eleToBeClickable();
     	Commonactions.isElementPresent(qp.getFinish());
-    	ca.click(qp.getFinish());
+    	ca.click(qp.getFinish());*/
+    	ca.eleToBeClickable();
+    	Commonactions.isElementPresent(mp.getSave_btn1());
+    	ca.click(mp.getSave_btn1());
     	ca.eleToBeClickable();
     	
     	System.out.println("Material quality created successfully");
@@ -1103,13 +1120,14 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		actions.doubleClick(qp.getDoubleClick()).perform();
 		Commonactions.isElementPresent(qp.getSaveAndFinish());
 		ca.click(qp.getSaveAndFinish());
-		Commonactions.isElementPresent(dp.getDocandComm());
+		Commonactions.isElementPresent(dp.getDocandComments());
                 
-		ca.click(dp.getDocandComm());
+		ca.click(dp.getDocandComments());
 		Commonactions.isElementPresent(sp.getApproveActions());
 		ca.click(sp.getApproveActions());
+		Commonactions.mouseOver(sp.getApprove());
 		Commonactions.isElementPresent(sp.getApprove());
-		ca.click(sp.getApprove());
+		Commonactions.clickjs(sp.getApprove());
 		ca.eleToBeClickable();
 
 		
@@ -1221,7 +1239,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     	ca.insertText(sp.getSelectsetvalue(), string3);
     	Commonactions.isElementPresent(mp.getSave_btn1());
     	ca.click(mp.getSave_btn1());
-    	
+    	ca.eleToBeClickable();
         System.out.println("Supplier Quote created successfully");
     	
     }
@@ -1229,6 +1247,8 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
     @When("User creates Style product blended cost {string}")
     public void user_creates_Style_product_blended_cost(String string) throws Throwable {
 
+    	ca.eleToBeClickable();
+    	ca.eleToBeClickable();
     	Commonactions.isElementPresent(sp.getApparealcoroandsizename());
     	ca.click(sp.getApparealcoroandsizename());
     	Commonactions.isElementPresent(sp.getNewproductbendcost());
@@ -1322,8 +1342,9 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		ca.jsMouseOver();
 		 Commonactions.isElementPresent(mp.getSave_btn1());
 		ca.click(mp.getSave_btn1());
-		 Commonactions.isElementPresent(sp.getCopTemViews());
+		ca.eleToBeClickable();
 		
+		 Commonactions.isElementPresent(sp.getCopTemViews());		
 		ca.click(sp.getCopTemViews());
 		 Commonactions.isElementPresent(sp.getCopTemManViews());
 		ca.click(sp.getCopTemManViews());
@@ -1412,15 +1433,20 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		ca.click(mp.getSave_btn1());
 		ca.eleToBeClickable();
     	ca.click(driver.findElement(By.xpath("(//table[contains(@data-csi-automation,'plugin-SupplierRequest-StyleQuotes-ToolbarNewActions')]//div/div)[2]")));
+    	ca.eleToBeClickable();
     	Commonactions.isElementPresent(mp.getSave_btn1());
     	ca.click(mp.getSave_btn1());
     	ca.eleToBeClickable();
-    	
-        for (int i = 0; i <=50; i++) {
-        	
+    	ca.click(driver.findElement(By.xpath("(//span[text()='refresh'])[2]")));
+    	ca.eleToBeClickable();
+        for (int i = 0; i <=100; i++) {
+        	Thread.sleep(500);
         	ca.click(sp.getSupplierRequestPlus());
+        
         	if(sp.getActionAdoption().isDisplayed()){
         		
+        		ca.eleToBeClickable();
+        		ca.click(sp.getSupplierRequestPlus());
         		Commonactions.mouseOver(sp.getActionAdoption());
         		Commonactions.isElementPresent(sp.getAdoptAsstyle());
         		ca.click(sp.getAdoptAsstyle());
@@ -1429,11 +1455,13 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
         		ca.eleToBeClickable();
         		break;
         		
-        	}
+        	}	
 			
 		}
         Commonactions.isElementPresent(sp.getSRSamples());
     	ca.click(sp.getSRSamples());
+        ca.eleToBeClickable();
+        ca.click(driver.findElement(By.xpath("(//span[@data-csi-automation='plugin-SupplierRequest-StyleSamples-refresh'])")));
         ca.eleToBeClickable();
         ca.jsScrollPageDown(sp.getAdoptCopy());
         Commonactions.isElementPresent(sp.getAdoptCopy());
@@ -1532,9 +1560,11 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		click(sp.getFactoryvaluepo());
 		Commonactions.isElementPresent(sp.getSAVEANDGO());
 		click(sp.getSAVEANDGO());
+		ca.eleToBeClickable();
+		
 		Commonactions.isElementPresent(hp.getUser_homeBtn());
-
 		ca.click(hp.getUser_homeBtn());
+		ca.eleToBeClickable();
 		
 		Commonactions.isElementPresent(hp.getSourcingBtn());
 		click(hp.getSourcingBtn());
@@ -1615,12 +1645,15 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		ca.click(sp.getGreencheckbox1());
 		Commonactions.isElementPresent(mp.getSave_btn1());
 		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+		
 		Commonactions.isElementPresent(sp.getInstruction());
 
 		Commonactions.mouseOver(sp.getInstruction());
 		Commonactions.isElementPresent(sp.getB_supplierquote());
 
 		ca.click(sp.getB_supplierquote());
+		ca.eleToBeClickable();
 		WebElement sq1 = ca.activeElement();
 		sq1.sendKeys(Keys.TAB);
 		WebElement sq = ca.activeElement();
@@ -1638,8 +1671,9 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		
 
 
-
+		Commonactions.isElementPresent(sp.getG_supplierquote());
 		ca.click(sp.getG_supplierquote());
+		ca.eleToBeClickable();
 		WebElement sg1 = ca.activeElement();
 		sg1.sendKeys(Keys.TAB);
 		WebElement sg = ca.activeElement();
@@ -1757,8 +1791,10 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		insertText(sp.getEditText(), EditValue );
 		Commonactions.isElementPresent(mp.getSave_btn1());
 		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+		
+		ca.jsScrollPageDown(sp.getInstruction());
 		Commonactions.isElementPresent(sp.getInstruction());
-
 		Commonactions.mouseOver(sp.getInstruction());
 		ca.activeElement();
 		ca.click(sp.getEdit());
@@ -1767,18 +1803,28 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		insertText(sp.getEditText(), EditValue);
 		Commonactions.isElementPresent(mp.getSave_btn1());
 		ca.click(mp.getSave_btn1());
-		Commonactions.isElementPresent(sp.getNewcomment());
-
-		Commonactions.mouseOver(sp.getNewcomment());
-		Commonactions.isElementPresent(sp.getNewcomment());
-		click(sp.getNewcomment());
-		Commonactions.isElementPresent(sp.getNewcommentsubject());
-		insertText(sp.getNewcommentsubject(), "subject");
-		Commonactions.isElementPresent(sp.getEditText());
-		insertText(sp.getEditText(), EditValue);
-		Commonactions.isElementPresent(mp.getSave_btn1());
-		click(mp.getSave_btn1());
 		ca.eleToBeClickable();
+		
+		try{
+			ca.jsScrollPageUp(sp.getComments());
+			Commonactions.isElementPresent(sp.getComments());
+	        ca.click(sp.getComments());
+			//Commonactions.mouseOver(sp.getNewcomment());
+			Commonactions.isElementPresent(sp.getNewcomment());
+			ca.click(sp.getNewcomment());
+			Commonactions.isElementPresent(sp.getNewcommentsubject());
+			insertText(sp.getNewcommentsubject(), "subject");
+			Commonactions.isElementPresent(sp.getEditText());
+			ca.insertText(sp.getEditText(), EditValue);
+			//Commonactions.isElementPresent(mp.getSave_btn1());
+			ca.eleToBeClickable();
+			ca.jsScrollPageDown(driver.findElement(By.xpath("(//span[text()='Save'])[1]")));
+			ca.click(driver.findElement(By.xpath("(//span[text()='Save'])[1]")));
+			ca.eleToBeClickable();
+			}catch (Exception eee) {
+				// TODO: handle exception
+			}
+
 
 	}
 
@@ -1809,7 +1855,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 
 		for(int i=1;i<=3;i++) {
 			ca.eleToBeClickable();
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 				int k= i+3;
 				ca.click(driver.findElement(By.xpath("(//td[text()='Green Color faded']/following-sibling::td[(@data-csi-act='QuantityPerSize::0')])["+i+"]")));
 			
@@ -1830,7 +1876,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		for(int i=1;i<=3;i++) {
 			
 			ca.eleToBeClickable();
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 				int j= i+3;
 				ca.click(driver.findElement(By.xpath("(//td[text()='Blue Color faded']/following-sibling::td[(@data-csi-act='QuantityPerSize::0')])["+i+"]")));
 			
@@ -1845,7 +1891,7 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 			ca.eleToBeClickable();
 			ca.insertText(e14, qnty);
 			ca.eleToBeClickable();
-			e14.sendKeys(Keys.TAB);
+			//e14.sendKeys(Keys.TAB);
 		}
 
 
@@ -2232,8 +2278,12 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		
 	
 			//ca.click(sp.getErrormessage());
+		try{
 			Commonactions.isElementPresent(pp.getOK_Btn());
 			ca.click(pp.getOK_Btn());
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		//	Commonactions.isElementPresent(sp.getInstruction());
 		//	Commonactions.mouseOver(sp.getInstruction());
 			try{
@@ -2318,11 +2368,23 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 
 	}
 	
-	public void goToSupplierQuotes() {
+	public void goToSupplierQuotes() throws Throwable {
 
-    	Commonactions.isElementPresent(hp.getStyleBtn());
-    	ca.click(hp.getStyleBtn());
-    	
+		List<WebElement> index = driver.findElements(By.xpath("//span[text()='Style' or @data-csi-tab-name='Style']"));
+    	int i = index.size();
+    	if(i==2){
+    		ca.eleToBeClickable();
+    		ca.click(driver.findElement(By.xpath("(//span[text()='Style' or @data-csi-tab-name='Style'])[2]")));
+    	}else{
+    		Commonactions.isElementPresent(hp.getStyleBtn());
+	    	ca.click(hp.getStyleBtn());
+    	}
+    	try{
+    	Commonactions.isElementPresent(st.getSeason_Btn());
+    	ca.click(st.getSeason_Btn());
+    	}catch (Exception e) {
+			// TODO: handle exception
+		}
     	Commonactions.isElementPresent(sm.getWinterSeason());
     	ca.click(sm.getWinterSeason());
     	Commonactions.isElementPresent(st.getStyles_Btn());
@@ -2452,9 +2514,8 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 	//	ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
 		ca.eleToBeClickable();
 		try{
-		WebElement b = ca.activeElement();
-		ca.eleToBeClickable();
-		b.sendKeys("Frontline");
+			ca.insertText(sp.getSearchValue(), "Frontline");
+			ca.eleToBeClickable();
 		Commonactions.isElementPresent(sp.getSelectValue());
 		ca.click(sp.getSelectValue());
 		ca.eleToBeClickable();
@@ -2489,12 +2550,11 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 	//	ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
 	//	ca.eleToBeClickable();
 	//	ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+
 		try {
 			
+			ca.insertText(sp.getSearchValue(), "Supplier");
 			ca.eleToBeClickable();
-			WebElement b = ca.activeElement();
-			ca.eleToBeClickable();
-			b.sendKeys("Supplier");
 			Commonactions.isElementPresent(sp.getSelectValue());
 			ca.click(sp.getSelectValue());
 			ca.eleToBeClickable();
@@ -2534,9 +2594,8 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		//ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
 		ca.eleToBeClickable();
 		try{
-		WebElement b = ca.activeElement();
-		ca.eleToBeClickable();
-		b.sendKeys("Changshu");
+			ca.insertText(sp.getSearchValue(), "Changshu");
+			ca.eleToBeClickable();
 		Commonactions.isElementPresent(sp.getSelectValue());
 		ca.click(sp.getSelectValue());
 		ca.eleToBeClickable();
@@ -2645,8 +2704,8 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 
 		SearchFrontline();
 		
-		Commonactions.isElementPresent(sp.getNameModify1());
-		ca.click(sp.getNameModify1());
+		Commonactions.isElementPresent(sp.getNameModify3());
+		ca.click(sp.getNameModify3());
 		ca.eleToBeClickable();
 	    Commonactions.isElementPresent(sp.getElement());
 	    ca.click(sp.getElement());
@@ -2663,8 +2722,8 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 		
 		SearchFrontline();
 		
-		Commonactions.isElementPresent(sp.getNameModify2());
-		ca.click(sp.getNameModify2());
+		Commonactions.isElementPresent(sp.getNameModify4());
+		ca.click(sp.getNameModify4());
 		ca.eleToBeClickable();
 	   Commonactions.isElementPresent(sp.getElement());
 	   ca.click(sp.getElement());
@@ -2933,1165 +2992,1192 @@ public class StyleMaterialSamplePageSteps extends Commonactions{
 
 	}
 	
-public void modifySupplier() throws Throwable {
+	public void modifySupplier() throws Throwable {
 		
-/*		Commonactions.isElementPresent(sp.getNameSQmodify1());
-		ca.click(sp.getNameSQmodify1());
-		ca.eleToBeClickable();
-		Thread.sleep(2000);
-	    Commonactions.isElementPresent(sp.getElement1());
-	    ca.click(sp.getElement1());
-		WebElement d = ca.activeElement();
-		d.sendKeys(Keys.DELETE);
-		ca.eleToBeClickable();
-		WebElement e1 = ca.activeElement();
-		e1.sendKeys(Keys.DELETE);
-		e1.sendKeys("223 Delete SQ - APPROVED",Keys.TAB);
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));*/
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[1]")));
-		ca.eleToBeClickable();
-		WebElement z = ca.activeElement();
-		z.sendKeys("Approve");
-		ca.jsMouseOver();
-		
-/*		Commonactions.isElementPresent(sp.getNameSQmodify2());
-		ca.click(sp.getNameSQmodify2());
-		ca.eleToBeClickable();
-		Thread.sleep(2000);
-	    Commonactions.isElementPresent(sp.getElement1());
-	    ca.click(sp.getElement1());
-		WebElement d1 = ca.activeElement();
-		d1.sendKeys(Keys.DELETE);
-		ca.eleToBeClickable();
-		WebElement e2 = ca.activeElement();
-		e2.sendKeys(Keys.DELETE);
-		e2.sendKeys("223 Delete SQ - DRAFT",Keys.TAB);
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));
-		ca.eleToBeClickable();*/
-		
-		
-/*		Commonactions.isElementPresent(sp.getNameSQmodify3());
-		ca.click(sp.getNameSQmodify3());
-		ca.eleToBeClickable();
-		Thread.sleep(2000);
-	    Commonactions.isElementPresent(sp.getElement1());
-	    ca.click(sp.getElement1());
-		WebElement d2 = ca.activeElement();
-		d2.sendKeys(Keys.DELETE);
-		ca.eleToBeClickable();
-		WebElement e3 = ca.activeElement();
-		e3.sendKeys(Keys.DELETE);
-		e3.sendKeys("223 Delete SQ - REVISED",Keys.TAB);
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));*/
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[3]")));
-		ca.eleToBeClickable();
-		WebElement z2 = ca.activeElement();
-		z2.sendKeys("Abandon");
-		ca.jsMouseOver();
-		
-/*		Commonactions.isElementPresent(sp.getNameSQmodify4());
-		ca.click(sp.getNameSQmodify4());
-		ca.eleToBeClickable();
-		Thread.sleep(2000);
-	    Commonactions.isElementPresent(sp.getElement1());
-	    ca.click(sp.getElement1());
-		WebElement d3 = ca.activeElement();
-		d3.sendKeys(Keys.DELETE);
-		ca.eleToBeClickable();
-		WebElement e4 = ca.activeElement();
-		e4.sendKeys(Keys.DELETE);
-		e4.sendKeys("223 Delete SQ - CLOSED",Keys.TAB);
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));*/
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[4]")));
-		ca.eleToBeClickable();
-		WebElement z3 = ca.activeElement();
-		z3.sendKeys("Approve");
-		ca.jsMouseOver();
-		ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[4]")));
-		ca.eleToBeClickable();
-		WebElement z4 = ca.activeElement();
-		z4.sendKeys("Close");
-		ca.jsMouseOver();
-		
-/*		Commonactions.isElementPresent(sp.getNameSQmodify5());
-		ca.click(sp.getNameSQmodify5());
-		ca.eleToBeClickable();
-		Thread.sleep(2000);
-	    Commonactions.isElementPresent(sp.getElement1());
-	    ca.click(sp.getElement1());
-		WebElement d4 = ca.activeElement();
-		d4.sendKeys(Keys.DELETE);
-		ca.eleToBeClickable();
-		WebElement e5 = ca.activeElement();
-		e5.sendKeys(Keys.DELETE);
-		e5.sendKeys("223 Delete SQ - PENDING",Keys.TAB);
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));*/
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[5]")));
-		ca.eleToBeClickable();
-		WebElement z5 = ca.activeElement();
-		z5.sendKeys("Freeze");
-		ca.jsMouseOver();
+		/*		Commonactions.isElementPresent(sp.getNameSQmodify1());
+				ca.click(sp.getNameSQmodify1());
+				ca.eleToBeClickable();
+				Thread.sleep(2000);
+			    Commonactions.isElementPresent(sp.getElement1());
+			    ca.click(sp.getElement1());
+				WebElement d = ca.activeElement();
+				d.sendKeys(Keys.DELETE);
+				ca.eleToBeClickable();
+				WebElement e1 = ca.activeElement();
+				e1.sendKeys(Keys.DELETE);
+				e1.sendKeys("223 Delete SQ - APPROVED",Keys.TAB);
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));*/
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[1]")));
+				ca.eleToBeClickable();
+				WebElement z = ca.activeElement();
+				z.sendKeys("Approve");
+				ca.jsMouseOver();
+				
+		/*		Commonactions.isElementPresent(sp.getNameSQmodify2());
+				ca.click(sp.getNameSQmodify2());
+				ca.eleToBeClickable();
+				Thread.sleep(2000);
+			    Commonactions.isElementPresent(sp.getElement1());
+			    ca.click(sp.getElement1());
+				WebElement d1 = ca.activeElement();
+				d1.sendKeys(Keys.DELETE);
+				ca.eleToBeClickable();
+				WebElement e2 = ca.activeElement();
+				e2.sendKeys(Keys.DELETE);
+				e2.sendKeys("223 Delete SQ - DRAFT",Keys.TAB);
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));
+				ca.eleToBeClickable();*/
+				
+				
+		/*		Commonactions.isElementPresent(sp.getNameSQmodify3());
+				ca.click(sp.getNameSQmodify3());
+				ca.eleToBeClickable();
+				Thread.sleep(2000);
+			    Commonactions.isElementPresent(sp.getElement1());
+			    ca.click(sp.getElement1());
+				WebElement d2 = ca.activeElement();
+				d2.sendKeys(Keys.DELETE);
+				ca.eleToBeClickable();
+				WebElement e3 = ca.activeElement();
+				e3.sendKeys(Keys.DELETE);
+				e3.sendKeys("223 Delete SQ - REVISED",Keys.TAB);
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));*/
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[3]")));
+				ca.eleToBeClickable();
+				WebElement z2 = ca.activeElement();
+				z2.sendKeys("Abandon");
+				ca.jsMouseOver();
+				
+		/*		Commonactions.isElementPresent(sp.getNameSQmodify4());
+				ca.click(sp.getNameSQmodify4());
+				ca.eleToBeClickable();
+				Thread.sleep(2000);
+			    Commonactions.isElementPresent(sp.getElement1());
+			    ca.click(sp.getElement1());
+				WebElement d3 = ca.activeElement();
+				d3.sendKeys(Keys.DELETE);
+				ca.eleToBeClickable();
+				WebElement e4 = ca.activeElement();
+				e4.sendKeys(Keys.DELETE);
+				e4.sendKeys("223 Delete SQ - CLOSED",Keys.TAB);
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));*/
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[4]")));
+				ca.eleToBeClickable();
+				WebElement z3 = ca.activeElement();
+				z3.sendKeys("Approve");
+				ca.jsMouseOver();
+				ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[4]")));
+				ca.eleToBeClickable();
+				WebElement z4 = ca.activeElement();
+				z4.sendKeys("Close");
+				ca.jsMouseOver();
+				
+		/*		Commonactions.isElementPresent(sp.getNameSQmodify5());
+				ca.click(sp.getNameSQmodify5());
+				ca.eleToBeClickable();
+				Thread.sleep(2000);
+			    Commonactions.isElementPresent(sp.getElement1());
+			    ca.click(sp.getElement1());
+				WebElement d4 = ca.activeElement();
+				d4.sendKeys(Keys.DELETE);
+				ca.eleToBeClickable();
+				WebElement e5 = ca.activeElement();
+				e5.sendKeys(Keys.DELETE);
+				e5.sendKeys("223 Delete SQ - PENDING",Keys.TAB);
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//div[@data-csi-crumb-type='SupplierRequest']")));*/
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("(//td[@data-csi-heading='State:Child:CurrentRevision:0'])[5]")));
+				ca.eleToBeClickable();
+				WebElement z5 = ca.activeElement();
+				z5.sendKeys("Freeze");
+				ca.jsMouseOver();
 
-	}
+			}
 
-	@When("User Selects quotes and modifying states")
-	public void user_Selects_quotes_and_modifying_states() throws Throwable {
-	    
-		Commonactions.isElementPresent(sp.getNewsupplierreqExpand());
-		ca.click(sp.getNewsupplierreqExpand());
-		Commonactions.isElementPresent(sp.getSelectsuppQuotes());
-		ca.click(sp.getSelectsuppQuotes());
-		
-		Commonactions.isElementPresent(sp.getSR_SQ_Filter());
-		ca.click(sp.getSR_SQ_Filter());
-		ca.eleToBeClickable();
-		WebElement b = ca.activeElement();
-		ca.eleToBeClickable();
-		try{
-		b.sendKeys("Delete");
-		Commonactions.isElementPresent(sp.getSelectValue());
-		ca.click(sp.getSelectValue());
-		ca.eleToBeClickable();
-		}catch (Exception e) {
-			//Commonactions.isElementPresent(sp.getSR_SQ_Filter());
-			ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-SupplierRequest-SRLineItemProductSupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-			ca.eleToBeClickable();
-			WebElement b1 = ca.activeElement();
-			ca.eleToBeClickable();
-			b1.sendKeys("Delete");
-			Commonactions.isElementPresent(sp.getSelectValue());
-			ca.click(sp.getSelectValue());
-			ca.eleToBeClickable();
-		}
-		WebElement b1 = ca.activeElement();
-		ca.eleToBeClickable();
-		b1.sendKeys(Keys.TAB);
-		ca.eleToBeClickable();
-		
-		Commonactions.isElementPresent(sp.getDeleteAllChkBx());
-		ca.click(sp.getDeleteAllChkBx());
-		Commonactions.isElementPresent(mp.getSave_btn1());
-		ca.click(mp.getSave_btn1());
-		Thread.sleep(4000);
-		
-		Commonactions.isElementPresent(sp.getNewsupplierreqExpand());
-		ca.click(sp.getNewsupplierreqExpand());
-		Commonactions.isElementPresent(sp.getSelectsuppQuotes());
-		ca.click(sp.getSelectsuppQuotes());
-		
-		
-		Commonactions.isElementPresent(sp.getSR_SQ_Filter());
-		ca.click(sp.getSR_SQ_Filter());
-		ca.eleToBeClickable();
-		WebElement b4 = ca.activeElement();
-		ca.eleToBeClickable();
-		ca.eleToBeClickable();
-		try{
-		b4.sendKeys("Delete");
-		Commonactions.isElementPresent(sp.getSelectValue());
-		ca.click(sp.getSelectValue());
-		ca.eleToBeClickable();
-		}catch (Exception e) {
-			//Commonactions.isElementPresent(sp.getSR_SQ_Filter());
-			ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-SupplierRequest-SRLineItemProductSupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-			ca.eleToBeClickable();
+			@When("User Selects quotes and modifying states")
+			public void user_Selects_quotes_and_modifying_states() throws Throwable {
+			    
+				Commonactions.isElementPresent(sp.getNewsupplierreqExpand());
+				ca.click(sp.getNewsupplierreqExpand());
+				Commonactions.isElementPresent(sp.getSelectsuppQuotes());
+				ca.click(sp.getSelectsuppQuotes());
+				
+				Commonactions.isElementPresent(sp.getSR_SQ_Filter());
+				ca.click(sp.getSR_SQ_Filter());
+				ca.eleToBeClickable();
+				WebElement b = driver.findElement(By.xpath("((//div[contains(@data-csi-automation,'filter-SupplierRequest-SRLineItemProductSupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])/following-sibling::div[2]/input)[1]"));
+				
+				try{
+				ca.insertText(b, "Delete");
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSelectValue());
+				ca.click(sp.getSelectValue());
+				ca.eleToBeClickable();
+				}catch (Exception e) {
+					//Commonactions.isElementPresent(sp.getSR_SQ_Filter());
+					ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-SupplierRequest-SRLineItemProductSupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+					ca.eleToBeClickable();
+					WebElement b1 = ca.activeElement();
+					ca.eleToBeClickable();
+					b1.sendKeys("Delete");
+					Commonactions.isElementPresent(sp.getSelectValue());
+					ca.click(sp.getSelectValue());
+					ca.eleToBeClickable();
+				}
+				WebElement b1 = ca.activeElement();
+				ca.eleToBeClickable();
+				b1.sendKeys(Keys.TAB);
+				ca.eleToBeClickable();
+				
+				Commonactions.isElementPresent(sp.getDeleteAllChkBx());
+				ca.click(sp.getDeleteAllChkBx());
+				Commonactions.isElementPresent(mp.getSave_btn1());
+				ca.click(mp.getSave_btn1());
+				Thread.sleep(4000);
+				
+				Commonactions.isElementPresent(sp.getNewsupplierreqExpand());
+				ca.click(sp.getNewsupplierreqExpand());
+				Commonactions.isElementPresent(sp.getSelectsuppQuotes());
+				ca.click(sp.getSelectsuppQuotes());
+				
+				
+				Commonactions.isElementPresent(sp.getSR_SQ_Filter());
+				ca.click(sp.getSR_SQ_Filter());
+				ca.eleToBeClickable();
+				WebElement bb = driver.findElement(By.xpath("((//div[contains(@data-csi-automation,'filter-SupplierRequest-SRLineItemProductSupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])/following-sibling::div[2]/input)[1]"));
 
-			WebElement b8 = ca.activeElement();
-			ca.eleToBeClickable();
-			ca.eleToBeClickable();
-			b8.sendKeys("Delete");
-			Commonactions.isElementPresent(sp.getSelectValue());
-			ca.click(sp.getSelectValue());
-			ca.eleToBeClickable();
-		}
-		WebElement b5 = ca.activeElement();
-		ca.eleToBeClickable();
-		b5.sendKeys(Keys.TAB);
-		ca.eleToBeClickable();
-		
-		Commonactions.isElementPresent(sp.getDeleteAllChkBx());
-		ca.click(sp.getDeleteAllChkBx());
-		Commonactions.isElementPresent(mp.getSave_btn1());
-		ca.click(mp.getSave_btn1());
-		Thread.sleep(4000);
-		
-		
-		
-		Commonactions.isElementPresent(sp.getSR_SQ_SuppFilter());
-		ca.click(sp.getSR_SQ_SuppFilter());
-		ca.eleToBeClickable();
-        ca.click(driver.findElement(By.xpath("//label[contains(text(),'Changshu')]")));
-		WebElement b2 = ca.activeElement();
-		ca.eleToBeClickable();
-		b2.sendKeys(Keys.TAB);
-		ca.eleToBeClickable();
-		
-		
-        modify();
-        
-		Commonactions.isElementPresent(sp.getSR_SQ_SuppFilter());
-		ca.click(sp.getSR_SQ_SuppFilter());
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//label[contains(text(),'Changshu')]")));
-		ca.eleToBeClickable();
-		WebElement bc8 = ca.activeElement();
-		ca.eleToBeClickable();
-		bc8.sendKeys(Keys.TAB);
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(sp.getSR_SQ_SuppFilter());
-		ca.click(sp.getSR_SQ_SuppFilter());
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//label[contains(text(),'Supplier')]")));
-		WebElement bc9 = ca.activeElement();
-		ca.eleToBeClickable();
-		bc9.sendKeys(Keys.TAB);
-		ca.eleToBeClickable();
-		
-		modifySupplier();
-		
-		
-	}
+				try{
+				ca.insertText(bb, "Delete");
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSelectValue());
+				ca.click(sp.getSelectValue());
+				ca.eleToBeClickable();
+				}catch (Exception e) {
+					//Commonactions.isElementPresent(sp.getSR_SQ_Filter());
+					
+					ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-SupplierRequest-SRLineItemProductSupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+					ca.eleToBeClickable();
 
-	@When("User select Supplier request samples")
-	public void user_select_Supplier_request_samples() throws Throwable {
-		
-		
-		//temp//
-		//goToSupplierQuotes();
-		//--------------------------------------//
-		Commonactions.isElementPresent(sp.getSRSamples());
-		ca.click(sp.getSRSamples());
-	    try{
-		Commonactions.isElementPresent(sp.getNewSampleExpand());
-		ca.click(sp.getNewSampleExpand());
-	}catch (Exception e) {
-		
-		driver.navigate().refresh();
-		Commonactions.isElementPresent(sp.getSRSamples());
-		ca.click(sp.getSRSamples());
-		Commonactions.isElementPresent(sp.getNewSampleExpand());
-		ca.click(sp.getNewSampleExpand());
-	}
-		Commonactions.isElementPresent(sp.getSelectSamples());
-		ca.click(sp.getSelectSamples());
-		
-		
-		Commonactions.isElementPresent(sp.getSR_SA_Filter());
-		ca.click(sp.getSR_SA_Filter());
-		ca.eleToBeClickable();
-		WebElement b = ca.activeElement();
-		ca.eleToBeClickable();
-		try{
-		b.sendKeys("Delete");
-		Commonactions.isElementPresent(sp.getSelectValue());
-		ca.click(sp.getSelectValue());
-		ca.eleToBeClickable();
-		WebElement b1 = ca.activeElement();
-		ca.eleToBeClickable();
-		b1.sendKeys(Keys.TAB);
-		ca.eleToBeClickable();
-		}catch (Exception e) {
-			ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-SupplierRequest-SRSuppliersStyleSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-			WebElement b1 = ca.activeElement();
-			ca.eleToBeClickable();
-			b1.sendKeys("Delete");
-			Commonactions.isElementPresent(sp.getSelectValue());
-			ca.click(sp.getSelectValue());
-			ca.eleToBeClickable();
-			WebElement b2 = ca.activeElement();
-			ca.eleToBeClickable();
-			b2.sendKeys(Keys.TAB);
-			ca.eleToBeClickable();
-		
-		}
-		
-		Commonactions.isElementPresent(sp.getDeleteAllChkBx1());
-		ca.click(sp.getDeleteAllChkBx1());
-		Commonactions.isElementPresent(mp.getSave_btn1());
-		ca.click(mp.getSave_btn1());
-	    
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(sp.getSampleViews());
-		ca.click(sp.getSampleViews());
-		Commonactions.isElementPresent(sp.getSampleManViews());
-		ca.click(sp.getSampleManViews());
-		Commonactions.isElementPresent(up.getUsrMgmt_Copy());
-		ca.click(up.getUsrMgmt_Copy());
-		Commonactions.isElementPresent(up.getUsrMgmt_Copy_Value());
-		ca.insertText(up.getUsrMgmt_Copy_Value(), "Automation");
-		Commonactions.isElementPresent(sp.getCustomValue());
-		ca.insertText(sp.getCustomValue(), "Product Supplier");
-		ca.eleToBeClickable();
-		ca.jsMouseOver();
-		Commonactions.isElementPresent(sp.getProductSupplier());
-		ca.click(sp.getProductSupplier());
-		Commonactions.isElementPresent(sp.getAdd());
-		ca.click(sp.getAdd());
-		Commonactions.isElementPresent(sp.getUPBtn());
-		
-		for (int i = 0; i < 11; i++) {
+					WebElement b8 = ca.activeElement();
+					ca.eleToBeClickable();
+					ca.eleToBeClickable();
+					b8.sendKeys("Delete");
+					Commonactions.isElementPresent(sp.getSelectValue());
+					ca.click(sp.getSelectValue());
+					ca.eleToBeClickable();
+				}
+				WebElement b5 = ca.activeElement();
+				ca.eleToBeClickable();
+				b5.sendKeys(Keys.TAB);
+				ca.eleToBeClickable();
+				
+				Commonactions.isElementPresent(sp.getDeleteAllChkBx());
+				ca.click(sp.getDeleteAllChkBx());
+				Commonactions.isElementPresent(mp.getSave_btn1());
+				ca.click(mp.getSave_btn1());
+				Thread.sleep(4000);
+				
+				
+				
+				Commonactions.isElementPresent(sp.getSR_SQ_SuppFilter());
+				ca.click(sp.getSR_SQ_SuppFilter());
+				ca.eleToBeClickable();
+		        ca.click(driver.findElement(By.xpath("//label[contains(text(),'Changshu')]")));
+				WebElement b2 = ca.activeElement();
+				ca.eleToBeClickable();
+				b2.sendKeys(Keys.TAB);
+				ca.eleToBeClickable();
+				
+				
+		        modify();
+		        
+				Commonactions.isElementPresent(sp.getSR_SQ_SuppFilter());
+				ca.click(sp.getSR_SQ_SuppFilter());
+				//ca.eleToBeClickable();
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//label[contains(text(),'Changshu')]")));
+				ca.eleToBeClickable();
+				WebElement bc8 = ca.activeElement();
+				ca.eleToBeClickable();
+				bc8.sendKeys(Keys.TAB);
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSR_SQ_SuppFilter());
+				ca.click(sp.getSR_SQ_SuppFilter());
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//label[contains(text(),'Supplier')]")));
+				WebElement bc9 = ca.activeElement();
+				ca.eleToBeClickable();
+				bc9.sendKeys(Keys.TAB);
+				ca.eleToBeClickable();
+				
+				modifySupplier();
+				
+				
+			}
+
+			@When("User select Supplier request samples")
+			public void user_select_Supplier_request_samples() throws Throwable {
+				
+				
+				//temp//
+				//goToSupplierQuotes();
+				//--------------------------------------//
+				Commonactions.isElementPresent(sp.getSRSamples());
+				ca.click(sp.getSRSamples());
+			    try{
+				Commonactions.isElementPresent(sp.getNewSampleExpand());
+				ca.click(sp.getNewSampleExpand());
+			}catch (Exception e) {
+				
+				driver.navigate().refresh();
+				Commonactions.isElementPresent(sp.getSRSamples());
+				ca.click(sp.getSRSamples());
+				Commonactions.isElementPresent(sp.getNewSampleExpand());
+				ca.click(sp.getNewSampleExpand());
+			}
+				Commonactions.isElementPresent(sp.getSelectSamples());
+				ca.click(sp.getSelectSamples());
+				
+				
+				Commonactions.isElementPresent(sp.getSR_SA_Filter());
+				ca.click(sp.getSR_SA_Filter());
+				ca.eleToBeClickable();
+				WebElement c = driver.findElement(By.xpath("((//div[contains(@data-csi-automation,'filter-SupplierRequest-SRSuppliersStyleSamples-Node Name')]//div[contains(@class,'ArrowButton')])/following-sibling::div[2]/input)[1]"));
+
+				try{
+				ca.insertText(c, "Delete");
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSelectValue());
+				ca.click(sp.getSelectValue());
+				ca.eleToBeClickable();
+				WebElement b1 = ca.activeElement();
+				ca.eleToBeClickable();
+				b1.sendKeys(Keys.TAB);
+				ca.eleToBeClickable();
+				}catch (Exception e) {
+					ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-SupplierRequest-SRSuppliersStyleSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+					WebElement b1 = ca.activeElement();
+					ca.eleToBeClickable();
+					b1.sendKeys("Delete");
+					Commonactions.isElementPresent(sp.getSelectValue());
+					ca.click(sp.getSelectValue());
+					ca.eleToBeClickable();
+					WebElement b2 = ca.activeElement();
+					ca.eleToBeClickable();
+					b2.sendKeys(Keys.TAB);
+					ca.eleToBeClickable();
+				
+				}
+				
+				Commonactions.isElementPresent(sp.getDeleteAllChkBx1());
+				ca.click(sp.getDeleteAllChkBx1());
+				Commonactions.isElementPresent(mp.getSave_btn1());
+				ca.click(mp.getSave_btn1());
+			    
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSampleViews());
+				ca.click(sp.getSampleViews());
+				Commonactions.isElementPresent(sp.getSampleManViews());
+				ca.click(sp.getSampleManViews());
+				Commonactions.isElementPresent(up.getUsrMgmt_Copy());
+				ca.click(up.getUsrMgmt_Copy());
+				Commonactions.isElementPresent(up.getUsrMgmt_Copy_Value());
+				ca.insertText(up.getUsrMgmt_Copy_Value(), "Automation");
+				Commonactions.isElementPresent(sp.getCustomValue());
+				ca.insertText(sp.getCustomValue(), "Product Supplier");
+				ca.eleToBeClickable();
+				ca.jsMouseOver();
+				Commonactions.isElementPresent(sp.getProductSupplier());
+				ca.click(sp.getProductSupplier());
+				Commonactions.isElementPresent(sp.getAdd());
+				ca.click(sp.getAdd());
+				Commonactions.isElementPresent(sp.getUPBtn());
+				
+				for (int i = 0; i < 11; i++) {
+					
+					ca.click(sp.getUPBtn());
+				}
+				
+				Commonactions.isElementPresent(mp.getSave_btn1());
+				ca.jsScrollPageDown(mp.getSave_btn1());
+				Commonactions.isElementPresent(mp.getSave_btn1());
+				ca.click(mp.getSave_btn1());
+				
+				System.out.println("SR Samples Created successfully");
+			    
+			}
 			
-			ca.click(sp.getUPBtn());
-		}
-		
-		Commonactions.isElementPresent(mp.getSave_btn1());
-		ca.jsScrollPageDown(mp.getSave_btn1());
-		Commonactions.isElementPresent(mp.getSave_btn1());
-		ca.click(mp.getSave_btn1());
-		
-		System.out.println("SR Samples Created successfully");
-	    
-	}
-	
-	
-	@When("user removing supplier under supplier request setup")
-	public void user_removing_supplier_under_supplier_request_setup() throws Throwable {
-	    
-		try {
-			Commonactions.isElementPresent(sp.getSetup());
-			ca.click(sp.getSetup());
 			
-		} catch (Exception e) {
+			@When("user removing supplier under supplier request setup")
+			public void user_removing_supplier_under_supplier_request_setup() throws Throwable {
+			    
+				try {
+					Commonactions.isElementPresent(sp.getSetup());
+					ca.click(sp.getSetup());
+					
+				} catch (Exception e) {
+					
+					goToSupplierQuotes();
+					Commonactions.isElementPresent(sp.getSupplierrequest());
+			    	ca.click(sp.getSupplierrequest());
+			    	ca.eleToBeClickable();
+					Commonactions.isElementPresent(sp.getSuppRequstName1());
+			    	Commonactions.clickjs(sp.getSuppRequstName1());
+			    	ca.eleToBeClickable();
+			    	Thread.sleep(1000);
+					Commonactions.isElementPresent(sp.getSetup());
+					ca.click(sp.getSetup());
+			    	
+				}
+				
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getDeleteChangshu());
+				ca.click(sp.getDeleteChangshu());
+				Commonactions.isElementPresent(sp.getDeleteSuppQuotes());
+				ca.click(sp.getDeleteSuppQuotes());
+				Commonactions.isElementPresent(sp.getDeleteSamples());
+				ca.click(sp.getDeleteSamples());
+				Commonactions.isElementPresent(sp.getRemove());
+				ca.click(sp.getRemove());
+				
+				ca.eleToBeClickable();
+				Thread.sleep(2000);
+				
+				Commonactions.isElementPresent(sp.getDeleteSupplier());
+				ca.click(sp.getDeleteSupplier());
+				Commonactions.isElementPresent(sp.getRemove());
+				ca.click(sp.getRemove());
+				
+				ca.eleToBeClickable();
+				Thread.sleep(2000);
+				
+				System.out.println("Changshu & supplier removed successfully");
+				
+			}
+
+			@When("user validating supplier request and samples displayed datas are correct or not")
+			public void user_validating_supplier_request_and_samples_displayed_datas_are_correct_or_not() throws Throwable {
+			    
+				//temp------------------------------
+
+		    	ca.eleToBeClickable();
+		    	//goToSupplierQuotes();
+		    	
+		    	//---------------------------------------------------//
+				
+				
+				Commonactions.isElementPresent(sp.getSRQuotes());
+				ca.click(sp.getSRQuotes());
+				try{
+				Commonactions.isElementPresent(sp.getSR_SQ_SuppFilter());
+				ca.click(sp.getSR_SQ_SuppFilter());
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//label[contains(text(),'Supplier')]")));
+				WebElement bc9 = ca.activeElement();
+				ca.eleToBeClickable();
+				bc9.sendKeys(Keys.TAB);
+				ca.eleToBeClickable();
+				}catch (Exception e) {
+					
+					System.out.println("Changshu & supplier removed successfully");
+					
+				}
+				
+				Commonactions.isElementPresent(sp.getSRQuoteCount());
+				String Qc = Commonactions.getText(sp.getSRQuoteCount());
+				System.out.println("SR Quote count is :"+Qc);
+				
+				Commonactions.isElementPresent(sp.getSRSamples());
+				ca.click(sp.getSRSamples());
+
+				ca.eleToBeClickable();
+				WebElement refresh = driver.findElement(By.xpath("(//span[contains(@data-csi-automation,'plugin-SupplierRequest-StyleSamples-refresh')]/span)"));
+				ca.jsMouseOver(refresh);
+				ca.click(refresh);
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSRSampleCount());
+				String Sc = Commonactions.getText(sp.getSRSampleCount());
+				System.out.println("SR Sample count is :"+Sc);
+				
+				System.out.println("SR Quotes & Samples count validated successfully");
+				
+				
+			}
+
+
+			@When("user validating supplier quotes displayed datas are correct or not")
+			public void user_validating_supplier_quotes_displayed_datas_are_correct_or_not() throws Throwable {
+			    
+				goToSupplierQuotes();
+				
+		    	Commonactions.isElementPresent(sp.getSupplierquotes());
+		    	ca.click(sp.getSupplierquotes());
+		    	ca.jsScrollPageDown(sp.getNewSuplrqute());
+		    	ca.eleToBeClickable();
+		    	Commonactions.isElementPresent(sp.getSupplierQuote_Filter());
+		    	ca.jsScrollPageDown(sp.getSupplierQuote_Filter());
+				ca.click(sp.getSupplierQuote_Filter());
+				ca.eleToBeClickable();
+
+				//ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-StyleSourcing-SupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+				//ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-StyleSourcing-SupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+				WebElement d =driver.findElement(By.xpath("((//div[contains(@data-csi-automation,'filter-StyleSourcing-SupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])/following-sibling::div[2]/input)[1]"));
+				try{
+				ca.insertText(d, "Changshu");
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSelectValue());
+				ca.click(sp.getSelectValue());
+				ca.eleToBeClickable();
+				WebElement b5 = ca.activeElement();
+				ca.eleToBeClickable();
+				b5.sendKeys(Keys.TAB);
+				ca.eleToBeClickable();
+				} catch (Exception e) {
+					ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-StyleSourcing-SupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+
+					WebElement b4 = ca.activeElement();
+					ca.eleToBeClickable();
+					ca.eleToBeClickable();
+					b4.sendKeys("Changshu");
+					Commonactions.isElementPresent(sp.getSelectValue());
+					ca.click(sp.getSelectValue());
+					ca.eleToBeClickable();
+					WebElement b5 = ca.activeElement();
+					ca.eleToBeClickable();
+					b5.sendKeys(Keys.TAB);
+					ca.eleToBeClickable();
+				}
+				Commonactions.isElementPresent(sp.getSRQteCount());
+				String Sc = Commonactions.getText(sp.getSRQteCount());
+				System.out.println("Supplier Quotes count is :"+Sc);
+				
+				System.out.println("Supplier Quotes count validated successfully");
+				
+				
+			}
 			
-			goToSupplierQuotes();
-			Commonactions.isElementPresent(sp.getSupplierrequest());
-	    	ca.click(sp.getSupplierrequest());
-	    	ca.eleToBeClickable();
-			Commonactions.isElementPresent(sp.getSuppRequstName1());
-	    	Commonactions.clickjs(sp.getSuppRequstName1());
-	    	ca.eleToBeClickable();
-	    	Thread.sleep(1000);
-			Commonactions.isElementPresent(sp.getSetup());
-			ca.click(sp.getSetup());
-	    	
-		}
-		
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(sp.getDeleteChangshu());
-		ca.click(sp.getDeleteChangshu());
-		Commonactions.isElementPresent(sp.getDeleteSuppQuotes());
-		ca.click(sp.getDeleteSuppQuotes());
-		Commonactions.isElementPresent(sp.getDeleteSamples());
-		ca.click(sp.getDeleteSamples());
-		Commonactions.isElementPresent(sp.getRemove());
-		ca.click(sp.getRemove());
-		
-		ca.eleToBeClickable();
-		Thread.sleep(2000);
-		
-		Commonactions.isElementPresent(sp.getDeleteSupplier());
-		ca.click(sp.getDeleteSupplier());
-		Commonactions.isElementPresent(sp.getRemove());
-		ca.click(sp.getRemove());
-		
-		ca.eleToBeClickable();
-		Thread.sleep(2000);
-		
-		System.out.println("Changshu & supplier removed successfully");
-		
-	}
+			@When("User validating style sample displayed datas are correct or not")
+			public void user_validating_style_sample_displayed_datas_are_correct_or_not() throws Throwable {
+				
+				goToStyleSamples();
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSample_Filter());
+				ca.click(sp.getSample_Filter());
+				ca.eleToBeClickable();
+				//ca.eleToBeClickable();
+				//ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+				//ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+				WebElement d = driver.findElement(By.xpath("((//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])/following-sibling::div[2]/input)[1]"));
+				ca.eleToBeClickable();
+				ca.insertText(d, "Changshu");
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSelectValue());
+				ca.click(sp.getSelectValue());
+				ca.eleToBeClickable();
+				try{
+				
+				WebElement b5 = ca.activeElement();
+				ca.eleToBeClickable();
+				b5.sendKeys(Keys.TAB);
+				ca.eleToBeClickable();
+				}catch (Exception e) {
+					ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
+					WebElement b4 = ca.activeElement();
+					ca.eleToBeClickable();
+					ca.eleToBeClickable();
+					b4.sendKeys("Changshu");
+					Commonactions.isElementPresent(sp.getSelectValue());
+					ca.click(sp.getSelectValue());
+					ca.eleToBeClickable();
+					WebElement b5 = ca.activeElement();
+					ca.eleToBeClickable();
+					b5.sendKeys(Keys.TAB);
+					ca.eleToBeClickable();
+				}
+				
+				Commonactions.isElementPresent(sp.getSampleCount());
+				String Sc = Commonactions.getText(sp.getSampleCount());
+				System.out.println("Sample count is :"+Sc);
+				
+				System.out.println("Sample count validated successfully");
+				
+				
+			}
 
-	@When("user validating supplier request and samples displayed datas are correct or not")
-	public void user_validating_supplier_request_and_samples_displayed_datas_are_correct_or_not() throws Throwable {
-	    
-		//temp------------------------------
+			@When("user creating new inspiration {string}")
+			public void user_creating_new_inspiration(String string) throws Throwable {
+				
+				goToSupplierQuotes();
+				
+			//	Commonactions.isElementPresent(sp.getSeasonsourcing());
+		    //	ca.click(sp.getSeasonsourcing());
+		    	Commonactions.isElementPresent(sp.getSupplierrequest());
+		    	ca.click(sp.getSupplierrequest());
+		    	Commonactions.isElementPresent(sp.getSuppRequstName());
+		    	ca.click(sp.getSuppRequstName());
+		    	ca.eleToBeClickable();
+		    	Thread.sleep(2000);
+		    	Commonactions.isElementPresent(sp.getSetup());
+		    	ca.click(sp.getSetup());
+		    	ca.jsMouseOver(sp.getAddproductExpand());
+		    	ca.eleToBeClickable();
+		        Commonactions.isElementPresent(sp.getAddproductExpand());
+		    	ca.click(sp.getAddproductExpand());
+		    	Commonactions.isElementPresent(sp.getNewInspirationStyle());
+		    	ca.click(sp.getNewInspirationStyle());
+		    	Commonactions.isElementPresent(sp.getNewinspirationstyleValue());
+		    	ca.insertText(sp.getNewinspirationstyleValue(), string);
+		    	Commonactions.isElementPresent(mp.getSave_btn1());
+		    	ca.click(mp.getSave_btn1());
+		    	
+		    	System.out.println("new inspiration created successfully");
+				
+			}
 
-    	ca.eleToBeClickable();
-    	//goToSupplierQuotes();
-    	
-    	//---------------------------------------------------//
-		
-		
-		Commonactions.isElementPresent(sp.getSRQuotes());
-		ca.click(sp.getSRQuotes());
-		try{
-		Commonactions.isElementPresent(sp.getSR_SQ_SuppFilter());
-		ca.click(sp.getSR_SQ_SuppFilter());
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//label[contains(text(),'Supplier')]")));
-		WebElement bc9 = ca.activeElement();
-		ca.eleToBeClickable();
-		bc9.sendKeys(Keys.TAB);
-		ca.eleToBeClickable();
-		}catch (Exception e) {
+			@When("User copy supplier request {string}")
+			public void user_copy_supplier_request(String string) throws Throwable {
+				
+				
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(sp.getSRQuotes());
+				ca.click(sp.getSRQuotes());
+				Commonactions.isElementPresent(sp.getCopySR());
+		    	ca.click(sp.getCopySR());
+				Commonactions.isElementPresent(sp.getSrttemplateExpand());
+				    	ca.click(sp.getSrttemplateExpand());
+				    	ca.eleToBeClickable();
+				    	WebElement a = ca.activeElement();
+				    	ca.eleToBeClickable();
+				    	ca.insertText(a, "SRT - Style");
+				    	ca.eleToBeClickable();
+				    	ca.jsMouseOver();
+				    	Commonactions.isElementPresent(sp.getSupplierreqvalue());
+				    	ca.insertText(sp.getSupplierreqvalue(), string);
+				    	Commonactions.isElementPresent(mp.getSave_btn1());
+				    	ca.click(mp.getSave_btn1());
+				    	
+				    	System.out.println("supplier request copy created successfully");
+			}
 			
-			System.out.println("Changshu & supplier removed successfully");
 			
-		}
-		
-		Commonactions.isElementPresent(sp.getSRQuoteCount());
-		String Qc = Commonactions.getText(sp.getSRQuoteCount());
-		System.out.println("SR Quote count is :"+Qc);
-		
-		Commonactions.isElementPresent(sp.getSRSamples());
-		ca.click(sp.getSRSamples());
+			@When("User issuing apparel SR")
+			public void user_issuing_apparel_SR() throws Throwable {
+			    
+				 goToSupplierQuotes();
+			        Commonactions.isElementPresent(sp.getSupplierrequest());
+			    	ca.click(sp.getSupplierrequest());
+			    	Commonactions.isElementPresent(sp.getSuppRequstName());
+			    	ca.click(sp.getSuppRequstName());
+			    	
+			    	ca.eleToBeClickable();
+			    	
+			    	Commonactions.isElementPresent(sp.getArrowForward());
+			    	ca.click(sp.getArrowForward());
+			    	
+			    	Thread.sleep(20000);
 
-		ca.eleToBeClickable();
-		WebElement refresh = driver.findElement(By.xpath("(//span[contains(@data-csi-automation,'plugin-SupplierRequest-StyleSamples-refresh')]/span)"));
-		ca.jsMouseOver(refresh);
-		ca.click(refresh);
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(sp.getSRSampleCount());
-		String Sc = Commonactions.getText(sp.getSRSampleCount());
-		System.out.println("SR Sample count is :"+Sc);
-		
-		System.out.println("SR Quotes & Samples count validated successfully");
-		
-		
-	}
+			    	System.out.println("Apparel SR Issued successfully");
+				
+			}
 
-
-	@When("user validating supplier quotes displayed datas are correct or not")
-	public void user_validating_supplier_quotes_displayed_datas_are_correct_or_not() throws Throwable {
-	    
-		goToSupplierQuotes();
-		
-    	Commonactions.isElementPresent(sp.getSupplierquotes());
-    	ca.click(sp.getSupplierquotes());
-    	ca.jsScrollPageDown(sp.getNewSuplrqute());
-    	ca.eleToBeClickable();
-    	Commonactions.isElementPresent(sp.getSupplierQuote_Filter());
-    	ca.jsScrollPageDown(sp.getSupplierQuote_Filter());
-		ca.click(sp.getSupplierQuote_Filter());
-		ca.eleToBeClickable();
-
-		ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-StyleSourcing-SupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-		ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-StyleSourcing-SupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-		ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-StyleSourcing-SupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-		try{
-		WebElement b4 = ca.activeElement();
-		ca.eleToBeClickable();
-		ca.eleToBeClickable();
-		b4.sendKeys("Changshu");
-		Commonactions.isElementPresent(sp.getSelectValue());
-		ca.click(sp.getSelectValue());
-		ca.eleToBeClickable();
-		WebElement b5 = ca.activeElement();
-		ca.eleToBeClickable();
-		b5.sendKeys(Keys.TAB);
-		ca.eleToBeClickable();
-		} catch (Exception e) {
-			ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-StyleSourcing-SupplierItems-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-
-			WebElement b4 = ca.activeElement();
-			ca.eleToBeClickable();
-			ca.eleToBeClickable();
-			b4.sendKeys("Changshu");
-			Commonactions.isElementPresent(sp.getSelectValue());
-			ca.click(sp.getSelectValue());
-			ca.eleToBeClickable();
-			WebElement b5 = ca.activeElement();
-			ca.eleToBeClickable();
-			b5.sendKeys(Keys.TAB);
-			ca.eleToBeClickable();
-		}
-		Commonactions.isElementPresent(sp.getSRQteCount());
-		String Sc = Commonactions.getText(sp.getSRQteCount());
-		System.out.println("Supplier Quotes count is :"+Sc);
-		
-		System.out.println("Supplier Quotes count validated successfully");
-		
-		
-	}
-	
-	@When("User validating style sample displayed datas are correct or not")
-	public void user_validating_style_sample_displayed_datas_are_correct_or_not() throws Throwable {
-		
-		goToStyleSamples();
-		
-		Commonactions.isElementPresent(sp.getSample_Filter());
-		ca.click(sp.getSample_Filter());
-		//ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-		ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-		ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-		try{
-		WebElement b4 = ca.activeElement();
-		ca.eleToBeClickable();
-		ca.eleToBeClickable();
-		b4.sendKeys("Changshu");
-		Commonactions.isElementPresent(sp.getSelectValue());
-		ca.click(sp.getSelectValue());
-		ca.eleToBeClickable();
-		WebElement b5 = ca.activeElement();
-		ca.eleToBeClickable();
-		b5.sendKeys(Keys.TAB);
-		ca.eleToBeClickable();
-		}catch (Exception e) {
-			ca.click(driver.findElement(By.xpath("(//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])[1]")));
-			WebElement b4 = ca.activeElement();
-			ca.eleToBeClickable();
-			ca.eleToBeClickable();
-			b4.sendKeys("Changshu");
-			Commonactions.isElementPresent(sp.getSelectValue());
-			ca.click(sp.getSelectValue());
-			ca.eleToBeClickable();
-			WebElement b5 = ca.activeElement();
-			ca.eleToBeClickable();
-			b5.sendKeys(Keys.TAB);
-			ca.eleToBeClickable();
-		}
-		
-		Commonactions.isElementPresent(sp.getSampleCount());
-		String Sc = Commonactions.getText(sp.getSampleCount());
-		System.out.println("Sample count is :"+Sc);
-		
-		System.out.println("Sample count validated successfully");
-		
-		
-	}
-
-	@When("user creating new inspiration {string}")
-	public void user_creating_new_inspiration(String string) {
-		
-		goToSupplierQuotes();
-		
-	//	Commonactions.isElementPresent(sp.getSeasonsourcing());
-    //	ca.click(sp.getSeasonsourcing());
-    	Commonactions.isElementPresent(sp.getSupplierrequest());
-    	ca.click(sp.getSupplierrequest());
-    	Commonactions.isElementPresent(sp.getSuppRequstName());
-    	ca.click(sp.getSuppRequstName());
-    	Commonactions.isElementPresent(sp.getSetup());
-    	ca.click(sp.getSetup());
-    	ca.jsMouseOver(sp.getAddproductExpand());
-        Commonactions.isElementPresent(sp.getAddproductExpand());
-    	ca.click(sp.getAddproductExpand());
-    	Commonactions.isElementPresent(sp.getNewInspirationStyle());
-    	ca.click(sp.getNewInspirationStyle());
-    	Commonactions.isElementPresent(sp.getNewinspirationstyleValue());
-    	ca.insertText(sp.getNewinspirationstyleValue(), string);
-    	Commonactions.isElementPresent(mp.getSave_btn1());
-    	ca.click(mp.getSave_btn1());
-    	
-    	System.out.println("new inspiration created successfully");
-		
-	}
-
-	@When("User copy supplier request {string}")
-	public void user_copy_supplier_request(String string) throws Throwable {
-		
-		
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(sp.getSRQuotes());
-		ca.click(sp.getSRQuotes());
-		Commonactions.isElementPresent(sp.getCopySR());
-    	ca.click(sp.getCopySR());
-		Commonactions.isElementPresent(sp.getSrttemplateExpand());
+			@Then("user creates issue supplier request {string},{string}")
+			public void user_creates_issue_supplier_request(String string, String string2) throws Throwable {
+			    
+				goToSupplierQuotes();
+		        Commonactions.isElementPresent(sp.getSupplierrequest());
+		    	ca.click(sp.getSupplierrequest());
+		        Commonactions.isElementPresent(sp.getNewsupplierrequestbtn());
+		    	ca.click(sp.getNewsupplierrequestbtn());
+		    	Commonactions.isElementPresent(sp.getSrttemplateExpand());
 		    	ca.click(sp.getSrttemplateExpand());
 		    	ca.eleToBeClickable();
 		    	WebElement a = ca.activeElement();
 		    	ca.eleToBeClickable();
-		    	ca.insertText(a, "SRT - Style");
+		    	ca.insertText(a, string);
 		    	ca.eleToBeClickable();
 		    	ca.jsMouseOver();
 		    	Commonactions.isElementPresent(sp.getSupplierreqvalue());
-		    	ca.insertText(sp.getSupplierreqvalue(), string);
+		    	ca.insertText(sp.getSupplierreqvalue(), string2);
+		    	Commonactions.isElementPresent(sp.getSaveAndGoBtn());
+		    	ca.click(sp.getSaveAndGoBtn());
+		    	ca.eleToBeClickable();
+
+		        Commonactions.isElementPresent(sp.getSetup());
+		    	
+		    	ca.click(sp.getSetup());
+		    	try{
+		    	Commonactions.isElementPresent(sp.getAddproduct());
+		    	ca.click(sp.getAddproduct());
+		    	}catch (Exception e) {
+		    		
+		    		driver.navigate().refresh();
+		    		Commonactions.isElementPresent(sp.getSetup());
+		        	ca.click(sp.getSetup());
+		        	Commonactions.isElementPresent(sp.getAddproduct());
+		        	ca.click(sp.getAddproduct());
+				}
+		    	Commonactions.isElementPresent(sp.getAddprodcutcheckbox());
+		    	ca.click(sp.getAddprodcutcheckbox());
+		    	Commonactions.isElementPresent(sp.getOnlySizecheckbox());
+		    	ca.click(sp.getOnlySizecheckbox());
+		    	Commonactions.isElementPresent(mp.getSave_btn1());
+		    	ca.click(mp.getSave_btn1());
+
+		    	Commonactions.isElementPresent(sp.getArrowForward());
+		    	ca.click(sp.getArrowForward());
+		    	
+		    	Thread.sleep(20000);
+
+		    	System.out.println("SR with two product Issued successfully");
+				
+			}
+			
+			
+			@When("user creates material supplier quotes")
+			public void user_creates_material_supplier_quotes() throws Throwable {
+			   
+				Commonactions.isElementPresent(hp.getMaterialBtn());
+		    	ca.click(hp.getMaterialBtn());
+				Commonactions.isElementPresent(sp.getCopyCottonName());
+		    	ca.click(sp.getCopyCottonName());
+		        Commonactions.isElementPresent(sp.getSeasonsourcing());
+		    	ca.click(sp.getSeasonsourcing());
+		    	Commonactions.isElementPresent(sp.getSupplierquotes());
+		    	ca.click(sp.getSupplierquotes());
+
+		        Commonactions.isElementPresent(sp.getNewSuplrqute());
+		    	ca.click(sp.getNewSuplrqute());
+		    	ca.eleToBeClickable();
+		    	ca.insertText(sp.getSupplierValue(), "Changshu");
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']/div")));
+				ca.eleToBeClickable();
+				WebElement a = ca.activeElement();
+				a.sendKeys(Keys.TAB);
+		       // ca.click(sp.getSupplierValue());
+		        ca.insertText(sp.getSupplierValue(), "Supplier");
+				ca.eleToBeClickable();
+				ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']/div")));
+				ca.eleToBeClickable();
+				WebElement a1 = ca.activeElement();
+				a1.sendKeys(Keys.TAB);
+		        Commonactions.isElementPresent(sp.getColorSIze());
+				ca.click(sp.getColorSIze());
+				ca.eleToBeClickable();
+		    	WebElement a7 = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	ca.insertText(a7, "Colors And Sizes");
+		    	ca.eleToBeClickable();
+		    	ca.jsMouseOver();
+		    	Commonactions.isElementPresent(sp.getSuppItemColorSel());
+		    	ca.click(sp.getSuppItemColorSel());
+		    	Commonactions.isElementPresent(sp.getSuppItemDialog());
+		    	ca.click(sp.getSuppItemDialog());
+		    	Commonactions.isElementPresent(sp.getBlueChkBx());
+		    	ca.click(sp.getBlueChkBx());
+		    	Commonactions.isElementPresent(sp.getRedCheckbox());
+		    	ca.click(sp.getRedCheckbox());
+		    	Commonactions.isElementPresent(mp.getSave_btn2());
+		    	ca.click(mp.getSave_btn2());
+
+		    	Commonactions.isElementPresent(sp.getSizes());
+		    	ca.click(sp.getSizes());
+		    	Commonactions.isElementPresent(sp.getSuppSizesDialog());
+		    	ca.click(sp.getSuppSizesDialog());
+		    	Commonactions.isElementPresent(sp.getThirtySize());
+		    	ca.click(sp.getThirtySize());
+		    	Commonactions.isElementPresent(sp.getThirtyTwoSize());
+		    	ca.click(sp.getThirtyTwoSize());
+		    	Commonactions.isElementPresent(mp.getSave_btn2());
+		    	ca.click(mp.getSave_btn2());
+		    	Commonactions.isElementPresent(mp.getSave_btn1());
+		    	ca.click(mp.getSave_btn1());
+		    	ca.eleToBeClickable();
+		    	
+		    	System.out.println("Material supplier quotes created successfully");
+
+				
+			}
+
+			@When("user creates material supplier request {string},{string}")
+			public void user_creates_material_supplier_request(String string, String string2) throws Throwable {
+			    
+
+		    	Commonactions.isElementPresent(sp.getMaterialSuppReq());
+		    	ca.click(sp.getMaterialSuppReq());
+		    	Commonactions.isElementPresent(sp.getNewsupplierrequestbtn());
+		    	ca.click(sp.getNewsupplierrequestbtn());
+		    	Commonactions.isElementPresent(sp.getSrttemplateExpand());
+		    	ca.click(sp.getSrttemplateExpand());
+		    	ca.eleToBeClickable();
+		    	WebElement a = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	ca.insertText(a, string);
+		    	ca.eleToBeClickable();
+		    	ca.jsMouseOver();
+		    	Commonactions.isElementPresent(sp.getSupplierreqvalue());
+		    	ca.insertText(sp.getSupplierreqvalue(), string2);
+		    	Commonactions.isElementPresent(sp.getSaveAndGoBtn());
+		    	ca.click(sp.getSaveAndGoBtn());
+		    	ca.eleToBeClickable();
+		    	
+		    	System.out.println("Material Supplier Request created successfully");
+		    	
+		    	Commonactions.isElementPresent(sp.getSetup());
+				ca.click(sp.getSetup());
+				try{
+				Commonactions.isElementPresent(sp.getAddSuppliers());
+				ca.click(sp.getAddSuppliers());
+				}catch (Exception e) {
+					
+					
+					driver.navigate().refresh();
+					Commonactions.isElementPresent(sp.getSetup());
+					ca.click(sp.getSetup());
+					Commonactions.isElementPresent(sp.getAddSuppliers());
+					ca.click(sp.getAddSuppliers());
+					
+				}
+				Commonactions.isElementPresent(sp.getChangshuCheckbox());
+				ca.click(sp.getChangshuCheckbox());
+		        Commonactions.isElementPresent(mp.getSave_btn1());
+			    ca.click(mp.getSave_btn1());
+			    ca.eleToBeClickable();
+		        Commonactions.isElementPresent(sp.getSRQuotes());
+			
+			    ca.click(sp.getSRQuotes());
+		        Commonactions.isElementPresent(sp.getNewsupplierreqMExpand());
+			    ca.click(sp.getNewsupplierreqMExpand());
+			    Commonactions.isElementPresent(sp.getSelectsuppQuotes());
+			    ca.click(sp.getSelectsuppQuotes());
+		        Commonactions.isElementPresent(sp.getDeleteAllChkBx());
+			    ca.click(sp.getDeleteAllChkBx());
+			    Commonactions.isElementPresent(mp.getSave_btn1());
+			    ca.click(mp.getSave_btn1());
+			    Thread.sleep(4000);
+
+		        modify();
+				
+			}
+
+			@When("user validating supplier quotes & samples")
+			public void user_removing_supplier_under_material_request_setup() throws Throwable {
+			    
+				ca.eleToBeClickable();
+				
+				Commonactions.isElementPresent(sp.getSRQuotes());
+				ca.click(sp.getSRQuotes());
+
+		         try{
+		                Commonactions.isElementPresent(sp.getMRQuoteCount());
+				String Qc = Commonactions.getText(sp.getMRQuoteCount());
+				System.out.println("SR Quote count is :"+Qc);
+		          }catch(Exception e){
+		        	  e.printStackTrace();
+		        }
+
+		 		Commonactions.isElementPresent(sp.getSRSamples());
+		 		ca.click(sp.getSRSamples());
+		         
+		        try{
+		                 Commonactions.isElementPresent(sp.getMRSampleCount());
+				String Sc = Commonactions.getText(sp.getMRSampleCount());
+				System.out.println("SR Sample count is :"+Sc);
+		     }catch(Exception e1){
+		    	 e1.printStackTrace();
+		     } 
+
+		        
+		        
+				
+			}
+
+			@When("user validating material supplier quotes")
+			public void user_validating_material_supplier_quotes() {
+				
+				Commonactions.isElementPresent(hp.getMaterialBtn());
+		    	ca.click(hp.getMaterialBtn());
+				Commonactions.isElementPresent(sp.getCopyCottonName());
+		    	ca.click(sp.getCopyCottonName());
+		        Commonactions.isElementPresent(sp.getSeasonsourcing());
+		    	ca.click(sp.getSeasonsourcing());
+		    	Commonactions.isElementPresent(sp.getSupplierquotes());
+		    	ca.click(sp.getSupplierquotes());
+
+
+		    	Commonactions.isElementPresent(sp.getMRQuoteCount());
+		    	ca.click(sp.getMRQuoteCount());
+
+		        String Sc = Commonactions.getText(sp.getMRQuoteCount());
+				System.out.println("SR Material Quote count is :"+Sc);
+			}
+
+			@When("user issuing material supplier request")
+			public void user_issuing_material_supplier_request() throws Throwable {
+
+				Commonactions.isElementPresent(sp.getMaterialSuppReq());
+		    	ca.click(sp.getMaterialSuppReq());
+				Commonactions.isElementPresent(sp.getMaterialSRName());
+		    	ca.click(sp.getMaterialSRName());
+				Commonactions.isElementPresent(sp.getSetup());
+				ca.click(sp.getSetup());
+				Commonactions.isElementPresent(sp.getAddSuppliers());
+				ca.click(sp.getAddSuppliers());
+				Commonactions.isElementPresent(sp.getChangshuCheckbox());
+				ca.click(sp.getChangshuCheckbox());
+				try{
+					Commonactions.isElementPresent(sp.getSupplierCheckbox());
+					ca.click(sp.getSupplierCheckbox());
+				}catch (Exception e) {
+					Commonactions.isElementPresent(sp.getSupplierMatCheckbox());
+					ca.click(sp.getSupplierMatCheckbox());
+				}
+
+				Commonactions.isElementPresent(mp.getSave_btn1());
+				ca.click(mp.getSave_btn1());
+				ca.eleToBeClickable();
+
+				
+				Commonactions.isElementPresent(sp.getAddMaterialProduct());
+				ca.click(sp.getAddMaterialProduct());
+				Commonactions.isElementPresent(sp.getJerseyChkbx());
+				ca.click(sp.getJerseyChkbx());
+				Commonactions.isElementPresent(sp.getJersey2Chkbx());
+				ca.click(sp.getJersey2Chkbx());
+				Commonactions.isElementPresent(mp.getSave_btn1());
+				ca.click(mp.getSave_btn1());
+				ca.eleToBeClickable();
+
+				Commonactions.isElementPresent(sp.getSRSamples());
+				ca.click(sp.getSRSamples());
+				Commonactions.isElementPresent(sp.getMRSampleCount());
+				ca.click(sp.getMRSampleCount());
+				String Sc = Commonactions.getText(sp.getMRSampleCount());
+		     	System.out.println("SR Material Sample count is :"+Sc);
+
+				Commonactions.isElementPresent(sp.getArrowForward());
+				ca.click(sp.getArrowForward());
+				
+				System.out.println("Material SR Issued successfully");
+				
+				
+			}
+
+			@When("user enters designated supplier {string} and samples details")
+			public void user_enters_designated_supplier_and_samples_details(String string) throws Throwable {
+			    
+				goToSupplierQuotes();
+		    	Commonactions.isElementPresent(sp.getSupplierquotes());
+		    	ca.click(sp.getSupplierquotes());
+
+
+		       /* Commonactions.isElementPresent(sm.getDesignatedSupplier());
+		        ca.click(sm.getDesignatedSupplier());
+		        ca.eleToBeClickable();
+		    	WebElement a7 = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	ca.insertText(a7, string);
+		    	ca.eleToBeClickable();
+		    	ca.jsMouseOver();*/
+
+		        
+
+		        Commonactions.isElementPresent(sm.getSampleSupplierQuote());
+		        ca.click(sm.getSampleSupplierQuote());
+		        ca.eleToBeClickable();
+		    	WebElement a8 = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	ca.insertText(a8, "Template");
+		    	ca.eleToBeClickable();
+		    	ca.jsMouseOver();
+
+
+		      /*  Commonactions.isElementPresent(sm.getProductionSupplierQuote());
+		        ca.click(sm.getProductionSupplierQuote());
+		        ca.eleToBeClickable();
+		    	WebElement a9 = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	ca.insertText(a9, "Template");
+		    	ca.eleToBeClickable();
+		    	ca.jsMouseOver();*/
+		    	
+		    	System.out.println("Supplier Quote updated successfully");
+				
+			}
+
+			@When("User Creates supplier request template without style {string},{string}")
+			public void user_Creates_supplier_request_template_without_style(String string, String string2) throws Throwable {
+				//Commonactions.isElementPresent(hp.getStyleBtn());
+		    	//ca.click(hp.getStyleBtn());
+				
+				/*List<WebElement> index = driver.findElements(By.xpath("//span[text()='Style' or @data-csi-tab-name='Style']"));
+		    	int i = index.size();
+		    	if(i==2){
+		    		ca.eleToBeClickable();
+		    		ca.click(driver.findElement(By.xpath("(//span[text()='Style' or @data-csi-tab-name='Style'])[2]")));
+		    	}else{
+		    		Commonactions.isElementPresent(hp.getStyleBtn());
+			    	ca.click(hp.getStyleBtn());
+		    	}*/
+				goToSupplierQuotes();
+				
+				Commonactions.isElementPresent(sm.getSupplierRequests());
+		    	ca.click(sm.getSupplierRequests());
+
+		    	Commonactions.isElementPresent(sp.getNewsupplierrequestbtn());
+		    	ca.click(sp.getNewsupplierrequestbtn());
+		    	try{
+		        	Commonactions.isElementPresent(sp.getSrttemplateExpand());
+		        	ca.click(sp.getSrttemplateExpand());
+		        	ca.eleToBeClickable();
+		        	WebElement a = ca.activeElement();
+		        	ca.eleToBeClickable();
+		        	ca.insertText(a, string);
+		        	ca.eleToBeClickable();
+		        	ca.jsMouseOver();
+		        	}catch (Exception e) {
+		                e.printStackTrace();
+		             }
+		    	Commonactions.isElementPresent(sp.getSupplierreqvalue()); 
+		    	ca.insertText(sp.getSupplierreqvalue(), string2);
+		        Commonactions.isElementPresent(sp.getSaveAndGoBtn());
+		    	ca.click(sp.getSaveAndGoBtn());
+		    	ca.eleToBeClickable();
+		    	Commonactions.isElementPresent(sp.getSRQuotes());
+		    	ca.click(sp.getSRQuotes());
+		    	Scenario scenario = null;
+		    	ca.eleToBeClickable();
+		    	Commonactions.isElementPresent(sm.getNoResults());
+		        String result = Commonactions.getText(sm.getNoResults());
+		        if(result.equals("No Results Found")){
+		        	System.out.println("Quote value not updated So defect, Please find the attached screenshot");
+		        	SimpleDateFormat sdfDate = new SimpleDateFormat("mmss");//dd/MM/yyyy
+		            Date now = new Date();
+		            String strDate = sdfDate.format(now); 
+		        	Commonactions.screenCapture("target//defect"+strDate+"//png");	
+		        }
+			}
+
+			@When("validating copy and delete action {string}")
+			public void validating_copy_and_delete_action(String string) throws Throwable {
+				//Commonactions.isElementPresent(hp.getStyleBtn());
+		    	//ca.click(hp.getStyleBtn());
+				
+		    	
+		    	
+		    	goToSupplierQuotes();
+				
+		    	Commonactions.isElementPresent(sm.getSupplierRequests());
+		    	ca.click(sm.getSupplierRequests());
+		    	Commonactions.isElementPresent(sm.getStyleSR_Copy());
+		    	ca.click(sm.getStyleSR_Copy());
+
+
+
+		        Commonactions.isElementPresent(sp.getSupplierreqvalue()); 
+		    	ca.insertText(sp.getSupplierreqvalue(), string+" - Copied");
+		        Commonactions.isElementPresent(sp.getSaveAndGoBtn());
+		    	ca.click(sp.getSaveAndGoBtn());
+
+		    	Scenario scenario = null;
+		   //     String result = Commonactions.getText(sm.getNoResults());
+		    //    if(result.equals("No Results Found")){
+		        	System.out.println("Quote value not updated So defect, Please find the attached screenshot");
+		        	SimpleDateFormat sdfDate = new SimpleDateFormat("mmss");//dd/MM/yyyy
+		            Date now = new Date();
+		            String strDate = sdfDate.format(now);
+		           
+		        	Commonactions.screenCapture("target//defect"+strDate+"//png");
+		        	
+		    //    }
+
+		        Thread.sleep(3000);
+		        ca.click(hp.getUser_homeBtn()); 
+		        ca.eleToBeClickable();
+			    System.out.println("home tab clicked successfully");
+			    
+			    goToSupplierQuotes();
+
+		        Commonactions.isElementPresent(sm.getSupplierRequests());
+		    	ca.click(sm.getSupplierRequests());
+		    	Commonactions.isElementPresent(sm.getStyleSR_Delete());
+		     	ca.click(sm.getStyleSR_Delete());
+		     	Commonactions.isElementPresent(sm.getDeleteSRSuppQts());
+		     	ca.click(sm.getDeleteSRSuppQts());
+		     	Commonactions.isElementPresent(sm.getDeleteSRSample());
+		     	ca.click(sm.getDeleteSRSample());
+
+
+		        Commonactions.isElementPresent(sp.getDelete());
+				ca.click(sp.getDelete());
+				
+				ca.eleToBeClickable();
+				Thread.sleep(2000);
+				
+				System.out.println("Copied Template deleted successfully");
+			}
+
+			@When("User Creates supplier request template with style {string},{string},{string}")
+			public void user_Creates_supplier_request_template_with_style(String string, String string2, String string3) throws Throwable {
+				
+				
+		    	Commonactions.isElementPresent(sp.getNewsupplierrequestbtn());
+		    	ca.click(sp.getNewsupplierrequestbtn());
+		    	try{
+		    	Commonactions.isElementPresent(sp.getSrttemplateExpand());
+		    	ca.click(sp.getSrttemplateExpand());
+		    	ca.eleToBeClickable();
+		    	WebElement a = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	ca.insertText(a, string);
+		    	ca.eleToBeClickable();
+		    	ca.jsMouseOver();
+		    	}catch (Exception e) {
+		            e.printStackTrace();
+		         }
+		    	Commonactions.isElementPresent(sp.getSupplierreqvalue()); 
+		        ca.insertText(sp.getSupplierreqvalue(), string2);
+		        ca.eleToBeClickable();
+		        WebElement a4 = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	a4.sendKeys(Keys.TAB);
+		    	ca.eleToBeClickable();
+		    	WebElement a6 = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	a6.sendKeys(Keys.TAB);
+		    	ca.eleToBeClickable();
+		        WebElement a5 = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	//ca.insertText(a5, string3);
+		        /*Commonactions.isElementPresent(sm.getSR_StyleValue()); 
+		        ca.insertText(sm.getSR_StyleValue(), string3);*/
+		        ca.eleToBeClickable();
+		    	//ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']/div")));
+				ca.eleToBeClickable();
+				WebElement a1= ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	a1.sendKeys(Keys.TAB);
+		        Commonactions.isElementPresent(mp.getSave_btn1());
+		    	ca.click(mp.getSave_btn1());
+		    	ca.eleToBeClickable();
+		    	
+		    	System.out.println("SR with style created successfully");
+			}
+
+			@When("user validating style template updated correctly or not")
+			public void user_validating_style_template_updated_correctly_or_not() throws Throwable {
+				Commonactions.isElementPresent(hp.getStyleBtn());
+		    	ca.click(hp.getStyleBtn());
+		    	Commonactions.isElementPresent(sm.getSeason_Btn());
+		    	ca.click(sm.getSeason_Btn());
+
+		    	Commonactions.isElementPresent(sm.getWinterSeason());
+		    	ca.click(sm.getWinterSeason());
+		    	Commonactions.isElementPresent(st.getStyles_Btn());
+		    	ca.click(st.getStyles_Btn());
+		    	Commonactions.isElementPresent(sm.getClrAndSize());
+		    	ca.click(sm.getClrAndSize());
+		        Commonactions.isElementPresent(sp.getSeasonsourcing());
+		    	ca.click(sp.getSeasonsourcing());
+		        Commonactions.isElementPresent(sp.getSupplierrequest());
+		    	ca.click(sp.getSupplierrequest());
+
+		    	ca.eleToBeClickable();
+		        String text = Commonactions.getText(driver.findElement(By.xpath("(//td[@data-csi-heading='Node Name::0']/a[contains(text(),'Home')])[1]")));
+		        System.out.println(text);
+		        Assert.assertEquals("Style Home - Jeans", text);
+		        
+		        System.out.println("Style SR validated successfully");
+			}
+
+			@When("User issuing without style template")
+			public void user_issuing_without_style_template() throws Throwable {
+				
+				Commonactions.isElementPresent(hp.getStyleBtn());
+		    	ca.click(hp.getStyleBtn());
+		    	Commonactions.isElementPresent(sm.getSupplierRequests());
+		    	ca.click(sm.getSupplierRequests());
+		    	Commonactions.isElementPresent(sm.getStyleIssue_Name());
+		    	ca.click(sm.getStyleIssue_Name());
+		    	ca.eleToBeClickable();
+			    	
+			    	Commonactions.isElementPresent(sp.getArrowForward());
+			    	ca.click(sp.getArrowForward());
+			    	
+			    	Thread.sleep(20000);
+
+			    	System.out.println("Style SR Issued successfully");
+			}
+
+			@When("user enters designated supplier {string} and template details")
+			public void user_enters_designated_supplier_and_template_details(String string) throws Throwable {
+				Commonactions.isElementPresent(hp.getMaterialBtn());
+		    	ca.click(hp.getMaterialBtn());
+				Commonactions.isElementPresent(sp.getCopyCottonName());
+		    	ca.click(sp.getCopyCottonName());
+		        Commonactions.isElementPresent(sp.getSeasonsourcing());
+		    	ca.click(sp.getSeasonsourcing());
+		    	Commonactions.isElementPresent(sp.getSupplierquotes());
+		    	ca.click(sp.getSupplierquotes());
+		    	Commonactions.isElementPresent(sm.getDesignatedSupplier());
+		    	ca.click(sm.getDesignatedSupplier());
+
+		        ca.eleToBeClickable();
+		    	WebElement a7 = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	ca.insertText(a7, string);
+		    	ca.eleToBeClickable();
+		    	ca.jsMouseOver();
+		    	
+		    	//Commonactions.isElementPresent(sm.getDefaultSuppQuote());
+		    	//ca.click(sm.getDefaultSuppQuote());
+
+		        ca.eleToBeClickable();
+		    	WebElement a8 = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	ca.insertText(a8, "Template");
+		    	ca.eleToBeClickable();
+		    	ca.jsMouseOver();
+		    	
+		    	System.out.println("Material supplier quote updated successfully");
+
+			}
+
+			@When("User creates material product blended cost {string}")
+			public void user_creates_material_product_blended_cost(String string) throws Throwable {
+				
+				Commonactions.isElementPresent(sp.getNewproductbendcost());
+		    	ca.click(sp.getNewproductbendcost());
+		    	ca.eleToBeClickable();
+		    	WebElement a = ca.activeElement();
+		    	ca.eleToBeClickable();
+		    	ca.insertText(a, string);
+		    	ca.eleToBeClickable();
+		    	a.sendKeys(Keys.TAB);
+		    //	Commonactions.isElementPresent(sp.getProductPlusIcon());
+		    //	ca.click(sp.getProductPlusIcon());
+		    //	Commonactions.isElementPresent(sp.getBlendcostcheckbox());
+		    //	ca.click(sp.getBlendcostcheckbox());
+		    	Commonactions.isElementPresent(sp.getBlendcostAction());
+		    	ca.click(sp.getBlendcostAction());
+		    	Commonactions.isElementPresent(sp.getSelectsuppQuotes());
+		    	ca.click(sp.getSelectsuppQuotes());
+		    	Commonactions.isElementPresent(sp.getSelectsupquotechecckbox());
+		    	ca.click(sp.getSelectsupquotechecckbox());
 		    	Commonactions.isElementPresent(mp.getSave_btn1());
 		    	ca.click(mp.getSave_btn1());
 		    	
-		    	System.out.println("supplier request copy created successfully");
-	}
-	
-	
-	@When("User issuing apparel SR")
-	public void user_issuing_apparel_SR() throws Throwable {
-	    
-		 goToSupplierQuotes();
-	        Commonactions.isElementPresent(sp.getSupplierrequest());
-	    	ca.click(sp.getSupplierrequest());
-	    	Commonactions.isElementPresent(sp.getSuppRequstName());
-	    	ca.click(sp.getSuppRequstName());
-	    	
-	    	ca.eleToBeClickable();
-	    	
-	    	Commonactions.isElementPresent(sp.getArrowForward());
-	    	ca.click(sp.getArrowForward());
-	    	
-	    	Thread.sleep(20000);
+		    	System.out.println("Product Blend Cost Created successfully");
+			}
 
-	    	System.out.println("Apparel SR Issued successfully");
-		
-	}
-
-	@Then("user creates issue supplier request {string},{string}")
-	public void user_creates_issue_supplier_request(String string, String string2) throws Throwable {
-	    
-		goToSupplierQuotes();
-        Commonactions.isElementPresent(sp.getSupplierrequest());
-    	ca.click(sp.getSupplierrequest());
-        Commonactions.isElementPresent(sp.getNewsupplierrequestbtn());
-    	ca.click(sp.getNewsupplierrequestbtn());
-    	Commonactions.isElementPresent(sp.getSrttemplateExpand());
-    	ca.click(sp.getSrttemplateExpand());
-    	ca.eleToBeClickable();
-    	WebElement a = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a, string);
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-    	Commonactions.isElementPresent(sp.getSupplierreqvalue());
-    	ca.insertText(sp.getSupplierreqvalue(), string2);
-    	Commonactions.isElementPresent(sp.getSaveAndGoBtn());
-    	ca.click(sp.getSaveAndGoBtn());
-    	ca.eleToBeClickable();
-
-        Commonactions.isElementPresent(sp.getSetup());
-    	
-    	ca.click(sp.getSetup());
-    	try{
-    	Commonactions.isElementPresent(sp.getAddproduct());
-    	ca.click(sp.getAddproduct());
-    	}catch (Exception e) {
-    		
-    		driver.navigate().refresh();
-    		Commonactions.isElementPresent(sp.getSetup());
-        	ca.click(sp.getSetup());
-        	Commonactions.isElementPresent(sp.getAddproduct());
-        	ca.click(sp.getAddproduct());
-		}
-    	Commonactions.isElementPresent(sp.getAddprodcutcheckbox());
-    	ca.click(sp.getAddprodcutcheckbox());
-    	Commonactions.isElementPresent(sp.getOnlySizecheckbox());
-    	ca.click(sp.getOnlySizecheckbox());
-    	Commonactions.isElementPresent(mp.getSave_btn1());
-    	ca.click(mp.getSave_btn1());
-
-    	Commonactions.isElementPresent(sp.getArrowForward());
-    	ca.click(sp.getArrowForward());
-    	
-    	Thread.sleep(20000);
-
-    	System.out.println("SR with two product Issued successfully");
-		
-	}
-	
-	
-	@When("user creates material supplier quotes")
-	public void user_creates_material_supplier_quotes() throws Throwable {
-	   
-		Commonactions.isElementPresent(hp.getMaterialBtn());
-    	ca.click(hp.getMaterialBtn());
-		Commonactions.isElementPresent(sp.getCopyCottonName());
-    	ca.click(sp.getCopyCottonName());
-        Commonactions.isElementPresent(sp.getSeasonsourcing());
-    	ca.click(sp.getSeasonsourcing());
-    	Commonactions.isElementPresent(sp.getSupplierquotes());
-    	ca.click(sp.getSupplierquotes());
-
-        Commonactions.isElementPresent(sp.getNewSuplrqute());
-    	ca.click(sp.getNewSuplrqute());
-    	ca.eleToBeClickable();
-    	ca.insertText(sp.getSupplierValue(), "Changshu");
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']/div")));
-		ca.eleToBeClickable();
-		WebElement a = ca.activeElement();
-		a.sendKeys(Keys.TAB);
-       // ca.click(sp.getSupplierValue());
-        ca.insertText(sp.getSupplierValue(), "Supplier");
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']/div")));
-		ca.eleToBeClickable();
-		WebElement a1 = ca.activeElement();
-		a1.sendKeys(Keys.TAB);
-        Commonactions.isElementPresent(sp.getColorSIze());
-		ca.click(sp.getColorSIze());
-		ca.eleToBeClickable();
-    	WebElement a7 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a7, "Colors And Sizes");
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-    	Commonactions.isElementPresent(sp.getSuppItemColorSel());
-    	ca.click(sp.getSuppItemColorSel());
-    	Commonactions.isElementPresent(sp.getSuppItemDialog());
-    	ca.click(sp.getSuppItemDialog());
-    	Commonactions.isElementPresent(sp.getBlueChkBx());
-    	ca.click(sp.getBlueChkBx());
-    	Commonactions.isElementPresent(sp.getRedCheckbox());
-    	ca.click(sp.getRedCheckbox());
-    	Commonactions.isElementPresent(mp.getSave_btn2());
-    	ca.click(mp.getSave_btn2());
-
-    	Commonactions.isElementPresent(sp.getSizes());
-    	ca.click(sp.getSizes());
-    	Commonactions.isElementPresent(sp.getSuppSizesDialog());
-    	ca.click(sp.getSuppSizesDialog());
-    	Commonactions.isElementPresent(sp.getThirtySize());
-    	ca.click(sp.getThirtySize());
-    	Commonactions.isElementPresent(sp.getThirtyTwoSize());
-    	ca.click(sp.getThirtyTwoSize());
-    	Commonactions.isElementPresent(mp.getSave_btn2());
-    	ca.click(mp.getSave_btn2());
-    	Commonactions.isElementPresent(mp.getSave_btn1());
-    	ca.click(mp.getSave_btn1());
-    	ca.eleToBeClickable();
-    	
-    	System.out.println("Material supplier quotes created successfully");
-
-		
-	}
-
-	@When("user creates material supplier request {string},{string}")
-	public void user_creates_material_supplier_request(String string, String string2) throws Throwable {
-	    
-
-    	Commonactions.isElementPresent(sp.getMaterialSuppReq());
-    	ca.click(sp.getMaterialSuppReq());
-    	Commonactions.isElementPresent(sp.getNewsupplierrequestbtn());
-    	ca.click(sp.getNewsupplierrequestbtn());
-    	Commonactions.isElementPresent(sp.getSrttemplateExpand());
-    	ca.click(sp.getSrttemplateExpand());
-    	ca.eleToBeClickable();
-    	WebElement a = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a, string);
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-    	Commonactions.isElementPresent(sp.getSupplierreqvalue());
-    	ca.insertText(sp.getSupplierreqvalue(), string2);
-    	Commonactions.isElementPresent(sp.getSaveAndGoBtn());
-    	ca.click(sp.getSaveAndGoBtn());
-    	ca.eleToBeClickable();
-    	
-    	System.out.println("Material Supplier Request created successfully");
-    	
-    	Commonactions.isElementPresent(sp.getSetup());
-		ca.click(sp.getSetup());
-		try{
-		Commonactions.isElementPresent(sp.getAddSuppliers());
-		ca.click(sp.getAddSuppliers());
-		}catch (Exception e) {
 			
-			
-			driver.navigate().refresh();
-			Commonactions.isElementPresent(sp.getSetup());
-			ca.click(sp.getSetup());
-			Commonactions.isElementPresent(sp.getAddSuppliers());
-			ca.click(sp.getAddSuppliers());
-			
+
 		}
-		Commonactions.isElementPresent(sp.getChangshuCheckbox());
-		ca.click(sp.getChangshuCheckbox());
-        Commonactions.isElementPresent(mp.getSave_btn1());
-	    ca.click(mp.getSave_btn1());
-	    ca.eleToBeClickable();
-        Commonactions.isElementPresent(sp.getSRQuotes());
-	
-	    ca.click(sp.getSRQuotes());
-        Commonactions.isElementPresent(sp.getNewsupplierreqMExpand());
-	    ca.click(sp.getNewsupplierreqMExpand());
-	    Commonactions.isElementPresent(sp.getSelectsuppQuotes());
-	    ca.click(sp.getSelectsuppQuotes());
-        Commonactions.isElementPresent(sp.getDeleteAllChkBx());
-	    ca.click(sp.getDeleteAllChkBx());
-	    Commonactions.isElementPresent(mp.getSave_btn1());
-	    ca.click(mp.getSave_btn1());
-	    Thread.sleep(4000);
-
-        modify();
-		
-	}
-
-	@When("user validating supplier quotes & samples")
-	public void user_removing_supplier_under_material_request_setup() throws Throwable {
-	    
-		ca.eleToBeClickable();
-		
-		Commonactions.isElementPresent(sp.getSRQuotes());
-		ca.click(sp.getSRQuotes());
-
-         try{
-                Commonactions.isElementPresent(sp.getMRQuoteCount());
-		String Qc = Commonactions.getText(sp.getMRQuoteCount());
-		System.out.println("SR Quote count is :"+Qc);
-          }catch(Exception e){
-        	  e.printStackTrace();
-        }
-
- 		Commonactions.isElementPresent(sp.getSRSamples());
- 		ca.click(sp.getSRSamples());
-         
-        try{
-                 Commonactions.isElementPresent(sp.getMRSampleCount());
-		String Sc = Commonactions.getText(sp.getMRSampleCount());
-		System.out.println("SR Sample count is :"+Sc);
-     }catch(Exception e1){
-    	 e1.printStackTrace();
-     } 
-
-        
-        
-		
-	}
-
-	@When("user validating material supplier quotes")
-	public void user_validating_material_supplier_quotes() {
-		
-		Commonactions.isElementPresent(hp.getMaterialBtn());
-    	ca.click(hp.getMaterialBtn());
-		Commonactions.isElementPresent(sp.getCopyCottonName());
-    	ca.click(sp.getCopyCottonName());
-        Commonactions.isElementPresent(sp.getSeasonsourcing());
-    	ca.click(sp.getSeasonsourcing());
-    	Commonactions.isElementPresent(sp.getSupplierquotes());
-    	ca.click(sp.getSupplierquotes());
-
-
-    	Commonactions.isElementPresent(sp.getMRQuoteCount());
-    	ca.click(sp.getMRQuoteCount());
-
-        String Sc = Commonactions.getText(sp.getMRQuoteCount());
-		System.out.println("SR Material Quote count is :"+Sc);
-	}
-
-	@When("user issuing material supplier request")
-	public void user_issuing_material_supplier_request() throws Throwable {
-
-		Commonactions.isElementPresent(sp.getMaterialSuppReq());
-    	ca.click(sp.getMaterialSuppReq());
-		Commonactions.isElementPresent(sp.getMaterialSRName());
-    	ca.click(sp.getMaterialSRName());
-		Commonactions.isElementPresent(sp.getSetup());
-		ca.click(sp.getSetup());
-		Commonactions.isElementPresent(sp.getAddSuppliers());
-		ca.click(sp.getAddSuppliers());
-		Commonactions.isElementPresent(sp.getChangshuCheckbox());
-		ca.click(sp.getChangshuCheckbox());
-		try{
-			Commonactions.isElementPresent(sp.getSupplierCheckbox());
-			ca.click(sp.getSupplierCheckbox());
-		}catch (Exception e) {
-			Commonactions.isElementPresent(sp.getSupplierMatCheckbox());
-			ca.click(sp.getSupplierMatCheckbox());
-		}
-
-		Commonactions.isElementPresent(mp.getSave_btn1());
-		ca.click(mp.getSave_btn1());
-		ca.eleToBeClickable();
-
-		
-		Commonactions.isElementPresent(sp.getAddMaterialProduct());
-		ca.click(sp.getAddMaterialProduct());
-		Commonactions.isElementPresent(sp.getJerseyChkbx());
-		ca.click(sp.getJerseyChkbx());
-		Commonactions.isElementPresent(sp.getJersey2Chkbx());
-		ca.click(sp.getJersey2Chkbx());
-		Commonactions.isElementPresent(mp.getSave_btn1());
-		ca.click(mp.getSave_btn1());
-		ca.eleToBeClickable();
-
-		Commonactions.isElementPresent(sp.getSRSamples());
-		ca.click(sp.getSRSamples());
-		Commonactions.isElementPresent(sp.getMRSampleCount());
-		ca.click(sp.getMRSampleCount());
-		String Sc = Commonactions.getText(sp.getMRSampleCount());
-     	System.out.println("SR Material Sample count is :"+Sc);
-
-		Commonactions.isElementPresent(sp.getArrowForward());
-		ca.click(sp.getArrowForward());
-		
-		System.out.println("Material SR Issued successfully");
-		
-		
-	}
-
-	@When("user enters designated supplier {string} and samples details")
-	public void user_enters_designated_supplier_and_samples_details(String string) throws Throwable {
-	    
-		goToSupplierQuotes();
-    	Commonactions.isElementPresent(sp.getSupplierquotes());
-    	ca.click(sp.getSupplierquotes());
-
-
-        Commonactions.isElementPresent(sm.getDesignatedSupplier());
-        ca.click(sm.getDesignatedSupplier());
-        ca.eleToBeClickable();
-    	WebElement a7 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a7, string);
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-
-
-      //  Commonactions.isElementPresent(sm.getSampleSupplierQuote());
-      //  ca.click(sm.getSampleSupplierQuote());
-        ca.eleToBeClickable();
-    	WebElement a8 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a8, "Template");
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-
-
-        Commonactions.isElementPresent(sm.getProductionSupplierQuote());
-        ca.click(sm.getProductionSupplierQuote());
-        ca.eleToBeClickable();
-    	WebElement a9 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a9, "Template");
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-    	
-    	System.out.println("Supplier Quote updated successfully");
-		
-	}
-
-	@When("User Creates supplier request template without style {string},{string}")
-	public void user_Creates_supplier_request_template_without_style(String string, String string2) throws Throwable {
-		Commonactions.isElementPresent(hp.getStyleBtn());
-    	ca.click(hp.getStyleBtn());
-    	Commonactions.isElementPresent(sm.getSupplierRequests());
-    	ca.click(sm.getSupplierRequests());
-
-    	Commonactions.isElementPresent(sp.getNewsupplierrequestbtn());
-    	ca.click(sp.getNewsupplierrequestbtn());
-    	try{
-        	Commonactions.isElementPresent(sp.getSrttemplateExpand());
-        	ca.click(sp.getSrttemplateExpand());
-        	ca.eleToBeClickable();
-        	WebElement a = ca.activeElement();
-        	ca.eleToBeClickable();
-        	ca.insertText(a, string);
-        	ca.eleToBeClickable();
-        	ca.jsMouseOver();
-        	}catch (Exception e) {
-                e.printStackTrace();
-             }
-    	Commonactions.isElementPresent(sp.getSupplierreqvalue()); 
-    	ca.insertText(sp.getSupplierreqvalue(), string2);
-        Commonactions.isElementPresent(sp.getSaveAndGoBtn());
-    	ca.click(sp.getSaveAndGoBtn());
-
-    	Scenario scenario = null;
-        String result = Commonactions.getText(sm.getNoResults());
-        if(result.equals("No Results Found")){
-        	System.out.println("Quote value not updated So defect, Please find the attached screenshot");
-        	SimpleDateFormat sdfDate = new SimpleDateFormat("mmss");//dd/MM/yyyy
-            Date now = new Date();
-            String strDate = sdfDate.format(now);
-           
-        	Commonactions.screenCapture("target//defect"+strDate+"//png");
-        	
-        }
-
-	}
-
-	@When("validating copy and delete action {string}")
-	public void validating_copy_and_delete_action(String string) throws Throwable {
-		Commonactions.isElementPresent(hp.getStyleBtn());
-    	ca.click(hp.getStyleBtn());
-    	Commonactions.isElementPresent(sm.getSupplierRequests());
-    	ca.click(sm.getSupplierRequests());
-    	Commonactions.isElementPresent(sm.getStyleSR_Copy());
-    	ca.click(sm.getStyleSR_Copy());
-
-
-
-        Commonactions.isElementPresent(sp.getSupplierreqvalue()); 
-    	ca.insertText(sp.getSupplierreqvalue(), string+" - Copied");
-        Commonactions.isElementPresent(sp.getSaveAndGoBtn());
-    	ca.click(sp.getSaveAndGoBtn());
-
-    	Scenario scenario = null;
-   //     String result = Commonactions.getText(sm.getNoResults());
-    //    if(result.equals("No Results Found")){
-        	System.out.println("Quote value not updated So defect, Please find the attached screenshot");
-        	SimpleDateFormat sdfDate = new SimpleDateFormat("mmss");//dd/MM/yyyy
-            Date now = new Date();
-            String strDate = sdfDate.format(now);
-           
-        	Commonactions.screenCapture("target//defect"+strDate+"//png");
-        	
-    //    }
-
-        Thread.sleep(3000);
-        ca.click(hp.getUser_homeBtn()); 
-        ca.eleToBeClickable();
-	    System.out.println("home tab clicked successfully");
-
-        Commonactions.isElementPresent(hp.getStyleBtn());
-    	ca.click(hp.getStyleBtn());
-    	Commonactions.isElementPresent(sm.getStyleSR_Delete());
-     	ca.click(sm.getStyleSR_Delete());
-     	Commonactions.isElementPresent(sm.getDeleteSRSuppQts());
-     	ca.click(sm.getDeleteSRSuppQts());
-     	Commonactions.isElementPresent(sm.getDeleteSRSample());
-     	ca.click(sm.getDeleteSRSample());
-
-
-        Commonactions.isElementPresent(sp.getDelete());
-		ca.click(sp.getDelete());
-		
-		ca.eleToBeClickable();
-		Thread.sleep(2000);
-		
-		System.out.println("Copied Template deleted successfully");
-	}
-
-	@When("User Creates supplier request template with style {string},{string},{string}")
-	public void user_Creates_supplier_request_template_with_style(String string, String string2, String string3) throws Throwable {
-		
-		
-    	Commonactions.isElementPresent(sp.getNewsupplierrequestbtn());
-    	ca.click(sp.getNewsupplierrequestbtn());
-    	try{
-    	Commonactions.isElementPresent(sp.getSrttemplateExpand());
-    	ca.click(sp.getSrttemplateExpand());
-    	ca.eleToBeClickable();
-    	WebElement a = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a, string);
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-    	}catch (Exception e) {
-            e.printStackTrace();
-         }
-    	Commonactions.isElementPresent(sp.getSupplierreqvalue()); 
-        ca.insertText(sp.getSupplierreqvalue(), string2);
-        ca.eleToBeClickable();
-        WebElement a4 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	a4.sendKeys(Keys.TAB);
-    	ca.eleToBeClickable();
-    	WebElement a6 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	a6.sendKeys(Keys.TAB);
-    	ca.eleToBeClickable();
-        WebElement a5 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a5, string3);
-        /*Commonactions.isElementPresent(sm.getSR_StyleValue()); 
-        ca.insertText(sm.getSR_StyleValue(), string3);*/
-        ca.eleToBeClickable();
-    	ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']/div")));
-		ca.eleToBeClickable();
-		WebElement a1= ca.activeElement();
-    	ca.eleToBeClickable();
-    	a1.sendKeys(Keys.TAB);
-        Commonactions.isElementPresent(mp.getSave_btn1());
-    	ca.click(mp.getSave_btn1());
-    	ca.eleToBeClickable();
-    	
-    	System.out.println("SR with style created successfully");
-	}
-
-	@When("user validating style template updated correctly or not")
-	public void user_validating_style_template_updated_correctly_or_not() throws Throwable {
-		Commonactions.isElementPresent(hp.getStyleBtn());
-    	ca.click(hp.getStyleBtn());
-    	Commonactions.isElementPresent(sm.getSeason_Btn());
-    	ca.click(sm.getSeason_Btn());
-
-    	Commonactions.isElementPresent(sm.getWinterSeason());
-    	ca.click(sm.getWinterSeason());
-    	Commonactions.isElementPresent(st.getStyles_Btn());
-    	ca.click(st.getStyles_Btn());
-    	Commonactions.isElementPresent(sm.getClrAndSize());
-    	ca.click(sm.getClrAndSize());
-        Commonactions.isElementPresent(sp.getSeasonsourcing());
-    	ca.click(sp.getSeasonsourcing());
-        Commonactions.isElementPresent(sp.getSupplierrequest());
-    	ca.click(sp.getSupplierrequest());
-
-    	ca.eleToBeClickable();
-        String text = Commonactions.getText(driver.findElement(By.xpath("(//td[@data-csi-heading='Node Name::0']/a[contains(text(),'Home')])[1]")));
-        System.out.println(text);
-        Assert.assertEquals("Style Home - Jeans", text);
-        
-        System.out.println("Style SR validated successfully");
-	}
-
-	@When("User issuing without style template")
-	public void user_issuing_without_style_template() throws Throwable {
-		
-		Commonactions.isElementPresent(hp.getStyleBtn());
-    	ca.click(hp.getStyleBtn());
-    	Commonactions.isElementPresent(sm.getSupplierRequests());
-    	ca.click(sm.getSupplierRequests());
-    	Commonactions.isElementPresent(sm.getStyleIssue_Name());
-    	ca.click(sm.getStyleIssue_Name());
-    	ca.eleToBeClickable();
-	    	
-	    	Commonactions.isElementPresent(sp.getArrowForward());
-	    	ca.click(sp.getArrowForward());
-	    	
-	    	Thread.sleep(20000);
-
-	    	System.out.println("Style SR Issued successfully");
-	}
-
-	@When("user enters designated supplier {string} and template details")
-	public void user_enters_designated_supplier_and_template_details(String string) throws Throwable {
-		Commonactions.isElementPresent(hp.getMaterialBtn());
-    	ca.click(hp.getMaterialBtn());
-		Commonactions.isElementPresent(sp.getCopyCottonName());
-    	ca.click(sp.getCopyCottonName());
-        Commonactions.isElementPresent(sp.getSeasonsourcing());
-    	ca.click(sp.getSeasonsourcing());
-    	Commonactions.isElementPresent(sp.getSupplierquotes());
-    	ca.click(sp.getSupplierquotes());
-    	Commonactions.isElementPresent(sm.getDesignatedSupplier());
-    	ca.click(sm.getDesignatedSupplier());
-
-        ca.eleToBeClickable();
-    	WebElement a7 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a7, string);
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-    	
-    	//Commonactions.isElementPresent(sm.getDefaultSuppQuote());
-    	//ca.click(sm.getDefaultSuppQuote());
-
-        ca.eleToBeClickable();
-    	WebElement a8 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a8, "Template");
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-    	
-    	System.out.println("Material supplier quote updated successfully");
-
-	}
-
-	@When("User creates material product blended cost {string}")
-	public void user_creates_material_product_blended_cost(String string) throws Throwable {
-		
-		Commonactions.isElementPresent(sp.getNewproductbendcost());
-    	ca.click(sp.getNewproductbendcost());
-    	ca.eleToBeClickable();
-    	WebElement a = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a, string);
-    	ca.eleToBeClickable();
-    	a.sendKeys(Keys.TAB);
-    //	Commonactions.isElementPresent(sp.getProductPlusIcon());
-    //	ca.click(sp.getProductPlusIcon());
-    //	Commonactions.isElementPresent(sp.getBlendcostcheckbox());
-    //	ca.click(sp.getBlendcostcheckbox());
-    	Commonactions.isElementPresent(sp.getBlendcostAction());
-    	ca.click(sp.getBlendcostAction());
-    	Commonactions.isElementPresent(sp.getSelectsuppQuotes());
-    	ca.click(sp.getSelectsuppQuotes());
-    	Commonactions.isElementPresent(sp.getSelectsupquotechecckbox());
-    	ca.click(sp.getSelectsupquotechecckbox());
-    	Commonactions.isElementPresent(mp.getSave_btn1());
-    	ca.click(mp.getSave_btn1());
-    	
-    	System.out.println("Product Blend Cost Created successfully");
-	}
-
-	
-
-}

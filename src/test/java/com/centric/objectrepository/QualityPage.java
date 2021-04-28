@@ -16,10 +16,10 @@ public class QualityPage extends Commonactions {
 	@FindBy(xpath="(//span[contains(text(),'Documents')]/parent::div/parent::div/parent::div/preceding-sibling::div)[3]")
 	private WebElement RightArrow;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Data-Quality' or text()='Quality']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Quality' or text()='Quality']")
 	private WebElement Quality;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Data-Setup' or text()='Setup']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Setup' or text()='Setup']")
 	private WebElement setup;
 	
 	@FindBy(xpath="//span[text()='Test Specs']")
@@ -49,10 +49,10 @@ public class QualityPage extends Commonactions {
 	@FindBy(xpath="//div[text()='Apply to Types']")
 	private WebElement ClickAgain;
 	
-	@FindBy(xpath="//span[@data-csi-tab='DocumentContainer-DocumentsAndComments' or text()='Docs & Comments']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Documents' or text()='Documents']")
 	private WebElement CheckDoc;
 	
-	@FindBy(xpath="//span[@data-csi-tab='TestSpecRevision-WhereUsed' or text()='Where Used']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Where Used' or text()='Where Used']")
 	private WebElement CheckWhUsed;
 	
 	@FindBy(xpath="((//td[@data-csi-heading='TargetMethod:Child:LatestRevision:0'])/following-sibling::td/div/span[text()='content_copy'])[1]") 
@@ -145,10 +145,13 @@ public class QualityPage extends Commonactions {
 	@FindBy(xpath="//span[text()='Finish']")
 	private WebElement finish;
 	
+	@FindBy(xpath="//span[text()='Finish & Go']")
+	private WebElement finishQ;
+	
 	@FindBy(xpath="//span[@title='Show/Hide toolbars in view']")
 	private WebElement ToolBar;
 	
-	@FindBy(xpath="//span[@data-csi-tab='DataSheetRevision-TDSSwitchboard' or text()='Canvas']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Canvas' or text()='Canvas']")
 	private WebElement Canvas;
 	
 	@FindBy(xpath="(//span[text()='Create a new Canvas'])")
@@ -163,7 +166,7 @@ public class QualityPage extends Commonactions {
 	@FindBy(xpath="//span[text()='Save & Finish']")
 	private WebElement SaveAndFinish;
 	
-	@FindBy(xpath="//span[@data-csi-tab='TestRunRevision-TestsBySection' or text()='Tests']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Tests' or text()='Tests']")
 	private WebElement Tests;
 	
 	@FindBy(xpath="((//a[text()='Chemical Test Spec']/parent::div/parent::td)/following-sibling::td/div/span[text()='content_copy'])[2]")
@@ -172,7 +175,7 @@ public class QualityPage extends Commonactions {
 	@FindBy(xpath="//div[contains(@class,'Tests')]//span[text()='+']/parent::div")
 	private WebElement CanvasPlusIcon;
 	
-	@FindBy(xpath="//span[@data-csi-tab='TestRunRevision-Print' or text()='TDS']")
+	@FindBy(xpath="//span[@data-csi-tab-name='TDS' or text()='TDS']")
 	private WebElement TDS;
 	
 	@FindBy(xpath="(//div[contains(@class,'TestRunRevision')]//span[text()='refresh'])[1]")
@@ -352,6 +355,10 @@ public class QualityPage extends Commonactions {
 
 	public WebElement getFinish() {
 		return finish;
+	}
+	
+	public WebElement getFinishQ() {
+		return finishQ;
 	}
 
 	public WebElement getToolBar() {

@@ -34,9 +34,11 @@ public class ColorSpecificationTK extends Commonactions {
 
     @Then("Validate the options like copy and delete {string},{string}")
     public void validateThOptionsLikeCopyDelete(String a, String colorName) throws Throwable {
-        java.util.List<WebElement> optionCount = driver.findElements(By.xpath("//span[@data-csi-act='Copy']"));
+       
+    	java.util.List<WebElement> optionCount = driver.findElements(By.xpath("//span[@data-csi-act='Copy']"));
         optionCount.size();
         Thread.sleep(2000);
+        ca.eleToBeClickable();
         WebElement copyBtn = driver.findElement(By.xpath("(//a[@class='browse' and text()='" + colorName + "']//following::span[@data-csi-act='Copy'])[1]"));
         copyBtn.click();
         ca.eleToBeClickable();
@@ -146,10 +148,15 @@ public class ColorSpecificationTK extends Commonactions {
      //   ca.eleToBeClickable();
         ca.click(driver.findElement(By.xpath("(//span[@data-csi-act='ReplaceColorSpecifications'])[1]")));
         ca.eleToBeClickable();
+        try{
         driver.findElement(By.xpath("//td[text()='" + a + "']")).click();
+        }catch (Exception e) {
+        	driver.findElement(By.xpath("//td/a[text()='" + a + "']")).click();
+		}
         ca.eleToBeClickable();
         ca.click(cp.getSaveBtn());
-        Thread.sleep(3000);
+        Thread.sleep(4000);
+        ca.eleToBeClickable();
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         WebElement activeStatus = driver.findElement(By.xpath("//a[@class='browse' and text()='" + a + "']//following::td[1]"));
         jse.executeScript("arguments[0].scrollIntoView(true);", activeStatus);
@@ -165,6 +172,10 @@ public class ColorSpecificationTK extends Commonactions {
 
     @Then("Click on specification tab and create color specification {string},{string},{string},{string},{string},{string},{string},{string},{string}")
     public void clickOnSpecificationTabAndCreateColorSpecification(String ColorName, String Code, String Description, String ColorName2, String Code2, String Description2,String ColorName3,String ColorName4,String ColorName5) throws Throwable {
+    	
+    	
+    	//Thread.sleep(20000);
+    	
     	Commonactions.isElementPresent(hp.getUser_settingsBtn1());
         ca.click(hp.getUser_settingsBtn1()); 
 	     
@@ -173,15 +184,11 @@ public class ColorSpecificationTK extends Commonactions {
        Commonactions.isElementPresent(hp.getData_Spec());
        ca.click(hp.getData_Spec());
        ca.eleToBeClickable();
-       try{
-       Commonactions.isElementPresent(hp.getSetupSearch());
-       ca.insertText(hp.getSetupSearch(), "Color Specifications");
-       ca.eleToBeClickable();
-        ca.click(cp.getColorSpecificationTab());
-        jsWaitForPageLoad();
-       }catch (Exception e) {
-		// TODO: handle exception
-	}
+     //  Commonactions.isElementPresent(hp.getSetupSearch());
+     //  ca.insertText(hp.getSetupSearch(), "Color Specifications");
+     //  ca.eleToBeClickable();
+     //   ca.click(cp.getColorSpecificationTab());
+     //   jsWaitForPageLoad();
         Commonactions.isElementPresent(cp.getNewColorSpec_btn());
         ca.click(cp.getNewColorSpec_btn());
         ca.eleToBeClickable();
@@ -237,11 +244,13 @@ public class ColorSpecificationTK extends Commonactions {
         description1.click();
         Thread.sleep(1000);
         ca.insertText(spec.getRF_InputText(), Description2);
-        Thread.sleep(1000);
+        Thread.sleep(5000);
     //    ca.click(spec.getSpecificationTab());
 
 
+      //  ca.eleToBeClickable();
         ca.eleToBeClickable();
+      //  Thread.sleep(2000);
         ca.click(cp.getNewColorSpec_btn());
         Thread.sleep(1000);
         ca.eleToBeClickable();
@@ -261,6 +270,7 @@ public class ColorSpecificationTK extends Commonactions {
     //    ca.click(spec.getSpecificationTab());
 
         ca.eleToBeClickable();
+        Thread.sleep(2000);
         ca.click(cp.getNewColorSpec_btn());
         Thread.sleep(1000);
         ca.eleToBeClickable();
@@ -280,6 +290,7 @@ public class ColorSpecificationTK extends Commonactions {
     //    ca.click(spec.getSpecificationTab());
 
         ca.eleToBeClickable();
+        Thread.sleep(2000);
         ca.click(cp.getNewColorSpec_btn());
         Thread.sleep(1000);
         ca.eleToBeClickable();
@@ -307,6 +318,16 @@ public class ColorSpecificationTK extends Commonactions {
         deselect = arg1.split(",");
         Actions actions = new Actions(driver);
         ca.eleToBeClickable();
+        Thread.sleep(2000);
+/*        Commonactions.isElementPresent(cp.getCustomViewBtn());
+        ca.click(cp.getCustomViewBtn());
+        Commonactions.isElementPresent(cp.getManageViews_CV());
+        ca.click(cp.getManageViews_CV());
+        Commonactions.isElementPresent(cp.getCopyCV_Option());
+        ca.click(cp.getCopyCV_Option());
+		Commonactions.isElementPresent(cp.getCopyNameTxt_bx());
+		ca.insertText(cp.getCopyNameTxt_bx(), "Automation");
+		ca.eleToBeClickable();*/
         Commonactions.CustomView(cp.getCustomViewBtn(),cp.getManageViews_CV(),cp.getCopyCV_Option(),cp.getCopyNameTxt_bx());
         Select drop = new Select(cp.getSelectedAttributesBox());
         ca.eleToBeClickable();
@@ -360,7 +381,7 @@ public class ColorSpecificationTK extends Commonactions {
         RGBX.add("#EFEAD7");
         RGBX.add("#F2EFDC");
         RGBX.add("#EFEFD5");
-      //  driver.navigate().refresh();
+       // driver.navigate().refresh();
         jsWaitForPageLoad();
         int list = colors.size();
         for (int i = 0; i <list ; i++) {
@@ -389,8 +410,11 @@ public class ColorSpecificationTK extends Commonactions {
         ca.eleToBeClickable();
         template = a.split(",");
         type = b.split(",");
-        
+        try{
         ca.click(spec.getTemplateTab());
+        }catch (Exception e) {
+			// TODO: handle exception
+		}
         for (int i = 0; i < template.length; i++) {
             Thread.sleep(3500);
             ca.eleToBeClickable();
@@ -421,6 +445,7 @@ public class ColorSpecificationTK extends Commonactions {
         WebElement datasheet = driver.findElement(By.xpath("//a[@class='browse' and text()='" + b + "']"));
         ca.eleToBeClickable();
         datasheet.click();
+        ca.eleToBeClickable();
         jsWaitForPageLoad();
         for (int i = 0; i < StyleDatasheet.length; i++) {
             ca.eleToBeClickable();
@@ -616,10 +641,10 @@ public class ColorSpecificationTK extends Commonactions {
         Thread.sleep(3000);
         actions.sendKeys(Keys.ENTER).build().perform();
         Thread.sleep(3000);
-        ca.insertText(spec.getRF_InputText(),d);
-        Thread.sleep(3000);
+      //  ca.insertText(spec.getRF_InputText(),d);
+      //  Thread.sleep(3000);
         //actions.sendKeys(Keys.ENTER).build().perform();
-        driver.navigate().refresh();
+        //driver.navigate().refresh();
         jsWaitForPageLoad();
         jsScrollPageDown(shp.getPDNewColor());
 
@@ -837,6 +862,7 @@ public class ColorSpecificationTK extends Commonactions {
 
     @And("create a canvas and select the rectangle box")
     public void createACanvasAndSelectTheRectangleBox() throws Throwable {
+    	ca.jsScrollPageDown(shp.getNewCanvasActionBtn());
         waitForElementClickable(shp.getNewCanvasActionBtn());
         ca.click(shp.getNewCanvasActionBtn());
         jsWaitForPageLoad();
@@ -961,8 +987,8 @@ public class ColorSpecificationTK extends Commonactions {
         sizeChartName.click();
         Commonactions.jsWaitForPageLoad();
         ca.eleToBeClickable();
-        driver.navigate().refresh();
-        Commonactions.jsWaitForPageLoad();
+    //    driver.navigate().refresh();
+    //    Commonactions.jsWaitForPageLoad();
      //   WebElement size = driver.findElement(By.xpath("(//td[@data-csi-heading='BaseSize::0'])[1]"));
      //   Commonactions.isElementPresent(size);
         jsScrollPageDown(sk.getNewDimSCBx());

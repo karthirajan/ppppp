@@ -118,6 +118,9 @@ public class QualityPageSteps extends Commonactions{
 		ca.insertText(qp.getTestSpecValue(), string + " Spec - Copy");
 		Commonactions.isElementPresent(mp.getSave_btn1());
 		ca.click(mp.getSave_btn1());
+		ca.eleToBeClickable();
+		ca.eleToBeClickable();
+		ca.eleToBeClickable();
 		Commonactions.isElementPresent(qp.getChemicalTestAprv());
 		ca.click(qp.getChemicalTestAprv());
 		Commonactions.isElementPresent(qp.getIronTestApprv());
@@ -185,6 +188,7 @@ public class QualityPageSteps extends Commonactions{
 		ca.click(qp.getGrp1());
 		Commonactions.isElementPresent(qp.getGrp2());
 		ca.click(qp.getGrp2());
+		ca.eleToBeClickable();
 		Commonactions.isElementPresent(qp.getChemTSGDel());
 		ca.click(qp.getChemTSGDel());
 		Commonactions.isElementPresent(pp.getDelete_Btn());
@@ -227,7 +231,7 @@ public class QualityPageSteps extends Commonactions{
 		ca.click(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		ca.eleToBeClickable();
-		ca.mouseOver(qp.getSelTestSpecExpnd());
+		Commonactions.mouseOver(qp.getSelTestSpecExpnd());
 		ca.eleToBeClickable();
 		ca.click(qp.getWashCopy());
 		ca.eleToBeClickable();
@@ -238,8 +242,15 @@ public class QualityPageSteps extends Commonactions{
 		ca.click(qp.getWashCpyDel());
 		Commonactions.isElementPresent(sp.getApproveicon1());
 		ca.click(sp.getApproveicon1());
+		try{
 		Commonactions.isElementPresent(sp.getApprove1());
+		//Commonactions.mouseOver(sp.getApprove2());
 		ca.click(sp.getApprove1());
+		}catch (Exception e) {
+			Commonactions.isElementPresent(sp.getApprove2());
+			//Commonactions.mouseOver(sp.getApprove2());
+			ca.click(sp.getApprove2());
+		}
 		Commonactions.isElementPresent(qp.getTestSpecs());
 		
 		System.out.println("Test Groups Created Successfully");
@@ -303,30 +314,32 @@ public class QualityPageSteps extends Commonactions{
 		ca.insertText(a2, string5);
 		ca.eleToBeClickable();
 		ca.jsMouseOver();
-		Commonactions.isElementPresent(qp.getNext());
+		
+		//==========================================================================
+		/*Commonactions.isElementPresent(qp.getNext());
 		ca.click(qp.getNext());
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(qp.getFinishQ());
+		ca.click(qp.getFinishQ());*/
+		
+		//-------------------------------------------------------------------------------
+		Commonactions.isElementPresent(mp.getSave_btn1());
+		ca.click(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		
 		
-		//-------------------------------------------------------------------------------
-	//	Commonactions.isElementPresent(mp.getSave_btn1());
-	//	ca.click(mp.getSave_btn1());
-	//	ca.eleToBeClickable();
-		
-		
-	//	Commonactions.isElementPresent(driver.findElement(By.xpath("//div[contains(@class,'QualityViews')]//td[@data-csi-heading='Node Name::0']/a")));
-	//	ca.click(driver.findElement(By.xpath("//div[contains(@class,'QualityViews')]//td[@data-csi-heading='Node Name::0']/a")));
-		
+		Commonactions.isElementPresent(driver.findElement(By.xpath("//div[contains(text(),'Run Template')]//following::td[@data-csi-heading='Node Name::0']/a")));
+        ca.click(driver.findElement(By.xpath("//div[contains(text(),'Run Template')]//following::td[@data-csi-heading='Node Name::0']/a")));
 		//--------------------------------------------------------------------------------
 		
-		Commonactions.isElementPresent(qp.getFinish());
-		ca.click(qp.getFinish());
+		
 		Commonactions.isElementPresent(qp.getToolBar());
 		Thread.sleep(4000);
 		ca.click(qp.getToolBar());
 		Commonactions.isElementPresent(qp.getCanvas());
 		
 		ca.click(qp.getCanvas());
+		ca.jsScrollPageDown(qp.getCreateanewCanvas());
 		Commonactions.isElementPresent(qp.getCreateanewCanvas());
 		ca.click(qp.getCreateanewCanvas());
 		Commonactions.isElementPresent(qp.getRectangle());
@@ -360,20 +373,20 @@ public class QualityPageSteps extends Commonactions{
 		ca.eleToBeClickable();
 		
 		
-		Commonactions.isElementPresent(hp.getUser_homeBtn());
-        ca.click(hp.getUser_homeBtn());
+		Commonactions.isElementPresent(hp.getUser_settingsBtn1());
+        ca.click(hp.getUser_settingsBtn1()); 
 	     
-	     System.out.println("home tab clicked successfully");
-		    ca.eleToBeClickable();
-			Commonactions.isElementPresent(qp.getRightArrow());
-			ca.click(qp.getRightArrow());
+	     System.out.println("Setup tab clicked successfully");
+  
+    Commonactions.isElementPresent(hp.getData_Spec());
+    ca.click(hp.getData_Spec());
+  //  ca.eleToBeClickable();
+    ca.eleToBeClickable();
+    Commonactions.isElementPresent(hp.getSetupSearch());
+    ca.insertText(hp.getSetupSearch(), "Test Run Templates");
+    ca.eleToBeClickable();
 		
-		
-		Commonactions.isElementPresent(qp.getQuality());
-		ca.click(qp.getQuality());
-		Commonactions.isElementPresent(qp.getSetup());
-		
-		ca.click(qp.getSetup());
+		//ca.click(qp.getSetup());
 		Commonactions.isElementPresent(qp.getTemplates());
 		ca.click(qp.getTemplates());
 		Commonactions.isElementPresent(qp.getNewTestRunTemp());
@@ -404,32 +417,39 @@ public class QualityPageSteps extends Commonactions{
 		ca.insertText(a6, string5);
 		ca.eleToBeClickable();
 		ca.jsMouseOver();
-		//Commonactions.isElementPresent(qp.getNext());
-		//ca.click(qp.getNext());
-		System.out.println("next clicked");
-		ca.eleToBeClickable();
-		ca.click(qp.getFinish());
+		/*Commonactions.isElementPresent(qp.getNext());
+        ca.click(qp.getNext());
+        System.out.println("next clicked");
+        ca.eleToBeClickable();
+        ca.click(qp.getFinishQ());*/
+       
+        Commonactions.isElementPresent(sp.getSaveandgo());
+        ca.click(sp.getSaveandgo());
 		Commonactions.isElementPresent(sp.getApproveActions());
 		
 		Thread.sleep(4000);
 		
 		ca.click(sp.getApproveActions());
-		Commonactions.isElementPresent(sp.getApprove());
-		ca.click(sp.getApprove());
+		Commonactions.isElementPresent(sp.getApproveTestRun());
+		//ca.mouseOver(sp.getApprove());
+		Commonactions.clickjs(sp.getApproveTestRun());
 		ca.eleToBeClickable();
 		
-		Commonactions.isElementPresent(hp.getUser_homeBtn());
-        ca.click(hp.getUser_homeBtn());
+		Commonactions.isElementPresent(hp.getUser_settingsBtn1());
+        ca.click(hp.getUser_settingsBtn1()); 
 	     
-	     System.out.println("home tab clicked successfully");
-		
-	     ca.eleToBeClickable();
-			Commonactions.isElementPresent(qp.getRightArrow());
-			ca.click(qp.getRightArrow());
-		Commonactions.isElementPresent(qp.getQuality());
-		ca.click(qp.getQuality());
-		Commonactions.isElementPresent(qp.getSetup());
-		ca.click(qp.getSetup());
+	     System.out.println("Setup tab clicked successfully");
+  
+    Commonactions.isElementPresent(hp.getData_Spec());
+    ca.click(hp.getData_Spec());
+  //  ca.eleToBeClickable();
+    ca.eleToBeClickable();
+    Commonactions.isElementPresent(hp.getSetupSearch());
+    ca.insertText(hp.getSetupSearch(), "Test Run Templates");
+    ca.eleToBeClickable();
+    Commonactions.isElementPresent(qp.getTemplates());
+	ca.click(qp.getTemplates());
+    
 		Commonactions.isElementPresent(qp.getChmTestTemCpy());
 		ca.click(qp.getChmTestTemCpy());
 		Commonactions.isElementPresent(qp.getTestRunValue());

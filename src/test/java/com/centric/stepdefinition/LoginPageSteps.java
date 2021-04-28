@@ -43,11 +43,13 @@ public class LoginPageSteps extends Commonactions {
 	}
 
 	@Given("User launches centric application")
-	public void user_launches_centric_application() throws InterruptedException {
+	public void user_launches_centric_application() throws Throwable {
+		
+		Thread.sleep(2000);
 		//------------------------------Test------------------------------------\\
 		
-		   //    ca.launch(System.getProperty("url"));
-	         ca.launch("http://win16sql19-cce.centricsoftware.com/WebAccess/login.html");
+		       ca.launch(System.getProperty("url"));
+	           ca.launch("http://win16sql19-cce.centricsoftware.com/WebAccess/home.html");
 		
 	   //-------------------------------Test-------------------------------------\\      
 	         
@@ -55,8 +57,16 @@ public class LoginPageSteps extends Commonactions {
 		
 		lp = new LoginPage();
 		ca.insertText(lp.getUsername(), "Administrator");
-		ca.insertText(lp.getPassword(), "centric8");
+		ca.insertText(lp.getPassword(), "centric8");		
 		ca.clickjs(lp.getLogin());
+		try{
+			//ca.accept_Alert();
+			ca.click(lp.getLogin());
+			ca.eleToBeClickable();
+			ca.click(lp.getLogin());
+		}catch (Exception e) {
+			System.out.println("Login successfully without any conflicts");
+		}
 		
 		System.out.println("login clicked successfully");
 

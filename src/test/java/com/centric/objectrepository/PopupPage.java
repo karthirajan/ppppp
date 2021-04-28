@@ -36,6 +36,9 @@ public class PopupPage extends Commonactions{
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'Season')]/div)/div/input)[3]")
 	private WebElement description_Value;
 	
+	@FindBy(xpath="(//div[contains(@data-csi-automation,'field-Category1-Form-LabelTemplate')]/div[3])/input[1]")
+	private WebElement brand_Template;
+	
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'Category1')]/div)/div/input)[1]")
 	private WebElement brand_Value;
 	
@@ -85,7 +88,7 @@ public class PopupPage extends Commonactions{
 	@FindBy(xpath="((//span[@data-csi-context-parent='centric:'])[1]/parent::div/parent::div//preceding-sibling::div)[1]//table/tbody/tr[4]/td[2]/div/div/div[3]/input")
 	private WebElement theme_code_Value;
 	
-	@FindBy(xpath="(((//span[@data-csi-context-parent='centric:'])[1]/parent::div/parent::div//preceding-sibling::div)[1]//table/tbody/tr[5]/td[2]/div/div//input)[2]")
+	@FindBy(xpath="(//div[@data-csi-automation='field-Style-Form-Node Name']/div)[2]/div/input")
 	private WebElement sstyle_Value;
 	
 	@FindBy(xpath="(//div[contains(@data-csi-automation,'StyleType')]/div)/div/input")
@@ -163,8 +166,12 @@ public class PopupPage extends Commonactions{
 	@FindBy(xpath="//span[contains(@class,'ButonText') or text()='Delete']")
 	private WebElement delete_Btn;
 
-	
-	
+	@FindBy(xpath="//span[text()='Reset']")
+	private WebElement Reset;
+
+	@FindBy(xpath="//span[text()='Restore']")
+	private WebElement Restore;
+
 	public WebElement getTstyle_type_Value() {
 		return Tstyle_type_Value;
 	}
@@ -305,6 +312,10 @@ public class PopupPage extends Commonactions{
 		return description_Value;
 	}
 
+	public WebElement getBrand_Template() {
+		return brand_Template;
+	}
+	
 	public WebElement getBrand_Value() {
 		return brand_Value;
 	}
@@ -364,8 +375,14 @@ public class PopupPage extends Commonactions{
 	public WebElement getSave_and_go_Btn1() {
 		return save_and_go_Btn1;
 	}
-	
-	
 
+	public WebElement getReset() {
+		return Reset;
+	}
+
+	public WebElement getRestore() {
+		return Restore;
+	}
+	
 
 }

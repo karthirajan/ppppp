@@ -1,25 +1,57 @@
 #Author: karthick@kripya.com
 @Selenium @Sourcing @Browser3
-Feature: Configuration and Setup
+Feature: Browser - 3
+
+
+      
+  @ContractualSetup
+  Scenario Outline: Contractual documents creation
+    Given User launches centric application
+    And User Click on setup icon
+    And User creates contractual documents "<ContrctAll>","<Simple>","<RA>","<HED>","<HRD>"
+
+    Examples: 
+      | ContrctAll | Simple      | RA      | HED      | HRD      |
+      | CDOC-ALL   | CDOC-simple | CDOC-RA | CDOC-HED | CDOC-HRD |
+
+ 
+
+  #-----------------------------------------------------------------------------------------------------------------
+  @ThemeSetup
+  Scenario Outline: Theme Master creation
+    # Given User launches centric application
+    And User Click on setup icon
+    And User creates theme master "<All>","<single>","<multiple>","<AVsingle>"
+    And User creates theme BOM type "Theme Lock","No Theme Lock"
+
+    Examples: 
+      | All           | single           | multiple           | AVsingle                    |
+      | TM-All Season | TM-Single Season | TM-Multiple Season | TM-Allow material variation |
+
+  #-----------------------------------------------------------------------------------------------------------------
+  
 
   Scenario Outline: capability and operation group validation
-    Given User launches centric application
+    #Given User launches centric application
     Then Go to homepage
     And verify user screen
     When User creates capability "<Shipping Port>","<Factory>","<Supplier>" and Operation group "<OperationGroup>"
     And User creates sub routing "<SubRoutingA>","<SubRoutingB>"
+    #Then Logout from the Application
 
     Examples: 
       | Shipping Port       | Factory        | Supplier        | OperationGroup | SubRoutingA     | SubRoutingB     |
       | Cut - Shipping Port | Pack - Factory | Ship - Supplier | MAKE           | MAKE Subrouting | SHIP Subrouting |
 
   #-------------------------------------------------------------------------------------------------------------
+  
   Scenario Outline: Sales Region and country creation
-    #  Given User launches centric application
+    #Given User launches centric application
     Then Go to homepage
     And verify user screen
     And User creates Country "<CountryA>","<CountryB>","<CountryC>"
     And User creates sales region "<SalesRegionA>","<SalesRegionB>"
+   # Then Logout from the Application
 
     Examples: 
       | CountryA       | CountryB       | CountryC                        | SalesRegionA | SalesRegionB |
@@ -27,10 +59,11 @@ Feature: Configuration and Setup
 
   #-------------------------------------------------------------------------------------------------------------
   Scenario Outline: HTS code creation
-    # Given User launches centric application
+   #  Given User launches centric application
     Then Go to homepage
     And verify user screen
     And User creates HTS code "<HTS_A>","<HTS_B>","<Description>","<From>","<To>","<Duty>"
+    Then Logout from the Application
 
     Examples: 
       | HTS_A          | HTS_B        | Description | From                | To                  | Duty  |
@@ -38,11 +71,12 @@ Feature: Configuration and Setup
 
   #-------------------------------------------------------------------------------------------------------------
   Scenario Outline: Container creation
-    # Given User launches centric application
+    Given User launches centric application
     Then Go to homepage
     And verify user screen
     And User creates container "<container>","<Volume>","<Weight>","<Efficiency>"
 
+    #Then Logout from the Application
     Examples: 
       | container | Volume | Weight | Efficiency |
       | Container | 30/40  | 15/10  | 70/80      |
@@ -54,6 +88,7 @@ Feature: Configuration and Setup
     And verify user screen
     And User creates shipping port "<portA>","<portB>","<portC>","<portD>"
 
+    # Then Logout from the Application
     Examples: 
       | portA                  | portB                 | portC                      | portD                            |
       | Chennai Port/India/231 | Mumbai Port/India/123 | SFS port/United States/456 | New York Port/United States/7855 |
@@ -86,27 +121,28 @@ Feature: Configuration and Setup
     Then Go to homepage
     And verify user screen
     When User creates Shipment "<Shipment>","<PortFrom>","<PortTo>"
+    #Then Logout from the Application
 
-    # Then Logout from the Application
     Examples: 
       | Shipment | PortFrom    | PortTo   |
       | Fedex    | Mumbai Port | SFS port |
 
   #   -----------------------------------------------------------------------------------------------------------------
   Scenario Outline: Review creation
-    # Given User launches centric application
+    #Given User launches centric application
     Then Go to homepage
     And verify user screen
     And User creates and validates Questions subsection"<Percentage>"
     And User validates review templates "<Review>"
 
+    #Then Logout from the Application
     Examples: 
       | Review                                | Percentage |
       | Sourcing Review Template - Automation | 25/55      |
 
   #-------------------------------------------------------------------------------------------------------------
   Scenario Outline: Template creation
-    #  Given User launches centric application
+    # Given User launches centric application
     Then Go to homepage
     And verify user screen
     When User creates routing template "<SRoutingTemp>","<Description>","Divider","<Factory>"
@@ -225,6 +261,7 @@ Feature: Configuration and Setup
     Then user creates the sizeChart canvas "<SizeChartName>"
     And user creates the dimension inside the canvas "Bra"
     Then user enters the values in the dimensions "<Dimensions>"
+    Then Logout from the Application
 
     Examples: 
       | SizeChartName             | Dimensions |
@@ -233,7 +270,7 @@ Feature: Configuration and Setup
   #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   @SizeItems
   Scenario Outline: User creates size items and validation
-    # Given User launches centric application
+    Given User launches centric application
     Then Go to homepage
     And verify user screen
     When user navigates to size items tab
@@ -305,147 +342,279 @@ Feature: Configuration and Setup
       | Acid Test - Material | Wash Test - Material | Chemical Test Group | Wash Test Group | Green   | EGRET   | Administrator | Supplier |
 
   #-----------------------------------------------------------------------------------------------------------------
-  Scenario Outline: Material Supplier Quotes & Samples
+  @InspectionStyleCreation
+  Scenario Outline: Inspection style Specification creation
     # Given User launches centric application
     Then Go to homepage
     And verify user screen
-    When user creates material supplier quotes
-    And user creates material supplier request "<Template>","<Request>"
-    When user removing supplier under supplier request setup
-    And user validating supplier quotes & samples
-    Then Go to homepage
-    And user validating material supplier quotes
-    And user issuing material supplier request
+    Then User creates Style for inspection "<BOMName>"
+    And User creates ImageDatasheet "<ImageName>","<Description>"
+    Then User creates Review "<ReviewName>","<ReviewDesc>","<canvasNote>"
+    And User creates sizechart "<InsSize>"
+    Then User creates spec "<specvalue>","<datasheet>","<specdesc>","<customspecvalue>","<specialvalue>"
+    And User Copy BOM Name "<Bomcopy1>","<Bomcopy2>"
+    Then User creates Inspection and verify the created items in Style Specification "<InspectionName>","<Samplingvalue>","<SupplierValue>"
 
     Examples: 
-      | Template       | Request              |
-      | SRT - Material | SR - Material Cotton |
-
-  #---------------------------------------------------------------------------------------------------
-  Scenario Outline: Supplier Quotes Update
-    # Given User launches centric application
-    Then Go to homepage
-    And verify user screen
-    When user enters designated supplier "Supplier" and template details
-    And User creates material product blended cost "<Product>"
-
-    # Then Logout from the Application
-    Examples: 
-      | Product        |
-      | Material - PBC |
-
-  #---------------------------------------------------------------------------------------------------
-
-  Scenario Outline: Shape creation
-    #Given User launches centric application
-    Then Go to homepage
-    And verify user screen
-    When User creates product group in size chart "<ProductGrp>","<Description>"
-    And User update dimension,increments "<Increments>" and tolerance
-    Then Go to homepage
-    And User creates shape "Circle Shape","winter season" and update shape master "Object Shape Master"
-    And User is performing copy,edit and delete action
-    And User creates Security group "<SecurityGrp>" and update values under shape "MensJeans"
-    And User creates shape sample "<Sample>","Supplier"
-    And User is performing sample copy,edit and delete action
-    And User Creates shape size chart for "Circle SC-Lock All","Circle SC-Lock Dimension","Circle SC-Lock Tolerance","Circle SC-Lock Values"
-
-    # Then Logout from the Application
-    Examples: 
-      | ProductGrp | Description | Increments       | SecurityGrp            | Sample              |
-      | PG - 01    | Automation  | Pants Grade Rule | Security Group - Shape | Circle Shape Sample |
-
-  #---------------------------------------------------------------------------------------------------
-  @BomSection
-  Scenario Outline: Inspection Creation
-    # Given User launches centric application
-    Then Go to homepage
-    And verify user screen
-    Then user creates NewBOMSection "<Bomstylesection>","<Stylesortvalue>","<filterName>"
-    Then user Creates NewMaterialBomSection "<BomMaterialSection>","<Materialsortvalue>"
-
-    Examples: 
-      | Bomstylesection                                           | Stylesortvalue  | filterName | BomMaterialSection                        | Materialsortvalue |
-      | Apparel section,fabric section,All section,Delete section | 10,12,100,50,15 | Material   | fabric section,All section,Delete section |          23,24,25 |
-
-  #---------------------------------------------------------------------------------------------------
-  @BomTemplate
-  Scenario Outline: Inspection Creation
-    #Given User launches centric application
-    Then Go to homepage
-    And verify user screen
-    Then user created NewBOMTemplate "<Subtype>","<TemplateName>","<createsection>","<EditComment>"
-
-    # Then Logout from the Application
-    Examples: 
-      | Subtype     | TemplateName         | createsection                     | EditComment     |
-      | Apparel BOM | Apparel BOM Template | auto adhoc section,Delete section | automation test |
-
-  #---------------------------------------------------------------------------------------------------
-  Scenario Outline: Theme creation
-    # Given User launches centric application
-    Then Go to homepage
-    And verify user screen
-    When User creates theme for single season "TM-Single Season","Wild Theme Master","Wild Theme","winter season"
-    And User creates new theme from style "<StyleSubType>","<StyleTM>"
-    And User creates new theme from material "<MaterialSubType>","<MaterialTM>"
-    And User creates theme for All season "TM-All Season","All season TM","All season - Theme"
-    And User is performing theme copy,edit and delete action
-    And User creates Security group "<SecurityGrp>" and update values under Theme "TSG"
-    And User creates color inside theme "Blue Theme","White Theme","Glass Theme"
-    And User creates product alternative "Italy"
-
-    #Then Logout from the Application
-    Examples: 
-      | StyleSubType                | StyleTM            | MaterialSubType    | MaterialTM            | SecurityGrp |
-      | TM-Allow material variation | Style Theme Master | TM-Multiple Season | Material Theme Master | TSG -All    |
+      | BOMName | ImageName | Description              | ReviewName       | ReviewDesc               | canvasNote         | InsSize       | specvalue | datasheet          | specdesc           | customspecvalue     | specialvalue   | Bomcopy1     | Bomcopy2      | InspectionName     | Samplingvalue | SupplierValue |
+      | Ins-BOM | INS-IDS   | Image Inspection Testing | Ins-Style Review | Style Inspection testing | Automation Testing | Ins-SizeChart | character | Ins-spec datasheet | Inspection Testing | Custom spec section | Characteristic | Ins-BOM COPY | Ins-BOM COPY2 | Apparel-Inspection | Single        | Supplier      |
 
   #-----------------------------------------------------------------------------------------------------------------
-  @ThemeMaterial
-  Scenario Outline: Theme BOM creation and validation
-    #Given User launches centric application
-    Then Go to homepage
-    When User creates new theme placement "<PlacementA>","Theme BOM Value"
-    When User creates new theme placement from material
-    When User creates new from theme placement
-    When User creates select section and update color value "<PlacementB>","<ColorA>"
-    When User creates adhoc section "<Adhoc>"
-    And User is performing select,create,arrange and delete section activities under sections
-    When User creates style BOM "<BOMSubType>","<BOM_Value>"
-    And User creates and update style BOM placements "<BOMSubType>","<PlacementB>"
-    And Validating under style placements
-    Then Go to homepage
-    When user updates existing style BOM "<ColorB>","<BOMSubType>" and validate style placements
-    Then Go to homepage
-    And User performing delete style BOM placements and validate style
-    And User performing unlink and synch from theme validation
-
-    # Then Logout from the Application
-    Examples: 
-      | BOMSubType | PlacementA           | PlacementB       | ColorA | ColorB | BOM_Value                | Adhoc               |
-      | Theme Lock | Shoulder - placement | Neck - placement | Blue   | Red    | Apparel BOM - Theme Lock | Theme Adhoc Section |
-  #-----------------------------------------------------------------------------------------------------------------
-
-      
-   Scenario Outline: User creates collection management
+  @InspectionContinuation
+  Scenario Outline: Inspection NewInspectionSecurityGroup creation
     # Given User launches centric application
     Then Go to homepage
     And verify user screen
-    When user creates marketing looks "Avengers"
-    And user creates marketing tools "<ToolA>","<ToolB>"
-    And performing delete action
-    And user creates collection management "<CollectionValue>","<Currency>"
-    And user creates style marketing products "TShirts Style","123 Avengers","smoke"
-    And user creates new marketing product "MP - TShirt","123 - Marketing","Apparel - Color and Size"
-    And user creates colorway inside marketing product "<ColorA>","<ColorB>"
-    And user creates marketing material and looks "<LookA>","<LookB>"
-    And user update material value in material product and segments
-    Then user click on release to markets and release to customers
-    And user creates sales market in collection management
-    Then Go to homepage
-    And creates sales order "TShirt Sales Order","Indian Market"
+    Then create NewInspectionSecurityGroup "<ErrorType>","<AccLimit>","<SampleQtyMethod>","<InsBatchName>","<Attribute>","<Batchcolorway>","<BatchSize>","<Defectvalue>","<DefectCounter>"
+    And User verify the PDF and InspectionBatch status
+    Then User waits for PDF and verify it
 
     Examples: 
-      | ToolA  | ToolB   | CollectionValue                  | Currency | ColorA | ColorB | LookA      | LookA    |
-      | Banner | Canoply | TShirts Collection - without SKU | Dollar   | Blue   | Green  | Spider Man | Iron Man |
+      | ErrorType     | AccLimit | SampleQtyMethod   | InsBatchName     | Attribute                                            | Batchcolorway | BatchSize | Defectvalue | DefectCounter |
+      | High,Critical | 2.5,4.5  | Static,Percentage | Size chart batch | Inspection Size Chart Dimension,Size Chart Dimension | Vanilla       | small     | size        |             5 |
+
+  #-----------------------------------------------------------------------------------------------------------------
+  @InspectionShipment
+  Scenario Outline: Inspection Shipment Style Order creation
+    # Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    And User Creates Style Inspection "<ProductionQuote>","<styleInspValue>","<TemplateValue>","<ErrorType>","<DefectValue>"
+    Then User creates Shipment Inspection "<ShipmentInspValue>","<TemplateValue>","<BatchShipment>","<Level>","<DefectValue>","<ErrorType>"
+    And User Creates Order Inspection "<ErrorType>","<TemplateValue>","<Level>","<OrderInspection>","<DefectCounter>","<DefectValue>","<BatchSize>","<OrderBatchName>"
+    Then User Create Tempalte under Inspection "<TemplateName>"
+    And verify Template has created or not "<TemplateName>"
+    Then Logout from the Application
+
+    Examples: 
+      | ErrorType     | ProductionQuote | styleInspValue   | TemplateValue | ShipmentInspValue   | Level          | BatchShipment  | OrderInspection  | TemplateName              | DefectCounter | DefectValue  | BatchSize | OrderBatchName  |
+      | High,Critical | Supplier        | Style-Inspection | inspection    | Shipment-Inspection | Shipment,Order | Batch-shipment | Order-Inspection | order-inspection template |           1,2 | fabric,color | small     | Batch for Order |
+
+  #-----------------------------------------------------------------------------------------------------------------
+  Scenario Outline: Theme Color Rule Data Setup
+    Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    When Navigate to Theme – Color Matching type, Create Color Matching type with Delete option  "<ColorMatchingType>","11-0103 EGRET"
+    And Click style tab and get the listed season name in the style tab
+    And Create a New Season "<Season>"
+    And Create three Material with Colored Material and Enable “Ok for Color Specification” – True and False "<Material>"
+    And Create New Theme value with above created Season "<Season>","<SubType>","Color Rule"
+    And Navigate into the Theme Master and Create Custom view in properties level
+    And Select the "Contrast" value in Color Matching type
+    And Navigate to above create Theme node value
+    And Add two Theme Colorway values "Theme Blue","Theme Egret"
+    And Go & Check the Theme – Material tab > Color Rule should be displayed after refreshing the page
+
+    Examples: 
+      | ColorMatchingType        | Season                  | SubType          | Material              |
+      | Contrast,Tone-Tone,Dummy | Theme Color Rule Season | TM-Single Season | Linen,Cotton,Polyster |
+
+  #-----------------------------------------------------------------------------------------------------------------
+  Scenario: Verify Generate Color Rule
+    #Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    When Add above created two Material placements
+    And Set Main Material for both Material Placements
+    And Set a Color Specification common value for 1 placement
+    And Set a Colored Material common value for 1 placement
+    Then Now Click Generate Color Rule verify > It will Generate two Theme Color rule – Check the Status message status with condition
+    And Navigate to Theme Placement Change the Colored Material value and Check again Generate Color Rule
+
+  #-----------------------------------------------------------------------------------------------------------------
+  Scenario: Verify Apply Color Rules
+    #Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    When Navigate to same Theme used above scenario
+    And Change the Main Material Set to True for 1st placements and Set false for 2nd placements
+    And Add Material Family from the Custom view in Theme – Placement table
+    And Set Colored Material common value for both Material Placements
+    And Set Theme Main Material Group value for both placements “Set – Group”
+    And Set Material Family for 2nd placements
+    And Click Action – Generate Color Rule
+    And Navigate to Season – Theme – Color Rule, Click Action > Apply Color for Theme value and set option is displayed window and click save > Verify it is applied color rule theme correctly
+    And Navigate to Theme – Placements tab >> Add “Applied Color Rule” in Custom view Color Matrix and check values are updated correctly
+    And Change the Color, Material Family Color Rule name, State in season level and verify it updated on theme level
+
+  #-----------------------------------------------------------------------------------------------------------------
+  Scenario: Verify Generate Color Rules from Availability
+    #Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    Then Delete Existing ColorRule in ThemeRuleSeason
+    And Approve Red Fmaily and Blule Family
+    Then Navigate to Material and Set Main Material = True for 3 Materials i.e. created above scenario
+    And Navigate to Style – Season, Create a Season Color Rule – Availability
+    And Navigate to Season – Specification, Add 3 Materials
+    Then Go to Season – Theme – Color Rule and Click Action - Generate Color rules from Availability
+    Then Verify Color Rule generate from availability
+    
+
+  #-----------------------------------------------------------------------------------------------------------------
+  Scenario Outline: User creates Business Object
+   # Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    When User creates Enumeration value in Config_Setup "<EnumValue1>","<EnumValue2>","<EnumValue3>"
+    Then User select Style from Business Object "Style"
+    And User create New Attribute for Enum values "<AttributeName>","<AttributeType>","<DisplayName>"
+    Then User Navigates to formDefinition
+    And Select the Business Object Attributes
+    Then User click on update cnfiguration
+   # Then User click on update cnfiguration
+    Then Logout from the Application
+
+    Examples: 
+      | EnumValue1             | EnumValue2             | EnumValue3     | AttributeName                              | AttributeType | DisplayName          |
+      | Enum A,Enum A1,Enum A2 | Enum B,Enum B1,Enum B2 | Enum C,Enum C1 | Auto_String,Auto_Test,Enum_A,Enum_B,Enum_C | enum          | Tested by Automation |
+
+  #-----------------------------------------------------------------------------------------------------------------
+ 
+  
+  Scenario Outline: User Creates Style-Apparel BO
+    Given User launches centric application
+    Then User click on update cnfiguration
+    Then Go to homepage
+    And verify user screen
+    Then User Create New Style in Season "<season>","<stylename>","<Enumvalue>"
+    Then User Clicks NewStyle and verify created values in BusinessObject
+    And User Clicks ApparelBO and manage Views
+    Then User Verify that AutoString "<AutoString>"
+
+    Examples: 
+      | season        | stylename  | Enumvalue | AutoString           |
+      | winter season | Apparel-BO | Enum A1   | Tested by Automation |
+
+  #-----------------------------------------------------------------------------------------------------------------
+  Scenario Outline: Conversation with season hierarchy
+    #Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    And Navigate to season create conversation
+    When Edit and Delete the created conversation
+    And Verify the conversation by sort order
+    And Navigate to Material create conversation
+
+    Examples: 
+      | conversation1                                                                 | conversation2                           | conversation3 |
+      | Planning the style,Planning the Material,Designing the Style,Plan for Seasons | Test Running,Design Style,Plan Material | Tested Runner |
+
+  #---------------------------------------------------------------------------------------------------
+  
+  Scenario Outline: User Create New style with wizard
+    # Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    And Navigate to style tab and create new style with name as wizard "<StyleName>"
+    When Navigate to new from style
+    And Create Move Style from within the style tab
+    And Navigate to apparel color and size style add image
+    And Navigate to new apparel wizard colorway verify data visible
+
+    Examples: 
+      | Style Name           |
+      | New Apparel - Wizard |
+ 
+   #---------------------------------------------------------------------------------------------------
       
+  Scenario Outline: Create Secondary type
+  #  Given User launches centric application
+    And User Click on setup icon
+		And Navigate to Secondary Type tab create data "<SecondaryType>"
+		And Navigate to Option Type and Product type create data "<OptionType>","<ProductType>"
+		And Navigate to Collection type and create data "<CollectionType>"
+		When Navigate to Folder type "<FolderType>"
+		And Create plan type data "<PlanType>"
+		And Enumeration creation
+		And Navigate to Business Object
+	  Then Create style attribute for merchandise product version
+		And Navigate to style push template and add mapping expression 
+		And Create style copy templates
+		And User select Style from Business Object "Style"
+		And Navigate to style create atrributes
+		And Again navigate to copy template and create new style copy template
+		And User click on update cnfiguration
+		And Create Merchandise copy template
+		
+    Examples: 
+      | SecondaryType   | OptionType | ProductType  |CollectionType| FolderType 							|PlanType   |
+      | Segment,Monthly |  Option		 |  Product     |Product Group | Department,Gender,Region |Merch Plan |
+      
+   #---------------------------------------------------------------------------------------------------
+      
+  @set72
+  Scenario Outline: Setup for hierarchy creation
+    #Given User launches centric application
+    And User Click on setup icon
+    And Navigate to Folder type to check Brand
+    Then Go to homepage
+    And Navigate to Home Page and setup template for hierarchy "<SeasonName1>"
+    Then Go to homepage
+    And Create new season choose existing hierarchy value "<SeasonName2>"
+
+    Examples: 
+      | SeasonName1 | SeasonName2 |
+      | Summer 2021 | Summer 2022 |
+
+  @set73
+  Scenario Outline: Create Plan in Merchandise
+    #Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    Then user creates new Plan "<PlanName>","<seasonname>"
+    Then user creates season under version "<seasonname>"
+    And under secondarysetup created monthly and segment setup "<month>","<segment>"
+    Then user selects monthly and segment value under Secondary
+    Then user click PlanTab, adds created monthly
+    Then user moves to created season
+    And user selects monthly and segment value under Secondary for summer2022
+
+    Examples: 
+      | PlanName | seasonname              | month             | segment           |
+      | Plan 1   | Summer 2021,Summer 2022 | monthly1,monthly2 | segment1,segment2 |
+
+  @set74
+  Scenario Outline: Folder creation and validation in merchandise
+    #Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    Then user navigates into created season "<season>"
+    And create newfolder under Plan "<foldername>"
+    Then create NewProducts and verify the attribute value of quantity created "<productvalue>","<optionNamevalue>"
+    Then user copy, delete and edit the created product "<copygreenvalue>"
+    Then Navigate to Product tab and validate Tops available or not
+    Then Logout from the Application
+
+    Examples: 
+      | season      | foldername                        | productvalue            | optionNamevalue   | copygreenvalue |
+      | Summer 2021 | Americas,Childrens wear,Boys,Tops | Tops-01,Tops-02,Tops-03 | Option,Blue,Green | Greenshade     |
+
+    @set75
+  Scenario Outline: Brand Creation
+    #Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    Then user creates brand under Heirarchy Template "<BrandValue>"
+    Then Click New Brand
+    And create Brand for merchandise "<BrandValue>"
+    
+
+    Examples: 
+      | BrandValue      |
+      | Brand X,Brand Y,Childrenswear,Tops |
+      
+	@set76
+	Scenario Outline: Product Creation
+		#Given User launches centric application
+		Then Go to homepage
+		And verify user screen
+		Then user navigate to merch collection create product"<Product>""<Season>""<Brand>"
+		Then create product with candidate"<Product1>""<Season>""<Brand>" 
+		Then Logout from the Application
+		
+		
+    Examples:
+    |Product  						|Season  			|Brand    |Product1		|
+    |Round Neck T-Shirt   |spring 2020  |Brand X  |RNT1				|  

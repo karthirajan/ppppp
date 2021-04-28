@@ -12,19 +12,19 @@ public class StyleandThemePage extends Commonactions{
 		PageFactory.initElements(Commonactions.driver, this);
 	}
 	
-	@FindBy(xpath="//span[text()='Specification' or @data-csi-tab='ApparelViews-ProductSpec']")
+	@FindBy(xpath="//span[text()='Specification' or @data-csi-tab-name='Specification']")
 	private WebElement Specification;
 	
-	@FindBy(xpath="//span[text()='Size Chart' or @data-csi-tab='SizeChartAdmin-SizeChartSpecs']")
+	@FindBy(xpath="//span[text()='Size Chart' or @data-csi-tab-name='Size Chart']")
 	private WebElement SizeChart;
 	
-	@FindBy(xpath="(//span[text()='Dimensions' or @data-csi-tab='SizeChartAdmin-Dimensions'])[1]")
+	@FindBy(xpath="(//span[text()='Dimensions' or @data-csi-tab-name='Dimensions'])[1]")
 	private WebElement Dimensions;
 	
-	@FindBy(xpath="(//span[text()='Dimension Gallery' or @data-csi-tab='SizeChartAdmin-DimensionCards'])")
+	@FindBy(xpath="(//span[text()='Dimension Gallery' or @data-csi-tab-name='Dimension Gallery'])")
 	private WebElement DimensionCards;
 	
-	@FindBy(xpath="(//span[text()='Increments' or @data-csi-tab='SizeChartAdmin-Increments'])[1]")
+	@FindBy(xpath="(//span[text()='Increments' or @data-csi-tab-name='Increments'])[1]")
 	private WebElement Increments;
 	
 	@FindBy(xpath="(//span[text()='Product Groups'])[1]")
@@ -66,10 +66,10 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="//span[text()='home']")
 	private WebElement home_Icon;
 	
-	@FindBy(xpath="//span[text()='Shape and Theme' or @data-csi-tab='ApparelViews-ShapeAndTheme']")
+	@FindBy(xpath="//span[text()='Shape and Theme' or @data-csi-tab-name='Shape and Theme']")
 	private WebElement ShapeAndTheme;
 	
-	@FindBy(xpath="(//span[text()='Shapes' or @data-csi-tab='ApparelViews-Shapes'])[1]")
+	@FindBy(xpath="(//span[text()='Shapes' or @data-csi-tab-name='Shapes'])[1]")
 	private WebElement Shapes;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'Shapes')]//div/div)[2]")
@@ -84,7 +84,7 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="(//div[contains(@data-csi-automation,'ThemeBOM')]/div)[1]")
 	private WebElement BOM;
 	
-	@FindBy(xpath="//span[text()='Shape Masters' or @data-csi-tab='ApparelViews-ShapeMasters']")
+	@FindBy(xpath="//span[text()='Shape Masters' or @data-csi-tab-name='Shape Masters']")
 	private WebElement ShapeMasters;
 	
 	@FindBy(xpath="//span[@data-csi-automation='plugin-ApparelViews-ShapeMasters-refresh']//span[@title='Refresh View']")
@@ -105,7 +105,7 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="((//a[text()='Square Shape -edited']/parent::td[@data-csi-act='Node Name::0'])/following-sibling::td/div/span[text()='close'])[1]")
 	private WebElement shapedelete;
 	
-	@FindBy(xpath="//span[text()='Shape Security Groups' or @data-csi-tab='ApparelViews-ShapeSecurityGroups']")
+	@FindBy(xpath="//span[text()='Shape Security Groups' or @data-csi-tab-name='Shape Security Groups']")
 	private WebElement ShapeSecurityGroups;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'ShapeSecurityGroup')]//div/div)[2]")
@@ -120,7 +120,7 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="//td[@data-csi-heading='ShapeSizeRange::0']")
 	private WebElement ShapeSizeRange;
 	
-	@FindBy(xpath="//span[text()='Styles' or @data-csi-tab='Shape-ShapeStyles']")
+	@FindBy(xpath="//span[text()='Styles' or @data-csi-tab-name='Styles']")
 	private WebElement Shapestyles;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'ShapeStyles')]//div/div)[2]")
@@ -141,7 +141,7 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="((//a[text()='Accessories - Only Color']/parent::td[@data-csi-heading='Node Name::0'])//following-sibling::td/div/span[text()='remove_circle_outline'])[1]")
 	private WebElement Style_2Delete;
 	
-	@FindBy(xpath="//span[text()='Samples' or @data-csi-tab='Shape-ShapeSamples']")
+	@FindBy(xpath="//span[text()='Samples' or @data-csi-tab-name='Samples']")
 	private WebElement Samples;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'ShapeSamples')]//div/div)[2]")
@@ -162,7 +162,7 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="(//div[text()='large']/parent::td//following-sibling::td/div//span[text()='close'])[2]")
 	private WebElement Sample_Delete;
 	
-	@FindBy(xpath="//span[text()='Specification' or @data-csi-tab='Shape-ShapeSpecificationTab']")
+	@FindBy(xpath="//span[text()='Specification' or @data-csi-tab-name='Specification']")
 	private WebElement Shape_Specification;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'SizeChart')]//div/div)[2]")
@@ -180,7 +180,7 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="(//td[contains(@data-csi-heading,'SubrangeIncrement:Child:CurrentRevision')])[1]")
 	private WebElement SCIncrement;
 	
-	@FindBy(xpath="//span[text()='Themes' or @data-csi-tab='ApparelViews-Themes']")
+	@FindBy(xpath="//span[text()='Themes' or @data-csi-tab-name='Themes']")
 	private WebElement Themes;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'Theme')]//div/div)[2]")
@@ -216,13 +216,13 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="(//a[contains(text(),'Copied')]/parent::td//following-sibling::td/div//span[text()='close'])[1]")
 	private WebElement Theme_Delete;
 	
-	@FindBy(xpath="//span[text()='Theme Security Groups' or @data-csi-tab='ApparelViews-ThemeSecurityGroups']")
+	@FindBy(xpath="//span[text()='Theme Security Groups' or @data-csi-tab-name='Theme Security Groups']")
 	private WebElement ThemeSecGrp;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'ThemeSecurity')]//div/div)[2]")
 	private WebElement TSG_Btn;
 	
-	@FindBy(xpath="//span[text()='Theme Masters' or @data-csi-tab='ApparelViews-ThemeMasters']")
+	@FindBy(xpath="//span[text()='Theme Masters' or @data-csi-tab-name='Theme Masters']")
 	private WebElement ThemeMaster;
 	
 	@FindBy(xpath="(//a[contains(text(),'Wild')]/parent::td//following-sibling::td[@data-csi-heading='__Parent__::0'])")
@@ -267,43 +267,43 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="(//td[contains(text(),'Vanilla')]//following-sibling::td/div//span[text()='close'])[1]")
 	private WebElement Vanilla_Delete;
 	
-	@FindBy(xpath="//span[text()='Theme Colorway' or @data-csi-tab='Theme-ColorColorwayGallery']")
+	@FindBy(xpath="//span[text()='Theme Colorway' or contains(@data-csi-tab-name,'Theme Colorway')]")
 	private WebElement ThemeClrWay;
 	
-	@FindBy(xpath="//span[text()='Docs' or @data-csi-tab='DocumentContainer-DocumentsAndComments']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Documents' or text()='Documents']")
 	private WebElement ThemeDocs;
 	
-	@FindBy(xpath="//span[text()='Style' or @data-csi-tab='Theme-StyleTabs']")
+	@FindBy(xpath="//span[text()='Style' or @data-csi-tab-name='Style']")
 	private WebElement ThemeStyle;
 	
-	@FindBy(xpath="//span[text()='Style Product' or @data-csi-tab='Theme-StylePAs']")
+	@FindBy(xpath="//span[text()='Style Product' or contains(@data-csi-tab-name,'Style Product')]")
 	private WebElement ThemeStylePA;
 	
-	@FindBy(xpath="//span[text()='Style Gallery' or @data-csi-tab='Theme-StyleGallery']")
+	@FindBy(xpath="//span[text()='Style Gallery' or @data-csi-tab-name='Style Gallery']")
 	private WebElement ThemeStyleGallery;
 	
-	@FindBy(xpath="//span[text()='Inspiration Styles' or @data-csi-tab='Theme-InspirationStyles']")
+	@FindBy(xpath="//span[text()='Inspiration Styles' or @data-csi-tab-name='Inspiration Styles']")
 	private WebElement ThemeInsStyle;
 	
-	@FindBy(xpath="//span[text()='Material' or @data-csi-tab='Theme-MaterialTabs']")
+	@FindBy(xpath="//span[text()='Material' or @data-csi-tab-name='Material']")
 	private WebElement ThemeMaterial;
 	
-	@FindBy(xpath="//span[text()='Theme Colorway Materials' or @data-csi-tab='Theme-PlacementColors']")
+	@FindBy(xpath="//span[text()='Theme Colorway Materials' or @data-csi-tab-name='Theme Colorway Materials']")
 	private WebElement ThemeClrMat;
 	
-	@FindBy(xpath="//span[text()='Main Materials Gallery' or @data-csi-tab='Theme-MaterialGallery']")
+	@FindBy(xpath="//span[text()='Main Materials Gallery' or @data-csi-tab-name='Main Materials Gallery']")
 	private WebElement ThemeMmatGal;
 	
-	@FindBy(xpath="//span[text()='Main Colored Materials Gallery' or @data-csi-tab='Theme-ColorMaterialGallery']")
+	@FindBy(xpath="//span[text()='Main Colored Materials Gallery' or @data-csi-tab-name='Main Colored Materials Gallery']")
 	private WebElement ThemeMCMG;
 	
-	@FindBy(xpath="//span[text()='New Color Specifications Gallery' or @data-csi-tab='Theme-NewColorSpecsGallery']")
+	@FindBy(xpath="//span[text()='New Color Specifications Gallery' or @data-csi-tab-name='New Color Specifications Gallery']")
 	private WebElement ThemeNCSG;
 	
-	@FindBy(xpath="//span[text()='Placements' or @data-csi-tab='Theme-Placements']")
+	@FindBy(xpath="//span[text()='Placements' or @data-csi-tab-name='Placements']")
 	private WebElement ThemePlacements;
 	
-	@FindBy(xpath="//span[text()='Styles' or @data-csi-tab='Theme-ThemeStyles']")
+	@FindBy(xpath="//span[text()='Styles' or @data-csi-tab-name='Styles']")
 	private WebElement ThemeStyles;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'Theme-Placements')])[1]//tbody/tr/td[2]")
@@ -363,10 +363,10 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="(//td[contains(text(),'Copy')]//preceding-sibling::td)[2]//input")
 	private WebElement Copy_ChkBx2;
 	
-	@FindBy(xpath="(//a[text()='fabric section']/parent::td/following-sibling::td[@data-csi-heading='MPPColor::0'])[3]")
+	@FindBy(xpath="(//a[text()='fabric section']/parent::td/following-sibling::td[@data-csi-heading='MPPColor::0'])[1]")
 	private WebElement ColoredMatValue;
 	
-	@FindBy(xpath="(//a[text()='fabric section']/parent::div/parent::td/following-sibling::td[@data-csi-heading='MPPColor::0'])[3]")
+	@FindBy(xpath="(//a[text()='fabric section']/parent::div/parent::td/following-sibling::td[@data-csi-heading='MPPColor::0'])[1]")
 	private WebElement ColoredMatValue1;
 	
 	@FindBy(xpath="(//td[text()='Create Section'])[2]")
@@ -432,22 +432,22 @@ public class StyleandThemePage extends Commonactions{
 	@FindBy(xpath="(//span[@class='attrPrimary']//parent::td/parent::tr/following-sibling::tr//td[contains(@class,'Button')])[8]")
 	private WebElement PlusUpdate_Exp;
 	
-	@FindBy(xpath="//span[text()='Style' and @data-csi-tab='Theme-StyleTabs']")
+	@FindBy(xpath="//span[text()='Style' and @data-csi-tab-name='Style']")
 	private WebElement ThemeStyleTab;
 	
 	@FindBy(xpath="//td[@data-csi-heading='ProductType::0']/preceding-sibling::td/a[contains(text(),'Apparel')]")
 	private WebElement ThemeStyleName;
 	
-	@FindBy(xpath="//span[@data-csi-tab='StructureItem-Specification' or text()='Specification']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Specification' or text()='Specification']")
 	private WebElement ThemeSpec;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Style-BOMs' or text()='BOM']")
+	@FindBy(xpath="//span[@data-csi-tab-name='BOM' or text()='BOM']")
 	private WebElement ThemeBOM;
 	
 	@FindBy(xpath="//td[@data-csi-heading='Subtype::0']/preceding-sibling::td/a[contains(text(),'Apparel')]")
 	private WebElement ThemeBOMName;
 	
-	@FindBy(xpath="//span[@data-csi-tab='ProductBOMRevision-PartMaterials' or text()='Placements']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Placements' or text()='Placements']")
 	private WebElement ThemePartPlacements;
 	
 	@FindBy(xpath="(//span[@data-csi-automation='plugin-ProductBOMRevision-PartMaterials-refresh']//span[@title='Refresh View'])[2]")

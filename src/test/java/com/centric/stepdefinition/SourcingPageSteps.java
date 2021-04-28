@@ -216,7 +216,7 @@ public class SourcingPageSteps extends Commonactions{
 		ca.click(sp.getShippingPortChkBox());
 		Commonactions.isElementPresent(mp.getSave_btn1());
 		ca.click(mp.getSave_btn1());
-		
+		ca.eleToBeClickable();
 		
 		try{
 			Commonactions.isElementPresent(hp.getUser_settingsBtn1());
@@ -1115,14 +1115,15 @@ public class SourcingPageSteps extends Commonactions{
             }catch (Exception exception) {
                 // TODO: handle exception
             }
-		ca.click(sp.getContainer());
+		ca.click(driver.findElement(By.xpath("(//td[@data-csi-act='Container::0'])[1]")));
 		ca.eleToBeClickable();
 		Thread.sleep(1000);
 		WebElement e5 = ca.activeElement();
         ca.eleToBeClickable();
-		ca.insertText(e5, string6+" - 02");
+		ca.insertText(e5, string6+" - 01");
 		ca.eleToBeClickable();
 		ca.jsMouseOver();
+		ca.eleToBeClickable();
 		
 		Commonactions.isElementPresent(sp.getShippingRateCopy());
 		ca.click(sp.getShippingRateCopy());
@@ -1225,8 +1226,9 @@ public class SourcingPageSteps extends Commonactions{
 		WebElement a = ca.activeElement();
 		ca.eleToBeClickable();
 		ca.insertText(a, string3);
-		Commonactions.isElementPresent(sp.getSr_extracolumn());
-		ca.click(sp.getSr_extracolumn());
+		a.sendKeys(Keys.TAB);
+		//Commonactions.isElementPresent(sp.getSr_extracolumn());
+		//ca.click(sp.getSr_extracolumn());
 		Commonactions.isElementPresent(sp.getRoutingCapCopy());
 		
 		ca.click(sp.getRoutingCapCopy());
@@ -1756,7 +1758,8 @@ public class SourcingPageSteps extends Commonactions{
 		
 		ca.click(sp.getApproveicon1());
 		Commonactions.isElementPresent(sp.getApprove1());
-		ca.click(sp.getApprove1());
+		//ca.mouseOver(sp.getApprove1());
+		Commonactions.clickjs(sp.getApprove1());
 		Commonactions.isElementPresent(sp.getCopy1());
 		
 		ca.click(sp.getCopy1());
@@ -1788,15 +1791,27 @@ public class SourcingPageSteps extends Commonactions{
 		Commonactions.isElementPresent(sp.getApproveicon2());
 		
 		ca.click(sp.getApproveicon2());
-		Commonactions.isElementPresent(sp.getApprove2());
-		ca.click(sp.getApprove2());
+		try{
+		Commonactions.isElementPresent(sp.getApprove3());
+		//ca.mouseOver(sp.getApprove2());
+		Commonactions.clickjs(sp.getApprove3());
+		}catch (Exception e) {
+			// TODO: handle exception
+			//Commonactions.isElementPresent(sp.getApprove2());
+			//ca.mouseOver(sp.getApprove2());
+			Commonactions.clickjs(sp.getApprove2());
+		}
 		Commonactions.isElementPresent(sp.getApproveicon3());
 		ca.click(sp.getApproveicon3());
 		Commonactions.isElementPresent(sp.getApprove3());
-		ca.click(sp.getApprove3());
+		//ca.mouseOver(sp.getApprove3());
+		Commonactions.clickjs(sp.getApprove3());
+		ca.eleToBeClickable();
 		Commonactions.isElementPresent(sp.getApproveicon2());
 		ca.click(sp.getApproveicon2());
+		ca.eleToBeClickable();
 		Commonactions.isElementPresent(sp.getQuestionDetail1());
+		//ca.mouseOver(sp.getQuestionDetail1());
 		ca.click(sp.getQuestionDetail1());
 		ca.eleToBeClickable();
 		
@@ -1817,13 +1832,15 @@ public class SourcingPageSteps extends Commonactions{
 		Commonactions.isElementPresent(sp.getApproveicon3());
 		ca.click(sp.getApproveicon3());
 		Commonactions.isElementPresent(sp.getRevise());
-		ca.click(sp.getRevise());
+		//ca.mouseOver(sp.getRevise());
+		Commonactions.clickjs(sp.getRevise());
 		ca.eleToBeClickable();
 		ca.click(driver.findElement(By.xpath("//div[contains(@class,'Question')]//span[text()='+']/parent::div")));
 		Commonactions.isElementPresent(sp.getApproveicon3());
 		ca.click(sp.getApproveicon3());
 		Commonactions.isElementPresent(sp.getQuestionDetail2());
-		ca.click(sp.getQuestionDetail2());
+		//ca.mouseOver(sp.getQuestionDetail2());
+		Commonactions.clickjs(sp.getQuestionDetail2());
 		Commonactions.isElementPresent(sp.getNewSubQuestionBtn());
 		ca.click(sp.getNewSubQuestionBtn());
 		Commonactions.isElementPresent(sp.getSubSectionValue());
@@ -1841,7 +1858,8 @@ public class SourcingPageSteps extends Commonactions{
 		Commonactions.isElementPresent(sp.getApproveicon3());
 		ca.click(sp.getApproveicon3());
 		Commonactions.isElementPresent(sp.getApprove3());
-		ca.click(sp.getApprove3());
+		//ca.mouseOver(sp.getApprove3());
+		Commonactions.clickjs(sp.getApprove3());
 		 Commonactions.isElementPresent(hp.getSetupSearch());
 		    ca.insertText(hp.getSetupSearch(), "Questions");
 		    ca.eleToBeClickable();

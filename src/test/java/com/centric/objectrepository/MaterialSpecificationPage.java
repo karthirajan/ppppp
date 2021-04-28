@@ -14,10 +14,10 @@ public class MaterialSpecificationPage extends Commonactions{
 		
 	}
 	
-	@FindBy(xpath="//span[@data-csi-tab='SizeChartAdmin-LibrariesLibMaterial' and text()='Material Libraries']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Material Libraries']")
 	private WebElement libraries;
 	
-	@FindBy(xpath="//span[@data-csi-tab='SizeChartAdmin-Libraries' and text()='Libraries']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Libraries']")
 	private WebElement libraries1;
 	
 	@FindBy(xpath="//table[contains(@data-csi-context-parent,'SizeChartAdmin')]//td[@data-dojo-attach-event='onkeydown:_onArrowKeyDown']")
@@ -86,7 +86,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="(//div[contains(@data-csi-automation,'ProductSize')]/div)/input[@name='SizeCode']/preceding-sibling::input")
 	private WebElement sortOrder;
 	
-	@FindBy(xpath="//span[text()='Supplier' and @data-csi-tab='LibSourcing-Suppliers']")
+	@FindBy(xpath="//span[text()='Supplier' or @data-csi-tab-name='Supplier']")
 	private WebElement supplier;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'LibSourcing-Suppliers')]//div/div)[2]")
@@ -104,7 +104,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="//div[@data-csi-act='IsWarehouse::0']/input")
 	private WebElement isWareHouse_ChkBox;
 	
-	@FindBy(xpath="//span[text()='Samples' or @data-csi-tab='Material-ProductSamples']")
+	@FindBy(xpath="//span[text()='Samples' or @data-csi-tab-name='Samples']")
 	private WebElement samples1;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'ProductSamples')]//div/div)[2]")
@@ -125,7 +125,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="//td[@title='Blue']")
 	private WebElement blue;
 	
-	@FindBy(xpath="//span[text()='SKUs' or @data-csi-tab='Material-ProductSKU']")
+	@FindBy(xpath="//span[text()='SKUs' or @data-csi-tab-name='SKUs']")
 	private WebElement SKU;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'ProductSKU')]//div/div)[2]")
@@ -143,7 +143,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="(//table[contains(@class,'grid')]//th[text()='Select All']//following-sibling::th//input[@tabindex='0'])[2]")
 	private WebElement selectParticular;
 	
-	@FindBy(xpath="//span[text()='Material Gallery' or @data-csi-tab='ApparelViews-AllMaterialsGallery']")
+	@FindBy(xpath="//span[text()='Material Gallery' or @data-csi-tab-name='Material Gallery']")
 	private WebElement material_gallery;
 	
 	@FindBy(xpath="//span[contains(@data-csi-automation,'ApparelViews-AllMaterialsGallery')]//span[text()='Views']")
@@ -161,7 +161,7 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="((//label[contains(text(),'Filter')]//following-sibling::div)[1]/div[3]/input)[1]")
 	private WebElement MGFilter;
 	
-	@FindBy(xpath="//span[text()='Material Security Groups' and @data-csi-tab='ApparelViews-MaterialSecurityGroups']")
+	@FindBy(xpath="//span[text()='Material Security Groups' or @data-csi-tab-name='Material Security Groups']")
 	private WebElement matSecGrps;
 	
 	@FindBy(xpath="//span[contains(@data-csi-automation,'MaterialSecurityGroups')]//span[text()='Views']")
@@ -188,10 +188,10 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="//label[text()='Fabric - Tool']/preceding-sibling::div/input")
 	private WebElement tool;
 	
-	@FindBy(xpath="//span[text()='Colored Material' and @data-csi-tab='ApparelViews-ColoredMaterials']")
+	@FindBy(xpath="//span[text()='Colored Material' or @data-csi-tab-name='Colored Material']")
 	private WebElement colored_mat;
 	
-	@FindBy(xpath="//span[text()='Material Samples' and @data-csi-tab='ApparelViews-MaterialSamples']")
+	@FindBy(xpath="//span[text()='Material Samples' or @data-csi-tab-name='Material Samples']")
 	private WebElement mat_samples;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'MaterialSamples')]//div/div)[2]")
@@ -212,16 +212,16 @@ public class MaterialSpecificationPage extends Commonactions{
 	@FindBy(xpath="(//span[text()='Unlink'])[2]")
 	private WebElement pp_unLink;
 	
-	@FindBy(xpath="//span[text()='Material SKUs' and @data-csi-tab='ApparelViews-SKUMaterials']")
+	@FindBy(xpath="//span[text()='Material SKUs' or @data-csi-tab-name='Material SKUs']")
 	private WebElement mat_SKU;
 	
-	@FindBy(xpath="//span[text()='Sourcing' and @data-csi-tab='ApparelViews-MaterialSourcing']")
+	@FindBy(xpath="(//span[text()='Sourcing' or @data-csi-tab-name='Sourcing'])[2]")
 	private WebElement sourcing;
 	
-	@FindBy(xpath="//span[text()='Supplier Quotes' and @data-csi-tab='ApparelViews-MaterialQuotes']")
+	@FindBy(xpath="//span[text()='Supplier Quotes' or @data-csi-tab-name='Supplier Quotes']")
 	private WebElement quotes;
 	
-	@FindBy(xpath="//span[text()='Supplier Requests' and @data-csi-tab='ApparelViews-MaterialSupplierRequests']")
+	@FindBy(xpath="//span[text()='Supplier Requests' or @data-csi-tab-name='Supplier Requests']")
 	private WebElement requests;
 	
 	@FindBy(xpath="//span[text()='Care Labels']")

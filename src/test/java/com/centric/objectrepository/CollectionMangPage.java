@@ -34,6 +34,9 @@ public class CollectionMangPage {
 	@FindBy(xpath="(//span[text()='Currency Tables'])[1]")
 	private WebElement CurrencyTable;
 	
+	@FindBy(xpath="(//td[contains(@data-csi-act,'CurrencyExchangeTable')])[1]")
+	private WebElement Currencytable;
+	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'Data-CurrencyTables')]//div/div)[2]")
 	private WebElement Currencytablebtn;
 	
@@ -88,22 +91,22 @@ public class CollectionMangPage {
 	@FindBy(xpath="(//span[text()='Sales Divisions'])[2]")
 	private WebElement saledivision2;
 	
-	@FindBy(xpath="//span[contains(@data-csi-tab,'MarketingCollections') or text()='Marketing Collections']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Marketing Collections') or text()='Marketing Collections']")
 	private WebElement marketingcollection ;
 	
-	@FindBy(xpath="//span[contains(@data-csi-tab,'MarketingLooks') or text()='Marketing Looks']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Marketing Looks') or text()='Marketing Looks']")
 	private WebElement MarketingLook;
 	
-	@FindBy(xpath="//span[contains(@data-csi-tab,'MarketingTools') or text()='Marketing Tools']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Marketing Tools') or text()='Marketing Tools']")
 	private WebElement MarketingTool;
 	
-	@FindBy(xpath="//span[contains(@data-csi-tab,'SalesOrdersAndLineItems') or text()='Sales Order']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Sales Order') or text()='Sales Order']")
 	private WebElement SalesOrder;
 	
-	@FindBy(xpath="//span[contains(@data-csi-tab,'SalesOrderGroups') or text()='Sales Order Groups']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Sales Order Groups') or text()='Sales Order Groups']")
 	private WebElement salesordergroup;
 	
-	@FindBy(xpath="//span[contains(@data-csi-tab,'CatalogConfig') or text()='Catalog Configuration']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Catalog Configuration') or text()='Catalog Configuration']")
 	private WebElement catalogconfig;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'MarketingLooks')]//div/div)[2]")
@@ -130,7 +133,7 @@ public class CollectionMangPage {
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'MarketingCollection-Form-BaseCurrency')])/div/input)[3]")
 	private WebElement marketingcurrenyvalue;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'MarketingCollection-MCProducts') or  text()='Marketing Products']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Marketing Products') or  text()='Marketing Products']")
 	private WebElement marketingproduct;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'MCProducts')])[1]//tbody/tr/td[2]")
@@ -187,7 +190,7 @@ public class CollectionMangPage {
 	@FindBy(xpath="//a[contains(text(),'Shirt')]")
 	private WebElement Materialproductname;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'MarketingCollection-MCMaterials') or text()='Marketing Materials']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Marketing Materials') or text()='Marketing Materials']")
 	private WebElement Marketingmaterial;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'MarketingCollection-MCMaterials')]//div/div)[2]")
@@ -211,10 +214,10 @@ public class CollectionMangPage {
 	@FindBy(xpath="(//a[contains(text(),'MP')]//parent::td//following::td[contains(@data-csi-act,'MainMaterial')])[1]")
 	private WebElement MPMaterial;
 	
-	@FindBy(xpath="//span[contains(@data-csi-tab,'MarketingCollection-MarketingSegments') or text()='Marketing Segments']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Marketing Segments') or text()='Marketing Segments']")
 	private WebElement marketingsegment;
 	
-	@FindBy(xpath="//span[contains(@data-csi-tab,'MarketingCollections') or text()='Marketing Collection']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Marketing Collection') or text()='Marketing Collection']")
 	private WebElement marketingColl;
 	
 	@FindBy(xpath="//td[contains(@data-csi-heading,'Segment')]")
@@ -238,10 +241,10 @@ public class CollectionMangPage {
 	@FindBy(xpath="(//td[contains(text(),'US')]//preceding-sibling::td)//input")
 	private WebElement usmarketcheckbox;
 	
-	@FindBy(xpath="//table[contains(@data-csi-automation,'MarketingCollection-SalesCollections')]")
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'MarketingCollection-SalesCollections')])[2]")
 	private WebElement pushmarketproduct;
 	
-	@FindBy(xpath="//td[contains(@data-csi-act,'State')]/div[text()='DRAFT']")
+	@FindBy(xpath="//td[contains(@data-csi-act,'State')]")
 	private WebElement selectstate;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'SalesOrders')]//div/div)[2]")
@@ -255,6 +258,142 @@ public class CollectionMangPage {
 	
 	@FindBy(xpath="((//div[contains(@data-csi-automation,'field-SalesMarket-Form-Node')]/div)[2]/div/input)[1]")
 	private WebElement salesmarketvalue1;
+	
+	@FindBy(xpath="//div[@data-csi-automation='field-MarketingCollection-Form-SKUBasedOrdering']/input")
+	private WebElement SKUOrder;
+	
+	@FindBy(xpath="(//td[contains(@data-csi-act,'LocalizedName')])[1]")
+	private WebElement LocalName;
+	
+	@FindBy(xpath="(//td[contains(@data-csi-act,'Code')])[1]")
+	private WebElement code;
+	
+	@FindBy(xpath="//td[contains(@data-csi-act,'CurrencyExchangeTable::0')]")
+	private WebElement currencyTable;
+	
+	@FindBy(xpath="(//td[contains(text(),'100% Cotton/Rayon Jersey')]//preceding-sibling::td)//input")
+	private WebElement matAChkBx;
+	
+	@FindBy(xpath="(//td[contains(text(),'100% Cotton/Rayon Jersey - Copy')]//preceding-sibling::td)//input")
+	private WebElement matBChkBx;
+	
+	@FindBy(xpath="//td[contains(@data-csi-act,'MainMaterial:Child:ToCustomer')]")
+	private WebElement MPinmaterila;
+	
+	@FindBy(xpath="(//td[contains(@data-csi-act,'MainMaterialColor:Child') or contains(@data-csi-heading,'MainMaterialColor:Child:Colors')])[2]")
+	private WebElement materialcolor;
+	
+	@FindBy(xpath="(//td[contains(text(),'Indian Market')]//preceding-sibling::td)//input")
+	private WebElement indainmarketcheckbox;
+	
+	@FindBy(xpath="(//div[text()='Sales Markets']//following::td[contains(@data-csi-heading,'Node Name')]/a)[1]")
+	private WebElement salemarketname;
+	
+	@FindBy(xpath="//td[contains(@data-csi-act,'SMCustomers')]")
+	private WebElement SMCustomer;
+	
+	@FindBy(xpath="//label[contains(text(),'H&M')]//parent::div/div/input")
+	private WebElement Hmchecckbox;
+	
+	@FindBy(xpath="//td[contains(@data-csi-act,'SMSalesDivisions')]")
+	private WebElement SMSalesDivision;
+	
+	@FindBy(xpath="//label[contains(text(),'India - North')]//parent::div/div/input")
+	private WebElement northcheckbox;
+	
+	@FindBy(xpath="//label[contains(text(),'India - South')]//parent::div/div/input")
+	private WebElement southcheckbox;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Sales Products') or text()='Sales Products']")
+	private WebElement salesproduct;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Promotions') or text()='Promotions']")
+	private WebElement Promotion;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'SalesPromos')]//div/div)[2]")
+	private WebElement salespromBtn;
+	
+	@FindBy(xpath="(//div[contains(@data-csi-automation,'field-SalesOrder-Form-Seller')]/div[3]/input)[1]")
+	private WebElement seller;
+	
+	@FindBy(xpath="//div[contains(@data-csi-automation,'field-SalesOrder-Form-Buyer')]/div[3]/input")
+	private WebElement Buyer;
+	
+	@FindBy(xpath="//div[@data-csi-automation='field-SalesOrder-Form-SKUBasedOrder']/input")
+	private WebElement SKUsalesorder;
+	
+	@FindBy(xpath="((//a[contains(text(),'Indian')]//parent::td)/following-sibling::td/div/span[text()='content_copy'])[1]")
+	private WebElement Copy1;
+	
+	@FindBy(xpath="((//a[contains(text(),'Indian')]//parent::td)/following-sibling::td/div/span[text()='close'])[1]")
+	private WebElement delete1;
+	
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Marketing Tools') or text()='Marketing Tools']")
+	private WebElement marketingtools;
+	
+	@FindBy(xpath="(//td[contains(text(),'Banner')]//preceding-sibling::td)//input")
+	private WebElement Banercheckbox;
+	
+	@FindBy(xpath="(//div[@data-csi-automation='field-SalesOrderGroup-Form-Market']/div[3])/input[1]")
+	private WebElement smvalue;
+	
+	@FindBy(xpath="(//div[@data-csi-automation='field-SalesOrderGroup-Form-Customer']/div[3])/input[1]")
+	private WebElement smcustomer;
+	
+	public WebElement getBanercheckbox() {
+		return Banercheckbox;
+	}
+
+	@FindBy(xpath="//td/a[contains(text(),'Indian')]")
+	private WebElement salesordername;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'SalesOrder-LineItemsSKU')]//div/div)[2]")
+	private WebElement salesskubtn;
+	
+	@FindBy(xpath="(//td[contains(text(),'Blue')]//preceding-sibling::td)//input")
+	private WebElement bluecolorcheckbox;
+	
+	@FindBy(xpath="(//td[contains(text(),'Green')]//preceding-sibling::td)//input")
+	private WebElement greencolorchecckbox;
+	
+	@FindBy(xpath="(//td[contains(@data-csi-heading,'Quantity')])[1]")
+	private WebElement quantityblue;
+	
+	@FindBy(xpath="(//td[contains(@data-csi-heading,'Quantity')])[2]")
+	private WebElement quantitygreen;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'SalesOrderGroups')]//div/div)[2]")
+	private WebElement salesorderbutton;
+	
+	@FindBy(xpath="((//div[@data-csi-automation='field-SalesOrderGroup-Form-Node Name']/div)/div/input)[1]")
+	private WebElement salesordervalue;
+	
+	@FindBy(xpath="(//div[@data-csi-automation='field-SalesOrderGroup-Form-Customer']/div[3])/input[1]")
+	private WebElement customer;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'SalesOrderGroup')])[2]//tbody/tr/td[2]")
+	private WebElement salesorderexpand;
+	
+	@FindBy(xpath="//table[contains(@data-csi-automation,'SalesOrderGroup-SalesOrders')]//td[text()='Add Existing Sales Orders']")
+	private WebElement Existingsalesorder;
+	
+	@FindBy(xpath="(//td[contains(text(),'TShirt')]//preceding-sibling::td)//input")
+	private WebElement indinasalescheckbox;
+	
+	@FindBy(xpath="(//td/a[contains(text(),'South')])[1]")
+	private WebElement southsalename;
+	
+	@FindBy(xpath="(//table[contains(@data-csi-automation,'SalesOrder-LineItems')]//div/div)[2]")
+	private WebElement salescolorwaybtn;
+	
+	@FindBy(xpath="//a[contains(text(),'Blue')]//following::span[text()='content_copy']")
+	private WebElement bluecolorcopy;
+	
+	@FindBy(xpath="//td[contains(text(),'COPY')]//following::span[text()='close']")
+	private WebElement bluedelete;
+	
+	@FindBy(xpath="(//td[@data-csi-act='WholesalePrice:Child:MCProductSKUs:0{MCProductSKUs}'])[1]")
+	private WebElement SKUverify;
 
 	public WebElement getEnum_marketingsegment() {
 		return enum_marketingsegment;
@@ -282,6 +421,10 @@ public class CollectionMangPage {
 
 	public WebElement getCurrencyTable() {
 		return CurrencyTable;
+	}
+	
+	public WebElement getCurrencytable() {
+		return Currencytable;
 	}
 
 	public WebElement getCurrencytablebtn() {
@@ -579,5 +722,175 @@ public class CollectionMangPage {
 	public WebElement getSalesmarketvalue1() {
 		return salesmarketvalue1;
 	}
+
+	public WebElement getSKUOrder() {
+		return SKUOrder;
+	}
+
+	public WebElement getLocalName() {
+		return LocalName;
+	}
+
+	public WebElement getCode() {
+		return code;
+	}
+
+	public WebElement getMatAChkBx() {
+		return matAChkBx;
+	}
+
+	public WebElement getMatBChkBx() {
+		return matBChkBx;
+	}
+
+	public WebElement getMPinmaterila() {
+		return MPinmaterila;
+	}
+
+	public WebElement getMaterialcolor() {
+		return materialcolor;
+	}
+
+	public WebElement getIndainmarketcheckbox() {
+		return indainmarketcheckbox;
+	}
+
+	public WebElement getSalemarketname() {
+		return salemarketname;
+	}
+
+	public WebElement getSMCustomer() {
+		return SMCustomer;
+	}
+
+	public WebElement getHmchecckbox() {
+		return Hmchecckbox;
+	}
+
+	public WebElement getSMSalesDivision() {
+		return SMSalesDivision;
+	}
+
+	public WebElement getNorthcheckbox() {
+		return northcheckbox;
+	}
+
+	public WebElement getSouthcheckbox() {
+		return southcheckbox;
+	}
+
+	public WebElement getSalesproduct() {
+		return salesproduct;
+	}
+
+	public WebElement getPromotion() {
+		return Promotion;
+	}
+
+	public WebElement getSalespromBtn() {
+		return salespromBtn;
+	}
+
+	public WebElement getSeller() {
+		return seller;
+	}
+
+	public WebElement getBuyer() {
+		return Buyer;
+	}
+
+	public WebElement getSKUsalesorder() {
+		return SKUsalesorder;
+	}
+
+	public WebElement getCopy1() {
+		return Copy1;
+	}
+
+	public WebElement getDelete1() {
+		return delete1;
+	}
+
+	public WebElement getMarketingtools() {
+		return marketingtools;
+	}
+
+	public WebElement getSalesordername() {
+		return salesordername;
+	}
+
+	public WebElement getSalesskubtn() {
+		return salesskubtn;
+	}
+
+	public WebElement getBluecolorcheckbox() {
+		return bluecolorcheckbox;
+	}
+
+	public WebElement getGreencolorchecckbox() {
+		return greencolorchecckbox;
+	}
+
+	public WebElement getQuantityblue() {
+		return quantityblue;
+	}
+
+	public WebElement getQuantitygreen() {
+		return quantitygreen;
+	}
+
+	public WebElement getSalesorderbutton() {
+		return salesorderbutton;
+	}
+
+	public WebElement getSalesordervalue() {
+		return salesordervalue;
+	}
+
+	public WebElement getCustomer() {
+		return customer;
+	}
+
+	public WebElement getSalesorderexpand() {
+		return salesorderexpand;
+	}
+
+	public WebElement getExistingsalesorder() {
+		return Existingsalesorder;
+	}
+
+	public WebElement getIndinasalescheckbox() {
+		return indinasalescheckbox;
+	}
+
+	public WebElement getSouthsalename() {
+		return southsalename;
+	}
+
+	public WebElement getSalescolorwaybtn() {
+		return salescolorwaybtn;
+	}
+
+	public WebElement getBluecolorcopy() {
+		return bluecolorcopy;
+	}
+
+	public WebElement getBluedelete() {
+		return bluedelete;
+	}
+
+	public WebElement getSKUverify() {
+		return SKUverify;
+	}
+
+	public WebElement getSmvalue() {
+		return smvalue;
+	}
+
+	public WebElement getSmcustomer() {
+		return smcustomer;
+	}
+	
+	
 
 }

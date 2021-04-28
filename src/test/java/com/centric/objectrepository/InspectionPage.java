@@ -16,31 +16,32 @@ public class InspectionPage extends Commonactions{
 		PageFactory.initElements(Commonactions.driver, this);
 	}
 
-	@FindBy(xpath="(//span[contains(text(),'Documents')]/parent::div/parent::div/parent::div/preceding-sibling::div)[3]")
+	//@FindBy(xpath="(//span[contains(text(),'Documents')]/parent::div/parent::div/parent::div/preceding-sibling::div)[3]")
+	@FindBy(xpath="//button[@title='Scroll Right']")
 	private WebElement PagecontentArrow;
 
-	@FindBy(xpath="//span[text()='Inspections' or @data-csi-tab='Data-Inspections']")
+	@FindBy(xpath="//span[text()='Inspections' or @data-csi-tab-name='Data-Inspections']")
 	private WebElement InspectionTab;
 
-	@FindBy(xpath="//span[text()='Inspection Security Groups' or @data-csi-tab='Data-InspectionSecurityGroups']")
+	@FindBy(xpath="//span[text()='Inspection Security Groups' or @data-csi-tab-name='Inspection Security Groups']")
 	private WebElement InspectionSecGrpTab;
 
-	@FindBy(xpath="//span[text()='Defects' or @data-csi-tab='Data-InspectionDefects']")
+	@FindBy(xpath="//span[text()='Defects' or @data-csi-tab-name='Defects']")
 	private WebElement Defects;
 
 	@FindBy(xpath="//span[text()='Defect']//following::td/following-sibling::td//span[text()='content_copy']")
 	private WebElement DefectCopy;
 
-	@FindBy(xpath="//span[text()='Acceptance Limits' or @data-csi-tab='Data-AcceptanceLimits']")
+	@FindBy(xpath="//span[text()='Acceptance Limits' or @data-csi-tab-name='Acceptance Limits']")
 	private WebElement AccLimit;
 
-	@FindBy(xpath="//span[text()='Sampling Plans' or @data-csi-tab='Data-SamplingPlans']")
+	@FindBy(xpath="//span[text()='Sampling Plans' or @data-csi-tab-name='Sampling Plans']")
 	private WebElement Samplingplan;
 
-	@FindBy(xpath="//span[text()='Test Specifications' or @data-csi-tab='Data-InspectionTestSpecs']")
+	@FindBy(xpath="//span[text()='Test Specifications' or @data-csi-tab-name='Test Specifications']")
 	private WebElement TestSpecification;
 
-	@FindBy(xpath="//span[text()='Error Types' or @data-csi-tab='Data-InspectionErrorTypes']")
+	@FindBy(xpath="//span[text()='Error Types' or @data-csi-tab-name='Error Types']")
 	private WebElement ErrorType;
 
 	@FindBy(xpath="//span[text()='Inspection Templates']")
@@ -159,13 +160,13 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//span[text()='Inspection Template']//following::td[contains(@data-csi-act,'Node Name')]/a")
 	private List<WebElement> InspectionTempNames;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'FinalInspectionTemplate') and text()='Inspection Template'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'Inspection Template') or text()='Inspection Template'])")
 	private WebElement InspectionTemplatetab;
 
 	@FindBy(xpath="//td[contains(@data-csi-heading,'SamplingPlan')]")
 	private WebElement TempSamplingPlan;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'ErrorTypes') and text()='Error Types'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'ErrorTypes') or text()='Error Types'])[2]")
 	private WebElement ErrorTypestab;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'ErrorTypes')]//div[contains(text(),'New Inspection Error Type')]")
@@ -174,7 +175,7 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//div[@data-csi-automation='field-FinalInspectionErrorType-Form-ErrorType']/div[3]/input[1]")
 	private WebElement ErrorTypevalue;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'InspectionSections') and text()='Test Specifications'])")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Test Specifications')]")
 	private WebElement Testspecificationtab;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'AbstractFinalInspection-InspectionSections')]//div[contains(text(),'New from Inspection Section Type')])[1]")
@@ -189,7 +190,7 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//span[text()='Test Specification']/ancestor::tr/th/div/input")
 	private WebElement TestSpecChkBox;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'FIBOMs') and text()='BOM'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'BOM') or text()='BOM'])")
 	private WebElement BOMTab;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'AbstractFinalInspection-FIBOMs')]//div[contains(text(),'New Special')])[1]")
@@ -201,10 +202,10 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//span[text()='Inspection BOM']/ancestor::div[2]//table//td/a")
 	private WebElement BOMName;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'FinalInspectionBOM-Properties') and text()='Properties'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'Properties') or text()='Properties'])")
 	private WebElement BOMInspProperties;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'FinalInspectionBOM-Placements') and text()='Placements'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'Placements') or text()='Placements'])")
 	private WebElement BOMInspPlacement;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'FinalInspectionBOM-Placements')]//div[contains(text(),'New from Material')])[1]")
@@ -213,7 +214,7 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="(//td[contains(text(),'100% Cotton Jersey')]/ancestor::tr/td/div/input)[1]")
 	private WebElement materialchkBox;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'FISizeCharts') and text()='Size Charts'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'Size Charts') or text()='Size Charts'])")
 	private WebElement SizeChartTab;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'AbstractFinalInspection-FISizeCharts')]//div[contains(text(),'New Special')])[1]")
@@ -222,10 +223,10 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//span[text()='Inspection Size Chart']/ancestor::div[2]//table//td/a")
 	private WebElement InsSpecName;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'FinalInspectionSizeChart-Properties') and text()='Properties'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'Properties') or text()='Properties'])")
 	private WebElement SizeChartInspProperty;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'FinalInspectionSizeChart-Dimensions') and text()='Inspection Size Charts Dimensions'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'Inspection Size Charts Dimensions') or text()='Inspection Size Charts Dimensions'])")
 	private WebElement SizeChartDimension;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'FinalInspectionSizeChart-Dimensions-ToolbarNewActions')]//td[2]")
@@ -261,16 +262,16 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//td[contains(@data-csi-act,'Node Name')]/a")
 	private WebElement InspectionName;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'AbstractFinalInspection-FISpecificationDataSheet') or text()='Spec Data Sheets']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Spec Data Sheets') or text()='Spec Data Sheets']")
 	private WebElement specdatasheet;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'AbstractFinalInspection-FIImageDataSheet') or text()='Image Data Sheets']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Image Data Sheets') or text()='Image Data Sheets']")
 	private WebElement imagedatasheet;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'AbstractFinalInspection-FIReviewStyle') or text()='Style Reviews']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Style Reviews') or text()='Style Reviews']")
 	private WebElement StyleRStylereviewtab;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'AbstractFinalInspection-FIBOM') or text()='BOMs']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'BOMs') or text()='BOMs']")
 	private WebElement InspectionBOMTab;
 
 	@FindBy(xpath="//span[@data-csi-automation='plugin-FinalInspection-Properties-ReinitializeAll']//span[text()='Reset All']")
@@ -683,7 +684,7 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//span[@data-csi-automation='plugin-Data-InspectionTestSpecCurrentRevisions-filter']")
 	private WebElement Filter;
 
-	@FindBy(xpath="//span[text()='Inspection Batches' or @data-csi-tab='FinalInspection-Batches']")
+	@FindBy(xpath="//span[text()='Inspection Batches' or @data-csi-tab-name='Inspection Batches']")
 	private WebElement InspectionBatches;
 
 	@FindBy(xpath="//input[@value='DefectCategory']")
@@ -737,7 +738,7 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//td/a[contains(text(),'Size Chart')]")
 	private WebElement SizechartIcon;
 
-	@FindBy(xpath="//span[@data-csi-tab='FinalInspectionBatchSection-BatchSectionSamples' and text()='Batch Section Samples']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Batch Section Samples']")
 	private WebElement BatchSectionsampleTab;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'FinalInspectionBatchSection-BatchSectionSamples-ToolbarNewActions')]//div[contains(text(),'New Batch Section Sample')]")
@@ -776,7 +777,7 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//div[@data-csi-automation='field-FinalInspectionDefect-Form-BatchErrorType']/div[3]/input[1]")
 	private WebElement BatchErrorTypevalue;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'FinalInspectionBatch-InspectionBatchDefects') or text()='Defects']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Defects') or text()='Defects']")
 	private WebElement DefectTab;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'FinalInspectionBatch-InspectionBatchDefects-ToolbarNewActions')]//div[contains(text(),'New Inspection Defect')]")
@@ -785,13 +786,19 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//div[@data-csi-automation='field-FinalInspectionDefect-Form-DefectCounter']//div[2]/input[1]")
 	private WebElement Defectcounter;
 
-	@FindBy(xpath="//div/span[text()='DRAFT']")
+	@FindBy(xpath="//*[text()='DRAFT']")
 	private WebElement Draft;
+	
+	@FindBy(xpath="(//span[text()='arrow_forward' or title='Start'])[2]")
+	private WebElement start2;
+	
+	@FindBy(xpath="(//span[text()='arrow_forward' or title='Start'])[1]")
+	private WebElement start1;
 
-	@FindBy(xpath="//span[text()='Inspection Batch' or @data-csi-tab='FinalInspectionBatch-InspectionBatchHtml']")
+	@FindBy(xpath="//span[text()='Inspection Batch' or @data-csi-tab-name='Inspection Batch']")
 	private WebElement FinalInspectionBatch;
 
-	@FindBy(xpath="//span[text()='Report' or @data-csi-tab='FinalInspectionBatch-Print']")
+	@FindBy(xpath="//span[text()='Report' or @data-csi-tab-name='Report']")
 	private WebElement ReportTab;
 
 	@FindBy(xpath="//span[@data-csi-automation='plugin-FinalInspectionBatch-Print-pdf']/span")
@@ -809,6 +816,14 @@ public class InspectionPage extends Commonactions{
 
 	public WebElement getDraft() {
 		return Draft;
+	}
+	
+	public WebElement getstart2() {
+		return start2;
+	}
+	
+	public WebElement getstart1() {
+		return start1;
 	}
 
 	public WebElement getNewSecGrpName() {
@@ -1027,10 +1042,10 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//a[contains(text(),'Batch')]")
 	private WebElement BatchIcon;
 
-	@FindBy(xpath="//td[contains(@data-csi-act,'TargetSamplesCnt')]")
+	@FindBy(xpath="//td[contains(@data-csi-act-name,'TargetSamplesCnt')]")
 	private WebElement TargetSamplesCnt;
 
-	@FindBy(xpath="//td[contains(@data-csi-act,'Node Name')]/a[contains(text(),'Order')]")
+	@FindBy(xpath="//td[contains(@data-csi-act-name,'Node Name')]/a[contains(text(),'Order')]")
 	private WebElement OrderName;
 
 	@FindBy(xpath="//div[@data-csi-automation='field-FinalInspection-Form-FinalInspectionPOLevel']/div[3]/input[1]")
@@ -1045,7 +1060,7 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//span[contains(@data-csi-automation,'PassInspectionBatch')]//span[text()='Pass']")
 	private WebElement Passbtn;
 
-	@FindBy(xpath="//td[contains(@data-csi-act,'Node Name')]/a[contains(text(),'Shipment')]")
+	@FindBy(xpath="//td[contains(@data-csi-act-name,'Node Name')]/a[contains(text(),'Shipment')]")
 	private WebElement ShipmentName;
 
 	@FindBy(xpath="//div[@data-csi-automation='field-FinalInspection-Form-FinalInspectionShipmentLevel']//div[3]/input[1]")
@@ -1069,7 +1084,7 @@ public class InspectionPage extends Commonactions{
 	@FindBy(xpath="//td[contains(@data-csi-act,'ProductionQuote')]/a")
 	private WebElement Prodquotevalue;
 
-	@FindBy(xpath="//span[text()='Supplier Quotes' or @data-csi-tab='StyleSourcing-QuoteAndSources']")
+	@FindBy(xpath="//span[text()='Supplier Quotes' or @data-csi-tab-name='Supplier Quotes']")
 	private WebElement Stylesourcingquote;
 
 	public WebElement getNewInspectionExpand() {

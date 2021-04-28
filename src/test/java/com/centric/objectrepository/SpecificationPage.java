@@ -69,7 +69,7 @@ public class SpecificationPage extends Commonactions {
 	@FindBy(how = How.CSS,using = "span[data-csi-act='SelectSizeChartSubSizeRanges']")
 	private WebElement SubSizeRange;
 
-	@FindBy(how = How.CSS,using = "span[data-csi-tab='SizeRange-SizeMaps']")
+	@FindBy(how = How.CSS,using = "span[data-csi-tab-name='Size Maps']")
 	private WebElement SRSizeMapTab;
 
 	@FindBy(how = How.CSS,using = "table[data-csi-automation='plugin-SizeRange-SizeMaps-ToolbarNewActions']")
@@ -100,7 +100,7 @@ public class SpecificationPage extends Commonactions {
 	private WebElement SRDimensionTypeBx;
 
 
-	@FindBy(xpath = "//span[text()='Data Package Templates']")
+	@FindBy(xpath = "(//span[text()='Data Package Templates'])[1]")
 	private WebElement TemplateTab;
 	
 	@FindBy(xpath = "//span[text()='Spec Data Sheet Templates']")

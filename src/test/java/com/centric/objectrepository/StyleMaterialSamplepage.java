@@ -34,7 +34,7 @@ public class StyleMaterialSamplepage extends Commonactions {
 	@FindBy(xpath="(//span[contains(@class,'Button') or text()='●']//following-sibling::span[text()='Close'])[1]")
 	private WebElement closeBtn;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Style-ProductColors' and text()='Colorways']")
+	@FindBy(xpath="//span[@data-csi-tab-name-name='Colorways' or text()='Colorways']")
 	private WebElement colorways;
 	
 	@FindBy(xpath="(//table[@data-csi-automation='plugin-Style-ProductColors-ToolbarNewActions'])[1]//tbody/tr/td[2]")
@@ -84,13 +84,22 @@ public class StyleMaterialSamplepage extends Commonactions {
 	@FindBy(xpath="//label[text()='MaterialSampleType (1)']/parent::div/div/input")
 	private WebElement MaterialSampleType;
 	
+	@FindBy(xpath="//td[text()='DefectCategory']//preceding-sibling::td/div/input")
+	private WebElement defCat;
+	
 	@FindBy(xpath="//td[text()='MaterialSampleType']//preceding-sibling::td/div/input")
 	private WebElement EnumChkBx;
+	
+	@FindBy(xpath="//td[text()='MaterialFamily']//preceding-sibling::td/div/input")
+	private WebElement EnumFamChkBx;
 	
 	@FindBy(xpath="//td[text()='MarketingSegmentName']//preceding-sibling::td/div/input")
 	private WebElement EnumChkBxSeg;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Style-ProductSamples' and text()='Samples']")
+	@FindBy(xpath="//td[text()='DefectCategory']//preceding-sibling::td/div/input")
+	private WebElement EnumChkBxDefect;
+	
+	@FindBy(xpath="//span[@data-csi-tab-name='Samples' or text()='Samples']")
 	private WebElement Samples;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'ProductSamples')]//div/div)[2]")
@@ -169,7 +178,7 @@ public class StyleMaterialSamplepage extends Commonactions {
 	@FindBy(xpath="(//a[contains(text(),'Wash')]/parent::td//following-sibling::td[@data-csi-heading='ApplyToTypes::0'])[1]")
 	private WebElement ApplyWashTypes;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Product-Quality' and text()='Quality']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Quality' or text()='Quality']")
 	private WebElement StyleQuality;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'TestRun')]//div/div)[2]")
@@ -203,7 +212,7 @@ public class StyleMaterialSamplepage extends Commonactions {
 	@FindBy(xpath="(//td[contains(text(),'EGRET - Copy')]//preceding-sibling::td)//input")
 	private WebElement EgretCpyChkBx;
 	
-	@FindBy(xpath="(//table[@data-csi-automation='plugin-Product-TestRuns-ToolbarNewActions'])[1]//tbody/tr/td[2]")
+	@FindBy(xpath="(//table[@data-csi-automation='plugin-BaseProduct-TestRuns-ToolbarNewActions'])[1]//tbody/tr/td[2]")
 	private WebElement TestRunexpand;
 	
 	@FindBy(xpath="//td[contains(text(),'New from Template')]")
@@ -230,7 +239,7 @@ public class StyleMaterialSamplepage extends Commonactions {
 	@FindBy(xpath="(//td[@data-csi-heading='Node Name::0']/a[contains(text(),'Cotton/Rayon Jersey')])[1]")
 	private WebElement cottonName;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Material-MaterialProperties' and text()='Properties']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Properties' or text()='Properties']")
 	private WebElement Mproperties;
 	
 	@FindBy(xpath="//td[@data-csi-heading='ActualSizeRange:Child:Attributes:0']")
@@ -254,13 +263,13 @@ public class StyleMaterialSamplepage extends Commonactions {
 	@FindBy(xpath="(//a[contains(text(),'New')]//parent::td//following-sibling::td/div/span[@data-csi-act='Delete'])[1]")
 	private WebElement MDelete;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Material-ProductSamples' and text()='Samples']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Samples' or text()='Samples']")
 	private WebElement MSamples;
 	
 	@FindBy(xpath="(//td[@data-csi-heading='Node Name::0']/a[contains(text(),'Acid')])[1]")
 	private WebElement AcidTest;
 	
-	@FindBy(xpath="//span[@data-csi-tab='TestRunRevision-Print' and text()='TDS']")
+	@FindBy(xpath="//span[@data-csi-tab-name='TDS' or text()='TDS']")
 	private WebElement MTDS;
 	
 	@FindBy(xpath="(//div[@data-csi-crumb-type='Material']/a)")
@@ -278,7 +287,7 @@ public class StyleMaterialSamplepage extends Commonactions {
 	@FindBy(xpath="//td[@data-csi-heading='ProductionQuote::0']")
 	private WebElement ProductionSupplierQuote;
 	
-	@FindBy(xpath="//span[@data-csi-tab='ApparelViews-StyleSupplierRequests' and text()='Supplier Requests']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Supplier Requests' or text()='Supplier Requests']")
 	private WebElement SupplierRequests;
 	
 	@FindBy(xpath="//div[contains(text(),'No Results Found')]")
@@ -299,7 +308,7 @@ public class StyleMaterialSamplepage extends Commonactions {
 	@FindBy(xpath="(//div[contains(@data-csi-automation,'SupplierRequest-Form-Styles')]/div[3]/input)[1]")
 	private WebElement SR_StyleValue;
 	
-	@FindBy(xpath="//span[@data-csi-tab='ApparelViews-Seasons' and text()='Seasons']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Seasons' or text()='Seasons']")
 	private WebElement Season_Btn;
 	
 	@FindBy(xpath="(//td[@data-csi-heading='Node Name::0']/a[contains(text(),'Style SR')])[1]")
@@ -454,13 +463,25 @@ public class StyleMaterialSamplepage extends Commonactions {
 	public WebElement getMaterialSampleType() {
 		return MaterialSampleType;
 	}
+	
+	public WebElement getDefCat() {
+		return defCat;
+	}
 
 	public WebElement getEnumChkBx() {
 		return EnumChkBx;
 	}
 	
+	public WebElement getEnumFamChkBx() {
+		return EnumFamChkBx;
+	}
+	
 	public WebElement getEnumChkBxSeg() {
 		return EnumChkBxSeg;
+	}
+	
+	public WebElement getEnumChkBxDefect() {
+		return EnumChkBxDefect;
 	}
 
 	public WebElement getSamples() {

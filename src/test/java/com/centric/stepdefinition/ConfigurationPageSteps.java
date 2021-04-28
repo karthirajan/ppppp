@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import com.centric.objectrepository.ConfigurationPage;
 import com.centric.objectrepository.PopupPage;
 import com.centric.resources.Commonactions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -36,8 +38,11 @@ public class ConfigurationPageSteps extends Commonactions {
           onlyColours(B);
           onlySize(C);
           noDatas(D);
+          inAssortment();
+          isAssortment();
+          noDataSheets();
           
-          getStyleActive();
+         getStyleActive();
           
   		System.out.println("style type created successfully");
   		System.out.println("checkbox clicked successfully");
@@ -140,15 +145,153 @@ public class ConfigurationPageSteps extends Commonactions {
 						for(int k=0; k < 8; k++){
 							Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='-']/parent::div)[3]")));
 						}
-						}else{
-			}
-				System.out.println("name doesn't matched");
-			}
+					}else if(text2.equals("In Assortment")){
+						for (int j2 = 1; j2 <= 12; j2++) {
+
+							if(j2<=5){
+								Thread.sleep(1000);
+							Commonactions.clickjs(driver.findElement(By.xpath("(//tr["+j+"]//div[@data-csi-act='TDSMap:Child:Config:0']/input[@tabindex='0'])["+j2+"]")));
+							//ca.eleToBeclickjsable(cp.getStyle_Colour());
+							}else{
+								Thread.sleep(1000);
+								Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='+']/parent::div)[3]")));
+								Thread.sleep(1000);
+								Commonactions.clickjs(driver.findElement(By.xpath("(//tr["+j+"]//div[@data-csi-act='TDSMap:Child:Config:0']/input[@tabindex='0'])["+j2+"]")));
+							}
+						
+						}
+						for(int k=0; k < 8; k++){
+							Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='-']/parent::div)[3]")));
+						}
+		}else if(text2.equals("Is Assortment")){
+			for (int j2 = 1; j2 <= 12; j2++) {
+
+				if(j2<=5){
+					Thread.sleep(1000);
+				Commonactions.clickjs(driver.findElement(By.xpath("(//tr["+j+"]//div[@data-csi-act='TDSMap:Child:Config:0']/input[@tabindex='0'])["+j2+"]")));
+				//ca.eleToBeclickjsable(cp.getStyle_Colour());
+				}else{
+					Thread.sleep(1000);
+					Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='+']/parent::div)[3]")));
+					Thread.sleep(1000);
+					Commonactions.clickjs(driver.findElement(By.xpath("(//tr["+j+"]//div[@data-csi-act='TDSMap:Child:Config:0']/input[@tabindex='0'])["+j2+"]")));
+				}
 			
-		
-		System.out.println("style type attributes created successfully");
-		System.out.println("checkbox clicked successfully");
+			}
+			for(int k=0; k < 8; k++){
+				Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='-']/parent::div)[3]")));
+			}
+}
+			System.out.println("name doesn't matched");
 		}
+		
+	
+	System.out.println("style type attributes created successfully");
+	System.out.println("checkbox clicked successfully");
+	
+	
+	List<WebElement> screen = driver.findElements(By.xpath("(//span[contains(@class,'fullScreen')])"));
+	int s = screen.size();
+	
+	ca.eleToBeClickable();
+	ca.click(driver.findElement(By.xpath("(//span[contains(@class,'fullScreen')])["+s+"]")));
+	
+	try{
+	for(int k=0; k < 90; k++){
+		ca.clickjs(driver.findElement(By.xpath("(//span[text()='+']/parent::div)[1]")));
+	}
+	
+	List<WebElement> style = driver.findElements(By.xpath("(//td[@data-csi-act='PriceForColorwayOrSKU:Child:Config:0'])"));
+	int z = style.size();
+	
+	for (int k = 2; k <= z; k++) {
+		
+		if(k==2){
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//td[@data-csi-act='PriceForColorwayOrSKU:Child:Config:0'])["+k+"]")));
+		ca.eleToBeClickable();
+		WebElement a = ca.activeElement();
+		ca.eleToBeClickable();
+		a.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		WebElement a1 = ca.activeElement();
+		ca.eleToBeClickable();
+		a1.sendKeys("color");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+		System.out.println("color selected successfully");
+	}else if(k==3){
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//td[@data-csi-act='PriceForColorwayOrSKU:Child:Config:0'])["+k+"]")));
+		ca.eleToBeClickable();
+		WebElement a = ca.activeElement();
+		ca.eleToBeClickable();
+		a.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		WebElement a1 = ca.activeElement();
+		ca.eleToBeClickable();
+		a1.sendKeys("sku");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+	}else if(k==5){
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//td[@data-csi-act='PriceForColorwayOrSKU:Child:Config:0'])["+k+"]")));
+		ca.eleToBeClickable();
+		WebElement a = ca.activeElement();
+		ca.eleToBeClickable();
+		a.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		WebElement a1 = ca.activeElement();
+		ca.eleToBeClickable();
+		a1.sendKeys("color");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+	}else if(k==6){
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//td[@data-csi-act='PriceForColorwayOrSKU:Child:Config:0'])["+k+"]")));
+		ca.eleToBeClickable();
+		WebElement a = ca.activeElement();
+		ca.eleToBeClickable();
+		a.sendKeys(Keys.DELETE);
+		ca.eleToBeClickable();
+		WebElement a1 = ca.activeElement();
+		ca.eleToBeClickable();
+		a1.sendKeys("sku");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+	}
+		}
+	
+	List<WebElement> sales = driver.findElements(By.xpath("(//td[@data-csi-act='PriceForSalesRegionOrCountry:Child:Config:0'])"));
+
+	for (int j = 1; j <= sales.size(); j++) {
+		
+		if(j <= 3){
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//td[@data-csi-act='PriceForSalesRegionOrCountry:Child:Config:0'])["+j+"]")));
+		ca.eleToBeClickable();
+		WebElement a = ca.activeElement();
+		ca.eleToBeClickable();
+		a.sendKeys("country");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+	}else{
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//td[@data-csi-act='PriceForSalesRegionOrCountry:Child:Config:0'])["+j+"]")));
+		ca.eleToBeClickable();
+		WebElement a = ca.activeElement();
+		ca.eleToBeClickable();
+		a.sendKeys("sales");
+		ca.eleToBeClickable();
+		ca.jsMouseOver();
+	}
+	}
+	}catch (Exception e) {
+		// TODO: handle exception
+	}
+	ca.eleToBeClickable();
+	ca.click(driver.findElement(By.xpath("//span[@title='Exit Full Screen']")));
+}
 		//ca.clickjs(driver.findElement(By.xpath("//span[@title='Exit Full Screen']")));
 		
 	
@@ -162,6 +305,20 @@ public class ConfigurationPageSteps extends Commonactions {
 		standaloneMaterial(A);
 		structureMaterial(B);
 		toolMaterial(C);
+        nodataMaterial();
+		
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("//td[@data-csi-act='CompatibleTypes:Child:Config:0']")));
+		ca.eleToBeClickable();
+		WebElement e = ca.activeElement();
+    	ca.eleToBeClickable();
+    	ca.insertText(e, "Fabric");
+    	ca.eleToBeClickable();
+    	ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']/div")));
+    	ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='2']/div")));
+		ca.eleToBeClickable();
+		e.sendKeys(Keys.TAB);
+		ca.eleToBeClickable();
 		
 		System.out.println("material type created successfully");
 		System.out.println("checkbox clicked successfully");
@@ -196,7 +353,18 @@ public class ConfigurationPageSteps extends Commonactions {
 		}
 		Commonactions.clickjs(cp.getBOM_AutPlaceTracking());
 		ca.eleToBeClickable();
-		getActive();
+		//getActive();
+		
+		Commonactions.isElementPresent(cp.getNew_BOM_Type_Btn());
+		Commonactions.clickjs(cp.getNew_BOM_Type_Btn());
+		Commonactions.isElementPresent(pp.getBOM_Type_Value());
+		ca.insertText(pp.getBOM_Type_Value(), "BOM - All False");
+		Commonactions.isElementPresent(pp.getConfig_save_Btn());
+		Commonactions.clickjs(pp.getConfig_save_Btn());
+		ca.eleToBeClickable();
+		ca.click(driver.findElement(By.xpath("(//div[@data-csi-act='ValidateBOM:Child:SetupSettings:0']/input[@tabindex='0'])[1]")));
+		ca.eleToBeClickable();
+		getSpecActive();
 		
 		Commonactions.isElementPresent(cp.getNew_materialBOM_Type_Btn());
 		Commonactions.clickjs(cp.getNew_materialBOM_Type_Btn());
@@ -215,8 +383,22 @@ public class ConfigurationPageSteps extends Commonactions {
 	}catch (Exception e) {
 		// TODO: handle exception
 	}
-		getActive();
+		//getActive();
 		ca.eleToBeClickable();
+		
+		Commonactions.isElementPresent(cp.getNew_materialBOM_Type_Btn());
+		Commonactions.clickjs(cp.getNew_materialBOM_Type_Btn());
+		Commonactions.isElementPresent(pp.getBOM_Type_Value());
+		ca.insertText(pp.getBOM_Type_Value(), "BOM -All False");
+		Commonactions.isElementPresent(pp.getConfig_save_Btn());
+		Commonactions.clickjs(pp.getConfig_save_Btn());
+		ca.eleToBeClickable();
+		List<WebElement> boxes = driver.findElements(By.xpath("(//div[@data-csi-act='ValidateBOM:Child:SetupSettings:0']/input[@tabindex='0'])"));
+		int i = boxes.size();
+		int j=i-1;
+		ca.click(driver.findElement(By.xpath("(//div[@data-csi-act='ValidateBOM:Child:SetupSettings:0']/input[@tabindex='0'])["+j+"]")));
+		ca.eleToBeClickable();
+		getSpecActive();
 		
 		System.out.println("style & material BOM created successfully");
 		System.out.println("checkbox clicked successfully");
@@ -707,7 +889,7 @@ public class ConfigurationPageSteps extends Commonactions {
 		
 	}
 	
-	public void colourAndSize(String value) throws Throwable {
+public void colourAndSize(String value) throws Throwable {
 		
 		Commonactions.isElementPresent(cp.getNew_styleType_Btn());
 		Commonactions.clickjs(cp.getNew_styleType_Btn());
@@ -718,12 +900,12 @@ public class ConfigurationPageSteps extends Commonactions {
 		Commonactions.jsWaitForPageLoad();
 		Commonactions.isElementPresent(cp.getStyle_Colour());
 		Commonactions.clickjs(cp.getStyle_Colour());
-		Commonactions.isElementPresent(cp.getStyle_Active());
-		Commonactions.clickjs(cp.getStyle_Active());
-		ca.eleToBeClickable();
+		//Commonactions.isElementPresent(cp.getStyle_Active());
+		//Commonactions.clickjs(cp.getStyle_Active());
+		//ca.eleToBeClickable();
 		try{
-		for(int i=0; i < 8; i++){
-			Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='+']/parent::div)[2]")));
+		for(int i=0; i < 30; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='+']/parent::div")));
 		}}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -740,8 +922,8 @@ public class ConfigurationPageSteps extends Commonactions {
 		Commonactions.clickjs(cp.getStyle_EnableSKU());
 		ca.eleToBeClickable();
 		try{
-		for(int i=0; i < 7; i++){
-			Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='-']/parent::div)[2]")));
+		for(int i=0; i < 20; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
 		}}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -759,7 +941,7 @@ public class ConfigurationPageSteps extends Commonactions {
 		
 		try{
 
-		Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='-']/parent::div)[2]")));
+		ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -780,11 +962,12 @@ public class ConfigurationPageSteps extends Commonactions {
 		Commonactions.isElementPresent(cp.getStyle_Colour());
 		Commonactions.clickjs(cp.getStyle_Colour());
 		ca.eleToBeClickable();
-	//	ca.clickjs(cp.getStyle_Active());
-	//	//ca.eleToBeClickable();ca.isElementPresent(element);
+		//Commonactions.isElementPresent(cp.getStyle_Active());
+		//Commonactions.clickjs(cp.getStyle_Active());
+		//ca.eleToBeClickable();
 		try{
-		for(int i=0; i < 8; i++){
-			Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='+']/parent::div)[2]")));
+		for(int i=0; i < 30; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='+']/parent::div")));
 		}}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -801,8 +984,8 @@ public class ConfigurationPageSteps extends Commonactions {
 		Commonactions.clickjs(cp.getStyle_EnableSKU());
 		ca.eleToBeClickable();
 		try{
-		for(int i=0; i < 7; i++){
-			Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='-']/parent::div)[2]")));
+		for(int i=0; i < 20; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
 		}}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -817,7 +1000,7 @@ public class ConfigurationPageSteps extends Commonactions {
 		ca.eleToBeClickable();
 		try{
 
-		Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='-']/parent::div)[2]")));
+		ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -834,14 +1017,13 @@ public class ConfigurationPageSteps extends Commonactions {
 		Commonactions.jsWaitForPageLoad();
 		Commonactions.clickjs(pp.getConfig_save_Btn());
 		Commonactions.jsWaitForPageLoad();
-		////ca.eleToBeClickable();ca.isElementPresent(element);
-	//	//ca.eleToBeClickable();ca.isElementPresent(element);
-	//	ca.clickjs(cp.getStyle_Active());
-		////ca.eleToBeClickable();ca.isElementPresent(element);
-		ca.eleToBeClickable();
+		//Commonactions.isElementPresent(cp.getStyle_Active());
+		//Commonactions.clickjs(cp.getStyle_Active());
+		//ca.eleToBeClickable();
+		//ca.eleToBeClickable();
 		try{
-		for(int i=0; i < 8; i++){
-			Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='+']/parent::div)[2]")));
+		for(int i=0; i < 30; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='+']/parent::div")));
 		}}catch(Exception e){
 			
 		}
@@ -861,8 +1043,8 @@ public class ConfigurationPageSteps extends Commonactions {
 		Commonactions.clickjs(cp.getStyle_EnableSKU());
 		ca.eleToBeClickable();
 		try{
-		for(int i=0; i < 7; i++){
-			Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='-']/parent::div)[2]")));
+		for(int i=0; i < 20; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
 		}}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -871,7 +1053,7 @@ public class ConfigurationPageSteps extends Commonactions {
 		ca.eleToBeClickable();
 		try{
 
-		Commonactions.clickjs(driver.findElement(By.xpath("(//span[text()='-']/parent::div)[2]")));
+		ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -888,66 +1070,281 @@ public class ConfigurationPageSteps extends Commonactions {
 		Commonactions.jsWaitForPageLoad();
 		Commonactions.clickjs(pp.getConfig_save_Btn());
 		Commonactions.jsWaitForPageLoad();
-	//	//ca.eleToBeClickable();ca.isElementPresent(element);
-	//	ca.clickjs(cp.getStyle_Active());
+		//Commonactions.isElementPresent(cp.getStyle_Active());
+		//Commonactions.clickjs(cp.getStyle_Active());
+		//ca.eleToBeClickable();
 
 	}
 	
-	public void standaloneMaterial(String value) throws Throwable {
+public void inAssortment() throws Throwable {
 		
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(cp.getNew_material_TypeBtn());
-		Commonactions.clickjs(cp.getNew_material_TypeBtn());
-		Commonactions.isElementPresent(pp.getConfig_materialType_ValueA());
-		ca.insertText(pp.getConfig_materialType_ValueA(), value);
-		Commonactions.isElementPresent(pp.getConfig_material_DropDown());
-		ca.click(pp.getConfig_material_DropDown());
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("((//div[@data-csi-automation='field-MaterialType-Form-MaterialUsage'])[2]/div)[3]")));
-		Commonactions.isElementPresent(pp.getConfig_save_Btn());
+		Commonactions.isElementPresent(cp.getNew_styleType_Btn());
+		Commonactions.clickjs(cp.getNew_styleType_Btn());
+		Commonactions.jsWaitForPageLoad();
+		Commonactions.isElementPresent(pp.getConfig_styleType_ValueA());
+		ca.insertText(pp.getConfig_styleType_ValueA(), "In Assortment");
 		Commonactions.clickjs(pp.getConfig_save_Btn());
-        materialCheckBoxes();
+		Commonactions.jsWaitForPageLoad();
+		Commonactions.isElementPresent(cp.getStyle_Colour());
+		Commonactions.clickjs(cp.getStyle_Colour());
+		//Commonactions.isElementPresent(cp.getStyle_Active());
+		//Commonactions.clickjs(cp.getStyle_Active());
+		//ca.eleToBeClickable();
+		try{
+		for(int i=0; i < 30; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='+']/parent::div")));
+		}}catch (Exception e) {
+			// TODO: handle exception
+		}
+		Commonactions.clickjs(cp.getStyle_Brands());
+		Commonactions.isElementPresent(cp.getStyle_Features());
+		Commonactions.clickjs(cp.getStyle_Features());
+		Commonactions.isElementPresent(cp.getStyle_Functions());
+		Commonactions.clickjs(cp.getStyle_Functions());
+		Commonactions.isElementPresent(cp.getStyle_InAssortment());
+		Commonactions.clickjs(cp.getStyle_InAssortment());
+		//Commonactions.isElementPresent(cp.getStyle_IsAssortment());
+		//Commonactions.clickjs(cp.getStyle_IsAssortment());
+		Commonactions.isElementPresent(cp.getStyle_EnableSKU());
+		Commonactions.clickjs(cp.getStyle_EnableSKU());
+		ca.eleToBeClickable();
+		try{
+		for(int i=0; i < 20; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
+		}}catch (Exception e) {
+			// TODO: handle exception
+		}
+		Commonactions.isElementPresent(cp.getStyle_EnableStyle());
+		Commonactions.clickjs(cp.getStyle_EnableStyle());
+		Commonactions.isElementPresent(cp.getStyle_Size());
+		Commonactions.clickjs(cp.getStyle_Size());
+		Commonactions.isElementPresent(cp.getStyle_Validate_MCM());
+		Commonactions.clickjs(cp.getStyle_Validate_MCM());
+		Commonactions.isElementPresent(cp.getStyle_Reference_Img());
+		Commonactions.clickjs(cp.getStyle_Reference_Img());
+		Commonactions.isElementPresent(cp.getStyle_Allow_ColourSpec());
+		Commonactions.clickjs(cp.getStyle_Allow_ColourSpec());
+		ca.eleToBeClickable();
 		
+		try{
+
+		ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
-	
-	public void structureMaterial(String value) throws Throwable {
+    
+       public void isAssortment() throws Throwable {
 		
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(cp.getNew_material_TypeBtn());
-		Commonactions.clickjs(cp.getNew_material_TypeBtn());
-		Commonactions.isElementPresent(pp.getConfig_materialType_ValueB());
-		ca.insertText(pp.getConfig_materialType_ValueB(), value);
-		Commonactions.isElementPresent(pp.getConfig_material_DropDown());
-		ca.click(pp.getConfig_material_DropDown());
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("((//div[@data-csi-automation='field-MaterialType-Form-MaterialUsage'])[2]/div)[4]")));
-        Commonactions.clickjs(pp.getConfig_save_Btn());
-        materialCheckBoxes();
-		
-	}
-	
-	public void toolMaterial(String value) throws Throwable {
-		
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(cp.getNew_material_TypeBtn());
-		Commonactions.clickjs(cp.getNew_material_TypeBtn());
-		Commonactions.isElementPresent(pp.getConfig_materialType_ValueB());
-		ca.insertText(pp.getConfig_materialType_ValueB(), value);
-		Commonactions.isElementPresent(pp.getConfig_material_DropDown());
-		ca.click(pp.getConfig_material_DropDown());
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("((//div[@data-csi-automation='field-MaterialType-Form-MaterialUsage'])[2]/div)[5]")));
-		Commonactions.isElementPresent(pp.getConfig_save_Btn());
+		Commonactions.isElementPresent(cp.getNew_styleType_Btn());
+		Commonactions.clickjs(cp.getNew_styleType_Btn());
+		Commonactions.jsWaitForPageLoad();
+		Commonactions.isElementPresent(pp.getConfig_styleType_ValueA());
+		ca.insertText(pp.getConfig_styleType_ValueA(), "Is Assortment");
 		Commonactions.clickjs(pp.getConfig_save_Btn());
-        materialCheckBoxes();
+		Commonactions.jsWaitForPageLoad();
+		Commonactions.isElementPresent(cp.getStyle_Colour());
+		Commonactions.clickjs(cp.getStyle_Colour());
+		//Commonactions.isElementPresent(cp.getStyle_Active());
+		//Commonactions.clickjs(cp.getStyle_Active());
+		//ca.eleToBeClickable();
+		try{
+		for(int i=0; i < 8; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='+']/parent::div")));
+		}}catch (Exception e) {
+			// TODO: handle exception
+		}
+		Commonactions.clickjs(cp.getStyle_Brands());
+		Commonactions.isElementPresent(cp.getStyle_Features());
+		Commonactions.clickjs(cp.getStyle_Features());
+		Commonactions.isElementPresent(cp.getStyle_Functions());
+		Commonactions.clickjs(cp.getStyle_Functions());
+		//Commonactions.isElementPresent(cp.getStyle_InAssortment());
+		//Commonactions.clickjs(cp.getStyle_InAssortment());
+		Commonactions.isElementPresent(cp.getStyle_IsAssortment());
+		Commonactions.clickjs(cp.getStyle_IsAssortment());
+		Commonactions.isElementPresent(cp.getStyle_EnableSKU());
+		Commonactions.clickjs(cp.getStyle_EnableSKU());
+		ca.eleToBeClickable();
+		try{
+		for(int i=0; i < 7; i++){
+			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
+		}}catch (Exception e) {
+			// TODO: handle exception
+		}
+		Commonactions.isElementPresent(cp.getStyle_EnableStyle());
+		Commonactions.clickjs(cp.getStyle_EnableStyle());
+		Commonactions.isElementPresent(cp.getStyle_Size());
+		Commonactions.clickjs(cp.getStyle_Size());
+		Commonactions.isElementPresent(cp.getStyle_Validate_MCM());
+		Commonactions.clickjs(cp.getStyle_Validate_MCM());
+		Commonactions.isElementPresent(cp.getStyle_Reference_Img());
+		Commonactions.clickjs(cp.getStyle_Reference_Img());
+		Commonactions.isElementPresent(cp.getStyle_Allow_ColourSpec());
+		Commonactions.clickjs(cp.getStyle_Allow_ColourSpec());
+		ca.eleToBeClickable();
 		
+		try{
+
+		ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
+       
+       public void noDataSheets() throws Throwable {
+   		
+   		ca.eleToBeClickable();
+   		Commonactions.jsWaitForPageLoad();
+   		Commonactions.clickjs(cp.getNew_styleType_Btn());
+   		Commonactions.jsWaitForPageLoad();
+   		Commonactions.isElementPresent(pp.getConfig_styleType_ValueB());
+   		ca.insertText(pp.getConfig_styleType_ValueB(), "No Data Sheets");
+   		Commonactions.jsWaitForPageLoad();
+   		Commonactions.clickjs(pp.getConfig_save_Btn());
+   		Commonactions.jsWaitForPageLoad();
+		//Commonactions.isElementPresent(cp.getStyle_Active());
+		//Commonactions.clickjs(cp.getStyle_Active());
+		//ca.eleToBeClickable();
+   		
+   		try{
+   			for(int i=0; i < 8; i++){
+   				ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='+']/parent::div")));
+   			}}catch (Exception e) {
+   				// TODO: handle exception
+   			}
+   		ca.eleToBeClickable();
+   			Commonactions.clickjs(cp.getStyle_Brands());
+   			Commonactions.isElementPresent(cp.getStyle_Features());
+   			Commonactions.clickjs(cp.getStyle_Features());
+   			Commonactions.isElementPresent(cp.getStyle_Functions());
+   			Commonactions.clickjs(cp.getStyle_Functions());
+   			Commonactions.isElementPresent(cp.getStyle_InAssortment());
+   			Commonactions.clickjs(cp.getStyle_InAssortment());
+   			Commonactions.isElementPresent(cp.getStyle_IsAssortment());
+   			Commonactions.clickjs(cp.getStyle_IsAssortment());
+   			Commonactions.isElementPresent(cp.getStyle_EnableSKU());
+   			Commonactions.clickjs(cp.getStyle_EnableSKU());
+   			ca.eleToBeClickable();
+   			try{
+   			for(int i=0; i < 7; i++){
+   				ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
+   			}}catch (Exception e) {
+   				// TODO: handle exception
+   			}
+   			Commonactions.isElementPresent(cp.getStyle_EnableStyle());
+   			Commonactions.clickjs(cp.getStyle_EnableStyle());
+   			Commonactions.isElementPresent(cp.getAuto_Create_SKU());
+   			Commonactions.clickjs(cp.getAuto_Create_SKU());
+            
+   			try{
+   				ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
+   				ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
+   				ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
+   			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Style')]//span[text()='-']/parent::div")));
+   			}catch (Exception e) {
+   				// TODO: handle exception
+   			}
+   			
+   			/*Commonactions.isElementPresent(cp.getStyle_Active());
+   			Commonactions.clickjs(cp.getStyle_Active());
+   			ca.eleToBeClickable();
+*/
+
+   	}
+	
+       public void standaloneMaterial(String value) throws Throwable {
+   		
+   		ca.eleToBeClickable();
+   		Commonactions.isElementPresent(cp.getNew_material_TypeBtn());
+   		Commonactions.clickjs(cp.getNew_material_TypeBtn());
+   		Commonactions.isElementPresent(pp.getConfig_materialType_ValueA());
+   		ca.insertText(pp.getConfig_materialType_ValueA(), value);
+   		/*Commonactions.isElementPresent(pp.getConfig_material_DropDown());
+   		ca.click(pp.getConfig_material_DropDown());
+   		ca.eleToBeClickable();
+   		ca.click(driver.findElement(By.xpath("((//div[@data-csi-automation='field-MaterialType-Form-MaterialUsage'])[2]/div)[3]")));
+   		*/Commonactions.isElementPresent(pp.getConfig_save_Btn());
+   		Commonactions.clickjs(pp.getConfig_save_Btn());
+           materialCheckBoxes();
+   		
+   	}
+   	
+   	public void structureMaterial(String value) throws Throwable {
+   		
+   		ca.eleToBeClickable();
+   		Commonactions.isElementPresent(cp.getNew_material_TypeBtn());
+   		Commonactions.clickjs(cp.getNew_material_TypeBtn());
+   		Commonactions.isElementPresent(pp.getConfig_materialType_ValueB());
+   		ca.insertText(pp.getConfig_materialType_ValueB(), value);
+   		Commonactions.isElementPresent(pp.getConfig_material_DropDown());
+   		ca.click(pp.getConfig_material_DropDown());
+   		ca.eleToBeClickable();
+   		ca.click(driver.findElement(By.xpath("((//div[@data-csi-automation='field-MaterialType-Form-MaterialUsage'])[2]/div)[4]")));
+           Commonactions.clickjs(pp.getConfig_save_Btn());
+           materialCheckBoxes();
+   		
+   	}
+   	
+   	public void toolMaterial(String value) throws Throwable {
+   		
+   		ca.eleToBeClickable();
+   		Commonactions.isElementPresent(cp.getNew_material_TypeBtn());
+   		Commonactions.clickjs(cp.getNew_material_TypeBtn());
+   		Commonactions.isElementPresent(pp.getConfig_materialType_ValueB());
+   		ca.insertText(pp.getConfig_materialType_ValueB(), value);
+   		Commonactions.isElementPresent(pp.getConfig_material_DropDown());
+   		ca.click(pp.getConfig_material_DropDown());
+   		ca.eleToBeClickable();
+   		ca.click(driver.findElement(By.xpath("((//div[@data-csi-automation='field-MaterialType-Form-MaterialUsage'])[2]/div)[5]")));
+   		Commonactions.isElementPresent(pp.getConfig_save_Btn());
+   		Commonactions.clickjs(pp.getConfig_save_Btn());
+           materialCheckBoxes();
+   		
+   	}
+	
+    public void nodataMaterial() throws Throwable {
+   		
+   		ca.eleToBeClickable();
+   		Commonactions.isElementPresent(cp.getNew_material_TypeBtn());
+   		Commonactions.clickjs(cp.getNew_material_TypeBtn());
+   		Commonactions.isElementPresent(pp.getConfig_materialType_ValueA());
+   		ca.insertText(pp.getConfig_materialType_ValueA(), "No Data");
+   		/*Commonactions.isElementPresent(pp.getConfig_material_DropDown());
+   		ca.click(pp.getConfig_material_DropDown());
+   		ca.eleToBeClickable();
+   		ca.click(driver.findElement(By.xpath("((//div[@data-csi-automation='field-MaterialType-Form-MaterialUsage'])[2]/div)[3]")));
+   		*/Commonactions.isElementPresent(pp.getConfig_save_Btn());
+   		Commonactions.clickjs(pp.getConfig_save_Btn());
+   		
+   		for(int i=0; i < 10; i++){
+			
+   			Commonactions.clickjs(driver.findElement(By.xpath("//div[contains(@class,'Material')]//span[text()='-']/parent::div")));
+		  
+   			
+   		}
+   		
+   		Commonactions.isElementPresent(cp.getMaterial_Active());
+		Commonactions.clickjs(cp.getMaterial_Active());
+		Commonactions.isElementPresent(cp.getMaterial_Highest_Cost());
+		Commonactions.clickjs(cp.getMaterial_Highest_Cost());
+		Commonactions.isElementPresent(cp.getMaterial_Default_Season());
+		Commonactions.clickjs(cp.getMaterial_Default_Season());
+		Commonactions.isElementPresent(cp.getMaterial_EnableSKU());
+		Commonactions.clickjs(cp.getMaterial_EnableSKU());
+		
+   		
+   	}
 	
 	public void materialCheckBoxes() throws Throwable {
 
 		for(int i=0; i < 5; i++){
 			ca.eleToBeClickable();
+			try{
 			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Material')]//span[text()='-']/parent::div")));
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
 			if(cp.getMaterial_Colour().isDisplayed()){
 				
 		//	ca.click(driver.findElement(By.xpath("//div[contains(@class,'Material')]//span[text()='+']/parent::div")));
@@ -956,7 +1353,11 @@ public class ConfigurationPageSteps extends Commonactions {
 		Commonactions.clickjs(cp.getMaterial_Colour());
 		for(int i=0; i < 5; i++){
 			Thread.sleep(1000);
+			try{
 			ca.click(driver.findElement(By.xpath("//div[contains(@class,'Material')]//span[text()='-']/parent::div")));
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
 			if(cp.getMaterial_Active().isDisplayed()){
 				
 		//	ca.click(driver.findElement(By.xpath("//div[contains(@class,'Material')]//span[text()='+']/parent::div")));
@@ -1226,6 +1627,7 @@ public class ConfigurationPageSteps extends Commonactions {
   }
   
   public void getStyleActive() throws Throwable{
+	
 	  List<WebElement> actives = driver.findElements(By.xpath("(//div[@data-csi-act='Available:Child:Config:0']/input[@tabindex='0'])"));
 	  int i=actives.size();
 	  System.out.println("size :"+i);
@@ -1233,6 +1635,8 @@ public class ConfigurationPageSteps extends Commonactions {
     int  k=i-2;
     int  l=i-3;
     int  m=i-4;
+    int  n=i-5;
+    int  o=i-6;
 	try{
 		ca.eleToBeClickable();
 		ca.jsScrollPageDown(driver.findElement(By.xpath("(//div[@data-csi-act='Available:Child:Config:0']/input[@tabindex='0'])["+i+"]")));
@@ -1247,6 +1651,14 @@ public class ConfigurationPageSteps extends Commonactions {
 		  Commonactions.clickjs(driver.findElement(By.xpath("(//div[@data-csi-act='Available:Child:Config:0']/input[@tabindex='0'])["+j+"]")));
 		  ca.eleToBeClickable();
 		  Commonactions.clickjs(driver.findElement(By.xpath("(//div[@data-csi-act='Available:Child:Config:0']/input[@tabindex='0'])["+k+"]")));
+		  ca.eleToBeClickable();
+		  Commonactions.clickjs(driver.findElement(By.xpath("(//div[@data-csi-act='Available:Child:Config:0']/input[@tabindex='0'])["+l+"]")));
+		  ca.eleToBeClickable();
+		  Commonactions.clickjs(driver.findElement(By.xpath("(//div[@data-csi-act='Available:Child:Config:0']/input[@tabindex='0'])["+m+"]")));
+		  ca.eleToBeClickable();	
+		  Commonactions.clickjs(driver.findElement(By.xpath("(//div[@data-csi-act='Available:Child:Config:0']/input[@tabindex='0'])["+n+"]")));
+		  ca.eleToBeClickable();
+		  Commonactions.clickjs(driver.findElement(By.xpath("(//div[@data-csi-act='Available:Child:Config:0']/input[@tabindex='0'])["+o+"]")));
 		  ca.eleToBeClickable();
 				  
 	  
@@ -1293,6 +1705,72 @@ public class ConfigurationPageSteps extends Commonactions {
 		
 		
 		System.out.println("Theme BOM created succesfully");
+
+	}
+  
+  @And("User Creates FoodTypes and FoodlabelDatasheetvalues {string},{string}")
+	public void user_Creates_FoodTypes_and_FoodlabelDatasheetvalues(String FType, String FLabel) throws Throwable 
+	{
+		String[] foodtype = FType.split(",");
+		String[] foodlabel = FLabel.split(",");
+
+		Commonactions.isElementPresent(cp.getFoodtypetab());
+		ca.click(cp.getFoodtypetab());
+		for(int i=0;i<foodtype.length;i++)
+		{
+			Commonactions.isElementPresent(cp.getNewfoodtypebtn());
+			ca.click(cp.getNewfoodtypebtn());
+			Commonactions.isElementPresent(cp.getFoodtypename());
+			ca.insertText(cp.getFoodtypename(), foodtype[i]);
+			ca.eleToBeClickable();
+			cp.save();
+			System.out.println("food type"+i+" is created");
+
+			try{
+				Commonactions.isElementPresent(cp.getFoodactivechkbox());
+				ca.click(cp.getFoodactivechkbox());
+				Commonactions.isElementPresent(cp.getDatasheet());
+				ca.click(cp.getDatasheet());
+				ca.eleToBeClickable();
+				Commonactions.isElementPresent(cp.getArtworkchkbox());
+				ca.click(cp.getArtworkchkbox());
+				Commonactions.isElementPresent(cp.getFoodlabelchkbox());
+				ca.click(cp.getFoodlabelchkbox());
+				Commonactions.isElementPresent(cp.getReviewchkbox());
+				ca.click(cp.getReviewchkbox());
+				Commonactions.isElementPresent(cp.getSpecificationchkbox());
+				ca.click(cp.getSpecificationchkbox());
+				Commonactions.isElementPresent(cp.getTestrunchkbox());
+				ca.click(cp.getTestrunchkbox());
+			}
+			catch(Exception e){System.out.println("dependent chk box not listed");
+			}
+		}
+		driver.findElement(By.xpath("(//button[@aria-label='Scroll Right'])[3]")).click();
+		ca.eleToBeClickable();
+		Commonactions.isElementPresent(cp.getFoodlabeldatasheettab());
+		ca.click(cp.getFoodlabeldatasheettab());
+		for(int j=0;j<foodlabel.length;j++)
+		{
+			Commonactions.isElementPresent(cp.getFoodlabelsatasheetbtn());
+			ca.click(cp.getFoodlabelsatasheetbtn());
+			Commonactions.isElementPresent(cp.getFoodlabeltypename());
+			ca.insertText(cp.getFoodlabeltypename(), foodlabel[j]);
+			cp.save();
+			System.out.println("food label"+j+" is created");
+			ca.eleToBeClickable();
+			Commonactions.isElementPresent(cp.getFoodlabelactivechkbox());
+			ca.click(cp.getFoodlabelactivechkbox());
+		}
+		Commonactions.isElementPresent(cp.getFoodlabeldatasheet());
+		ca.click(cp.getFoodlabeldatasheet());
+		Commonactions.isElementPresent(cp.getNonecheckbox());
+		ca.click(cp.getNonecheckbox());
+		Commonactions.isElementPresent(cp.getFoodingredientchkbox());
+		ca.click(cp.getFoodingredientchkbox());
+		Commonactions.isElementPresent(cp.getFoodlabeldatasheettab());
+		ca.click(cp.getFoodlabeldatasheettab());
+		System.out.println("Food ingredient selected");
 
 	}
 		

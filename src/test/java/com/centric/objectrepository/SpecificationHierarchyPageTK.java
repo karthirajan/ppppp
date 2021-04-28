@@ -236,7 +236,7 @@ public class SpecificationHierarchyPageTK extends Commonactions{
 	@FindBy(xpath="//input[@name='headerSearchText']")
 	private WebElement searchInput;
 
-	@FindBy(how = How.CSS,using = "[data-csi-tab='Style-ProductColors']")
+	@FindBy(how = How.CSS,using = "[data-csi-tab-name='Colorways']")
 	private WebElement StyleColorwayTab;
 
 	@FindBy(how = How.CSS,using = "[data-csi-automation='plugin-Style-ProductColors-ToolbarNewActions'] td.dijitArrowButton ")
@@ -289,7 +289,7 @@ public class SpecificationHierarchyPageTK extends Commonactions{
 	@FindBy(how = How.CSS,using = "[data-csi-automation='plugin-PrintDesignRevision-RevisionColors-ToolbarNewActions']")
 	private WebElement PDNewColor;
 
-	@FindBy(how = How.CSS,using = "[data-csi-tab='PrintDesignRevision-Positions']")
+	@FindBy(how = How.CSS,using = "[data-csi-tab-name='Positions'] ")
 	private WebElement PDPositionTab;
 
 	@FindBy(how = How.XPATH,using = "//span[@data-csi-tab='SizeChartAdmin-Libraries']")
@@ -307,7 +307,7 @@ public class SpecificationHierarchyPageTK extends Commonactions{
 	@FindBy(xpath = "//span[text()='Color Specification Libraries']")
 	private WebElement ColorLabelLibrariesTab;
 
-	@FindBy(xpath = "//span[@data-csi-tab='SizeChartAdmin-LibrariesLibMaterial' and text()='Material Libraries']")
+	@FindBy(xpath = "//span[@data-csi-tab-name='Material Libraries']")
 	private WebElement MaterialLabelLibrariesTab;
 
 	@FindBy(xpath = "//span[text()='Print Design Libraries']")

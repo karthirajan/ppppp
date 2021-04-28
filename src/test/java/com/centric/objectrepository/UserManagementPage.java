@@ -12,10 +12,10 @@ public class UserManagementPage extends Commonactions{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-UserMgmt' or text()='User Management']")
+	@FindBy(xpath="//span[@data-csi-tab-name='User Management' or text()='User Management']")
 	private WebElement UsrManagement;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-Roles' or text()='Roles']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Roles' or text()='Roles']")
 	private WebElement usrMgmt_Roles;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'Roles')]//div/div)[2]")
@@ -63,7 +63,7 @@ public class UserManagementPage extends Commonactions{
 	@FindBy(xpath="//input[@title='Toggle selections of all displayed items']")
 	private WebElement usrMgmt_All;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Site-AnnouncementManagement' or text()='Announcements']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Announcements' or text()='Announcements']")
 	private WebElement usrMgmt_Ancmnts;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'Announcement')]//div/div)[2]")

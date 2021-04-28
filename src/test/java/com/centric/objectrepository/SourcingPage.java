@@ -18,7 +18,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//div[contains(@class,'Shipment')]//span[text()='+']/parent::div")
 	private WebElement shipmentPlus;
 
-	@FindBy(xpath="//span[text()='Setup' or @data-csi-tab='LibSourcing-SourcingSetup']")
+	@FindBy(xpath="//span[text()='Setup' or @data-csi-tab-name='Setup']")
 	private WebElement Setup;
 
 	@FindBy(xpath="(//span[text()='Capabilities'])[1]")
@@ -95,6 +95,9 @@ public class SourcingPage  extends Commonactions{
 
 	@FindBy(xpath="(//td[text()='Approve'])")
 	private WebElement Approve;
+	
+	@FindBy(xpath="((//tr[contains(@data-csi-automation,'plugin-TestRun-Breadcrumb-Approve')])//td[text()='Approve'])[3]")
+	private WebElement ApproveTestRun;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'placeholder-SubRoutingRevision-Items-ActionsNew')]//td)[2]")
 	private WebElement AddCapabilityDown;
@@ -322,7 +325,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//td[@data-csi-heading='For::0']//following-sibling::td[contains(@class,'extra-column')]")
 	private WebElement CapExtraColumn;
 
-	@FindBy(xpath="(//span[text()='Reviews Setup' or @data-csi-tab='QualityViews-FactoryReviewsSetup'])[1]")
+	@FindBy(xpath="(//span[text()='Reviews Setup' or @data-csi-tab-name='Reviews Setup'])[1]")
 	private WebElement Reviewsetup;
 
 	@FindBy(xpath="(//span[text()='Question Subsections'])[1]")
@@ -346,7 +349,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//span[text()='more_horiz'])[1]")
 	private WebElement Approveicon1;
 
-	@FindBy(xpath="(//tr/td[text()='Approve'])[1]")
+	@FindBy(xpath="(//td[text()='Approve'])[1]")
 	private WebElement Approve1;
 
 	@FindBy(xpath="(//td[@data-csi-heading='Tags::1']//following-sibling::td[contains(@class,'action')]/div/span[@title='Copy'])[4]")
@@ -364,10 +367,10 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//span[text()='more_horiz'])[3]")
 	private WebElement Approveicon3;
 
-	@FindBy(xpath="(//tr/td[text()='Approve'])[1]")
+	@FindBy(xpath="(//td[text()='Approve'])[2]")
 	private WebElement Approve2;
 
-	@FindBy(xpath="(//tr/td[text()='Approve'])[1]")
+	@FindBy(xpath="(//td[text()='Approve'])[1]")
 	private WebElement Approve3;
 
 	@FindBy(xpath="(//tr/td[text()='Question Details'])")
@@ -421,7 +424,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//th/div/input[@type='checkbox']")
 	private WebElement chkbox;
 
-	@FindBy(xpath="//span[text()='Factory' or @data-csi-tab='LibSourcing-Factories']")
+	@FindBy(xpath="//span[text()='Factory' or @data-csi-tab-name='Factory']")
 	private WebElement Factory;
 
 	@FindBy(xpath="//table[@data-csi-automation='plugin-LibSourcing-Factories-ToolbarNewActions']")
@@ -454,13 +457,13 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//table[@data-csi-automation='plugin-SourcingItem-Contacts-ToolbarNewActions']//div/div)[2]")
 	private WebElement NewContactBtn;
 
-	@FindBy(xpath="//span[text()='Reviews' or @data-csi-tab='LibSourcing-AllReviewsTab']")
+	@FindBy(xpath="//span[text()='Reviews' or @data-csi-tab-name='Reviews']")
 	private WebElement Reviews;
 
 	@FindBy(xpath="(//table[@data-csi-automation='plugin-Data-AllSupplierReviews-ToolbarNewActions']//div/div)[2]")
 	private WebElement NewSupplierReview;
 
-	@FindBy(xpath="//span[@data-csi-tab='Data-AllFactoryReviews' or contains(text(),'Factory Reviews')]")
+	@FindBy(xpath="//span[@data-csi-tab-name='Factory Reviews']")
 	private WebElement FactoryReviews;
 
 	@FindBy(xpath="(//table[@data-csi-automation='plugin-Data-AllFactoryReviews-ToolbarNewActions']//div/div)[2]")
@@ -493,10 +496,10 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//td[contains(@data-csi-act,'Response')]//following::td[2]")
 	private WebElement pointscored;
 
-	@FindBy(xpath="//span[@data-csi-tab='OperationsReview-Print' or text()='Conclusion']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Conclusion']")
 	private WebElement conclusion;
 
-	@FindBy(xpath="//span[@data-csi-tab='Data-AllSupplierReviews' or text()='Supplier Reviews']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Supplier Reviews']")
 	private WebElement SupplierReview;
 
 	@FindBy(xpath="//div[@data-csi-automation='field-SupplierReview-Form-ORTemplateRevision']//div[3]/input[1]")
@@ -538,7 +541,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//td[contains(text(),'India')]//preceding-sibling::td)[1]//input")
 	private WebElement IndiaHtsChkBx;
 
-	@FindBy(xpath="//span[text()='Cost Scenario' or @data-csi-tab='SupplierItemRevision-CostScenario']")
+	@FindBy(xpath="//span[text()='Cost Scenario' or @data-csi-tab-name='Cost Scenario']")
 	private WebElement Cost_Scenario;
 
 	@FindBy(xpath="(//span[contains(@class,'Button') or text()='●']//following-sibling::span[text()='Manage Cost Scenario'])[1]")
@@ -574,13 +577,13 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//td[@data-csi-heading='Quantity::0'])")
 	private WebElement Qty;
 
-	@FindBy(xpath="(//span[@data-csi-tab='SupplierItemRevision-SupplierItem' or text()='Supplier Quote'])[1]")
+	@FindBy(xpath="(//span[@data-csi-tab-name='Supplier Quote'])[1]")
 	private WebElement supplier_Quote;
 
 	@FindBy(xpath="(//td[@data-csi-heading='FOBFullPrice::0'])")
 	private WebElement Fob;
 
-	@FindBy(xpath="//span[text()='Templates' or @data-csi-tab='ApparelViews-SpecTemplates']")
+	@FindBy(xpath="//span[text()='Templates' or @data-csi-tab-name='Templates']")
 	private WebElement SpecTemp;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'plugin-SizeChartAdmin-DataPackageTemplates-ToolbarNewActions')]//div/div)[2]")
@@ -592,7 +595,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//div[@data-csi-automation='field-DataPackageTemplate-Form-TemplateType']//div)[1]")
 	private WebElement DPTType;
 
-	@FindBy(xpath="//span[text()='Customers' or @data-csi-tab='LibSourcing-Customers']")
+	@FindBy(xpath="//span[text()='Customers' or @data-csi-tab-name='Customers']")
 	private WebElement customer;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'plugin-LibSourcing-Customers-ToolbarNewActions')]//div/div)[2]")
@@ -604,7 +607,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//td[@data-csi-heading='Country::0'])")
 	private WebElement country;
 
-	@FindBy(xpath="(//span[text()='Shipment' or @data-csi-tab='LibSourcing-ShipmentTab'])[1]")
+	@FindBy(xpath="(//span[text()='Shipment' or @data-csi-tab-name='Shipment'])[1]")
 	private WebElement shipment;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'plugin-LibSourcing-ShipmentTerms-ToolbarNewActions')]//div/div)[2]")
@@ -640,10 +643,10 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//td[contains(@data-csi-act,'PortOfDestination')]")
 	private WebElement shipTo;
 
-	@FindBy(xpath="//span[@data-csi-tab='StructureItem-Sourcing' or text()='Sourcing']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Sourcing' or text()='Sourcing']")
 	private WebElement seasonsourcing;
 
-	@FindBy(xpath="//span[@data-csi-tab='StructureItem-SupplierItems' or text()='Supplier Quotes']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Supplier Quotes']")
 	private WebElement supplierquotes;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'PriceList')]//div/div)[2]")
@@ -679,7 +682,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//td[@data-csi-heading='Node Name::0']/a[contains(text(),'Blue')])[1]")
 	private WebElement NewSupplQteName;
 
-	@FindBy(xpath="//span[@data-csi-tab='Selectable-SelectSets' or text()='Select Sets']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Select Sets']")
 	private WebElement selectSet;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'SelectSets')]//div/div)[2]")
@@ -709,7 +712,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//span[text()='Select Supplier Quotes']//parent::div//parent::div//tr[@data-csi-act='ViewSelect']/td/div/input)[1]")
 	private WebElement selectsupquotechecckbox;
 
-	@FindBy(xpath="//span[@data-csi-tab='Style-SupplierRequests'and text()='Supplier Requests']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Supplier Requests']")
 	private WebElement supplierrequest;
 
 	@FindBy(xpath="((//table[contains(@data-csi-automation,'SupplierRequests')])//div[contains(text(),'New Supplier Request')])[1] ")
@@ -721,7 +724,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//div[contains(@data-csi-automation,'SupplierRequest')]//div[2]/div/input")
 	private WebElement supplierreqvalue;
 
-	@FindBy(xpath="//span[@data-csi-tab='SupplierRequest-Setup' or text()='Setup']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Setup']")
 	private WebElement setup;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'SupplierRequest-StyleLineItems')]//div/div)[2]")
@@ -730,13 +733,13 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//td[contains(text(),'Only Color')]//preceding-sibling::td)[1]//input")
 	private WebElement Addprodcutcheckbox;
 	
-	@FindBy(xpath="//span[@data-csi-tab='SupplierRequest-SRQuotes' or text()='Supplier Quotes']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Supplier Quotes']")
 	private WebElement SRQuotes;
 	
-	@FindBy(xpath="//span[@data-csi-tab='SupplierRequest-SRSamples' or text()='Samples']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Samples']")
 	private WebElement SRSamples;
 
-	@FindBy(xpath="//span[@data-csi-tab='SupplierRequest-General' or text()='Supplier Request']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Supplier Request']")
 	private WebElement supplierreq;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'StyleLineItem')])[1]//tbody/tr/td[2]")
@@ -760,7 +763,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//select[@class='csiPreferenceSelect '])[1]/option[contains(text(),'Adoption')]")
 	private WebElement Adoption;
 
-	@FindBy(xpath="//span[@data-csi-tab='Site-CopyTemplatesTab' or text()='Copy Templates']")
+	@FindBy(xpath="//span[@data-csi-tab-name-name='Copy Templates' or text()='Copy Templates']")
 	private WebElement copyTemplate;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'CopyTemplates')]//div[contains(text(),'Style Copy Template')]")
@@ -810,6 +813,12 @@ public class SourcingPage  extends Commonactions{
 
 	@FindBy(xpath="(//td[text()='Mass Adopt As Styles'])")
 	private WebElement massadoptasstyle;
+	
+	
+
+	public WebElement getApproveTestRun() {
+		return ApproveTestRun;
+	}
 
 	public WebElement getFactoryvaluepo() {
 		return factoryvaluepo;
@@ -1006,6 +1015,10 @@ public class SourcingPage  extends Commonactions{
 
 	public WebElement getNewcomment() {
 		return Newcomment;
+	}
+	
+	public WebElement getComments() {
+		return comments;
 	}
 
 	public WebElement getNewcommentsubject() {
@@ -2245,10 +2258,10 @@ public class SourcingPage  extends Commonactions{
 	}
 
 
-	@FindBy(xpath="//span[text()='Supplier PO' or @data-csi-tab='LibSourcing-PurchasedOrderTab']")
+	@FindBy(xpath="//span[text()='Supplier PO' or @data-csi-tab-name='Supplier PO']")
 	private WebElement supplierpo;
 
-	@FindBy(xpath="//span[text()='PO Group' or@data-csi-tab='LibSourcing-PurchasedOrderGroups']")
+	@FindBy(xpath="//span[text()='PO Group' or@data-csi-tab-name='PO Group']")
 	private WebElement pogroup;
 
 	@FindBy(xpath="//div[contains(text(),'New PO Group')]")
@@ -2260,7 +2273,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//td[contains(@data-csi-heading,'PurchasedOrders')]//following-sibling::td[contains(@class,'extra-column')])")
 	private WebElement extracolumn;
 
-	@FindBy(xpath="//span[text()='Supplier PO' and @data-csi-tab='LibSourcing-PurchasedOrders']")
+	@FindBy(xpath="(//span[text()='Supplier PO' or @data-csi-tab-name='Supplier PO'])[2]")
 	private WebElement supplierpotab;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'PurchasedOrders')]//div/div)[2]")
@@ -2371,13 +2384,16 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//div[contains(@data-csi-heading,'Instructions')]")
 	private WebElement Instruction;
 
-	@FindBy(xpath="(//table[contains(@data-csi-automation,'CommentContainer-Comments')]//div/div[2])[3]")
+	@FindBy(xpath="//span[text()='New Comment']")
 	private WebElement Newcomment;
+	
+	@FindBy(xpath="//div[contains(@title,'Comments')]/div")
+	private WebElement comments;
 
-	@FindBy(xpath="(//label[text()='Subject']//parent::div//div/input)[2]")
+	@FindBy(xpath="//label[text()='Subject']//following-sibling::div/input")
 	private WebElement Newcommentsubject;
 
-	@FindBy(xpath="//span[text()='Orders' and @data-csi-tab='BasePurchaseOrder-OrdersAndProducts']")
+	@FindBy(xpath="//span[text()='Orders' and @data-csi-tab-name='Orders']")
 	private WebElement orders;
 
 	@FindBy(xpath="(//td[text()='Blue Color faded']/following-sibling::td[contains(@data-csi-heading,'UnitsPerSize')]//span[@class='attrPrimary'])")
@@ -2404,10 +2420,10 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//div[contains(@class,'scrollbar')]//span[text()='+']/parent::div)[2]")
 	private WebElement plusicon2;
 
-	@FindBy(xpath="//span[text()='Summary' and @data-csi-tab='BasePurchaseOrder-Summary']")
+	@FindBy(xpath="//span[text()='Summary' or @data-csi-tab-name='Summary']")
 	private WebElement ordersummary;
 
-	@FindBy(xpath="//span[text()='Shipment' and @data-csi-tab='PurchasedOrder-Shipment']")
+	@FindBy(xpath="//span[text()='Shipment' or @data-csi-tab-name='Shipment']")
 	private WebElement poshipment;
 
 	@FindBy(xpath="(//table[@data-csi-automation='plugin-PurchasedOrder-Shipment-ToolbarNewActions']//td[2])[1]")
@@ -2435,7 +2451,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//td[text()='Green Color faded']//parent::tr/td[5])[2]")
 	private WebElement greenShipmentqty1;
 
-	@FindBy(xpath="//span[text()='Quality Control' and @data-csi-tab='PurchasedOrder-QualityControl']")
+	@FindBy(xpath="//span[text()='Quality Control' or @data-csi-tab-name='Quality Control']")
 	private WebElement qualitycontrol;
 
 	@FindBy(xpath="//table[@data-csi-automation='plugin-ShipmentTerms-ShipmentQCIssues-ToolbarNewActions']//div[contains(text(),'New QC Issue')]")
@@ -2453,7 +2469,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//div[@data-csi-automation='field-SelectSet-Form-Node Name']//div[2]/div/input")
 	private WebElement selectsetvalue;*/
 
-	@FindBy(xpath="//span[text()='Customer PO' or @data-csi-tab='LibSourcing-CustomerPurchaseOrderTab']")
+	@FindBy(xpath="//span[text()='Customer PO' or @data-csi-tab-name='Customer PO']")
 	private WebElement customerPO;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'CustomerPurchaseOrders')]//div/div)[2]")
@@ -2486,7 +2502,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//td[text()='Green Color faded']//parent::tr/td[contains(@data-csi-act,'BasePrice')]")
 	private WebElement g_baseprice;
 
-	@FindBy(xpath="//span[text()='Properties' and @data-csi-tab='CustomerPurchaseOrder-Properties']")
+	@FindBy(xpath="//span[text()='Properties' and @data-csi-tab-name='Properties']")
 	private WebElement properties;
 
 	@FindBy(xpath="//td[contains(@class,'firstColumn') and @data-csi-heading='Node Name::0']/a [text()='winter season']")
@@ -2495,10 +2511,10 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//a[text()='Apparel - Color and Size']")
 	private WebElement colorandsizename;
 
-	@FindBy(xpath="//span[text()='POs' or @data-csi-tab='Product-BasePurchaseOrders']")
+	@FindBy(xpath="//span[text()='POs' or @data-csi-tab-name='POs']")
 	private WebElement Pos;
 
-	@FindBy(xpath="//span[text()='Supplier POs' or @data-csi-tab='LibSourcing-PurchasedOrderTab']")
+	@FindBy(xpath="//span[text()='Supplier POs' or @data-csi-tab-name='Supplier POs']")
 	private WebElement supplierpos;
 
 	@FindBy(xpath="//span[@data-csi-act='POToNegotiation' and text()='arrow_forward']")
@@ -2510,7 +2526,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//span[@data-csi-act='POToIssued' and text()='arrow_forward']")
 	private WebElement issuedArrow;
 
-	@FindBy(xpath="//span[text()='Customer POs' or @data-csi-tab='LibSourcing-PurchasedOrderTab']")
+	@FindBy(xpath="//span[text()='Customer POs' or @data-csi-tab-name='POs']")
 	private WebElement customerpos;
 
 	@FindBy(xpath="(//div[@class='footContent']/div[contains(text(),'Displaying')])")
@@ -2528,22 +2544,28 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="//td[text()='Green Color faded']//following-sibling::td[contains(@data-csi-heading,'OrderQuote')]/a")
 	private WebElement Green_supplierquote;
 	
-	@FindBy(xpath="//span[text()='Style' or @data-csi-tab='Style-Base']")
+	@FindBy(xpath="//span[text()='Style' or @data-csi-tab-name='Style']")
 	private WebElement StyleUpdate;
 	
 	@FindBy(xpath="(//div[contains(@data-csi-automation,'field-Sample-Form-Supplier')]/div)[1]")
 	private WebElement SampleSupplier;
 	
-	@FindBy(xpath="(//div[contains(@class,'Style-Base')]//td[@data-csi-heading='Node Name::0'])[2]")
+	@FindBy(xpath="(//a[contains(text(),'Changshu')]/parent::td[@data-csi-heading='Node Name::0'])[1]")
 	private WebElement nameModify1;
 	
-	@FindBy(xpath="(//div[contains(@class,'Style-Base')]//td[@data-csi-heading='Node Name::0'])[3]")
+	@FindBy(xpath="(//a[contains(text(),'Changshu')]/parent::td[@data-csi-heading='Node Name::0'])[2]")
 	private WebElement nameModify2;
 	
-	@FindBy(xpath="(//div[contains(@class,'Style-Base')]//td[@data-csi-heading='Node Name::0'])[12]")
+	@FindBy(xpath="(//a[contains(text(),'Frontline')]/parent::td[@data-csi-heading='Node Name::0'])[1]")
+	private WebElement nameModify3;
+	
+	@FindBy(xpath="(//a[contains(text(),'Frontline')]/parent::td[@data-csi-heading='Node Name::0'])[2]")
+	private WebElement nameModify4;
+	
+	@FindBy(xpath="(//a[contains(text(),'Supplier')]/parent::td[@data-csi-heading='Node Name::0'])[1]")
 	private WebElement nameSuModify1;
 	
-	@FindBy(xpath="(//div[contains(@class,'Style-Base')]//td[@data-csi-heading='Node Name::0'])[13]")
+	@FindBy(xpath="(//a[contains(text(),'Supplier')]/parent::td[@data-csi-heading='Node Name::0'])[2]")
 	private WebElement nameSuModify2;
 	
 	public WebElement getNameSuModify1() {
@@ -2553,6 +2575,15 @@ public class SourcingPage  extends Commonactions{
 	public WebElement getNameSuModify2() {
 		return nameSuModify2;
 	}
+	
+	public WebElement getNameModify3() {
+		return nameModify3;
+	}
+
+	public WebElement getNameModify4() {
+		return nameModify4;
+	}
+
 
 	@FindBy(xpath="//td[@data-csi-heading='Node Name::0']")
 	private WebElement element;
@@ -2573,6 +2604,9 @@ public class SourcingPage  extends Commonactions{
 	
 	@FindBy(xpath="(//span[contains(@class,'material-icons')  and text()='add'])[1]")
 	private WebElement selectValue;
+	
+	@FindBy(xpath="((//div[contains(@data-csi-automation,'filter-Style-ProductSamples-Node Name')]//div[contains(@class,'ArrowButton')])/following-sibling::div[2]/input)[1]")
+	private WebElement searchValue;
 	
 	@FindBy(xpath="//div[contains(@data-csi-automation,'UseMatrix')]/input")
 	private WebElement setMatrix;
@@ -2700,7 +2734,7 @@ public class SourcingPage  extends Commonactions{
 	@FindBy(xpath="(//td[contains(@data-csi-heading,'Node Name::0')]//preceding-sibling::td)[2]//input")
 	private WebElement ThirtyTwoSize;
 	
-	@FindBy(xpath="//span[@data-csi-tab='Material-SupplierRequests'and text()='Supplier Requests']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Supplier Requests'and text()='Supplier Requests']")
 	private WebElement MaterialSuppReq;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'SupplierRequest-Suppliers')]//div/div)[2]")
@@ -2829,6 +2863,10 @@ public class SourcingPage  extends Commonactions{
 
 	public WebElement getSelectValue() {
 		return selectValue;
+	}
+	
+	public WebElement getSearchValue() {
+		return searchValue;
 	}
 
 	public WebElement getSetMatrix() {

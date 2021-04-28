@@ -15,10 +15,10 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//a[contains(text(),'Color and Size')]")
 	private WebElement colorandSize;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'Style-ProductSpec') and text()='Specification'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'Specification') or text()='Specification'])")
 	private WebElement Specification;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'Style-BOM') and text()='BOM'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'BOM') or text()='BOM'])")
 	private WebElement StyleBOM;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'plugin-Style-BOMs-ToolbarNewActions')]//div[contains(text(),'New Style BOM')]")
@@ -33,7 +33,7 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//span[text()='Style BOM']//ancestor::table/parent::div//a")
 	private WebElement StyleBomName;
 
-	@FindBy(xpath="(//span[contains(@data-csi-tab,'ProductBOMRevision') and text()='Placements'])")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'Placements') or text()='Placements'])")
 	private WebElement StyleBOMPlacement;
 
 	@FindBy(xpath="//span[contains(@data-csi-automation,'ProductBOMRevision-PartMaterials-CustomViewActions')]//span[text()='Views']")
@@ -87,7 +87,7 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//tr[contains(@data-csi-automation,'Style-BOMs')]//td[text()='Manage Views']")
 	private WebElement StyleBOMManageViews;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'Style-ImageDataSheet') and text()='Image']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Image') or text()='Image']")
 	private WebElement ImageTab;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'Style-ImageDataSheets')]//div[contains(text(),'New Image Data Sheet')]")
@@ -108,7 +108,7 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//div[contains(@class,'ImageDataSheets')]//td[contains(@data-csi-act,'Node Name')]/a")
 	private WebElement Ins_Ids_name;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'LabeledImages') and text()='Labeled Images']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Labeled Images') or text()='Labeled Images']")
 	private WebElement LabeledImage;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'ImageDataSheetRevision')]//div[contains(text(),'New from Image')]")
@@ -126,7 +126,7 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//tr[contains(@data-csi-automation,'plugin-ImageDataSheetRevision-LabeledImages-CustomViewManage')]//td[text()='Manage Views']")
 	private WebElement Labelmanageview;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'Style-Reviews') and text()='Reviews']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Reviews') and text()='Reviews']")
 	private WebElement StyleReview;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'Style-StyleReviews')]//div[contains(text(),'New Style Review')]")
@@ -153,7 +153,7 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//span[text()='Save & Finish']")
 	private WebElement saveFinish;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'Style-SizeChartLayout') and text()='Size Chart']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Size Chart') or text()='Size Chart']")
 	private WebElement Sizechart;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'Style-SizeChart')]//div[contains(text(),'New Size Chart')]")
@@ -168,16 +168,16 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//tr[contains(@data-csi-automation,'Style-SizeCharts')]//td[text()='Manage Views']")
 	private WebElement sizechartManage;
 
-	@FindBy(xpath="//div[text()='Size Charts']//following::td[contains(@data-csi-act,'Node Name')]/a")
+	@FindBy(xpath="//a[text()='Ins-SizeChart']")
 	private WebElement SizechartName;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'SizeChartRevision-Dimensions') and text()='Dimensions']")
+	@FindBy(xpath="//span[contains(@data-csi-tab-name,'Dimensions') or text()='Dimensions']")
 	private WebElement Dimension;
 
 	@FindBy(xpath="//div[text()='New Dimension']//following::table[contains(@data-csi-automation,'SizeChartRevision-Dimensions-ToolbarNewActions')]//td[2]")
 	private WebElement SizeDimesnionExpand;
 
-	@FindBy(xpath="//tr[contains(@data-csi-act,'NewFromApparelDimension')]//td[contains(text(),'New from Dimension')]")
+	@FindBy(xpath="//tr//td[contains(text(),'New from Dimension')]")
 	private WebElement NewfromDimension;
 
 	@FindBy(xpath="(//span[@data-csi-automation='plugin-SizeChartRevision-Dimensions-CustomViewActions']//span[text()='Views'])[1]")
@@ -198,7 +198,7 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//select[@class='csiPreferenceSelect ']/option[text()='Inspection Tol (+)']")
 	private WebElement InspectionTol2;
 
-	@FindBy(xpath="//span[contains(@data-csi-tab,'SpecificationDataSheet') and text()='Spec']")
+	@FindBy(xpath="(//span[contains(@data-csi-tab-name,'Spec') or text()='Spec'])[2]")
 	private WebElement Spec;
 
 	@FindBy(xpath="//table[contains(@data-csi-automation,'Style-SpecificationDataSheet')]//div[contains(text(),'New Spec Data Sheet')]")
@@ -216,7 +216,7 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//table[contains(@data-csi-automation,'SpecificationDataSheetRevision-Items')]//td[2]")
 	private WebElement CreateExpand;
 
-	@FindBy(xpath="(//tr[@data-csi-act='NewSpecificationSection']/td[text()='Create Custom Spec Section'])[2]")
+	@FindBy(xpath="(//tr/td[text()='Create Custom Spec Section'])[2]")
 	private WebElement createcustomspec;
 
 	@FindBy(xpath="//div[contains(@data-csi-automation,'SpecificationSection-Form-Node Name')]/div/div/input")
@@ -243,10 +243,10 @@ public class StyleInspectionPage extends Commonactions{
 	@FindBy(xpath="//tr[contains(@data-csi-automation,'Style-SpecificationDataSheets-CustomViewManage')]//td[text()='Manage Views']")
 	private WebElement specmanage;
 
-	@FindBy(xpath="(//div[contains(@class,'Style-BOMs')]//following::span[@data-csi-act='Copy' and text()='content_copy'])[1]")
+	@FindBy(xpath="(//*[text()='Ins-BOM']//following::span[@data-csi-act='Copy' or text()='content_copy'])[1]")
 	private WebElement BOMCopy;
 
-	@FindBy(xpath="(//span[text()='Style BOM']//following::span[@data-csi-act='EndPhase' and text()='check_circle'])[2]")
+	@FindBy(xpath="(//*[text()='Ins-BOM']//following::span[@data-csi-act-name='check_circle' or text()='check_circle'])[1]")
 	private WebElement Actioncheck;
 
 	@FindBy(xpath="//span[text()='Continue']")

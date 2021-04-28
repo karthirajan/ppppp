@@ -13,7 +13,7 @@ public class SetupPageTK extends Commonactions {
         PageFactory.initElements(Commonactions.driver, this);
     }
 
-    @FindBy(how = How.CSS, using = "span[data-csi-tab='Site-Enumerations']")
+    @FindBy(how = How.CSS, using = "span[data-csi-tab-name='Enumerations']")
     private WebElement user_Enumerations;
 
     @FindBy(how = How.XPATH, using = "//span[@data-csi-automation='filter-Site-Enumerations-Node Name']")

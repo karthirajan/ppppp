@@ -19,6 +19,9 @@ public class HomePage extends Commonactions{
 	
 	@FindBy(xpath="//a[text()='Centric 8']//parent::div")
 	private WebElement user_homeBtn;
+	
+	@FindBy(xpath="//span[@data-csi-tab-name='My Home']")
+	private WebElement user_homeBtn_verify;
 	//----------------------------------------------------------------
 	
 	@FindBy(xpath="//span[contains(@data-csi-automation,'PageSetup')]")
@@ -61,62 +64,69 @@ public class HomePage extends Commonactions{
 	@FindBy(xpath="(//tr[contains(@data-csi-automation,'SystemConfig')]/td)[2]")
 	private WebElement system_config;	
 	
-	@FindBy(xpath="//span[text()='My Home' or @data-csi-tab='User-MyHome']")
+	@FindBy(xpath="//span[text()='My Home' or @data-csi-tab-name='My Home']")
 	private WebElement homeBtn;
 
-	@FindBy(xpath="//span[text()='Style' or @data-csi-tab='ApparelViews-Style']")
+	@FindBy(xpath="//span[text()='Style' or @data-csi-tab-name='Style']")
 	private WebElement styleBtn;
 	
-	@FindBy(xpath="//span[text()='Material' or @data-csi-tab='ApparelViews-Materials']")
+	@FindBy(xpath="//span[text()='Material' or @data-csi-tab-name='Material']")
 	private WebElement materialBtn;
 	
-	@FindBy(xpath="//span[text()='Shape and Theme' or @data-csi-tab='ApparelViews-ShapeAndTheme']")
+	@FindBy(xpath="//span[text()='Shape and Theme' or @data-csi-tab-name='Shape and Theme']")
 	private WebElement shapeandthemeBtn;
 	
-	@FindBy(xpath="//span[text()='Specification' or @data-csi-tab='ApparelViews-ProductSpec']")
+	@FindBy(xpath="//span[text()='Specification' or @data-csi-tab-name='Specification']")
 	private WebElement specificationBtn;
 	
-	@FindBy(xpath="//span[text()='Sourcing' or @data-csi-tab='LibSourcing-Sourcing']")
+	@FindBy(xpath="//span[text()='Sourcing' or @data-csi-tab-name='Sourcing']")
 	private WebElement sourcingBtn;
 	
-	@FindBy(xpath="//span[text()='Documents' or @data-csi-tab='Data-Documents']")
+	@FindBy(xpath="//span[text()='Documents' or @data-csi-tab-name='Data-Documents']")
 	private WebElement documentsBtn;
 	
 	@FindBy(xpath="//span[text()='Issues' or @data-csi-tab='Data-Issues']")
 	private WebElement issuesBtn;
 	
-	@FindBy(xpath="//span[text()='Reports' or @data-csi-tab='Data-Reports']")
+	@FindBy(xpath="//span[text()='Reports' or @data-csi-tab-name='Reports']")
 	private WebElement reportsBtn;
 	
-	@FindBy(xpath="//span[text()='Select Sets' or @data-csi-tab='Data-SelectSets']")
+	@FindBy(xpath="//span[text()='Select Sets' or @data-csi-tab-name='Select Sets']")
 	private WebElement selectSetsBtn;
 	
-	@FindBy(xpath="//span[text()='Business Planning' or @data-csi-tab='BusinessPlanningViews-BusinessPlanning']")
+	@FindBy(xpath="//span[text()='Business Planning' or @data-csi-tab-name='Business Planning']")
 	private WebElement businessPlanningBtn;
 	
-	@FindBy(xpath="//span[text()='Calendar' or @data-csi-tab='CalendarDescriptor-Calendar']")
+	@FindBy(xpath="//span[text()='Calendar' or @data-csi-tab-name='Calendar']")
 	private WebElement calendarBtn;
 	
-	@FindBy(xpath="//span[text()='Quality' or @data-csi-tab='QualityViews-Quality']")
+	@FindBy(xpath="//span[text()='Quality' or @data-csi-tab-name='Quality']")
 	private WebElement qualityBtn;
 	
-	@FindBy(xpath="//span[text()='Schedule' or @data-csi-tab='WbsAdmin-Schedule']")
+	@FindBy(xpath="//span[text()='Schedule' or @data-csi-tab-name='Schedule']")
 	private WebElement scheduleBtn;
 	
-	@FindBy(xpath="//span[text()='Collection Management' or @data-csi-tab='ApparelViews-CollectionManagement']")
+	@FindBy(xpath="//span[text()='Collection Management' or @data-csi-tab-name='Collection Management']")
 	private WebElement collectionManagementBtn;
 	
-	@FindBy(xpath="//span[text()='Merchandising' or @data-csi-tab='MerchandisingViews-Merchandising']")
+	@FindBy(xpath="//span[text()='Merchandising' or @data-csi-tab-name='Merchandising']")
 	private WebElement merchandisingBtn;
 	
-	@FindBy(xpath="//span[text()='Inspection' or @data-csi-tab='Data-Inspection']")
+	@FindBy(xpath="//span[text()='Inspection' or @data-csi-tab-name='Inspection']")
 	private WebElement inspectionBtn;
 	
-	@FindBy(xpath = "//span[@data-csi-tab='ApparelViews-ProductSpec']")
+	@FindBy(xpath = "//span[@data-csi-tab-name='Specification']")
 	private WebElement SpecificationTab;
 
 	@FindBy(xpath="//span[text()='home']")
 	private WebElement NewhomeBtn;
+	
+	@FindBy(xpath="//a[text()='Hierarchy & Style Setup']")
+    private WebElement hierarchystylesetup;
+   
+    public WebElement getHierarchystylesetup() {
+        return hierarchystylesetup;
+    }
 	
 	public WebElement getNewhomeBtn() {
 		return NewhomeBtn;
@@ -202,6 +212,12 @@ public class HomePage extends Commonactions{
 		return user_homeBtn;
 	}
 	
+	
+	
+	public WebElement getUser_homeBtn_verify() {
+		return user_homeBtn_verify;
+	}
+
 	public WebElement getUser_settingsBtn() {
 		return user_settingsBtn;
 	}

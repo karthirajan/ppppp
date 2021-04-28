@@ -48,10 +48,10 @@ public class SpecificationHierarchyPage extends Commonactions{
 	@FindBy(xpath="//td[contains(@data-csi-heading,'StyleTemplate::0')]/a")
 	private WebElement Style_Name_Created;
 
-	@FindBy(xpath="//span[@data-csi-tab='Style-BOMs' and text()='BOM']")
+	@FindBy(xpath="//span[@data-csi-tab-name='BOM']")
 	private WebElement Style_BOM;
 	
-	@FindBy(xpath="//span[@data-csi-tab='ApparelViews-ClassifierTabs' and text()='Classifier']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Classifier' and text()='Classifier']")
 	private WebElement User_Classifier;
 	
 	@FindBy(xpath="//span[text()='Classifiers']")
@@ -84,13 +84,13 @@ public class SpecificationHierarchyPage extends Commonactions{
 	@FindBy(xpath="//span[@class='attrPrimary']/parent::td[@data-csi-act='Node Name::3']//following-sibling::td[contains(@class,'extra-column')]")
 	private WebElement Click_Empty3;
 
-	@FindBy(xpath="//span[@data-csi-tab='ApparelViews-Classifier3s' and text()='Classifier3s']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Classifier3s' and text()='Classifier3s']")
 	private WebElement Classifier3s_Button;
 
 	@FindBy(xpath="(//td[@data-csi-act='Node Name::0'])/a")
 	private WebElement Get_Classifeier3S_text;
 	
-	@FindBy(xpath="//span[@data-csi-tab='ApparelViews-ColorSpecificationsTab' and text()='Color Specification']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Color Specification' and text()='Color Specification']")
 	private WebElement User_ColorSpecification;
 
 	@FindBy(xpath="//span[contains(@data-csi-automation,'ColorSpecifications')]//span[text()='Views']")
@@ -129,7 +129,7 @@ public class SpecificationHierarchyPage extends Commonactions{
 	@FindBy(xpath="//td[@data-csi-heading='Code::0']//preceding-sibling::td//input")
 	private WebElement CheckBox_1;
 	
-	@FindBy(xpath="//span[contains(@data-csi-tab,'Site-Enumerations') and text()='Enumerations']")
+	@FindBy(xpath="//span[@data-csi-tab-name='Enumerations']")
 	private WebElement Enumeration;
 	
 
@@ -151,7 +151,7 @@ public class SpecificationHierarchyPage extends Commonactions{
 	@FindBy(xpath="//table[contains(@data-csi-automation,'actionRow-EnumList')]//div[text()='add']")
 	private WebElement Plus_Icon_2;
 		
-	@FindBy(xpath="//span[text()='Sizes' or @data-csi-tab='ApparelViews-Sizes']")
+	@FindBy(xpath="//span[text()='Sizes' or @data-csi-tab-name='Sizes']")
 	private WebElement User_Size;
 	
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'plugin-ApparelViews-Sizes-ToolbarNewActions')]//div/div)[2]")
@@ -175,7 +175,7 @@ public class SpecificationHierarchyPage extends Commonactions{
 	@FindBy(xpath="(//tr[@data-csi-form-field='Dimension2Size']/td/div/div/div/input)[3]")
 	private WebElement TwoDim_Size_Length_Drpdown;
 	
-	@FindBy(xpath="//span[text()='Size Range' or @data-csi-tab='ApparelViews-SizeRanges']")
+	@FindBy(xpath="//span[text()='Size Range' or @data-csi-tab-name='Size Range']")
 	private WebElement User_SizeRange;
 
 	@FindBy(xpath="(//table[contains(@data-csi-automation,'SizeRanges')]//div/div)[2]")

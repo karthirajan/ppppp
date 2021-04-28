@@ -25,7 +25,7 @@ public class Hooks extends Commonactions {
 	//static Scenario scenario;
 	
 	@After()
-	public void after(Scenario scenario) throws InterruptedException {
+	public void after(Scenario scenario) throws Throwable {
 		
 		try{
 		if(scenario.isFailed()){
@@ -34,11 +34,11 @@ public class Hooks extends Commonactions {
 			
 			scenario.embed(screenshot, "image/png");
 			driver.close();
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			//------------------------------Test------------------------------------\\
-			
-		//	 	   ca.launch(System.getProperty("url"));
-	       ca.launch("http://win16sql19-cce.centricsoftware.com/WebAccess/login.html");
+			ca.eleToBeClickable();
+			 	   ca.launch(System.getProperty("url"));
+	     // ca.launch("http://win16sql19-cce.centricsoftware.com/WebAccess/home.html");
 			
 		   //-------------------------------Test-------------------------------------\\  
 		LoginPage lp = new LoginPage();

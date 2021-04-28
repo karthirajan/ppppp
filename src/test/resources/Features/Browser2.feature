@@ -1,6 +1,6 @@
 #Author: karthick@kripya.com
 @Selenium @Browser2
-Feature: Material setup
+Feature: Browser - 2
 
   @StyleSetup
   Scenario Outline: Style type  creation
@@ -14,39 +14,37 @@ Feature: Material setup
       | Apparel - Color and Size | Accessories - Only Color | Apparel - Only Size | Accessories - No color and Size |
 
   #-----------------------------------------------------------------------------------------------------------------
+  
+  @LookUpSetup
+  Scenario Outline: Look up items creation
+  #  Given User launches centric application
+    And User Click on setup icon
+    And User creates LookUp items "<LookUpA>","<LookUpB>","<LookUpC>"
+
+    Examples: 
+      | LookUpA      | LookUpB          | LookUpC              |
+      | Cost Factors | Holiday Calendar | User Task Lead Times |
+      
+        #-----------------------------------------------------------------------------------------------------------------
+      
   @MaterialSetup
   Scenario Outline: Material type creation
     #  Given User launches centric application
     And User Click on setup icon
     And User creates material type "<Standalone>","<Structurecomponent>","<Tool>"
-
+    And User Click on setup icon
+    Then User click on update cnfiguration
+    Then Logout from the Application
 
     Examples: 
       | Standalone          | Structurecomponent           | Tool          |
       | Fabric - Stanadlone | Fabric - Structure Component | Fabric - Tool |
 
   #-----------------------------------------------------------------------------------------------------------------
-  Scenario Outline: Enum Setup
- #  Given User launches centric application
- #   And User Click on setup icon
-    When Setup Enum for size dimensions in setup page "<Enumeration>"
-    Then Create the Enum value for the sizes "<Enumeration Value>","<Description>","<EnumerationValue2>","<Description2>"
-    And User navigates to type config
-    When user creates the size spec data for size label module "<SizeSpec>"
-    And User setup enumeration configurtion for Sample "Style - Proto","Material - Proto"
-    When user creates enumeration "Segment - 01","Segment - 02"
-    And User Click on setup icon
-    Then User click on update cnfiguration
-
-    Examples: 
-      | Enumeration       | Enumeration Value | Description | EnumerationValue2 | Description2 | SizeSpec |
-      | DimensionType (1) | Length            | 2DSizeModul | Waist             | 2DSize       |   Characteristic,Construction,Packaging        |
-  #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
- 
-
-  Scenario Outline: User creates New season for a product
-    #Given User launches centric application
+ @StyleSeason
+ Scenario Outline: User creates New season for a product
+    Given User launches centric application
     Then Go to homepage
     And verify user screen
     And Click style tab and get the listed season name in the style tab
@@ -69,8 +67,11 @@ Feature: Material setup
       | StyleA        | ScodeA     | SdescriptionA | StyleB        | ScodeB     | SdescriptionB | Brand | Bcode      | Bdescription | Dept | Dcode    | Ddescription | Collection | Ccode     | Cdesription | StyleTypeA               | StyleTypeB               | StyleTypeC          | StyleTypeD                      |
       | summer season | 123 summer | Automation    | winter season | 123 winter | Automation    | Denim | Denim Code | Automation   | Mens | 123 Mens | Automation   | Jeans      | 123 jeans | Automation  | Apparel - Color and Size | Accessories - Only Color | Apparel - Only Size | Accessories - No color and Size |
 
+  #-----------------------------------------------------------------------------------------------------------------
+
+
   Scenario Outline: User creates New material for a product
-    #Given User launches centric application
+   # Given User launches centric application
     Then Go to homepage
     And verify user screen
     And Click Libraries tab under specification
@@ -97,6 +98,19 @@ Feature: Material setup
       | QA Automation | Active    |
 
   #-------------------------------------------------------------------------------------------------------------
+ 
+   Scenario Outline: Material Sample validation
+    # Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    And User validates and edit material samples "<material-Sample>","<ChooseSupplier>"
+
+    Examples: 
+      | material-Sample    | ChooseSupplier |
+      | 100% Cotton Jersey | Supplier       |
+
+  #-------------------------------------------------------------------------------------------------------------
+ 
   Scenario Outline: Material Security Group validation
     #  Given User launches centric application
     Then Go to homepage
@@ -115,18 +129,7 @@ Feature: Material setup
     And User validates colored material
 
   #-------------------------------------------------------------------------------------------------------------
-  Scenario Outline: Material Sample validation
-    # Given User launches centric application
-    Then Go to homepage
-    And verify user screen
-    And User validates and edit material samples "<material-Sample>","<ChooseSupplier>"
-
-    Examples: 
-      | material-Sample    | ChooseSupplier |
-      | 100% Cotton Jersey | Supplier       |
-
-  #-------------------------------------------------------------------------------------------------------------
-  Scenario: Material SKU validation
+ Scenario: Material SKU validation
     # Given User launches centric application
     Then Go to homepage
     And verify user screen
@@ -138,10 +141,11 @@ Feature: Material setup
     Then Go to homepage
     And verify user screen
     And User validates sourcing
+    Then Logout from the Application
 
   #-------------------------------------------------------------------------------------------------------------
   Scenario Outline: Material Care Label validation
-    #  Given User launches centric application
+    Given User launches centric application
     Then Go to homepage
     And verify user screen
     And User validates care label "<CL-Wash>","<CL-Iron>","<CL-Special>"
@@ -151,8 +155,9 @@ Feature: Material setup
       | Do Not Wash | Iron Low Heat | Wash With Like Colors |
 
   #-------------------------------------------------------------------------------------------------------------
+ 
   Scenario Outline: Material Composition Placement validation
-    # Given User launches centric application
+   # Given User launches centric application
     Then Go to homepage
     And verify user screen
     And User validates composition placements "<CompPlacement-A>","<CompPlacement-B>"
@@ -212,15 +217,16 @@ Feature: Material setup
     And verify user screen
     And User validates product structure "<StrComponent-material>"
 
-    #Then Logout from the Application
+   # Then Logout from the Application
     Examples: 
       | StrComponent-material |
       | shoe structure        |
 
   #-------------------------------------------------------------------------------------------------------------
-   @PrintDesign
+  
+  @PrintDesign
   Scenario Outline: Print design Creation and validation
-    #  Given User launches centric application
+     # Given User launches centric application
     Then Go to homepage
     And verify user screen
     When user navigates to print design tab
@@ -234,9 +240,9 @@ Feature: Material setup
 
   #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
-  
-  
- @SizeChart
+ 
+ 
+  @SizeChart
   Scenario Outline: Data creation for the size chart and validation
     # Given User launches centric application
     Then Go to homepage
@@ -307,7 +313,7 @@ Feature: Material setup
       | 12,14,16,4*6,8x11 |           12 |
 
   #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-   @LookUp
+  @LookUp
   Scenario Outline: Lookup creation and validation
     #Given User launches centric application
     Then Go to homepage
@@ -338,153 +344,257 @@ Feature: Material setup
 
   #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   @InspectionCreation
-  Scenario Outline: Inspection Creation
-   # Given User launches centric application
+  Scenario Outline: Inspection Setup
+    #   Given User launches centric application
     Then Go to homepage
     And verify user screen
-    Then User creates Enumeration "<DefectsCategory>"
-    When user creates setup in Inspection "<Defects>","<AccLimit>","<sortOrder>","<TestSpecification>","<SamplingValue>","<ErrorType>","<TemplateName>","<BOMName>","<SizeChart>","<DimensioName>","<InspectionGrpName>"
+    #  Then User creates Enumeration "<DefectsCategory>"
+    #  And update configuration for inspection
+    Then user creates Defects in Inspection "<Defects>"
+    Then user creates AccLimit in Inspection "<AccLimit>","<sortOrder>"
+    Then user creates TestSpecification and sampling in Inspection "<TestSpecification>","<SamplingValue>"
+    Then User creates ErrorType in Inspection "<ErrorType>"
+    And user creates TemplateName BomName sizechart and Dimension "<TemplateName>","<BOMName>","<SizeChart>","<DimensioName>","<TestSpecification>","<SamplingValue>","<ErrorType>","<InspectionGrpName>"
 
     Examples: 
       | Defects                                              | AccLimit                | sortOrder | TestSpecification                                   | SamplingValue         | ErrorType                 | TemplateName    | BOMName        | SizeChart   | DimensioName  | InspectionGrpName    | DefectsCategory |
       | Size Defect,Sewing Defect,Fabric Defect,Color Defect | 2.5%AQL,4.5%AQL,ACL 3.0 |     0,1,2 | No Link,BOM,Size Chart,Spec Data Sheet,Style Review | Single SP,Multiple SP | Critical,High,Check Error | auto-inspection | Inspection BOM | Ins Special | New Dimension | New Inspection Group | High,Medium,Low |
 
   #---------------------------------------------------------------------------------------------------
-  
- 
- Scenario Outline: Style Sample Update
-   # Given User launches centric application
+  Scenario Outline: Inspection Groupname
+    #Given User launches centric application
     Then Go to homepage
     And verify user screen
-    When user update delete style samples "<Sample>","<Quantity>"
-    And User modify the sample names
+    Then user creates Inspection group name"<InspectionGrpName>"
 
     Examples: 
-      | Sample | Quantity |
-      | Sample |        5 |
+      | InspectionGrpName    |
+      | New Inspection Group |
 
   #---------------------------------------------------------------------------------------------------
-    
-  Scenario Outline: Delete Supplier Quotes & Samples
-   # Given User launches centric application
+
+  Scenario Outline: Material Supplier Quotes & Samples
+    #Given User launches centric application
     Then Go to homepage
     And verify user screen
-    When user creates delete supplier quotes "<Delete>"
-    And user creates supplier request "<Template>","<Request>"
-    And User Selects quotes and modifying states
-    And User select Supplier request samples
-
-    Examples: 
-      | Delete    | Template    | Request                             |
-      | Delete SQ | SRT - Style | SR - Delete Quotes & Samples - True |
-
-  #---------------------------------------------------------------------------------------------------
-    
-  Scenario: Validating quotes & samples
-   # Given User launches centric application
-    Then Go to homepage
-    And verify user screen
+    When user creates material supplier quotes
+    And user creates material supplier request "<Template>","<Request>"
     When user removing supplier under supplier request setup
-    And user validating supplier request and samples displayed datas are correct or not
+    And user validating supplier quotes & samples
     Then Go to homepage
-    And user validating supplier quotes displayed datas are correct or not
-    Then Go to homepage
-    And User validating style sample displayed datas are correct or not
+    And user validating material supplier quotes
+    And user issuing material supplier request
+
+    Examples: 
+      | Template       | Request              |
+      | SRT - Material | SR - Material Cotton |
 
   #---------------------------------------------------------------------------------------------------
-    
-  Scenario Outline: Copy Supplier Request
+  Scenario Outline: Supplier Quotes Update
+    # Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    When user enters designated supplier "Supplier" and template details
+    And User creates material product blended cost "<Product>"
+
+    # Then Logout from the Application
+    Examples: 
+      | Product        |
+      | Material - PBC |
+
+  #---------------------------------------------------------------------------------------------------
+  Scenario Outline: Shape creation
+    #  Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    When User creates product group in size chart "<ProductGrp>","<Description>"
+    And User update dimension,increments "<Increments>" and tolerance
+    Then Go to homepage
+    And User creates shape "Circle Shape","winter season" and update shape master "Object Shape Master"
+    And User is performing copy,edit and delete action
+    And User creates Security group "<SecurityGrp>" and update values under shape "MensJeans"
+    And User creates shape sample "<Sample>","Supplier"
+    And User is performing sample copy,edit and delete action
+    And User Creates shape size chart for "Circle SC-Lock All","Circle SC-Lock Dimension","Circle SC-Lock Tolerance","Circle SC-Lock Values"
+
+    #  Then Logout from the Application
+    Examples: 
+      | ProductGrp | Description | Increments       | SecurityGrp            | Sample              |
+      | PG - 01    | Automation  | Pants Grade Rule | Security Group - Shape | Circle Shape Sample |
+
+  #---------------------------------------------------------------------------------------------------
+  
+   
+  
+  Scenario Outline: User Conversation Categories creation
+    # Given User launches centric application
+    And User Click on setup icon
+    Then User creates converstion value in config_setup "<conversation1>"
+    And Edit and delete the existing conversation data "<conversation2>","<conversation3>"
+    And User select Style from Business Object "Style"
+    When Navigate to to conversation cateogries within style
+
+    #And User click on update cnfiguration
+    Examples: 
+      | conversation1                                                                 | conversation2                           | conversation3 |
+      | Planning the style,Planning the Material,Designing the Style,Plan for Seasons | Test Running,Design Style,Plan Material | Tested Runner |
+
+  #---------------------------------------------------------------------------------------------------
+  
+  Scenario Outline: Supplier PO
+  # Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    When Create PO Group and Supplier PO "<PoGroup>","<supplierpovalue1>","<supplierpovalue2>","<quotevalueBlue>","<quotevaluegreen>","<EditValue>","<dispoint>","<disvalue>","<allowancepoint>","<allowancevalue>"
+    Then user creates shipment qc and set "<unitvalueb1>","<unitvalueg1>","<bshipvalue>","<qshipvalue>","<qcissue>","<selectset>","<gshipqty>","<bshipqty>"
+
+    Examples: 
+      | PoGroup        | supplierpovalue1    | supplierpovalue2     | EditValue  | quotevalueBlue         | quotevaluegreen         | dispoint | disvalue | allowancepoint | allowancevalue | unitvalueb1 | unitvalueg1 | bshipvalue | qshipvalue | qcissue  | selectset   | gshipqty | bshipqty |
+      | order po group | PO-AP1321-Not color | PO-AP1123-colorbased | Automation | blue color faded-large | green color faded-large |        1 |       10 |              2 |             20 |           3 |           5 |         50 |        100 | qc issue | SS-Shipment |       60 |       30 |
+
+  #---------------------------------------------------------------------------------------------------
+ 
+  Scenario Outline: Customer PO
+   # Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    Then User creates customerpo and issue "<povalue>","<B_baseprice>","<G_baseprice>","<B_orderqty>","<G_orderqty>","<dispnt>","<disvalue>","<allowanpct>","<allowvalue>","<commission>","<payment>"
+    Then Logout from the Application
+
+    Examples: 
+      | povalue             | B_baseprice | G_baseprice | B_orderqty | G_orderqty | dispnt | disvalue | allowanpct | allowvalue | commission | payment |
+      | Target PO123#-color |         200 |         350 |         30 |         40 |      1 |      100 |          2 |         50 |          3 | cheque  |
+
+  #---------------------------------------------------------------------------------------------------
+  Scenario Outline: User creates collection management
+     Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    When user creates marketing looks "Avengers"
+    And user creates marketing tools "<ToolA>","<ToolB>"
+    And performing delete action
+    And user creates collection management "<CollectionValue>","<Currency>"
+    And user creates style marketing products "TShirts Style","123 Avengers","smoke"
+    And user creates new marketing product "MP - TShirt","123 - Marketing","Apparel - Color and Size"
+    And user creates colorway inside marketing product "<ColorA>","<ColorB>"
+    And user creates marketing material and looks "<LookA>","<LookB>"
+    And user update material value in material product and segments
+    Then user click on release to markets and release to customers
+    And user creates sales market in collection management
+    Then Go to homepage
+    And creates sales order "TShirt Sales Order","Indian Market"
+
+    Examples: 
+      | ToolA  | ToolB   | CollectionValue                  | Currency | ColorA | ColorB | LookA      | LookA    |
+      | Banner | Canoply | TShirts Collection - without SKU | Dollar   | Blue   | Green  | Spider Man | Iron Man |
+
+  #---------------------------------------------------------------------------------------------------
+  
+  Scenario Outline: User creates collection management with SKU
   #  Given User launches centric application
     Then Go to homepage
     And verify user screen
-    When user creating new inspiration "<Inspiration>"
-    And User copy supplier request "<SR>"
+    When user creates collection management with SKU "<CollectionValue>","<Currency>","123 Automation","CT - 01","Stripped Jeans - SKU"
+    And user creates styles marketing products "Apparel - Jeans","123 Automation","smoke"
+    And verify material SKU values
+    And user creates marketing material and update values in marketing product "<MaterialA>","<MaterialB>","<Color>"
+    And user creates SKU sales market in collection management "<Customer>"
+    And User creates promotion and sales order "New Promo","Indian Sales Order","US - North","<Customer>"
+    And user creates marketing tools and update sales order
+    And user creates sales order group and update catalog configuration
+    Then Logout from the Application
 
     Examples: 
-      | Inspiration | SR                       |
-      | Ins - 01    | Apparel SR - Inspiration |
+      | CollectionValue | Currency | MaterialA                | MaterialB                       | Color | Customer |
+      | Jeans           | Rupee    | 100% Cotton/Rayon Jersey | 100% Cotton/Rayon Jersey - Copy | Blue  | H&M      |
 
   #---------------------------------------------------------------------------------------------------
-    
-  Scenario Outline: Issuing Supplier Request
-   # Given User launches centric application
+  Scenario Outline: Sizechart creation setup
+    Given User launches centric application
     Then Go to homepage
     And verify user screen
-    When User issuing apparel SR
-    Then Go to homepage
-    And user creates issue supplier request "<Template>","<Request>"
+    Then User creates setup page in Increment "<Incrementvalue>"
+    And User sets grainline in ProductGroup
 
     Examples: 
-      | Template    | Request                |
-      | SRT - Style | SR - with two products |
+      | Incrementvalue                |
+      | 34,30,45,55,67,45,34,32,56,66 |
 
   #---------------------------------------------------------------------------------------------------
-    
-  Scenario Outline: Supplier Quotes Update
-   # Given User launches centric application
+  Scenario Outline: Sizechart creation setup
+    #Given User launches centric application
     Then Go to homepage
     And verify user screen
-    When user enters designated supplier "Supplier" and samples details
-    Then Go to homepage
-    And User Creates supplier request template without style "<Template>","<value>"
-    Then Go to homepage
-    And validating copy and delete action "<value>"
-    And User Creates supplier request template with style "<Template>","<Stylevalue>","<Style>"
-    Then Go to homepage
-    And user validating style template updated correctly or not
-    Then Go to homepage
-    And User issuing without style template
-   # Then Logout from the Application
+    Then User Navigates to apparelColorandsize under season
+    Then User creates NewSizeChart "<sizechartvalue>"
+    And User manageviews for Dimension and TDS
+    And Select the Warp, weave, grainlinevalues "<warpShrinkagevalue>","<weaveShrinkagevalue>","<gralinevalue">
+    Then user fills the pattern value for large, medium and small "<small>","<medium>","<large>"
+    And User restore increments and restore tolerance
+    And user enter Shrinkagevalue "<Shrinkagevalue>"
+    Then user restoreshrinkage
+    Then user Resetpattern
 
     Examples: 
-      | Template    | value    | Stylevalue         | Style                    |
-      | SRT - Style | Style SR | Style Home - Jeans | Apparel - Color and Size |
-  
-    #---------------------------------------------------------------------------------------------------
- 
-  @InspectionStyleCreation
-  Scenario Outline: Inspection style creation
-   # Given User launches centric application
-    Then Go to homepage
-    And verify user screen
-    Then User creates Style for inspection "<BOMName>"
-    And User creates ImageDatasheet "<ImageName>","<Description>"
-    Then User creates Review and sizechart "<ReviewName>","<ReviewDesc>","<canvasNote>","<InsSize>"
-    Then User creates spec "<specvalue>","<datasheet>","<specdesc>","<customspecvalue>","<specialvalue>","<Bomcopy1>","<Bomcopy2>"
-    Then User creates Inspection and verify the created items in Style Specification "<InspectionName>","<Samplingvalue>","<SupplierValue>"
-
-    Examples: 
-      | BOMName | ImageName | Description              | ReviewName       | ReviewDesc               | canvasNote         | InsSize       | specvalue | datasheet          | specdesc           | customspecvalue     | specialvalue   | Bomcopy1     | Bomcopy2      | InspectionName     | Samplingvalue | SupplierValue |
-      | Ins-BOM | INS-IDS   | Image Inspection Testing | Ins-Style Review | Style Inspection testing | Automation Testing | Ins-SizeChart | character | Ins-spec datasheet | Inspection Testing | Custom spec section | Characteristic | Ins-BOM COPY | Ins-BOM COPY2 | Apparel-Inspection | Single        | Supplier      |
+      | sizechartvalue  | small       | medium      | large       | Shrinkagevalue | warpShrinkagevalue | weaveShrinkagevalue | gralinevalue                             |
+      | Apparel SC - 01 | 45,46,32,45 | 45,56,70,56 | 34,34,24,34 |          15,20 |                  5 |                  10 | Cut With Grainline,Cut Against Grainline |
 
   #---------------------------------------------------------------------------------------------------
-
-  @InspectionContinuation
-  Scenario Outline: Inspection style creation
-   # Given User launches centric application
+  Scenario Outline: Sizechart setup for changeproductgroup
+    #Given User launches centric application
     Then Go to homepage
     And verify user screen
-    Then create NewInspectionSecurityGroup "<ErrorType>","<AccLimit>","<SampleQtyMethod>","<InsBatchName>","<Attribute>","<Batchcolorway>","<BatchSize>","<Defectvalue>","<DefectCounter>"
-		And User verify the PDF and InspectionBatch status
-    
-    
+    Then User create New Increment value
+    And select Dimension from list "<Incrementvalue>"
+    Then User create New product group value
+    Then User enters value in newfromdimension "<Tolerancevalue>"
+
     Examples: 
-      | ErrorType     | AccLimit | SampleQtyMethod   | InsBatchName     | Attribute                                            | Batchcolorway | BatchSize | Defectvalue | DefectCounter |
-      | High,Critical | 2.5,4.5  | Static,Percentage | Size chart batch | Inspection Size Chart Dimension,Size Chart Dimension | Vanilla       | small     | size        |             5 |
+      | Incrementvalue | Tolerancevalue |
+      |  8,3,9,2,10,11 |          1,2,3 |
 
   #---------------------------------------------------------------------------------------------------
-
-@InspectionShipment
-  Scenario Outline: Inspection shipment
-   # Given User launches centric application
+  Scenario Outline: changeproductgroup in Sizechart
+    #Given User launches centric application
     Then Go to homepage
     And verify user screen
-    Then create Inspection shipment "<ErrorType>","<ProductionQuote>","<styleInspValue>","<TemplateValue>","<ShipmentInspValue>","<Level>","<BatchShipment>","<OrderInspection>","<TemplateName>","<DefectCounter>","<DefectValue>","<BatchSize>","<Samplecount>","<OrderBatchName>"
+    Then User Navigates to apparelColorandsize under season
+    And user changeproductgroup under sizechart "<newProdgrp>"
+    And user changeincrement under sizechart "<newProdgrp>"
+    Then user change sizerange
 
     Examples: 
-      | ErrorType     | ProductionQuote | styleInspValue   | TemplateValue | ShipmentInspValue   | Level          | BatchShipment  | OrderInspection  | TemplateName              | DefectCounter | DefectValue  | BatchSize | Samplecount | OrderBatchName  |
-      | High,Critical | Supplier        | Style-Inspection | inspection    | Shipment-Inspection | Shipment,Order | Batch-shipment | Order-Inspection | order-inspection template |           1,2 | fabric,color | small     |          50 | Batch for Order |
- 
+      | newProdgrp  |
+      | NEW PG - 01 |
+
+  #---------------------------------------------------------------------------------------------------
+  Scenario Outline: Evaluate Sizechart for Apparel SC - 01
+    #Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    Then User Navigates to apparelColorandsize under season
+    And user selects the created sizechart uncheck size medium
+    Then Evalaute the Sizechart "<supplierrequest>","<sampledimension>"
+    And verify values under Evaluation tab
+    Then User pass the Evaluation as Expected value refelcted in page
+
+    Examples: 
+      | supplierrequest | sampledimension  |
+      | Apparel - SR    | Colors and Sizes |
+      
    #---------------------------------------------------------------------------------------------------
- 
-  
+      
+     Scenario Outline: Creation for Food
+    #Given User launches centric application
+    Then Go to homepage
+    And verify user screen
+    And Navigate to Food Setup and create food config "<Allergens>"
+    And Navigate to food claims and Create claims "<Claims>"
+    And Navigate to food ingredient create ingredients "<Ingredients>"
+    Then Create food nutrients "<Nutrients>"
+    Then Logout from the Application
+
+    Examples: 
+      | Allergens            | Claims                     | Ingredients           | Nutrients                         |
+      | Eggs,Fish,Milk,Wheat | Sodium,Sugar,Fibre,Calcium | Pepper,Oil,Salt,Flour | Proteins,Vitamins,Minerals,Lipids |
+      

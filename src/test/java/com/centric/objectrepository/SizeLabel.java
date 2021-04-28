@@ -11,7 +11,7 @@ public class SizeLabel extends Commonactions {
     public SizeLabel() {
         PageFactory.initElements(Commonactions.driver, this);
     }
-    @FindBy(how = How.CSS,using = "[data-csi-tab='Site-SpecificationDataSheetSubtypes']")
+    @FindBy(how = How.CSS,using = "[data-csi-tab-name='Spec Types']")
     private WebElement SetupStyleSpecTab;
 
     @FindBy(how = How.CSS,using = "[data-csi-automation='plugin-SizeChartAdmin-SizeLabels-ToolbarNewActions']")

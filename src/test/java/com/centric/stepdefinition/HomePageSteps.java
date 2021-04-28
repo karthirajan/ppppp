@@ -1,5 +1,6 @@
 package com.centric.stepdefinition;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -61,7 +62,11 @@ public class HomePageSteps extends Commonactions {
 	
 	@Given("Click style tab and get the listed season name in the style tab")
 	public void click_style_tab_and_get_the_listed_season_name_in_the_style_tab() throws Throwable {
+		
 		Commonactions.jsWaitForPageLoad(); 
+		Commonactions.isElementPresent(hp.getUser_homeBtn());
+        ca.click(hp.getUser_homeBtn());
+        Commonactions.isElementPresent(hp.getStyleBtn());
 	    ca.click(hp.getStyleBtn());
 	    
 	    System.out.println("style tab clicked successfully");
@@ -71,11 +76,38 @@ public class HomePageSteps extends Commonactions {
 	
 	@Then("Go to homepage")
 	public void go_to_homepage() throws Throwable {
+		try{
 		Commonactions.jsWaitForPageLoad();
 		ca.eleToBeClickable();
 		Thread.sleep(3000);
-        ca.click(hp.getUser_homeBtn()); 
+		}catch (Exception e) {
+			driver.navigate().refresh();
+			try{
+			Alert alert = driver.switchTo().alert();
+			String text = alert.getText();
+			System.out.println("alert message is :"+text);
+			alert.accept();
+			}catch (Exception ee) {
+				// TODO: handle exception
+			}
+		}
+		try{
+		Commonactions.isElementPresent(hp.getUser_homeBtn());
+        ca.click(hp.getUser_homeBtn());
+        Commonactions.isElementPresent(hp.getUser_homeBtn());
+        ca.click(hp.getUser_homeBtn());
+        
         ca.eleToBeClickable();
+        Commonactions.isElementPresent(hp.getUser_homeBtn_verify());
+        ca.click(hp.getUser_homeBtn_verify());
+        ca.eleToBeClickable();
+        System.out.println("home tab clicked successfully");
+		}catch (Exception e) {
+			System.out.println("issue in home tab");
+			ca.click(hp.getUser_homeBtn());
+	        ca.eleToBeClickable();
+		}
+        
 	     System.out.println("home tab clicked successfully");
 	     
 	    ca.eleToBeClickable(); 
@@ -100,6 +132,8 @@ PopupPage pp = new PopupPage();
 			
 			//---------------------------------------------
 		}catch(Exception e){
+			driver.get(driver.getCurrentUrl());
+			ca.click(hp.getUser_settingsBtn());
 			e.printStackTrace();
 		}
 		
@@ -181,15 +215,24 @@ try{
 		ca.click(hp.getUser_settingsBtn());
 		ca.eleToBeClickable();
 		ca.click(hp.getUpdate_config());
+		ca.eleToBeClickable();
 		ca.click(pp.getUpdate_fullUpdateConfiguration());
 		ca.eleToBeClickable();
 		ca.click(pp.getUpdate_Run_Btn());
 		
-		Thread.sleep(20000);
-		
+		Thread.sleep(10000);
+		try{
 		driver.navigate().refresh();
-		Commonactions.waitForAlert(driver);
-		
+		Alert alert = driver.switchTo().alert();
+		String text = alert.getText();
+		System.out.println("alert message is :"+text);
+		alert.accept();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		System.out.println("update configuration clicked successfully");
+		
+		//ca.jsWaitForPageLoad();
+		
 	}
 }

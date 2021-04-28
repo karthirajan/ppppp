@@ -3,13 +3,18 @@ package com.centric.resources;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.*;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -21,21 +26,29 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Commonactions{
-	
+
 	public static  WebDriver driver;
 	private static String homeWindow = null;
 
+	@SuppressWarnings("deprecation")
 	public WebDriver launch(String url) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", ".\\driver\\Chrome85\\chromedriver.exe");
-		 ChromeOptions chromeOptions = new ChromeOptions();
-	        chromeOptions.addArguments("disable-infobars");
-	        chromeOptions.addArguments("start-maximized");
-		 //---------------------------Headless-----------------------------\\
-		  //       chromeOptions.addArguments("headless");
-		  //       chromeOptions.addArguments("window-size=1200x600");
-		 //------------------------------------------------------------------\\
-		          
-	        driver = new ChromeDriver(chromeOptions);
+		
+	//	System.setProperty("webdriver.chrome.driver", ".\\driver\\Chrome86\\chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
+		final DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
+		chromeCapabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.DISMISS);
+		final ChromeOptions chromeOptions = new ChromeOptions();
+	      //  chromeOptions.addArguments("disable-infobars");
+	      //  chromeOptions.addArguments("start-maximized");
+		 //---------------------------Headless-----------------------------
+		         chromeOptions.addArguments("headless");
+		         chromeOptions.addArguments("--no-sandbox");
+		   //      chromeOptions.addArguments("window-size=1200x600");
+		         chromeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.DISMISS);
+		 //------------------------------------------------------------------
+		         chromeCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);    		         
+	             driver = new ChromeDriver(chromeCapabilities);
+	      
 	        
 	     //--------------------------Clear Cache ----------------------------\\   
 /*	        driver.get("chrome://settings/clearBrowserData");
@@ -46,36 +59,37 @@ public class Commonactions{
 	        
 	     //---------------------------------------------------------------------\\   
         driver.get(url);
+        driver.manage().window().setSize(new Dimension(1280, 680));
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		//driver.manage().window().maximize();
 		return driver;
 	}
-	
+
 	public WebElement activeElement() {
-		
+
 		WebElement activeElement = driver.switchTo().activeElement();
-		
+
 		return activeElement;
-		
+
 	}
-	
+
 	public void insertText(WebElement element, String value) {
 		try{
 			try{
-			element.clear();
+				element.clear();
 			}catch(Exception e1){
 				element.sendKeys(Keys.DELETE);
 			}
 		}catch (Exception e) {
-			
+
 		}
 		element.sendKeys(value);
 
 	}
-	
-	
+
+
 	public void display(WebElement plusIcon, WebElement element) throws InterruptedException {
-		
+
 		for (int i = 0; i < 50; i++) {
 			Commonactions.isElementPresent(plusIcon);
 			click(plusIcon);
@@ -85,55 +99,58 @@ public class Commonactions{
 				click(element);
 				break;
 			}
-			
+
 		}
 
 	}
-	
 
-	
+
+
 	public void delete() {
-		
+
 		Actions a= new Actions(driver);
 		a.sendKeys(Keys.DELETE);
 
 	}
-	
+
 	public void insertTextjs(WebElement element, String value) {
 		try{
 			element.clear();
 		}catch (Exception e) {
-			
+
 		}
 		JavascriptExecutor js= (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].setAttribute('value', '" + value +"')", element);
 
 	}
-	
+
 	public void click(WebElement element) {
 
-           element.click();
+		element.click();
 
 	}
-	
+
 	public void doubleclick(WebElement element) {
 
-        Actions a = new Actions(driver);
-        a.doubleClick(element);
+		Actions a = new Actions(driver);
+		a.doubleClick(element);
 
 	}
-	
+
 	public void eleToBeClickable() throws Throwable {
-		
-		Thread.sleep(2000);
+
+		//Thread.sleep(3000);
+		String time = System.getProperty("time");
+		int i = Integer.parseInt(time);
+		Thread.sleep(i);
 
 	}
-	
-	
+
+
 	public void save() throws Throwable {
 		try{
 			click(driver.findElement(By.xpath("(//span[contains(@class,'Button') or text()='●']//following-sibling::span[text()='Save'])[1]")));
-			
+
 		}catch(Exception e){
 			eleToBeClickable();
 			click(driver.findElement(By.xpath("(//span[contains(@class,'Button') or text()='●']//following-sibling::span[text()='Save'])[2]")));
@@ -141,17 +158,17 @@ public class Commonactions{
 		}
 
 	}
-	
 
-	
+
+
 	public static void accept_Alert() {
 		try {
 			Alert alert = driver.switchTo().alert();
 			try{
-			String text = alert.getText();
-			System.out.println("alert text :"+text);
+				String text = alert.getText();
+				System.out.println("alert text :"+text);
 			}catch(Exception e){
-				
+
 			}
 			alert.accept();
 			//Reporter.addStepLogPass("alert accepted successfully");
@@ -159,7 +176,7 @@ public class Commonactions{
 			//Reporter.addStepLogInfo("Alert is not accepted" + e.toString());
 		}
 	}
-	
+
 	public static String screenCapture(String imgLocation) {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
@@ -271,7 +288,7 @@ public class Commonactions{
 		}
 		return elementNotPresent;
 	}
-	
+
 	public static String getText(WebElement element) {
 		String text = null;
 		try {
@@ -359,7 +376,7 @@ public class Commonactions{
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
-	
+
 	public static void draganddrop(WebElement element1,WebElement element2) {
 		try {
 			Actions action = new Actions(driver);
@@ -381,7 +398,7 @@ public class Commonactions{
 	 * To create a connectivity to Database and update the scenario execution
 	 * status
 	 */
-/*	public static void createDBConnection(String scName, String scStatus) {
+	/*	public static void createDBConnection(String scName, String scStatus) {
 		try {
 			// convert current date from string to sql date data type
 			String currentDate = getCurrentDate();
@@ -418,7 +435,7 @@ public class Commonactions{
 		try {
 
 			Select obj_select = new Select(element);
-			
+
 			List<WebElement> optionElements = obj_select.getOptions();
 			for (int i = 0; i < optionElements.size(); i++) {
 				AvailableOptions.add(optionElements.get(i).getText());
@@ -426,12 +443,12 @@ public class Commonactions{
 			//Reporter.addStepLogPass("get available options from dropdown is success" + element.toString());
 		} catch (Exception e) {
 			//Reporter.addStepLogInfo(
-				//	"get available options from dropdown is failed" + e.getMessage() + element.toString());
+			//	"get available options from dropdown is failed" + e.getMessage() + element.toString());
 		}
 		return AvailableOptions;
 	}
 
-	
+
 	public void jsScrollPagedowntoEnd() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -441,7 +458,7 @@ public class Commonactions{
 			//Reporter.addStepLogInfo("page is not scrolled up ");
 		}
 	}
-	
+
 	/**
 	 * Method to perform mouseover action on required element
 	 * 
@@ -450,31 +467,31 @@ public class Commonactions{
 	 * 
 	 * 
 	 */
-	
-	
+
+
 	public void jsMouseOver() {
 		try {
-	        Actions a = new Actions(driver);
-	    	  Thread.sleep(100);
-	        a.sendKeys(Keys.DOWN).build().perform();
-	        a.sendKeys(Keys.TAB).build().perform();
+			Actions a = new Actions(driver);
+			Thread.sleep(100);
+			a.sendKeys(Keys.DOWN).build().perform();
+			a.sendKeys(Keys.TAB).build().perform();
 		} catch (Exception e) {
 			//Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is failed");
 		}
 	}
-	
+
 	public void jsMouseOver1() {
 		try {
-	        Actions a = new Actions(driver);
-	    	  Thread.sleep(100);
-	        a.sendKeys(Keys.DOWN).build().perform();
-	        a.sendKeys(Keys.DOWN).build().perform();
-	        a.sendKeys(Keys.TAB).build().perform();
+			Actions a = new Actions(driver);
+			Thread.sleep(100);
+			a.sendKeys(Keys.DOWN).build().perform();
+			a.sendKeys(Keys.DOWN).build().perform();
+			a.sendKeys(Keys.TAB).build().perform();
 		} catch (Exception e) {
 			//Reporter.addStepLogPass("Mouseover to the element" + element.toString() + "is failed");
 		}
 	}
-	
+
 	public void jsMouseOver(WebElement element) {
 		try {
 			String code = "var fireOnThis = arguments[0];" + "var evObj = document.createEvent('MouseEvents');"
@@ -510,7 +527,7 @@ public class Commonactions{
 			}else{
 				Thread.sleep(1000);
 			}
-			
+
 		}
 		System.out.println("*********************out***************************");
 
@@ -615,7 +632,7 @@ public class Commonactions{
 	/**
 	 * Method to get size of list
 	 * 
-	 
+
 	 * @param List
 	 * @return size of list
 	 */
@@ -644,39 +661,39 @@ public class Commonactions{
 			//Reporter.addStepLogInfo("Browser is not quited");
 		}
 	}
-	
-	
+
+
 	public static void waitForAlert(WebDriver driver) throws Throwable
 	{
-	   int i=0;
-	   while(i++<200)
-	   {
-	        try
-	        {
-	            Alert alert = driver.switchTo().alert();
-	            String text = alert.getText();
-	            System.out.println("alert message is :"+text);
-	            alert.accept();
-	            break;
-	        }
-	        catch(NoAlertPresentException e)
-	        {
-	          Thread.sleep(1000);
-	          continue;
-	        }
-	   }
-	
-	   
-	   try{
-	   driver.navigate().refresh();
-       Thread.sleep(1000);
-       Alert alert = driver.switchTo().alert();
-       String text = alert.getText();
-       System.out.println("alert message is :"+text);
-       alert.accept();
-	   }catch (Exception e) {
-		// TODO: handle exception
-	}
+		int i=0;
+		while(i++<200)
+		{
+			try
+			{
+				Alert alert = driver.switchTo().alert();
+				String text = alert.getText();
+				System.out.println("alert message is :"+text);
+				alert.accept();
+				break;
+			}
+			catch(NoAlertPresentException e)
+			{
+				Thread.sleep(1000);
+				continue;
+			}
+		}
+
+
+		try{
+			driver.navigate().refresh();
+			Thread.sleep(1000);
+			Alert alert = driver.switchTo().alert();
+			String text = alert.getText();
+			System.out.println("alert message is :"+text);
+			alert.accept();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	/**
@@ -749,10 +766,10 @@ public class Commonactions{
 	 * select Multiple Values From ListBox
 	 * 
 	 * @param list
-	
+
 	 * @return List of selected values
 	 */
-	
+
 
 	/**
 	 * verify if list of integer in Descending Order
@@ -828,13 +845,13 @@ public class Commonactions{
 
 	}
 
-/*	public static String getCurrentDateMMMDDYYYY() {
+	/*	public static String getCurrentDateMMMDDYYYY() {
 		DateTimeFormatter fmt = DateTimeFormat.forPattern("MMM. dd, YYYY");
 		LocalDate now = LocalDate.now();
 		String exec_Date = now.toString(fmt);
 		return exec_Date;
 	}
-*/
+	 */
 	/**
 	 * Modify drop down value if something is already selected
 	 * 
@@ -912,13 +929,13 @@ public class Commonactions{
 	 * @throws Throwable 
 	 */
 	public void jsScrollPageDown(WebElement element) throws Throwable {
-		
-			//int yScrollPosition = element.getLocation().getY();
-			JavascriptExecutor js = (JavascriptExecutor) driver;
 
-			js.executeScript("arguments[0].scrollIntoView(true);",element);
-              Thread.sleep(2000);
-			////Reporter.addStepLogPass("scroll page down" + "page is scrolled down successfully");
+		//int yScrollPosition = element.getLocation().getY();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		js.executeScript("arguments[0].scrollIntoView(true);",element);
+		Thread.sleep(2000);
+		////Reporter.addStepLogPass("scroll page down" + "page is scrolled down successfully");
 
 	}
 
@@ -957,7 +974,7 @@ public class Commonactions{
 
 	public static void assertText(WebElement element,String expectedText) {
 		waitForElementVisibility(element);
-       String ActualText = element.getText();
+		String ActualText = element.getText();
 		if ((!ActualText.isEmpty())) {
 			Assert.assertEquals(expectedText, ActualText);
 			System.out.println(ActualText + " " + " - True");

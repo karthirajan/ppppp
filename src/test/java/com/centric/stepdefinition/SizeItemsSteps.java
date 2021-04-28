@@ -335,17 +335,17 @@ public class SizeItemsSteps extends Commonactions {
          	 Commonactions.isElementPresent(hp.getSetupSearch());
          	 ca.insertText(hp.getSetupSearch(), sizeSpec[i]);
          	 ca.eleToBeClickable();
-                    ca.click(driver.findElement(By.xpath("//span[text()='"+sizeSpec[i]+"']")));
+                    ca.click(driver.findElement(By.xpath("(//span[text()='"+sizeSpec[i]+"'])[2]")));
         	/*try{
           //  Commonactions.isElementPresent(sk.getSpecSectionDefinitionActionBtn());
         		Thread.sleep(2000);
             ca.click(sk.getSpecSectionDefinitionActionBtn());
         	}catch (Exception e) {*/
         		 ca.eleToBeClickable();
-             	 Commonactions.isElementPresent(hp.getSetupSearch());
+             	 /*Commonactions.isElementPresent(hp.getSetupSearch());
              	 ca.insertText(hp.getSetupSearch(), sizeSpec[i]);
              	 ca.eleToBeClickable();
-                        ca.click(driver.findElement(By.xpath("//span[text()='"+sizeSpec[i]+"']")));
+                        ca.click(driver.findElement(By.xpath("//span[text()='"+sizeSpec[i]+"']")));*/
                         Commonactions.isElementPresent(sk.getSpecSectionDefinitionActionBtn());
                         ca.click(sk.getSpecSectionDefinitionActionBtn());
 		//	}
@@ -374,14 +374,14 @@ public class SizeItemsSteps extends Commonactions {
     	 Commonactions.isElementPresent(hp.getSetupSearch());
     	 ca.insertText(hp.getSetupSearch(), "Characteristic");
     	 ca.eleToBeClickable();
-               ca.click(driver.findElement(By.xpath("//span[text()='Characteristic']")));
+               ca.click(driver.findElement(By.xpath("(//span[text()='Characteristic'])[2]")));
                ca.eleToBeClickable();
        
-        Commonactions.isElementPresent(hp.getSetupSearch());
+       /* Commonactions.isElementPresent(hp.getSetupSearch());
    	 ca.insertText(hp.getSetupSearch(), "Characteristic");
    	 ca.eleToBeClickable();
               ca.click(driver.findElement(By.xpath("//span[text()='Characteristic']")));
-              ca.eleToBeClickable();
+              ca.eleToBeClickable();*/
               
               WebElement name = driver.findElement(By.xpath("(//a[@class='browse' and text()='" + sizeSpec[0] + "'])"));
               ca.eleToBeClickable();

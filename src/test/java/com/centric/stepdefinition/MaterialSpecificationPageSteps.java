@@ -41,7 +41,7 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 	   }
 		Commonactions.isElementPresent(hp.getMaterialBtn());
 		ca.click(hp.getMaterialBtn());
-		try{
+		/*try{
 			ca.eleToBeClickable();;
 			Commonactions.clickjs(driver.findElement(By.xpath("(//span[contains(text(),'Libraries')]/parent::div/parent::div/parent::div/preceding-sibling::div)[3]")));
 			Commonactions.isElementPresent(mp.getLibraries());
@@ -53,8 +53,9 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 			Commonactions.isElementPresent(mp.getLibraries());
 			ca.click(mp.getLibraries());
 		}
-		
-		//ca.click(mp.getLibraries());
+		*/
+		ca.eleToBeClickable();
+		ca.click(mp.getLibraries());
 		ca.eleToBeClickable();
 		
 		System.out.println("libraries clicked successfully");
@@ -642,7 +643,15 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 			ca.jsMouseOver();
 			Commonactions.isElementPresent(mp.getMat_sample_Value());
 		ca.insertText(mp.getMat_sample_Value(), "Automation");
-		  Commonactions.isElementPresent(mp.getSave_btn1()); 
+		ca.eleToBeClickable();
+		//----------------------------------parallel-----------------------------\\
+		WebElement type = driver.findElement(By.xpath("((//div[@data-csi-automation='field-MaterialSample-Form-ProductType']/div)[3]/input)[1]"));
+		  type.sendKeys("Fabric");
+		  ca.eleToBeClickable();
+		  ca.jsMouseOver();
+		  ca.eleToBeClickable();
+		  //---------------------------------------------------------------------------\\
+		Commonactions.isElementPresent(mp.getSave_btn1()); 
 		ca.click(mp.getSave_btn1());
 		ca.eleToBeClickable();
 		  Commonactions.isElementPresent(mp.getClick_materialSample()); 
@@ -656,7 +665,7 @@ public class MaterialSpecificationPageSteps extends Commonactions{
 		
 		
 		ca.eleToBeClickable();
-        ca.click(hp.getUser_homeBtn()); 
+        ca.click(driver.findElement(By.xpath("(//span[text()='home'])"))); 
 	     
 	     System.out.println("home tab clicked successfully");
 	     

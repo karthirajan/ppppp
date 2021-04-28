@@ -18,6 +18,7 @@ import com.centric.objectrepository.SpecificationHierarchyPage;
 import com.centric.objectrepository.StyleMaterialSamplepage;
 import com.centric.objectrepository.StylePage;
 import com.centric.objectrepository.StyleandThemePage;
+import com.centric.objectrepository.ThemeRulePage;
 import com.centric.resources.Commonactions;
 
 import cucumber.api.java.en.Given;
@@ -456,22 +457,54 @@ public class StyleandThemePageSteps extends Commonactions{
 	}
 
 	@When("User is performing sample copy,edit and delete action")
-	public void user_is_performing_sample_copy_edit_and_delete_action() {
+	public void user_is_performing_sample_copy_edit_and_delete_action() throws Throwable {
 	    
-		Commonactions.isElementPresent(sat.getSample_Edit());
-    	ca.click(sat.getSample_Edit());
+		try{
+			Commonactions.isElementPresent(sat.getSample_Edit());
+	    	ca.click(sat.getSample_Edit());
+			
+		}catch (Exception e) {
+			
+			System.out.println("xpath changed");
+			ca.eleToBeClickable();
+			driver.findElement(By.xpath("(//td[text()='large']//following-sibling::td/div//span[text()='mode_edit'])[1]")).click();
+			
+		}
+		
     	Commonactions.isElementPresent(sat.getSampleValue());
     	ca.insertText(sat.getSampleValue(), "Circle Shape Sample - edited");
     	Commonactions.isElementPresent(mp.getSave_btn1());
     	ca.click(mp.getSave_btn1());
     	
-    	Commonactions.isElementPresent(sat.getSample_Copy());
-    	ca.click(sat.getSample_Copy());
+    	try{
+    		Commonactions.isElementPresent(sat.getSample_Copy());
+        	ca.click(sat.getSample_Copy());
+			
+		}catch (Exception e) {
+			
+			System.out.println("xpath changed");
+			ca.eleToBeClickable();
+			driver.findElement(By.xpath("(//td[text()='large']//following-sibling::td/div//span[text()='content_copy'])[1]")).click();
+			
+		}
+    	
+    	
     	Commonactions.isElementPresent(mp.getSave_btn1());
     	ca.click(mp.getSave_btn1());
     	
-    	Commonactions.isElementPresent(sat.getSample_Delete());
-    	ca.click(sat.getSample_Delete());
+    	try{
+    		Commonactions.isElementPresent(sat.getSample_Delete());
+        	ca.click(sat.getSample_Delete());
+			
+		}catch (Exception e) {
+			
+			System.out.println("xpath changed");
+			ca.eleToBeClickable();
+			driver.findElement(By.xpath("(//td[text()='large']//following-sibling::td/div//span[text()='close'])[1]")).click();
+			
+		}
+    	
+    	
     	Commonactions.isElementPresent(pp.getDelete_Btn());
     	ca.click(pp.getDelete_Btn());
     	
@@ -646,68 +679,75 @@ public class StyleandThemePageSteps extends Commonactions{
 		
 	}
 
-	@When("User creates new theme from material {string},{string}")
-	public void user_creates_new_theme_from_material(String string, String string2) throws Throwable {
-	   
-		Commonactions.isElementPresent(sat.getThemeBtnExpand());
-		ca.click(sat.getThemeBtnExpand());
-		Commonactions.isElementPresent(sat.getMaterialThemeBtn());
-		ca.click(sat.getMaterialThemeBtn());
-		Commonactions.isElementPresent(sat.getMatThemeChkBx());
-		ca.click(sat.getMatThemeChkBx());
-		Commonactions.isElementPresent(qp.getNext());
-		ca.click(qp.getNext());
-		Commonactions.isElementPresent(sm.getEgretChkBx());
-		ca.click(sm.getEgretChkBx());
-		Commonactions.isElementPresent(sm.getVanillaChkbx());
-		ca.click(sm.getVanillaChkbx());
-		Commonactions.isElementPresent(qp.getFinish());
-		ca.click(qp.getFinish());
-		Commonactions.isElementPresent(sat.getSubType());
-		ca.click(sat.getSubType());
-		ca.eleToBeClickable();
-    	WebElement a6 = ca.activeElement();
-    	ca.eleToBeClickable();
-    	ca.insertText(a6, string);
-    	ca.eleToBeClickable();
-    	ca.jsMouseOver();
-    	Commonactions.isElementPresent(sat.getThemeMasterValue());
-		ca.insertText(sat.getThemeMasterValue(), string2);
-		Commonactions.isElementPresent(sat.getSeasonsValue());
-		ca.click(sat.getSeasonsValue());
-		Thread.sleep(1000);
-		WebElement e = ca.activeElement();
-		ca.eleToBeClickable();
-		ca.insertText(e, "winter season");
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']")));
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//th[text()='Subtype']")));
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(sat.getSeasonsValue());
-		ca.click(sat.getSeasonsValue());
-		Thread.sleep(1000);
-		WebElement e3 = ca.activeElement();
-		ca.eleToBeClickable();
-		ca.insertText(e3, "2020");
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']")));
-		ca.eleToBeClickable();
-		ca.click(driver.findElement(By.xpath("//th[text()='Subtype']")));
-		Commonactions.isElementPresent(sat.getBOM());
-    	ca.click(sat.getBOM());
-    	WebElement e2 = ca.activeElement();
-        ca.eleToBeClickable();
-		ca.insertText(e2, "Apparel BOM");
-		ca.eleToBeClickable();
-		ca.jsMouseOver();
-		ca.eleToBeClickable();
-		Commonactions.isElementPresent(mp.getSave_btn1());
-		ca.click(mp.getSave_btn1()); 	
-		 ca.eleToBeClickable();
-	    System.out.println("Theme for Style created successfully");	
+	 ThemeRulePage tr = new ThemeRulePage();
 		
-	}
+		@When("User creates new theme from material {string},{string}")
+		public void user_creates_new_theme_from_material(String string, String string2) throws Throwable {
+		   
+			
+			/*Commonactions.isElementPresent(tr.getMaterialTab());
+			ca.click(tr.getMaterialTab());
+			Commonactions.isElementPresent(tr.getPlacements());
+			ca.click(tr.getPlacements());*/
+			Commonactions.isElementPresent(sat.getThemeBtnExpand());
+			ca.click(sat.getThemeBtnExpand());
+			Commonactions.isElementPresent(sat.getMaterialThemeBtn());
+			ca.click(sat.getMaterialThemeBtn());
+			Commonactions.isElementPresent(sat.getMatThemeChkBx());
+			ca.click(sat.getMatThemeChkBx());
+			Commonactions.isElementPresent(qp.getNext());
+			ca.click(qp.getNext());
+			Commonactions.isElementPresent(sm.getEgretChkBx());
+			ca.click(sm.getEgretChkBx());
+			Commonactions.isElementPresent(sm.getVanillaChkbx());
+			ca.click(sm.getVanillaChkbx());
+			Commonactions.isElementPresent(qp.getFinish());
+			ca.click(qp.getFinish());
+			Commonactions.isElementPresent(sat.getSubType());
+			ca.click(sat.getSubType());
+			ca.eleToBeClickable();
+	    	WebElement a6 = ca.activeElement();
+	    	ca.eleToBeClickable();
+	    	ca.insertText(a6, string);
+	    	ca.eleToBeClickable();
+	    	ca.jsMouseOver();
+	    	Commonactions.isElementPresent(sat.getThemeMasterValue());
+			ca.insertText(sat.getThemeMasterValue(), string2);
+			Commonactions.isElementPresent(sat.getSeasonsValue());
+			ca.click(sat.getSeasonsValue());
+			Thread.sleep(1000);
+			WebElement e = ca.activeElement();
+			ca.eleToBeClickable();
+			ca.insertText(e, "winter season");
+			ca.eleToBeClickable();
+			ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']")));
+			ca.eleToBeClickable();
+			ca.click(driver.findElement(By.xpath("//th[text()='Subtype']")));
+			ca.eleToBeClickable();
+			Commonactions.isElementPresent(sat.getSeasonsValue());
+			ca.click(sat.getSeasonsValue());
+			Thread.sleep(1000);
+			WebElement e3 = ca.activeElement();
+			ca.eleToBeClickable();
+			ca.insertText(e3, "2020");
+			ca.eleToBeClickable();
+			ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']")));
+			ca.eleToBeClickable();
+			ca.click(driver.findElement(By.xpath("//th[text()='Subtype']")));
+			Commonactions.isElementPresent(sat.getBOM());
+	    	ca.click(sat.getBOM());
+	    	WebElement e2 = ca.activeElement();
+	        ca.eleToBeClickable();
+			ca.insertText(e2, "Apparel BOM");
+			ca.eleToBeClickable();
+			ca.jsMouseOver();
+			ca.eleToBeClickable();
+			Commonactions.isElementPresent(mp.getSave_btn1());
+			ca.click(mp.getSave_btn1()); 	
+			 ca.eleToBeClickable();
+		    System.out.println("Theme for Style created successfully");	
+			
+		}
 
 	@When("User creates theme for All season {string},{string},{string}")
 	public void user_creates_theme_for_All_season(String string, String string2, String string3) throws Throwable {
@@ -1132,11 +1172,23 @@ public class StyleandThemePageSteps extends Commonactions{
             ca.click(sat.getCreateNewfMat());
     	    Commonactions.isElementPresent(sat.getCopy_ChkBx1());
         	ca.click(sat.getCopy_ChkBx1());
-    	    Commonactions.isElementPresent(sat.getCopy_ChkBx2());
-    		ca.click(sat.getCopy_ChkBx2());
+    	  //  Commonactions.isElementPresent(sat.getCopy_ChkBx2());
+    		//ca.click(sat.getCopy_ChkBx2());
     	    Commonactions.isElementPresent(mp.getSave_btn1());
     		ca.click(mp.getSave_btn1());
     		ca.eleToBeClickable();
+    		
+    		 Commonactions.isElementPresent(sat.getPlus_Icon_Exp());
+     		ca.click(sat.getPlus_Icon_Exp());
+     		Commonactions.isElementPresent(sat.getCreateNewfMat());
+             ca.click(sat.getCreateNewfMat());
+     	    Commonactions.isElementPresent(sat.getCopy_ChkBx1());
+         	ca.click(sat.getCopy_ChkBx1());
+     	  //  Commonactions.isElementPresent(sat.getCopy_ChkBx2());
+     		//ca.click(sat.getCopy_ChkBx2());
+     	    Commonactions.isElementPresent(mp.getSave_btn1());
+     		ca.click(mp.getSave_btn1());
+     		ca.eleToBeClickable();
     		
     		try{
             	ca.eleToBeClickable();
@@ -1164,20 +1216,22 @@ public class StyleandThemePageSteps extends Commonactions{
                          ca.click(driver.findElement(By.xpath("//div[contains(@class,'Placements')]//span[text()='+']/parent::div")));
              
                      ca.eleToBeClickable();
-                     Commonactions.isElementPresent(sat.getColoredMatValue());
-             		ca.click(sat.getColoredMatValue());
-                     break;
+                     if(sat.getColoredMatValue().isDisplayed()){
+                    	 Commonactions.isElementPresent(sat.getColoredMatValue());
+                  		ca.click(sat.getColoredMatValue());
+                          break;
+                     }else{
+                    	 Commonactions.isElementPresent(sat.getColoredMatValue1());
+                 		ca.click(sat.getColoredMatValue1());
+                 		break;
+                     }
+                    
                      }
                      }
                     // TODO: handle exception
                 }
 
-    		try{
-    		Commonactions.isElementPresent(sat.getColoredMatValue1());
-    		ca.click(sat.getColoredMatValue1());
-    		}catch(Exception e){
-    			
-    		}
+    	
             WebElement a3 = ca.activeElement();
     	    ca.eleToBeClickable();
     	    ca.insertText(a3, string2);
@@ -1213,6 +1267,7 @@ public class StyleandThemePageSteps extends Commonactions{
 		  ca.click(mp.getSave_btn1());
 		  ca.eleToBeClickable();
 		  
+		  ca.jsScrollPageDown(sat.getPlusAdoc_Exp());
 		  Commonactions.isElementPresent(sat.getPlusAdoc_Exp());
 		  ca.click(sat.getPlusAdoc_Exp());
 		  Commonactions.isElementPresent(sat.getCreateNewfMat());
@@ -1239,8 +1294,11 @@ public class StyleandThemePageSteps extends Commonactions{
         ca.click(sat.getSections());
         Commonactions.isElementPresent(sat.getActSelectSect());
         ca.click(sat.getActSelectSect());
+        ca.eleToBeClickable();
+        ca.eleToBeClickable();
         Commonactions.isElementPresent(sat.getAllChkBx());
         ca.click(sat.getAllChkBx());
+        ca.eleToBeClickable();
         Commonactions.isElementPresent(mp.getSave_btn1());
         ca.click(mp.getSave_btn1());
         ca.eleToBeClickable();
@@ -1438,7 +1496,7 @@ public class StyleandThemePageSteps extends Commonactions{
 		//Assert.assertTrue(result.getText().contains("9"));
 		
 		WebElement button = driver.findElement(By.xpath("//td[contains(@data-csi-heading,'FromMaterialPlanPlacement::0')]"));
-        ca.mouseOver(button);
+        Commonactions.mouseOver(button);
         
         System.out.println("Update BOM validated successfully");
 	        
@@ -1533,9 +1591,11 @@ public class StyleandThemePageSteps extends Commonactions{
 	    ca.eleToBeClickable();
         ca.jsMouseOver();
         ca.eleToBeClickable();
+        Thread.sleep(4000);
         
         Commonactions.isElementPresent(sp.getApproveActions());
         ca.click(sp.getApproveActions());
+        ca.eleToBeClickable();
         Commonactions.isElementPresent(sat.getCreatUeSBOMP());
         ca.click(sat.getCreatUeSBOMP());
         Commonactions.isElementPresent(sat.getUpdate_Color());
@@ -1620,10 +1680,12 @@ WebElement result = null;
 	public void user_performing_delete_style_BOM_placements_and_validate_style() throws Throwable {
 	    
 		goToTheme();
+		ca.eleToBeClickable();
 		Commonactions.isElementPresent(sp.getApproveActions());
         ca.click(sp.getApproveActions());
         Commonactions.isElementPresent(sat.getDeleteSBOMP());
         ca.click(sat.getDeleteSBOMP());
+        ca.eleToBeClickable();
         Commonactions.isElementPresent(sat.getBomSect());
         ca.click(sat.getBomSect());
         WebElement e = ca.activeElement();
@@ -1633,6 +1695,12 @@ WebElement result = null;
     	ca.click(driver.findElement(By.xpath("//div[@role='option' and @item='1']/div")));
 		ca.eleToBeClickable();
 		e.sendKeys(Keys.TAB);
+        ca.eleToBeClickable();
+        WebElement subType = driver.findElement(By.xpath("((//div[@data-csi-automation='field-Theme-MassUpdateFromThemeForm-BOMSubtype']/div)[3]/input)[1]"));
+        ca.eleToBeClickable();
+        ca.insertText(subType, "BOM");
+        ca.eleToBeClickable();
+        ca.jsMouseOver();
         ca.eleToBeClickable();
         Commonactions.isElementPresent(mp.getSave_btn1());
 		ca.click(mp.getSave_btn1());
@@ -1669,7 +1737,7 @@ WebElement result = null;
         ca.click(sat.getUnlinkFTheme());
         ca.eleToBeClickable();
 		WebElement button = driver.findElement(By.xpath("(//td[@data-csi-heading='FromMaterialPlanPlacement::0']/div[contains(@class,'Disabled')])[1]"));
-        ca.mouseOver(button);
+        Commonactions.mouseOver(button);
         
         
         ca.eleToBeClickable();
