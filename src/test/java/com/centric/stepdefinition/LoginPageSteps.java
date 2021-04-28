@@ -49,7 +49,7 @@ public class LoginPageSteps extends Commonactions {
 		//------------------------------Test------------------------------------\\
 		
 		       ca.launch(System.getProperty("url"));
-	           ca.launch("http://win16sql19-cce.centricsoftware.com/WebAccess/home.html");
+	         //  ca.launch("http://win16sql19-cce.centricsoftware.com/WebAccess/home.html");
 		
 	   //-------------------------------Test-------------------------------------\\      
 	         
